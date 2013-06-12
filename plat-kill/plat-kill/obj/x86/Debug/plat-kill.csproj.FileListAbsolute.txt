@@ -1,0 +1,14 @@
+C:\Users\Juan Manuel\Desktop\plat-kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Characters\IronMan.xnb
+C:\Users\Juan Manuel\Desktop\plat-kill\plat-kill\plat-kill\bin\x86\Debug\plat-kill.exe
+C:\Users\Juan Manuel\Desktop\plat-kill\plat-kill\plat-kill\bin\x86\Debug\plat-kill.pdb
+C:\Users\Juan Manuel\Desktop\plat-kill\plat-kill\plat-kill\obj\x86\Debug\plat-kill.csprojResolveAssemblyReference.cache
+C:\Users\Juan Manuel\Desktop\plat-kill\plat-kill\plat-kill\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Juan Manuel\Desktop\plat-kill\plat-kill\plat-kill\obj\x86\Debug\plat-kill.exe
+C:\Users\Juan Manuel\Desktop\plat-kill\plat-kill\plat-kill\obj\x86\Debug\plat-kill.pdb
+C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Characters\IronMan.xnb
+C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\plat-kill.exe
+C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\plat-kill.pdb
+C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\obj\x86\Debug\plat-kill.csprojResolveAssemblyReference.cache
+C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\obj\x86\Debug\plat-kill.exe
+C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\obj\x86\Debug\plat-kill.pdb

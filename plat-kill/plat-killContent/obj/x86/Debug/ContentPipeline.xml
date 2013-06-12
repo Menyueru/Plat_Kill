@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>Models\Characters\IronMan.FBX</Source>
+      <Name>Models\Characters\IronMan</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Characters\IronMan.xnb</Output>
+      <Time>2013-06-12T16:59:01.2293591-04:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Characters\IronMan_0.xml</Key>
+        <Value>2013-06-12T18:02:40.3302877-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Characters\IronMan.FBX</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Characters\IronMan_0.xml</Output>
+      <Time>2013-06-12T16:59:01.2293591-04:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>HiDef</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-killContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-killContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2010-08-23T12:41:18-04:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2013-04-27T01:38:54.4905016-04:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
