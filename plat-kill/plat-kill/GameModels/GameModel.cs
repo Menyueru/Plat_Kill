@@ -9,63 +9,114 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 
-
 namespace plat_kill.GameModels
 {
     class GameModel
     {
-        #region Propierties, Getters and Setters
-        private Game game;
-
-        private ContentManager content;
+        
+        #region Fields
 
         private Model myModel;
 
-        private Vector3 modelPosition;
+        private ContentManager content;
 
-        public Vector3 ModelPosition
+        protected const float MinimumAltitude = 350.0f;
+
+        private GraphicsDevice graphicsDevice;
+
+        protected Vector3 position;
+
+        public Vector3 Position
         {
-            get { return modelPosition; }
-            set { modelPosition = value; }
+            get { return position; }
+            set { position = value; }
         }
 
-        private float modelRotation;
+        private Vector3 direction;
 
-        public float ModelRotation
+        public Vector3 Direction
         {
-            get { return modelRotation; ; }
-            set { modelRotation = value; }
+            get { return direction; }
+            set { direction = value; }
         }
 
-        private float aspectRatio;
+        private Vector3 up;
 
-        public float AspectRatio
+        public Vector3 Up
         {
-            get { return aspectRatio; }
-            set { aspectRatio = value; }
+            get { return up; }
+            set { up = value; }
         }
+
+        private Vector3 right;
+
+        public Vector3 Right
+        {
+            get { return right; }
+            set { right = value; }
+        }
+        
+
+        private const float rotationRate = 1.5f;
+
+        protected float RotationRate
+        {
+            get { return rotationRate; }
+        } 
+
+        private const float mass = 1.0f;
+
+        protected float Mass
+        {
+            get { return mass; }
+        } 
+
+        protected const float ThrustForce = 24000.0f;
+
+        protected const float DragFactor = 0.97f;
+
+        private Vector3 velocity;
+
+        protected Vector3 Velocity
+        {
+            get { return velocity; }
+            set { velocity = value; }
+        }
+
+        protected Matrix world;
+
+        public Matrix World
+        {
+            get { return world; }
+            set { world = value; }
+        }
+
 
         #endregion
 
-        #region Constructor
-        public GameModel(Game game, ContentManager content) 
+        #region Initialization
+
+        public GameModel(GraphicsDevice device, ContentManager content)
         {
-            this.game = game;
+            this.graphicsDevice = device;
             this.content = content;
 
-        }
-        #endregion
+            this.Position = new Vector3(0, MinimumAltitude, 0);
+            this.Direction = Vector3.Forward;
+            this.Up = Vector3.Up;
+            this.right = Vector3.Right;
+            this.Velocity = Vector3.Zero;
 
-        #region Methods
-        public void Load(String path) 
+        }
+
+        #endregion     
+
+        public void Load(String path)
         {
-            
-            myModel = content.Load<Model>(path);
-            aspectRatio = game.GraphicsDevice.Viewport.AspectRatio;
-
+            this.myModel = content.Load<Model>(path);
         }
 
-        public void Draw(GameTime gameTime, Vector3 cameraPosition) 
+        public void Draw(Matrix view, Matrix projection) 
         {
             Matrix[] transforms = new Matrix[myModel.Bones.Count];
             myModel.CopyAbsoluteBoneTransformsTo(transforms);
@@ -75,23 +126,14 @@ namespace plat_kill.GameModels
                 foreach (BasicEffect effect in mesh.Effects)
                 {
                     effect.EnableDefaultLighting();
-                    effect.World = transforms[mesh.ParentBone.Index] *
-                        Matrix.CreateRotationY(modelRotation)
-                        * Matrix.CreateTranslation(modelPosition);
+                    effect.World = transforms[mesh.ParentBone.Index] * World;
 
-                    effect.View = Matrix.CreateLookAt(cameraPosition,
-                        Vector3.Zero, Vector3.Up);
-
-                    effect.Projection = Matrix.CreatePerspectiveFieldOfView(
-                        MathHelper.ToRadians(45.0f), aspectRatio,1.0f, 10000.0f);
+                    // Use the matrices provided by the camera
+                    effect.View = view;
+                    effect.Projection = projection;
                 }
-
                 mesh.Draw();
             }
-
         }
-        #endregion
-
-
     }
 }

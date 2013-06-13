@@ -8,6 +8,10 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using plat_kill.GameModels;
+using plat_kill.Components;
+using plat_kill.GameModels.Players;
+using plat_kill.Managers;
 
 namespace plat_kill
 {
@@ -17,82 +21,114 @@ namespace plat_kill
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+
         SpriteBatch spriteBatch;
-        GameModels.GameModel gameModel;
+        SpriteFont spriteFont;
+
+
+        KeyboardState lastKeyboardState = new KeyboardState();
+        GamePadState lastGamePadState = new GamePadState();
+        MouseState lastMousState = new MouseState();
+        KeyboardState currentKeyboardState = new KeyboardState();
+        GamePadState currentGamePadState = new GamePadState();
+        MouseState currentMouseState = new MouseState();
+
+        PlayerManager playerManager;
+
+        HumanPlayer player;
+
+        Camera camera;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
+            graphics.SupportedOrientations = DisplayOrientation.Portrait;
+            
+            
             Content.RootDirectory = "Content";
+            IsMouseVisible = true;
+
+            graphics.PreferredBackBufferWidth = 853;
+            graphics.PreferredBackBufferHeight = 480;
+
+            // Create the chase camera
+            camera = new Camera();
+
+            // Set the camera offsets
+            camera.DesiredPositionOffset = new Vector3(0.0f, 2000.0f, 3500.0f);
+            camera.LookAtOffset = new Vector3(0.0f, 150.0f, 0.0f);
+
+            // Set camera perspective
+            camera.NearPlaneDistance = 10.0f;
+            camera.FarPlaneDistance = 100000.0f;
+
+            //TODO: Set any other camera invariants here such as field of view
         }
 
-        /// <summary>
-        /// Allows the game to perform any initialization it needs to before starting to run.
-        /// This is where it can query for any required services and load any non-graphic
-        /// related content.  Calling base.Initialize will enumerate through any components
-        /// and initialize them as well.
-        /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            gameModel = new GameModels.GameModel(this, Content);
+            player = new HumanPlayer(GraphicsDevice, Content);
+            player.PlayerID = 0;
 
             base.Initialize();
+            
+            playerManager = new PlayerManager();
+            playerManager.AddPlayer(player);
+
+            camera.AspectRatio = (float)graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Height;
+
+            camera.UpdateCameraChaseTarget(playerManager.GetPlayer(0));
+            camera.Reset();
         }
 
-        /// <summary>
-        /// LoadContent will be called once per game and is the place to load
-        /// all of your content.
-        /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch(GraphicsDevice);          
+            spriteBatch = new SpriteBatch(graphics.GraphicsDevice);
 
-            // TODO: use this.Content to load your game content here
-            gameModel.Load("Models\\Characters\\IronMan");
+            spriteFont = Content.Load<SpriteFont>("Fonts\\gameFont");
 
-
+            player.Load("Models\\Characters\\IronMan");
         }
 
-        /// <summary>
-        /// UnloadContent will be called once per game and is the place to unload
-        /// all content.
-        /// </summary>
-        protected override void UnloadContent()
-        {
-            // TODO: Unload any non ContentManager content here
-        }
-
-        /// <summary>
-        /// Allows the game to run logic such as updating the world,
-        /// checking for collisions, gathering input, and playing audio.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            // Allows the game to exit
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+            lastKeyboardState = currentKeyboardState;
+            lastGamePadState = currentGamePadState;
+            lastMousState = currentMouseState;
 
-            // TODO: Add your update logic here
+            currentKeyboardState = Keyboard.GetState();
+
+            currentGamePadState = GamePad.GetState(PlayerIndex.One);
+            currentMouseState = Mouse.GetState();
+
+            if (currentKeyboardState.IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+
+
+            playerManager.UpdateAllPlayers(gameTime);
+
+            camera.UpdateCameraChaseTarget(playerManager.GetPlayer(0));
+            camera.Update(gameTime);
 
             base.Update(gameTime);
         }
 
-        /// <summary>
-        /// This is called when the game should draw itself.
-        /// </summary>
-        /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice device = graphics.GraphicsDevice;
 
-            // TODO: Add your drawing code here
-            gameModel.Draw(gameTime, new Vector3(0.0f, 50.0f, 5000.0f));
+            device.Clear(Color.CornflowerBlue);
 
+            GraphicsDevice.BlendState = BlendState.Opaque;
+            GraphicsDevice.DepthStencilState = DepthStencilState.Default;
+            GraphicsDevice.SamplerStates[0] = SamplerState.LinearWrap;
 
+            playerManager.DrawAllPlayers(camera.View, camera.Projection);
+         
             base.Draw(gameTime);
         }
+      
     }
 }
