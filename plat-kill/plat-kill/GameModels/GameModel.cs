@@ -19,6 +19,7 @@ namespace plat_kill.GameModels
         private float rotationSpeed;
         private Vector3 rotation;
         private Model model;
+        private Matrix world;
 
         #endregion
         
@@ -48,6 +49,12 @@ namespace plat_kill.GameModels
             set { model = value; }
         }
 
+        public Matrix World
+        {
+            get { return world; }
+            set { world = value; }
+        }
+
         #endregion
 
         #region Initialization
@@ -67,8 +74,8 @@ namespace plat_kill.GameModels
 
         public void Draw(Matrix view, Matrix projection) 
         {
-            Matrix world = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
-                         * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
+           world = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
+                   * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
 
             foreach(ModelMesh mesh in model.Meshes)
             {
