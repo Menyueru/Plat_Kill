@@ -13,10 +13,14 @@ namespace plat_kill.GameModels.Players
 {
     class HumanPlayer : Player
     {
-
+        #region Property
+        private KeyboardState lastKeyboard;
+        private MouseState lastMouse;
+        #endregion
         #region Method
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, KeyboardState keyboard, MouseState mouse)
         {
+
             base.Update(gameTime);
         }
         

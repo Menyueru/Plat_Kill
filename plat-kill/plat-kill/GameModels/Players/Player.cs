@@ -1,4 +1,5 @@
-﻿using BEPUphysics.Entities.Prefabs;
+﻿using BEPUphysics.CollisionRuleManagement;
+using BEPUphysics.Entities.Prefabs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -125,9 +126,78 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Methods
+
+        #region Checkers
+        private bool check_support()
+        {
+            Vector3 pos = Position;
+            Vector3 downDirection = body.OrientationMatrix.Down; //For a cylinder orientation-locked to the Up axis, this is always {0, -1, 0}.  Keeping it generic doesn't cost much.
+            var pairs = body.CollisionInformation.Pairs;
+            foreach (var pair in pairs)
+            {
+                if (pair.CollisionRule != CollisionRule.Normal)
+                    continue;
+                
+                foreach (var c in pair.Contacts)
+                {
+                    //It's possible that a subpair has a non-normal collision rule, even if the parent pair is normal.
+                    if (c.Pair.CollisionRule != CollisionRule.Normal)
+                        continue;
+                    //Compute the offset from the position of the character's body to the contact.
+                    Vector3 contactOffset;
+                    Vector3.Subtract(ref c.Contact.Position, ref pos, out contactOffset);
+                    //Calibrate the normal of the contact away from the center of the object.
+                    float dot;
+                    Vector3 normal;
+                    Vector3.Dot(ref contactOffset, ref c.Contact.Normal, out dot);
+                    normal = c.Contact.Normal;
+                    if (dot < 0)
+                    {
+                        Vector3.Negate(ref normal, out normal);
+                        dot = -dot;
+                    }
+                    //Support contacts are all contacts on the feet of the character- a set that include contacts that support traction and those which do not
+                    Vector3.Dot(ref normal, ref downDirection, out dot);
+                    if (dot > .01f)
+                    {
+                        return false;
+                    }
+
+                }
+            }
+
+            return true;
+        }
+        #endregion
+
+        #region Movers
+        public void MoveForward(float dt)
+        {
+            momentum = WorldMatrix.Forward * (dt * speed);
+            momentum.Y = Body.LinearVelocity.Y;
+            sphere.LinearVelocity = momentum;
+        }
+
+        public void MoveRight(float dt)
+        {
+            momentum = WorldMatrix.Right * (dt * speed);
+            momentum.Y = Body.LinearVelocity.Y;
+
+            sphere.LinearVelocity = momentum;
+        }
+
+        public void jump()
+        {
+            Vector3 impulse = new Vector3(0, jumpspeed, 0);
+            sphere.ApplyLinearImpulse(ref impulse);
+        }
+
+        #endregion
+
         public void Update(GameTime gameTime)
         {
-
+            Position = body.Position;
+            airborne = check_support();
         }
         #endregion
     }
