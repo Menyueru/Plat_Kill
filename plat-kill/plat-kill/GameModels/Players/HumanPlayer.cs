@@ -17,7 +17,7 @@ namespace plat_kill.GameModels.Players
         #region Method
         public void Update(GameTime gameTime)
         {
-           
+            base.Update(gameTime);
         }
         
         #endregion

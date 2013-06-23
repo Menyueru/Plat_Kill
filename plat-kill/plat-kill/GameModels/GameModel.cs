@@ -15,7 +15,38 @@ namespace plat_kill.GameModels
     {
         
         #region Fields
+        private Vector3 position;
+        private float rotationSpeed;
+        private Vector3 rotation;
+        private Model model;
 
+        #endregion
+        
+        #region Getter-Setters
+
+        public Vector3 Position
+        {
+            get { return position; }
+            set { position = value; }
+        }
+
+        public float RotationSpeed
+        {
+            get { return rotationSpeed; }
+            set { rotationSpeed = value; }
+        }
+
+        public Vector3 Rotation
+        {
+            get { return rotation; }
+            set { rotation = value; }
+        }
+
+        public Model Model
+        {
+            get { return model; }
+            set { model = value; }
+        }
 
         #endregion
 
