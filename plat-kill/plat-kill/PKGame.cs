@@ -16,7 +16,7 @@ namespace plat_kill
     {
         public PKGame()
         {
-
+            
         }
 
         protected override void Initialize()
@@ -26,6 +26,7 @@ namespace plat_kill
 
         protected override void LoadContent()
         {
+
             base.LoadContent();
         }
 

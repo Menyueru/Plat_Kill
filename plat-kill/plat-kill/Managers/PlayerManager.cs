@@ -17,7 +17,7 @@ namespace plat_kill.Managers
     {
         #region Propierties, Getters and Setters
 
-        private Dictionary<int, Player> players = new Dictionary<int, Player>();
+        private Dictionary<long, Player> players = new Dictionary<long, Player>();
 
         public IEnumerable<Player> Players
         {
@@ -36,7 +36,7 @@ namespace plat_kill.Managers
         #region Methods
         public void AddPlayer(Player player) 
         {
-            players.Add(player.PlayerID, player);
+            players.Add(player.Id, player);
         }
 
         public Player GetPlayer(int playerID) 
