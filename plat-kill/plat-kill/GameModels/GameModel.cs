@@ -29,7 +29,7 @@ namespace plat_kill.GameModels
 
         #endregion     
 
-        public void Load(String path)
+        public void Load()
         {
 
         }

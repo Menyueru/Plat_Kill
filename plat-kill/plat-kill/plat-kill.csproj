@@ -107,6 +107,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\Camera\Camera.cs" />
+    <Compile Include="Components\Camera\CameraManager.cs" />
+    <Compile Include="Components\Camera\CameraState.cs" />
     <Compile Include="GameModels\GameModel.cs" />
     <Compile Include="GameModels\Players\HumanPlayer.cs" />
     <Compile Include="GameModels\Players\Player.cs" />
@@ -148,7 +151,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Components\Camera\" />
     <Folder Include="GameModels\Weapons\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
