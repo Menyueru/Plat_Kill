@@ -60,13 +60,26 @@ namespace plat_kill.GameModels
 
         #endregion     
 
-        public void Load()
+        public void Load(ContentManager content, String path)
         {
-
+            this.model = content.Load<Model>(path);
         }
 
         public void Draw(Matrix view, Matrix projection) 
         {
+            Matrix world = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
+                         * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
+
+            foreach(ModelMesh mesh in model.Meshes)
+            {
+                foreach(BasicEffect effect in mesh.Effects)
+                {
+                    effect.Projection = projection;
+                    effect.View = view;
+                    effect.World = world;
+
+                }
+            }
 
         }
     }
