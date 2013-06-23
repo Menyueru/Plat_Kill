@@ -171,30 +171,33 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Movers
-        public void MoveForward(float dt)
+
+        protected void Move()
         {
-            momentum = WorldMatrix.Forward * (dt * speed);
-            momentum.Y = Body.LinearVelocity.Y;
-            sphere.LinearVelocity = momentum;
+            Body.LinearVelocity = currentVelocity;
         }
 
-        public void MoveRight(float dt)
+        protected void MoveForward(float dt)
         {
-            momentum = WorldMatrix.Right * (dt * speed);
-            momentum.Y = Body.LinearVelocity.Y;
-
-            sphere.LinearVelocity = momentum;
+            currentVelocity += World.Forward * (dt * speed);
+            currentVelocity.Y = Body.LinearVelocity.Y;
         }
 
-        public void jump()
+        protected void MoveRight(float dt)
         {
-            Vector3 impulse = new Vector3(0, jumpspeed, 0);
-            sphere.ApplyLinearImpulse(ref impulse);
+            currentVelocity += World.Right * (dt * speed);
+            currentVelocity.Y = Body.LinearVelocity.Y;
+        }
+
+        protected void jump()
+        {
+            Vector3 impulse = new Vector3(0, jumpSpeed, 0);
+            Body.ApplyLinearImpulse(ref impulse);
         }
 
         #endregion
 
-        public void Update(GameTime gameTime)
+        protected void Update(GameTime gameTime)
         {
             Position = body.Position;
             airborne = check_support();

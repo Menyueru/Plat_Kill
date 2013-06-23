@@ -2,45 +2,18 @@
 <XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline" xmlns:Framework="Microsoft.Xna.Framework" xmlns:Processors="Microsoft.Xna.Framework.Content.Pipeline.Processors">
   <Asset Type="Pipeline:BuildItemCollection">
     <Item>
-      <Source>Models\Characters\IronMan.FBX</Source>
-      <Name>Models\Characters\IronMan</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Characters\IronMan.xnb</Output>
-      <Time>2013-06-12T16:59:01.2293591-04:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Characters\IronMan_0.xml</Key>
-        <Value>2013-06-12T18:02:40.3302877-04:00</Value>
-      </Dependency>
-    </Item>
-    <Item>
-      <Source>Models\Characters\IronMan.FBX</Source>
-      <Importer>FbxImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Characters\IronMan_0.xml</Output>
-      <Time>2013-06-12T16:59:01.2293591-04:00</Time>
-    </Item>
-    <Item>
       <Source>Models\Maps\Ground.x</Source>
       <Name>Models\Maps\Ground</Name>
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Ground.xnb</Output>
-      <Time>2013-06-12T23:03:56.6643301-04:00</Time>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Ground.xnb</Output>
+      <Time>2013-06-23T17:53:12.6012107-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Maps\Ground_0.xml</Key>
-        <Value>2013-06-12T23:04:02.0888763-04:00</Value>
+        <Value>2013-06-23T19:47:02.5422086-04:00</Value>
       </Dependency>
-      <Request>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb</Request>
-    </Item>
-    <Item>
-      <Source>Models\Maps\Ground.x</Source>
-      <Importer>XImporter</Importer>
-      <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Maps\Ground_0.xml</Output>
-      <Time>2013-06-12T23:03:56.6643301-04:00</Time>
+      <Request>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Maps\Checker.bmp</Source>
@@ -48,8 +21,46 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker.xnb</Output>
-      <Time>2013-06-12T23:04:14.5116305-04:00</Time>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker.xnb</Output>
+      <Time>2013-06-23T17:53:12.5912107-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Textures\PlayerMarineDiffuse.jpg</Source>
+      <Name>Textures\PlayerMarineDiffuse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Textures\PlayerMarineDiffuse.xnb</Output>
+      <Time>2013-06-23T19:14:23.4271536-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Fonts\gameFont.spritefont</Source>
+      <Name>Fonts\gameFont</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Fonts\gameFont.xnb</Output>
+      <Time>2013-06-23T17:53:12.5912107-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Characters\PlayerMarine.fbx</Source>
+      <Name>Models\Characters\PlayerMarine</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Characters\PlayerMarine.xnb</Output>
+      <Time>0001-01-01T00:00:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Characters\PlayerMarine_0.xml</Key>
+        <Value>2013-06-23T19:47:07.0934689-04:00</Value>
+      </Dependency>
+    </Item>
+    <Item>
+      <Source>Models\Maps\Ground.x</Source>
+      <Importer>XImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Maps\Ground_0.xml</Output>
+      <Time>2013-06-23T17:53:12.6012107-04:00</Time>
     </Item>
     <Item>
       <Source>Models\Maps\Checker.bmp</Source>
@@ -64,28 +75,26 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb</Output>
-      <Time>2013-06-12T23:04:14.5116305-04:00</Time>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb</Output>
+      <Time>2013-06-23T17:53:12.5912107-04:00</Time>
     </Item>
     <Item>
-      <Source>Fonts\gameFont.spritefont</Source>
-      <Name>Fonts\gameFont</Name>
-      <Importer>FontDescriptionImporter</Importer>
-      <Processor>FontDescriptionProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\Fonts\gameFont.xnb</Output>
-      <Time>2013-06-13T00:18:44.2620698-04:00</Time>
+      <Source>Models\Characters\PlayerMarine.fbx</Source>
+      <Importer>FbxImporter</Importer>
+      <Options>IntermediateFile, DontCacheImportedData</Options>
+      <Output>obj\x86\Debug\Models\Characters\PlayerMarine_0.xml</Output>
+      <Time>2013-06-23T19:14:23.4111527-04:00</Time>
     </Item>
-    <BuildSuccessful>true</BuildSuccessful>
+    <BuildSuccessful>false</BuildSuccessful>
     <Settings>
       <TargetPlatform>Windows</TargetPlatform>
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-killContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-killContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-kill\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-killContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-killContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -114,7 +123,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-04-27T01:38:54.4905016-04:00</Value>
+        <Value>2013-05-24T14:39:00.0863153-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>

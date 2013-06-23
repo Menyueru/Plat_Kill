@@ -8,19 +8,25 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using plat_kill.Components.Camera;
 
 
 namespace plat_kill
 {
     public class PKGame : Microsoft.Xna.Framework.Game
     {
+        CameraManager camManager;
+
         public PKGame()
         {
-            
+            base.IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
+            
+
+
             base.Initialize();
         }
 

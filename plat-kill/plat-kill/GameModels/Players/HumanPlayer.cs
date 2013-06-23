@@ -18,10 +18,34 @@ namespace plat_kill.GameModels.Players
         private MouseState lastMouse;
         #endregion
         #region Method
-        public void Update(GameTime gameTime, KeyboardState keyboard, MouseState mouse)
+        public void Update(GameTime gameTime)
         {
-
             base.Update(gameTime);
+            KeyboardState keyboard;
+            float dt = Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            if (keyboard.IsKeyDown(Keys.W))
+            {
+                MoveForward(dt);
+            }
+            else if (keyboard.IsKeyDown(Keys.S))
+            {
+                MoveForward(-dt);
+            }
+            if(keyboard.IsKeyDown(Keys.D))
+            {
+                MoveRight(dt);
+            }
+            else if (keyboard.IsKeyDown(Keys.A))
+            {
+                MoveRight(-dt);
+            }
+            Move();
+            if (keyboard.IsKeyDown(Keys.Space) && !Airborne)
+            {
+                jump();
+            }
+
+            
         }
         
         #endregion
