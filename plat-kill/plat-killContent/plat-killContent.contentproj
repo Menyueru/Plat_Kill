@@ -42,13 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Characters\IronMan.FBX">
-      <Name>IronMan</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
+    <Folder Include="Models\Characters\" />
     <Folder Include="Models\Objects\" />
     <Folder Include="Sounds\Music\" />
     <Folder Include="Sounds\SoundFX\" />

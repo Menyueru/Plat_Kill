@@ -107,14 +107,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components\Camera.cs" />
     <Compile Include="GameModels\GameModel.cs" />
     <Compile Include="GameModels\Players\HumanPlayer.cs" />
     <Compile Include="GameModels\Players\Player.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="PKGame.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
@@ -149,6 +148,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Components\Camera\" />
     <Folder Include="GameModels\Weapons\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

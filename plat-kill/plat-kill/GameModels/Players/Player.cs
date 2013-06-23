@@ -13,19 +13,7 @@ namespace plat_kill.GameModels.Players
 {
     class Player : GameModel
     {
-        //TODO: 
-        protected int playerID;
-
-        public int PlayerID
-        {
-            get { return playerID; }
-            set { playerID = value; }
-        }
 
 
-        internal Player(GraphicsDevice device, ContentManager content) : base (device, content) 
-        {
-
-        }
     }
 }

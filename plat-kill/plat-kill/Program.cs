@@ -10,7 +10,7 @@ namespace plat_kill
         /// </summary>
         static void Main(string[] args)
         {
-            using (Game1 game = new Game1())
+            using (PKGame game = new PKGame())
             {
                 game.Run();
             }
