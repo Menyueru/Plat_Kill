@@ -26,6 +26,7 @@ namespace plat_kill
 
         protected override void LoadContent()
         {
+
             base.LoadContent();
         }
 
