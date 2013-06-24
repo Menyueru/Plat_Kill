@@ -23,6 +23,7 @@ namespace plat_kill.GameModels.Players
             base.Update(gameTime);
             KeyboardState keyboard;
             float dt = Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            CurrentVelocity = new Vector3(0, Body.LinearVelocity.Y, 0);
             if (keyboard.IsKeyDown(Keys.W))
             {
                 MoveForward(dt);

@@ -59,10 +59,11 @@ namespace plat_kill.GameModels
 
         #region Initialization
 
-        public GameModel()
+        public GameModel(Vector3 position, float rotationSpeed)
         {
-
-
+            this.position = position;
+            this.rotationSpeed = rotationSpeed;
+            this.rotation = Vector3.Zero;
         }
 
         #endregion     
