@@ -12,6 +12,8 @@ using plat_kill.Components.Camera;
 using plat_kill.Managers;
 using plat_kill.GameModels.Players;
 using plat_kill.Helpers;
+using plat_kill.GameModels;
+using BEPUphysics;
 
 
 namespace plat_kill
@@ -22,6 +24,8 @@ namespace plat_kill
 
         CameraManager camManager;
         PlayerManager playerManager;
+        Terrain map;
+        Space space;
 
         long playerID = 0;
 
@@ -34,30 +38,32 @@ namespace plat_kill
 
         protected override void Initialize()
         {
-
-            
+            space = new Space();
+            space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
             Camera camera = new Camera((float) graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
-            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 25, 30, Vector3.Zero, 1f / 60f, 30);
+            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 40, 50, new Vector3(0,10,0), 1f / 60f, 30,.25f,.25f,.25f);
             player.Load(this.Content, "Models\\PlayerMarine");
+            space.Add(player.Body);
         
             playerManager = new PlayerManager();
             playerManager.AddPlayer(player);
 
-
+            map = new Terrain();        
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            
-
+            map.LoadContent(this.Content, "Models\\Maps\\playground");
+            space.Add(map.Mesh);
             base.LoadContent();
         }
 
         protected override void Update(GameTime gameTime)
         {
+            space.Update();
             playerManager.UpdateAllPlayers(gameTime);
             
             camManager.UpdateAllCameras(playerManager.GetPlayer(0).Position,
@@ -72,7 +78,7 @@ namespace plat_kill
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             playerManager.DrawAllPlayers(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            
+            map.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             base.Draw(gameTime);
         }
       

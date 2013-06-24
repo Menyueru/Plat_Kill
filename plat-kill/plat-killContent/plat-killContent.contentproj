@@ -43,7 +43,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Characters\" />
-    <Folder Include="Models\Maps\" />
     <Folder Include="Models\Objects\" />
     <Folder Include="Sounds\Music\" />
     <Folder Include="Sounds\SoundFX\" />
@@ -65,6 +64,13 @@
   <ItemGroup>
     <Compile Include="Models\PlayerMarine.fbx">
       <Name>PlayerMarine</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Maps\playground.fbx">
+      <Name>playground</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
     </Compile>

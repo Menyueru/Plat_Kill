@@ -17,7 +17,6 @@ namespace plat_kill.GameModels.Players
 
         private Cylinder body;
         private bool airborne;
-        private float height;
         private float radius;
 
 
@@ -169,31 +168,6 @@ namespace plat_kill.GameModels.Players
             return true;
         }
 
-        public void CalculateHeightRadius(out float height, out float radius)
-        {
-            float maxYOffset = float.MinValue;
-            float maxHorizontal = float.MinValue;
-            foreach (var mesh in Model.Meshes)
-            {
-                foreach (var part in mesh.MeshParts)
-                {
-                    int stride = part.VertexBuffer.VertexDeclaration.VertexStride;
-                    byte[] vertexData = new byte[stride * part.NumVertices];
-                    part.VertexBuffer.GetData(part.VertexOffset * stride, vertexData, 0, part.NumVertices, 1); 
-                    for (int ndx = 0; ndx < vertexData.Length; ndx += stride)
-                    {
-                        float x= Math.Abs(BitConverter.ToSingle(vertexData, ndx)-Position.X);
-                        float y = Math.Abs(BitConverter.ToSingle(vertexData, ndx + sizeof(float)) - Position.Y);
-                        float z= Math.Abs(BitConverter.ToSingle(vertexData, ndx + sizeof(float) * 2)-Position.Z);
-                        maxYOffset=Math.Max(y, maxYOffset);
-                        float tempMax=Math.Max(x, z);
-                        maxHorizontal=Math.Max(tempMax, maxHorizontal);
-                    }
-                }
-            }
-            height = maxYOffset;
-            radius = maxHorizontal;
-        }
         #endregion
 
         #region Movers
@@ -224,8 +198,8 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Initialize
-        public Player(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationspeed, float mass)
-            : base(position, rotationspeed, mass)
+        public Player(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationspeed, float mass, float width, float height, float length)
+            : base(position, rotationspeed, mass, width, height, length)
         {
             this.id = id;
             this.health = health;
@@ -237,17 +211,14 @@ namespace plat_kill.GameModels.Players
             this.jumpSpeed = jumpSpeed;
             this.playerHeadOffset = new Vector3(0, 10, 0);
             this.currentVelocity = Vector3.Zero;
+            this.radius = Math.Max(width, length)/2;
         }
 
         public void Load(ContentManager content, String path)
         {
             base.Load(content, path);
-            float height, radius;
-            CalculateHeightRadius(out height, out radius);
-            body = new Cylinder(Position, height, radius);
+            body = new Cylinder(Position, height, radius,mass);
             body.Tag=Model;
-            this.height = height;
-            this.radius = radius;
         }
         #endregion
         protected void Update(GameTime gameTime)

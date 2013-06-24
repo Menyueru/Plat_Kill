@@ -19,6 +19,13 @@ namespace plat_kill.GameModels
         private Matrix world;
         private Vector3 position;
         #endregion
+        #region Getter-Setter
+        public StaticMesh Mesh
+        {
+            get { return mesh; }
+            set { mesh = value; }
+        }
+        #endregion
         #region Methods
         #region Initialize
         public void LoadContent(ContentManager content, String path)
@@ -44,7 +51,9 @@ namespace plat_kill.GameModels
                     effect.Projection = projection;
                     effect.View = view;
                     effect.World = world;
+                    effect.EnableDefaultLighting();
                 }
+                mesh.Draw();
             }
         }
         #endregion

@@ -20,15 +20,44 @@ namespace plat_kill.GameModels
         protected Vector3 rotation;
         private Model model;
         private Matrix world;
-        private float mass;
+        private Matrix transform;
+
+        protected float width;
+        protected float height;
+        protected float length;
+        protected float mass;
         #endregion
         
         #region Getter-Setters
+
+        public Matrix Transform
+        {
+            get { return transform; }
+            set { transform = value; }
+        }
 
         public float Mass
         {
             get { return mass; }
             set { mass = value; }
+        }
+
+        public float Width
+        {
+            get { return width; }
+            set { width = value; }
+        }
+
+        public float Height
+        {
+            get { return height; }
+            set { height = value; }
+        }
+
+        public float Length
+        {
+            get { return length; }
+            set { length = value; }
         }
 
         public Vector3 Position
@@ -65,12 +94,16 @@ namespace plat_kill.GameModels
 
         #region Initialization
 
-        public GameModel(Vector3 position, float rotationSpeed, float mass)
+        public GameModel(Vector3 position, float rotationSpeed, float mass, float width, float height, float length)
         {
             this.position = position;
             this.rotationSpeed = rotationSpeed;
             this.rotation = Vector3.Zero;
             this.mass = mass;
+            this.height = height;
+            this.length = length;
+            this.width = width;
+            this.transform=Matrix.CreateScale(width,height,length);
         }
 
         #endregion     
@@ -82,7 +115,7 @@ namespace plat_kill.GameModels
 
         public void Draw(Matrix view, Matrix projection) 
         {
-           world = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
+           world = transform * Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
                    * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
 
             foreach(ModelMesh mesh in model.Meshes)
@@ -93,7 +126,6 @@ namespace plat_kill.GameModels
                     effect.View = view;
                     effect.World = world;
                     effect.EnableDefaultLighting();
-
                 }
                 mesh.Draw();
             }
