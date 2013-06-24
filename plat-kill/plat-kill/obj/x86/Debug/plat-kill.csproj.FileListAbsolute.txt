@@ -22,3 +22,5 @@ C:\Users\Juan Manuel\Desktop\Repo\plat-kill\plat-kill\bin\x86\Debug\plat-kill.pd
 C:\Users\Juan Manuel\Desktop\Repo\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Ground.xnb
 C:\Users\Juan Manuel\Desktop\Repo\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker.xnb
 C:\Users\Juan Manuel\Desktop\Repo\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb
+C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\obj\x86\Debug\plat-kill.exe
+C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\obj\x86\Debug\plat-kill.pdb
