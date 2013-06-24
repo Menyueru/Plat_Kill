@@ -17,6 +17,8 @@ namespace plat_kill.GameModels.Players
 
         private Cylinder body;
         private bool airborne;
+        private float height;
+        private float radius;
 
         private Vector3 currentVelocity;
         private long defense;
@@ -125,6 +127,18 @@ namespace plat_kill.GameModels.Players
             get { return Rotation; }
             set { Rotation = value; }
         }
+
+        public float Height
+        {
+            get { return height; }
+            set { height = value; }
+        }
+
+        public float Radius
+        {
+            get { return radius; }
+            set { radius = value; }
+        }
         #endregion
 
         #region Methods
@@ -184,11 +198,11 @@ namespace plat_kill.GameModels.Players
                     part.VertexBuffer.GetData(part.VertexOffset * stride, vertexData, 0, part.NumVertices, 1); 
                     for (int ndx = 0; ndx < vertexData.Length; ndx += stride)
                     {
-                        float x= BitConverter.ToSingle(vertexData, ndx);
-                        float y= BitConverter.ToSingle(vertexData, ndx + sizeof(float));
-                        float z=BitConverter.ToSingle(vertexData, ndx + sizeof(float) * 2);
-                        maxYOffset=Math.Max(vertPosition.Y, maxYOffset);
-                        float tempMax=Math.Max(vertPosition.X, vertPosition.Z);
+                        float x= Math.Abs(BitConverter.ToSingle(vertexData, ndx)-Position.X);
+                        float y = Math.Abs(BitConverter.ToSingle(vertexData, ndx + sizeof(float)) - Position.Y);
+                        float z= Math.Abs(BitConverter.ToSingle(vertexData, ndx + sizeof(float) * 2)-Position.Z);
+                        maxYOffset=Math.Max(y, maxYOffset);
+                        float tempMax=Math.Max(x, z);
                         maxHorizontal=Math.Max(tempMax, maxHorizontal);
                     }
                 }
@@ -244,7 +258,11 @@ namespace plat_kill.GameModels.Players
         public override void Load(ContentManager content, String path)
         {
             base.Load(content, path);
-            
+            float height, radius;
+            CalculateHeightRadius(out height, out radius);
+            body = new Cylinder(Position, height, radius);
+            this.height = height;
+            this.radius = radius;
         }
         #endregion
         protected void Update(GameTime gameTime)
