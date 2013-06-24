@@ -42,23 +42,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Characters\" />
+    <Folder Include="Models\Maps\" />
     <Folder Include="Models\Objects\" />
     <Folder Include="Sounds\Music\" />
     <Folder Include="Sounds\SoundFX\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Models\Maps\Ground.x">
-      <Name>Ground</Name>
-      <Importer>XImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Models\Maps\Checker.bmp">
-      <Name>Checker</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fonts\gameFont.spritefont">
@@ -68,14 +56,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Textures\PlayerMarineDiffuse.jpg">
+    <Compile Include="Textures\PlayerMarineDiffuse.jpg">
       <Name>PlayerMarineDiffuse</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Characters\PlayerMarine.fbx">
+    <Compile Include="Models\PlayerMarine.fbx">
       <Name>PlayerMarine</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>

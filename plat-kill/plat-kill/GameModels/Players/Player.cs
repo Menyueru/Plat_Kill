@@ -20,6 +20,7 @@ namespace plat_kill.GameModels.Players
         private float height;
         private float radius;
 
+
         private Vector3 currentVelocity;
         private long defense;
         private long health;
@@ -110,23 +111,6 @@ namespace plat_kill.GameModels.Players
             set { stamina = value; }
         }
 
-        public float RotationSpeed
-        {
-            get { return RotationSpeed; }
-            set { RotationSpeed = value; }
-        }
-
-        public Vector3 Position
-        {
-            get { return Position; }
-            set { Position = value; }
-        }
-
-        public Vector3 Rotation
-        {
-            get { return Rotation; }
-            set { Rotation = value; }
-        }
 
         public float Height
         {

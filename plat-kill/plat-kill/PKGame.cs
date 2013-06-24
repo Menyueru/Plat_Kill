@@ -28,19 +28,20 @@ namespace plat_kill
         public PKGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            
+            Content.RootDirectory = "Content";
             base.IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
+
             
             Camera camera = new Camera((float) graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
-            HumanPlayer player = new HumanPlayer(++playerID, 100, 100, 100, 100, 100, 25, 30, Vector3.Zero, 1f / 60f, 30);
-            player.Load(this.Content, "Models\\Characters\\PlayerMarine");
-
+            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 25, 30, Vector3.Zero, 1f / 60f, 30);
+            player.Load(this.Content, "Models\\PlayerMarine");
+        
             playerManager = new PlayerManager();
             playerManager.AddPlayer(player);
 
@@ -58,16 +59,20 @@ namespace plat_kill
         protected override void Update(GameTime gameTime)
         {
             playerManager.UpdateAllPlayers(gameTime);
-            camManager.UpdateAllCameras(playerManager.GetPlayer(0).Position, playerManager.GetPlayer(0).Rotation, playerManager.GetPlayer(0).PlayerHeadOffset);
             
-            
+            camManager.UpdateAllCameras(playerManager.GetPlayer(0).Position,
+                                        playerManager.GetPlayer(0).Rotation,
+                                        playerManager.GetPlayer(0).PlayerHeadOffset, ((HumanPlayer)playerManager.GetPlayer(0)).CameraDistance);
+
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+
             playerManager.DrawAllPlayers(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-         
+            
             base.Draw(gameTime);
         }
       

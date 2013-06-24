@@ -17,15 +17,25 @@ namespace plat_kill.GameModels.Players
         #region Property
 
         private InputManager inputManager;
-
+        private int cameraDistance;
         #endregion
+
+
+        #region Getter-Setter
+        public int CameraDistance
+        {
+            get { return cameraDistance; }
+            set { cameraDistance = value; }
+        }
+        #endregion 
 
         #region Constructor
 
         public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass)
             : base(id, health, stamina, defense, meleePower, rangePower, speed, jumpSpeed, position, rotationSpeed, mass)
         {
-
+            this.inputManager = new InputManager();
+            this.cameraDistance = -200;
         }
 
         #endregion
@@ -71,20 +81,33 @@ namespace plat_kill.GameModels.Players
             #region Mouse Input
             if(inputManager.IsMouseMovingUp())
             {
-                
+                rotation.Y += RotationSpeed;
             }
             else if(inputManager.IsMouseMovingDown())
             {
-
+                rotation.Y -= RotationSpeed;
             }
 
             if(inputManager.IsMouseMovingLeft())
             {
-
+                rotation.X += RotationSpeed;
             }
             else if(inputManager.IsMouseMovingRight())
             {
+                rotation.X -= RotationSpeed;
+            }
 
+            if(inputManager.IsMouseScrollingUp())
+            {
+                cameraDistance += 5;
+            }
+            else if (inputManager.IsMouseScrollingDown())
+            {
+                cameraDistance -= 5;
+            }
+            else 
+            {
+                cameraDistance = 0;
             }
             #endregion
 

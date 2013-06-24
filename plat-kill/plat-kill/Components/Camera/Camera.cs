@@ -14,7 +14,7 @@ namespace plat_kill.Components.Camera
         private Matrix viewMatrix;
         private Matrix projectionMatrix;
         private Vector3 cameraReference;
-        private Vector3 thirdPersonReference;
+        public Vector3 thirdPersonReference;
         private Vector3 targetRotation;
         private Vector3 targetPosition;
         private Vector3 targetHeadOffSet;

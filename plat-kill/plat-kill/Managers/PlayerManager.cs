@@ -17,7 +17,7 @@ namespace plat_kill.Managers
     {
         #region Propierties, Getters and Setters
 
-        private Dictionary<long, Player> players = new Dictionary<long, Player>();
+        private Dictionary<long, Player> players;
 
         public IEnumerable<Player> Players
         {
@@ -30,7 +30,10 @@ namespace plat_kill.Managers
         #endregion
         
         #region Constructors
-        public PlayerManager() { }
+        public PlayerManager()
+        {
+            this.players = new Dictionary<long, Player>();
+        }
         #endregion
 
         #region Methods

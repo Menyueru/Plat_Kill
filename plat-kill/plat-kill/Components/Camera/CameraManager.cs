@@ -10,7 +10,9 @@ namespace plat_kill.Components.Camera
     class CameraManager
     {
         #region Field
-        //private PKGame game;
+        private const int zoomInLimit = -25;
+        private const int zoomOutLimit = -200;
+
         private Camera activeCamera;
         private CameraState.State camState;
 
@@ -49,9 +51,14 @@ namespace plat_kill.Components.Camera
         #endregion
 
         #region Public Methods
-        public void UpdateAllCameras(Vector3 targetPosition, Vector3 targetRotation, Vector3 targetHeadOffSet) 
+        public void UpdateAllCameras(Vector3 targetPosition, Vector3 targetRotation, Vector3 targetHeadOffSet, int cameraDistance)
         {
-            GetCurrentCamera();
+            activeCamera.SetTargetToChase(targetPosition, targetRotation, targetHeadOffSet);
+
+            if (activeCamera.thirdPersonReference.Z + cameraDistance < zoomInLimit && activeCamera.thirdPersonReference.Z + cameraDistance >=  zoomOutLimit)
+            {
+                activeCamera.thirdPersonReference.Z += cameraDistance;
+            }
 
             switch (camState)
             {
@@ -67,7 +74,7 @@ namespace plat_kill.Components.Camera
                 default:
                     throw new Exception("Invalid Camera Type.");
             }
-            activeCamera.SetTargetToChase(targetPosition,targetRotation,targetHeadOffSet);
+         
         }
 
         #endregion
