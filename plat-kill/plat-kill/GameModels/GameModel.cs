@@ -17,7 +17,7 @@ namespace plat_kill.GameModels
         #region Fields
         private Vector3 position;
         private float rotationSpeed;
-        private Vector3 rotation;
+        protected Vector3 rotation;
         private Model model;
         private Matrix world;
         private float mass;
@@ -92,8 +92,10 @@ namespace plat_kill.GameModels
                     effect.Projection = projection;
                     effect.View = view;
                     effect.World = world;
+                    effect.EnableDefaultLighting();
 
                 }
+                mesh.Draw();
             }
 
         }

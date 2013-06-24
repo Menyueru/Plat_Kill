@@ -42,6 +42,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Models\Characters\" />
     <Folder Include="Models\Objects\" />
     <Folder Include="Sounds\Music\" />
     <Folder Include="Sounds\SoundFX\" />
@@ -68,14 +69,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Textures\PlayerMarineDiffuse.jpg">
+    <Compile Include="Textures\PlayerMarineDiffuse.jpg">
       <Name>PlayerMarineDiffuse</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Characters\PlayerMarine.fbx">
+    <Compile Include="Models\PlayerMarine.fbx">
       <Name>PlayerMarine</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>

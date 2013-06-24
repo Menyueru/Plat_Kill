@@ -49,9 +49,14 @@ namespace plat_kill.Components.Camera
         #endregion
 
         #region Public Methods
-        public void UpdateAllCameras(Vector3 targetPosition, Vector3 targetRotation, Vector3 targetHeadOffSet) 
+        public void UpdateAllCameras(Vector3 targetPosition, Vector3 targetRotation, Vector3 targetHeadOffSet, int cameraDistance)
         {
-            GetCurrentCamera();
+            activeCamera.SetTargetToChase(targetPosition, targetRotation, targetHeadOffSet);
+
+            if (activeCamera.thirdPersonReference.Z + cameraDistance < -25 && activeCamera.thirdPersonReference.Z + cameraDistance >=  -200)
+            {
+                activeCamera.thirdPersonReference.Z += cameraDistance;
+            }
 
             switch (camState)
             {
@@ -67,7 +72,7 @@ namespace plat_kill.Components.Camera
                 default:
                     throw new Exception("Invalid Camera Type.");
             }
-            activeCamera.SetTargetToChase(targetPosition,targetRotation,targetHeadOffSet);
+         
         }
 
         #endregion

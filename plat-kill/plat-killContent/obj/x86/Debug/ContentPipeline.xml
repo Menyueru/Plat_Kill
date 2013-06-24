@@ -57,37 +57,37 @@
       <Time>2013-06-23T17:27:00.9354608-04:00</Time>
     </Item>
     <Item>
-      <Source>Models\Characters\PlayerMarine.fbx</Source>
-      <Name>Models\Characters\PlayerMarine</Name>
+      <Source>Models\PlayerMarine.fbx</Source>
+      <Name>Models\PlayerMarine</Name>
       <Importer>FbxImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Characters\PlayerMarine.xnb</Output>
-      <Time>2013-06-23T22:17:42.4110143-04:00</Time>
+      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\PlayerMarine.xnb</Output>
+      <Time>2013-06-23T22:40:52.9630217-04:00</Time>
       <Dependency>
-        <Key>obj\x86\Debug\Models\Characters\PlayerMarine_0.xml</Key>
-        <Value>2013-06-23T22:17:46.841534-04:00</Value>
+        <Key>obj\x86\Debug\Models\PlayerMarine_0.xml</Key>
+        <Value>2013-06-23T23:23:46.7097848-04:00</Value>
       </Dependency>
-      <Request>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse_0.xnb</Request>
+      <Request>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Textures\PlayerMarineDiffuse_0.xnb</Request>
     </Item>
     <Item>
-      <Source>Models\Characters\PlayerMarine.fbx</Source>
+      <Source>Models\PlayerMarine.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
-      <Output>obj\x86\Debug\Models\Characters\PlayerMarine_0.xml</Output>
-      <Time>2013-06-23T22:17:42.4110143-04:00</Time>
+      <Output>obj\x86\Debug\Models\PlayerMarine_0.xml</Output>
+      <Time>2013-06-23T22:40:52.9630217-04:00</Time>
     </Item>
     <Item>
-      <Source>Models\Textures\PlayerMarineDiffuse.jpg</Source>
-      <Name>Models\Textures\PlayerMarineDiffuse</Name>
+      <Source>Textures\PlayerMarineDiffuse.jpg</Source>
+      <Name>Textures\PlayerMarineDiffuse</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse.xnb</Output>
+      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Textures\PlayerMarineDiffuse.xnb</Output>
       <Time>2013-06-23T19:12:06.2653238-04:00</Time>
     </Item>
     <Item>
-      <Source>Models\Textures\PlayerMarineDiffuse.jpg</Source>
+      <Source>Textures\PlayerMarineDiffuse.jpg</Source>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Parameters>
@@ -99,7 +99,7 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse_0.xnb</Output>
+      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Textures\PlayerMarineDiffuse_0.xnb</Output>
       <Time>2013-06-23T19:12:06.2653238-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
