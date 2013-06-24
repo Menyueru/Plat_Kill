@@ -261,6 +261,7 @@ namespace plat_kill.GameModels.Players
             float height, radius;
             CalculateHeightRadius(out height, out radius);
             body = new Cylinder(Position, height, radius);
+            body.Tag=Model;
             this.height = height;
             this.radius = radius;
         }

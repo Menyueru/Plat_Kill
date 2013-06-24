@@ -7,13 +7,13 @@
       <Importer>XImporter</Importer>
       <Processor>ModelProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Ground.xnb</Output>
-      <Time>2013-06-23T17:27:00.9364615-04:00</Time>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Ground.xnb</Output>
+      <Time>2013-06-23T17:53:12.6012107-04:00</Time>
       <Dependency>
         <Key>obj\x86\Debug\Models\Maps\Ground_0.xml</Key>
-        <Value>2013-06-23T21:56:35.5620182-04:00</Value>
+        <Value>2013-06-23T22:27:36.6171537-04:00</Value>
       </Dependency>
-      <Request>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb</Request>
+      <Request>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Maps\Checker.bmp</Source>
@@ -21,8 +21,17 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker.xnb</Output>
-      <Time>2013-06-23T17:27:00.9354608-04:00</Time>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker.xnb</Output>
+      <Time>2013-06-23T17:53:12.5912107-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Textures\PlayerMarineDiffuse.jpg</Source>
+      <Name>Models\Textures\PlayerMarineDiffuse</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse.xnb</Output>
+      <Time>2013-06-23T22:26:54.0468973-04:00</Time>
     </Item>
     <Item>
       <Source>Fonts\gameFont.spritefont</Source>
@@ -30,15 +39,29 @@
       <Importer>FontDescriptionImporter</Importer>
       <Processor>FontDescriptionProcessor</Processor>
       <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Fonts\gameFont.xnb</Output>
-      <Time>2013-06-23T17:27:00.7163704-04:00</Time>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Fonts\gameFont.xnb</Output>
+      <Time>2013-06-23T17:53:12.5912107-04:00</Time>
+    </Item>
+    <Item>
+      <Source>Models\Characters\PlayerMarine.fbx</Source>
+      <Name>Models\Characters\PlayerMarine</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>ModelProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Characters\PlayerMarine.xnb</Output>
+      <Time>2013-06-23T19:14:23.4111527-04:00</Time>
+      <Dependency>
+        <Key>obj\x86\Debug\Models\Characters\PlayerMarine_0.xml</Key>
+        <Value>2013-06-23T22:27:40.7052156-04:00</Value>
+      </Dependency>
+      <Request>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse_0.xnb</Request>
     </Item>
     <Item>
       <Source>Models\Maps\Ground.x</Source>
       <Importer>XImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Maps\Ground_0.xml</Output>
-      <Time>2013-06-23T17:27:00.9364615-04:00</Time>
+      <Time>2013-06-23T17:53:12.6012107-04:00</Time>
     </Item>
     <Item>
       <Source>Models\Maps\Checker.bmp</Source>
@@ -53,38 +76,15 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb</Output>
-      <Time>2013-06-23T17:27:00.9354608-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Characters\PlayerMarine.fbx</Source>
-      <Name>Models\Characters\PlayerMarine</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Characters\PlayerMarine.xnb</Output>
-      <Time>2013-06-23T22:17:42.4110143-04:00</Time>
-      <Dependency>
-        <Key>obj\x86\Debug\Models\Characters\PlayerMarine_0.xml</Key>
-        <Value>2013-06-23T22:17:46.841534-04:00</Value>
-      </Dependency>
-      <Request>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse_0.xnb</Request>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Maps\Checker_0.xnb</Output>
+      <Time>2013-06-23T17:53:12.5912107-04:00</Time>
     </Item>
     <Item>
       <Source>Models\Characters\PlayerMarine.fbx</Source>
       <Importer>FbxImporter</Importer>
       <Options>IntermediateFile, DontCacheImportedData</Options>
       <Output>obj\x86\Debug\Models\Characters\PlayerMarine_0.xml</Output>
-      <Time>2013-06-23T22:17:42.4110143-04:00</Time>
-    </Item>
-    <Item>
-      <Source>Models\Textures\PlayerMarineDiffuse.jpg</Source>
-      <Name>Models\Textures\PlayerMarineDiffuse</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-      <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse.xnb</Output>
-      <Time>2013-06-23T19:12:06.2653238-04:00</Time>
+      <Time>2013-06-23T19:14:23.4111527-04:00</Time>
     </Item>
     <Item>
       <Source>Models\Textures\PlayerMarineDiffuse.jpg</Source>
@@ -99,8 +99,8 @@
         <Data Key="PremultiplyAlpha" Type="bool">true</Data>
       </Parameters>
       <Options>None</Options>
-      <Output>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse_0.xnb</Output>
-      <Time>2013-06-23T19:12:06.2653238-04:00</Time>
+      <Output>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\Models\Textures\PlayerMarineDiffuse_0.xnb</Output>
+      <Time>2013-06-23T22:26:54.0468973-04:00</Time>
     </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
@@ -108,10 +108,10 @@
       <TargetProfile>HiDef</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-killContent\</RootDirectory>
-      <LoggerRootDirectory>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\</LoggerRootDirectory>
-      <IntermediateDirectory>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-killContent\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-killContent\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-killContent\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-kill\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
@@ -140,7 +140,7 @@
       </Assembly>
       <Assembly>
         <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
-        <Value>2013-06-21T08:15:07.493824-04:00</Value>
+        <Value>2013-05-24T14:39:00.0863153-04:00</Value>
       </Assembly>
     </Assemblies>
   </Asset>
