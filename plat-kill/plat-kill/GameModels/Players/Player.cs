@@ -11,7 +11,7 @@ using System;
 
 namespace plat_kill.GameModels.Players
 {
-    internal class Player : GameModel
+     class Player : GameModel
     {
         #region Properties
 

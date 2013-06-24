@@ -14,6 +14,7 @@ using plat_kill.GameModels.Players;
 using plat_kill.Helpers;
 using plat_kill.GameModels;
 using BEPUphysics;
+using plat_kill.GameModels.Projectiles;
 
 
 namespace plat_kill
@@ -24,6 +25,14 @@ namespace plat_kill
 
         CameraManager camManager;
         PlayerManager playerManager;
+        ProjectileManager projectileManager;
+
+        public ProjectileManager ProjectileManager
+        {
+            get { return projectileManager; }
+            set { projectileManager = value; }
+        }
+
         Terrain map;
         public Space space;
 
@@ -43,11 +52,10 @@ namespace plat_kill
             Camera camera = new Camera((float) graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
-<<<<<<< HEAD
-            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 40, 50, new Vector3(0,10,0), 5f / 60f, 30,.25f,.25f,.25f);
-=======
-            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 40, 50, new Vector3(0,10,0), 1f / 60f, 30,.25f,.25f,.25f,this);
->>>>>>> 5c4ea60ff1fdab32267eb308cded4d944035544a
+            projectileManager = new ProjectileManager();
+
+            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 40, 50, new Vector3(0,10,0), 5f / 60f, 30,0.25f,0.25f,0.25f,this);
+
             player.Load(this.Content, "Models\\PlayerMarine");
             space.Add(player.Body);
         
@@ -89,7 +97,9 @@ namespace plat_kill
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            //playerManager.DrawAllPlayers(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            playerManager.DrawAllPlayers(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            projectileManager.UpdateAllBullets();
             map.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             base.Draw(gameTime);
         }

@@ -53,13 +53,13 @@ namespace plat_kill.Managers
         }
 
 
-        /*public void DrawAllPlayers(Matrix view, Matrix projection) 
+        public void DrawAllPlayers(Matrix view, Matrix projection) 
         {
             foreach(Player player in this.Players)
             {
                 player.Draw(view, projection);
             }
-        }*/
+        }
 
         public void UpdateAllPlayers(GameTime gameTime) 
         {

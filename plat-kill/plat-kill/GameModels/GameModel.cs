@@ -11,7 +11,7 @@ using Microsoft.Xna.Framework.Media;
 
 namespace plat_kill.GameModels
 {
-    class GameModel
+    public class GameModel
     {
         
         #region Fields
@@ -113,7 +113,7 @@ namespace plat_kill.GameModels
             this.model = content.Load<Model>(path);
         }
 
-        public void Draw(Matrix view, Matrix projection,GameTime gametime) 
+        public void Draw(Matrix view, Matrix projection) 
         {
            world = transform * Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
                    * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
@@ -129,7 +129,6 @@ namespace plat_kill.GameModels
                 }
                 mesh.Draw();
             }
-            base.Draw(gametime);
         }
     }
 }

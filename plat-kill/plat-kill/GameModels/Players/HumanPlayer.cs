@@ -22,7 +22,7 @@ namespace plat_kill.GameModels.Players
         private PKGame game;
         #endregion
 
-
+        private long projectileId = 0;
         #region Getter-Setter
         public int CameraDistance
         {
@@ -82,10 +82,12 @@ namespace plat_kill.GameModels.Players
 
             if (inputManager.MouseLeftIsPressed())
             {
-                Projectile bullet = new Projectile(500, Position + World.Forward, 0, 0.1f, .25f, .25f, .25f,game);
+                Projectile bullet = new Projectile(projectileId,50, Position + World.Forward + new Vector3(0, Height, 0), 0, 0.1f, .25f, .25f, .25f);
                 bullet.LoadContent(game.Content, "Models//Objects//bullet");
                 bullet.Shoot(World.Forward);
-                game.space.Add(bullet.Body);
+                game.ProjectileManager.AddProjectile(bullet);
+                game.space.Add(game.ProjectileManager.GetProjectile(projectileId++).Body);
+
             }
             #endregion
 
@@ -99,14 +101,14 @@ namespace plat_kill.GameModels.Players
                 rotation.Y -= RotationSpeed;
             }
 
-            if (inputManager.IsMouseMovingLeft())
+            /*if (inputManager.IsMouseMovingLeft())
             {
                 rotation.X += RotationSpeed;
             }
             else if (inputManager.IsMouseMovingRight())
             {
                 rotation.X -= RotationSpeed;
-            }
+            }*/
 
             if(inputManager.IsMouseScrollingUp())
             {

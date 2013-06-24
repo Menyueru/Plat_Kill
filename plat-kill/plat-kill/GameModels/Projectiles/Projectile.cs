@@ -12,16 +12,21 @@ using Microsoft.Xna.Framework.Media;
 
 namespace plat_kill.GameModels.Projectiles
 {
-    class Projectile : GameModel
+    public class Projectile : GameModel
     {
         #region Properties
         private Sphere body;
-
+        private long projectileID;
         private float radius;
         private float speed;
 
         #endregion
         #region Getter-Setter
+        public long ProjectileID
+        {
+            get { return projectileID; }
+            set { projectileID = value; }
+        }
         public Sphere Body
         {
             get { return body; }
@@ -42,9 +47,10 @@ namespace plat_kill.GameModels.Projectiles
         #endregion
         #region Methods
         #region Initialize
-        public Projectile(float speed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length)
+        public Projectile(long projectileId, float speed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length)
             : base(position, rotationSpeed, mass, width, height, length)
         {
+            this.projectileID = projectileId;
             this.speed = speed;
             float tempradius = Math.Max(width, height);
             this.radius = Math.Max(tempradius, length) / 2;
@@ -63,6 +69,13 @@ namespace plat_kill.GameModels.Projectiles
         {
             Vector3 impulse = Forward * speed;
             body.ApplyLinearImpulse(ref impulse);
+            Console.WriteLine(body.LinearMomentum);
+        }
+
+        public void Update()
+        {
+            Position = body.Position;
+
         }
         #endregion
     }
