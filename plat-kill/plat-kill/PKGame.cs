@@ -22,7 +22,6 @@ namespace plat_kill
 
         CameraManager camManager;
         PlayerManager playerManager;
-        InputManager inputManager;
 
         long playerID = 0;
 
@@ -35,36 +34,33 @@ namespace plat_kill
 
         protected override void Initialize()
         {
-            inputManager = new InputManager();
-
+            
             Camera camera = new Camera((float) graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
-            HumanPlayer player = new HumanPlayer();
+            HumanPlayer player = new HumanPlayer(++playerID, 100, 100, 100, 100, 100, 25, 30, Vector3.Zero, 1f / 60f, 30);
+            player.Load(this.Content, "Models\\Characters\\PlayerMarine");
 
             playerManager = new PlayerManager();
             playerManager.AddPlayer(player);
+
 
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
+            
 
             base.LoadContent();
         }
 
         protected override void Update(GameTime gameTime)
         {
-            inputManager.Update();
-
             playerManager.UpdateAllPlayers(gameTime);
-
-            //TODO: use the inputManager object to handle the input.
-
-
-
-            camManager.UpdateAllCameras();
+            camManager.UpdateAllCameras(playerManager.GetPlayer(0).Position, playerManager.GetPlayer(0).Rotation, playerManager.GetPlayer(0).PlayerHeadOffset);
+            
+            
             base.Update(gameTime);
         }
 

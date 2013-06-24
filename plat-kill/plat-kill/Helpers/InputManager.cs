@@ -21,30 +21,6 @@ namespace plat_kill.Helpers
 
         #endregion 
         
-        #region Getters-Setters
-        public KeyboardState LastKeyBoardState
-        {
-            get { return lastKeyBoardState; }
-            set { lastKeyBoardState = value; }
-        }
-
-        public KeyboardState CurrentKeyBoardState
-        {
-            get { return currentKeyBoardState; }
-            set { currentKeyBoardState = value; }
-        }
-        public MouseState LastMouseState
-        {
-            get { return lastMouseState; }
-            set { lastMouseState = value; }
-        }
-        public MouseState CurrentMouseState
-        {
-            get { return currentMouseState; }
-            set { currentMouseState = value; }
-        }
-        #endregion
-
         #region Constructors
 
         public InputManager() 

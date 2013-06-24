@@ -39,7 +39,7 @@ namespace plat_kill.Managers
             players.Add(player.Id, player);
         }
 
-        public Player GetPlayer(int playerID) 
+        public Player GetPlayer(long playerID) 
         {
             if (this.players.ContainsKey(playerID)) 
             {

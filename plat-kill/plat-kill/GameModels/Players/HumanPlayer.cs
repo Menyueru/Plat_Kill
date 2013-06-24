@@ -8,45 +8,86 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using plat_kill.Helpers;
 
 namespace plat_kill.GameModels.Players
 {
     class HumanPlayer : Player
     {
         #region Property
-        private KeyboardState lastKeyboard;
-        private MouseState lastMouse;
+
+        private InputManager inputManager;
+
         #endregion
+
+        #region Constructor
+
+        public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass)
+            : base(id, health, stamina, defense, meleePower, rangePower, speed, jumpSpeed, position, rotationSpeed, mass)
+        {
+
+        }
+
+        #endregion
+
         #region Method
+
         public void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            KeyboardState keyboard;
+
             float dt = Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             CurrentVelocity = new Vector3(0, Body.LinearVelocity.Y, 0);
-            if (keyboard.IsKeyDown(Keys.W))
+
+            inputManager.Update();
+
+            #region Keyboard Input
+            if (inputManager.IsKeyPressed(Keys.W))
             {
                 MoveForward(dt);
             }
-            else if (keyboard.IsKeyDown(Keys.S))
+            else if (inputManager.IsKeyPressed(Keys.S))
             {
                 MoveForward(-dt);
             }
-            if(keyboard.IsKeyDown(Keys.D))
+
+            if (inputManager.IsKeyPressed(Keys.D))
             {
                 MoveRight(dt);
             }
-            else if (keyboard.IsKeyDown(Keys.A))
+            else if (inputManager.IsKeyPressed(Keys.A))
             {
                 MoveRight(-dt);
             }
+
             Move();
-            if (keyboard.IsKeyDown(Keys.Space) && !Airborne)
+
+            if (inputManager.IsKeyPressed(Keys.Space) && !Airborne)
             {
                 jump();
             }
+            #endregion
 
-            
+            #region Mouse Input
+            if(inputManager.IsMouseMovingUp())
+            {
+                
+            }
+            else if(inputManager.IsMouseMovingDown())
+            {
+
+            }
+
+            if(inputManager.IsMouseMovingLeft())
+            {
+
+            }
+            else if(inputManager.IsMouseMovingRight())
+            {
+
+            }
+            #endregion
+
         }
         
         #endregion

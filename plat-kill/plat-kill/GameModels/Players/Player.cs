@@ -240,8 +240,8 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Initialize
-        public Player(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, float rotationspeed, Vector3 position)
-            : base(position,rotationspeed)
+        public Player(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationspeed, float mass)
+            : base(position, rotationspeed, mass)
         {
             this.id = id;
             this.health = health;
@@ -255,7 +255,7 @@ namespace plat_kill.GameModels.Players
             this.currentVelocity = Vector3.Zero;
         }
 
-        public override void Load(ContentManager content, String path)
+        public void Load(ContentManager content, String path)
         {
             base.Load(content, path);
             float height, radius;

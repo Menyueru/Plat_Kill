@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Input;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,9 +49,10 @@ namespace plat_kill.Components.Camera
         #endregion
 
         #region Public Methods
-        public void UpdateAllCameras() 
+        public void UpdateAllCameras(Vector3 targetPosition, Vector3 targetRotation, Vector3 targetHeadOffSet) 
         {
             GetCurrentCamera();
+
             switch (camState)
             {
                 case CameraState.State.FirstPersonCamera:
@@ -65,7 +67,7 @@ namespace plat_kill.Components.Camera
                 default:
                     throw new Exception("Invalid Camera Type.");
             }
-
+            activeCamera.SetTargetToChase(targetPosition,targetRotation,targetHeadOffSet);
         }
 
         #endregion

@@ -1,3 +1,4 @@
 C:\Users\Juan Manuel\Desktop\plat-kill\plat-kill\plat-killContent\obj\x86\Debug\plat-killContent.contentprojResolveAssemblyReference.cache
 C:\Users\Juan Manuel\Desktop\Plat-Kill\Plat_Kill\Plat_Kill.git\trunk\plat-kill\plat-killContent\obj\x86\Debug\plat-killContent.contentprojResolveAssemblyReference.cache
 C:\Users\Menyueru\Desktop\Plat_Kill\plat-kill\plat-killContent\obj\x86\Debug\plat-killContent.contentprojResolveAssemblyReference.cache
+C:\Users\JuanManuel\Desktop\Repository\Plat_Kill\plat-kill\plat-killContent\obj\x86\Debug\plat-killContent.contentprojResolveAssemblyReference.cache

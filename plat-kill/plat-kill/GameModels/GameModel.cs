@@ -20,10 +20,16 @@ namespace plat_kill.GameModels
         private Vector3 rotation;
         private Model model;
         private Matrix world;
-
+        private float mass;
         #endregion
         
         #region Getter-Setters
+
+        public float Mass
+        {
+            get { return mass; }
+            set { mass = value; }
+        }
 
         public Vector3 Position
         {
@@ -59,11 +65,12 @@ namespace plat_kill.GameModels
 
         #region Initialization
 
-        public GameModel(Vector3 position, float rotationSpeed)
+        public GameModel(Vector3 position, float rotationSpeed, float mass)
         {
             this.position = position;
             this.rotationSpeed = rotationSpeed;
             this.rotation = Vector3.Zero;
+            this.mass = mass;
         }
 
         #endregion     
