@@ -116,6 +116,7 @@
     <Compile Include="GameModels\GameModel.cs" />
     <Compile Include="GameModels\Players\HumanPlayer.cs" />
     <Compile Include="GameModels\Players\Player.cs" />
+    <Compile Include="GameModels\Projectiles\Projectile.cs" />
     <Compile Include="GameModels\Terrain.cs" />
     <Compile Include="Helpers\InputManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />

@@ -110,13 +110,6 @@ namespace plat_kill.GameModels.Players
             set { stamina = value; }
         }
 
-
-        public float Height
-        {
-            get { return height; }
-            set { height = value; }
-        }
-
         public float Radius
         {
             get { return radius; }
