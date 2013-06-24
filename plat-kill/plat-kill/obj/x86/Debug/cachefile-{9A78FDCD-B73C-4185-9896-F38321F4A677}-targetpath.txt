@@ -1,7 +1,0 @@
-Content\Models\Maps\Ground.xnb
-Content\Models\Maps\Checker.xnb
-Content\Models\Textures\PlayerMarineDiffuse.xnb
-Content\Fonts\gameFont.xnb
-Content\Models\Characters\PlayerMarine.xnb
-Content\Models\Maps\Checker_0.xnb
-Content\Models\Textures\PlayerMarineDiffuse_0.xnb
