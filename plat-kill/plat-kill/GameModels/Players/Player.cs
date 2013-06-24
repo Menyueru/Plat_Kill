@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System;
 
 namespace plat_kill.GameModels.Players
 {
@@ -23,12 +24,13 @@ namespace plat_kill.GameModels.Players
         private long id;
         private float jumpSpeed;
         private long meleePower;
-
-
-        private Vector3 playerHeadOffset;
         private long rangePower;
         private float speed;
         private long stamina;
+
+
+        private Vector3 playerHeadOffset;
+        
 
         #endregion
 
@@ -168,6 +170,32 @@ namespace plat_kill.GameModels.Players
 
             return true;
         }
+
+        public void CalculateHeightRadius(out float height, out float radius)
+        {
+            float maxYOffset = float.MinValue;
+            float maxHorizontal = float.MinValue;
+            foreach (var mesh in Model.Meshes)
+            {
+                foreach (var part in mesh.MeshParts)
+                {
+                    int stride = part.VertexBuffer.VertexDeclaration.VertexStride;
+                    byte[] vertexData = new byte[stride * part.NumVertices];
+                    part.VertexBuffer.GetData(part.VertexOffset * stride, vertexData, 0, part.NumVertices, 1); 
+                    for (int ndx = 0; ndx < vertexData.Length; ndx += stride)
+                    {
+                        float x= BitConverter.ToSingle(vertexData, ndx);
+                        float y= BitConverter.ToSingle(vertexData, ndx + sizeof(float));
+                        float z=BitConverter.ToSingle(vertexData, ndx + sizeof(float) * 2);
+                        maxYOffset=Math.Max(vertPosition.Y, maxYOffset);
+                        float tempMax=Math.Max(vertPosition.X, vertPosition.Z);
+                        maxHorizontal=Math.Max(tempMax, maxHorizontal);
+                    }
+                }
+            }
+            height = maxYOffset;
+            radius = maxHorizontal;
+        }
         #endregion
 
         #region Movers
@@ -197,6 +225,28 @@ namespace plat_kill.GameModels.Players
 
         #endregion
 
+        #region Initialize
+        public Player(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, float rotationspeed, Vector3 position)
+            : base(position,rotationspeed)
+        {
+            this.id = id;
+            this.health = health;
+            this.stamina = stamina;
+            this.defense = defense;
+            this.meleePower = meleePower;
+            this.rangePower = rangePower;
+            this.speed = speed;
+            this.jumpSpeed = jumpSpeed;
+            this.playerHeadOffset = new Vector3(0, 10, 0);
+            this.currentVelocity = Vector3.Zero;
+        }
+
+        public override void Load(ContentManager content, String path)
+        {
+            base.Load(content, path);
+            
+        }
+        #endregion
         protected void Update(GameTime gameTime)
         {
             Position = body.Position;
