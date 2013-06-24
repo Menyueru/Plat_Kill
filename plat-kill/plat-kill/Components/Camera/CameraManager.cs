@@ -28,11 +28,10 @@ namespace plat_kill.Components.Camera
         #endregion
 
         #region Constructor
-        public CameraManager(Camera camera, CameraState.State camState, PKGame game) 
+        public CameraManager(Camera camera, CameraState.State camState) 
         {
             this.activeCamera = camera;
             this.camState = camState;
-            //this.game = game;
         }
         #endregion
 

@@ -11,7 +11,6 @@ namespace plat_kill.Components.Camera
     {
         #region Fields
 
-        private PKGame game;
         private Matrix viewMatrix;
         private Matrix projectionMatrix;
         private Vector3 cameraReference;
@@ -29,12 +28,6 @@ namespace plat_kill.Components.Camera
         #endregion
 
         #region Public Propierties
-        public PKGame Game
-        {
-            get { return game; }
-            set { game = value; }
-        }
-
         public Matrix ViewMatrix
         {
             get { return viewMatrix; }
@@ -105,13 +98,13 @@ namespace plat_kill.Components.Camera
         #endregion
 
         #region Constructors
-        public Camera(PKGame game)
+        public Camera(float aspectRatio)
         {
             this.rotationSpeed = 1f / 60f;
             this.forwardSpeed = 50f / 60f;
             this.nearClip = 1.0f;
             this.farClip = 2000.0f;
-            this.game = game;
+            this.aspectRatio = aspectRatio;
             
             SetCameraReferences();
             
@@ -131,7 +124,6 @@ namespace plat_kill.Components.Camera
         #region Private Methods
         private void SetCameraReferences()
         {            
-            this.aspectRatio = (float)game.GraphicsDevice.Viewport.Width / (float)game.GraphicsDevice.Viewport.Height;
             this.cameraReference = new Vector3(0, 0, 10);
             this.thirdPersonReference = new Vector3(0, 100, -200);
             this.viewAngle = MathHelper.PiOver4;
