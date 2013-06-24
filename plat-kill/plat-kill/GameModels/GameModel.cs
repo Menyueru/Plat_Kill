@@ -113,7 +113,7 @@ namespace plat_kill.GameModels
             this.model = content.Load<Model>(path);
         }
 
-        public void Draw(Matrix view, Matrix projection) 
+        public void Draw(Matrix view, Matrix projection,GameTime gametime) 
         {
            world = transform * Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
                    * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
@@ -129,7 +129,7 @@ namespace plat_kill.GameModels
                 }
                 mesh.Draw();
             }
-
+            base.Draw(gametime);
         }
     }
 }

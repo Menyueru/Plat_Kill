@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using plat_kill.Helpers;
+using plat_kill.GameModels.Projectiles;
 
 namespace plat_kill.GameModels.Players
 {
@@ -18,6 +19,7 @@ namespace plat_kill.GameModels.Players
 
         private InputManager inputManager;
         private int cameraDistance;
+        private PKGame game;
         #endregion
 
 
@@ -31,11 +33,12 @@ namespace plat_kill.GameModels.Players
 
         #region Constructor
 
-        public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length)
+        public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length,PKGame game)
             : base(id, health, stamina, defense, meleePower, rangePower, speed, jumpSpeed, position, rotationSpeed, mass,width,height,length)
         {
             this.inputManager = new InputManager();
             this.cameraDistance = -200;
+            this.game = game;
         }
 
         #endregion
@@ -75,6 +78,14 @@ namespace plat_kill.GameModels.Players
             if (inputManager.IsKeyPressed(Keys.Space) && !Airborne)
             {
                 jump();
+            }
+
+            if (inputManager.MouseLeftIsPressed())
+            {
+                Projectile bullet = new Projectile(500, Position + World.Forward, 0, 0.1f, .25f, .25f, .25f,game);
+                bullet.LoadContent(game.Content, "Models//Objects//bullet");
+                bullet.Shoot(World.Forward);
+                game.space.Add(bullet.Body);
             }
             #endregion
 
