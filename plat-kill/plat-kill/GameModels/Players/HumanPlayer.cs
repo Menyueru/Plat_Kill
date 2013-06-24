@@ -15,6 +15,7 @@ namespace plat_kill.GameModels.Players
     class HumanPlayer : Player
     {
         #region Property
+
         private InputManager inputManager;
         private int cameraDistance;
         #endregion

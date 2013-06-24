@@ -10,7 +10,9 @@ namespace plat_kill.Components.Camera
     class CameraManager
     {
         #region Field
-        //private PKGame game;
+        private const int zoomInLimit = -25;
+        private const int zoomOutLimit = -200;
+
         private Camera activeCamera;
         private CameraState.State camState;
 
@@ -53,7 +55,7 @@ namespace plat_kill.Components.Camera
         {
             activeCamera.SetTargetToChase(targetPosition, targetRotation, targetHeadOffSet);
 
-            if (activeCamera.thirdPersonReference.Z + cameraDistance < -25 && activeCamera.thirdPersonReference.Z + cameraDistance >=  -200)
+            if (activeCamera.thirdPersonReference.Z + cameraDistance < zoomInLimit && activeCamera.thirdPersonReference.Z + cameraDistance >=  zoomOutLimit)
             {
                 activeCamera.thirdPersonReference.Z += cameraDistance;
             }
