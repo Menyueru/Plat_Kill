@@ -190,7 +190,7 @@ namespace plat_kill.Components.Camera
         /// </summary>
         public void UpdateCameraThirdPerson()
         {
-            Matrix rotationMatrix = Matrix.CreateRotationX(targetRotation.X) 
+            Matrix rotationMatrix = Matrix.CreateRotationX(targetRotation.X)
                                   * Matrix.CreateRotationY(targetRotation.Y)
                                   * Matrix.CreateRotationZ(targetRotation.Z);
 

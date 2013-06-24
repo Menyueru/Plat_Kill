@@ -11,6 +11,7 @@ namespace plat_kill.Components.Camera
     {
         #region Field
         private const int zoomInLimit = 10;
+
         private const int zoomOutLimit = -200;
 
         private Camera activeCamera;
