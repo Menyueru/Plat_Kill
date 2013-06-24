@@ -190,7 +190,9 @@ namespace plat_kill.Components.Camera
         /// </summary>
         public void UpdateCameraThirdPerson()
         {
-            Matrix rotationMatrix = Matrix.CreateRotationX(targetRotation.X) * Matrix.CreateRotationY(targetRotation.Y);
+            Matrix rotationMatrix = Matrix.CreateRotationX(targetRotation.X) 
+                                  * Matrix.CreateRotationY(targetRotation.Y)
+                                  * Matrix.CreateRotationZ(targetRotation.Z);
 
             // Create a vector pointing the direction the camera is facing.
             Vector3 transformedReference = Vector3.Transform(thirdPersonReference, rotationMatrix);
