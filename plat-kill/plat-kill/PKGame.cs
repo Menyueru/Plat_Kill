@@ -45,7 +45,7 @@ namespace plat_kill
             playerManager = new PlayerManager();
             playerManager.AddPlayer(player);
 
-
+            
             base.Initialize();
         }
 
@@ -62,7 +62,13 @@ namespace plat_kill
             
             camManager.UpdateAllCameras(playerManager.GetPlayer(0).Position,
                                         playerManager.GetPlayer(0).Rotation,
-                                        playerManager.GetPlayer(0).PlayerHeadOffset, ((HumanPlayer)playerManager.GetPlayer(0)).CameraDistance);
+                                        playerManager.GetPlayer(0).PlayerHeadOffset,
+                                        ((HumanPlayer)playerManager.GetPlayer(0)).CameraDistance);
+
+            if(Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
 
             base.Update(gameTime);
         }
