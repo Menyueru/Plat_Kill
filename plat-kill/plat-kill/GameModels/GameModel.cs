@@ -103,7 +103,7 @@ namespace plat_kill.GameModels
             this.height = height;
             this.length = length;
             this.width = width;
-            this.transform=Matrix.CreateScale(width,height,length);
+            this.transform = Matrix.CreateScale(width,height,length);
         }
 
         #endregion     

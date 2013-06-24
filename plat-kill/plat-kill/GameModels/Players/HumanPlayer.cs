@@ -57,20 +57,20 @@ namespace plat_kill.GameModels.Players
             #region Keyboard Input
             if (inputManager.IsKeyPressed(Keys.W))
             {
-                MoveForward(dt);
+                MoveForward(-dt); 
             }
             else if (inputManager.IsKeyPressed(Keys.S))
             {
-                MoveForward(-dt);
+                MoveForward(dt);
             }
 
             if (inputManager.IsKeyPressed(Keys.D))
             {
-                MoveRight(dt);
+                MoveRight(-dt); 
             }
             else if (inputManager.IsKeyPressed(Keys.A))
             {
-                MoveRight(-dt);
+                MoveRight(dt);
             }
 
             Move();
@@ -80,15 +80,6 @@ namespace plat_kill.GameModels.Players
                 jump();
             }
 
-            if (inputManager.MouseLeftIsPressed())
-            {
-                Projectile bullet = new Projectile(projectileId,50, Position + World.Forward + new Vector3(0, Height, 0), 0, 0.1f, .25f, .25f, .25f);
-                bullet.LoadContent(game.Content, "Models//Objects//bullet");
-                bullet.Shoot(World.Forward);
-                game.ProjectileManager.AddProjectile(bullet);
-                game.space.Add(game.ProjectileManager.GetProjectile(projectileId++).Body);
-
-            }
             #endregion
 
             #region Mouse Input
@@ -121,6 +112,16 @@ namespace plat_kill.GameModels.Players
             else 
             {
                 cameraDistance = 0;
+            }
+
+            if (inputManager.MouseLeftIsPressed())
+            {
+                Projectile bullet = new Projectile(projectileId, -50, Position + World.Forward + new Vector3(0, Height, 0), 0, 0.1f, .25f, .25f, .25f);
+                bullet.LoadContent(game.Content, "Models//Objects//bullet");
+                bullet.Shoot(World.Forward);
+                game.ProjectileManager.AddProjectile(bullet);
+                game.space.Add(game.ProjectileManager.GetProjectile(projectileId++).Body);
+
             }
             #endregion
 

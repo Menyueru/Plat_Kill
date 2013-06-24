@@ -120,6 +120,7 @@
     <Compile Include="GameModels\Terrain.cs" />
     <Compile Include="Helpers\InputManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
+    <Compile Include="Managers\ProjectileManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PKGame.cs" />

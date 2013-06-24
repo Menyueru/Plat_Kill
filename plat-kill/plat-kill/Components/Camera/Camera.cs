@@ -126,7 +126,7 @@ namespace plat_kill.Components.Camera
         #region Private Methods
         private void SetCameraReferences()
         {            
-            this.cameraReference = new Vector3(0, 0, 10);
+            this.cameraReference = new Vector3(0, 0, -10);
             this.thirdPersonReference = new Vector3(0, 30, -50);
             this.viewAngle = MathHelper.PiOver4;
         }

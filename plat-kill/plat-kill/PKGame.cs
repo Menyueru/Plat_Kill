@@ -42,7 +42,13 @@ namespace plat_kill
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            base.IsMouseVisible = true;
+
+            graphics.PreferredBackBufferWidth = 1366;
+            graphics.PreferredBackBufferHeight = 768;
+            graphics.PreferMultiSampling = false;
+            graphics.IsFullScreen = true;
+            
+            base.IsMouseVisible = false;
         }
 
         protected override void Initialize()
