@@ -15,6 +15,7 @@ namespace plat_kill.Components.Camera
         private Matrix projectionMatrix;
         private Vector3 cameraReference;
         public Vector3 thirdPersonReference;
+        private Vector3 cameraRotation;
         private Vector3 targetRotation;
         private Vector3 targetPosition;
         private Vector3 targetHeadOffSet;
@@ -100,12 +101,13 @@ namespace plat_kill.Components.Camera
         #region Constructors
         public Camera(float aspectRatio)
         {
-            this.rotationSpeed = 1f / 60f;
+            this.rotationSpeed = 5f/60f;
             this.forwardSpeed = 50f / 60f;
             this.nearClip = 1.0f;
             this.farClip = 2000.0f;
             this.aspectRatio = aspectRatio;
-            
+            this.cameraRotation = Vector3.Zero;
+
             SetCameraReferences();
             
         }
@@ -125,7 +127,7 @@ namespace plat_kill.Components.Camera
         private void SetCameraReferences()
         {            
             this.cameraReference = new Vector3(0, 0, 10);
-            this.thirdPersonReference = new Vector3(0, 100, -200);
+            this.thirdPersonReference = new Vector3(0, 30, -50);
             this.viewAngle = MathHelper.PiOver4;
         }
         #endregion
@@ -190,9 +192,10 @@ namespace plat_kill.Components.Camera
         /// </summary>
         public void UpdateCameraThirdPerson()
         {
+            
+
             Matrix rotationMatrix = Matrix.CreateRotationX(targetRotation.X)
-                                  * Matrix.CreateRotationY(targetRotation.Y)
-                                  * Matrix.CreateRotationZ(targetRotation.Z);
+                                  * Matrix.CreateRotationY(targetRotation.Y);
 
             // Create a vector pointing the direction the camera is facing.
             Vector3 transformedReference = Vector3.Transform(thirdPersonReference, rotationMatrix);

@@ -79,20 +79,20 @@ namespace plat_kill.GameModels.Players
             #endregion
 
             #region Mouse Input
-            if(inputManager.IsMouseMovingUp())
+            if (inputManager.IsMouseMovingUp())
             {
                 rotation.Y += RotationSpeed;
             }
-            else if(inputManager.IsMouseMovingDown())
+            else if (inputManager.IsMouseMovingDown())
             {
                 rotation.Y -= RotationSpeed;
             }
 
-            if(inputManager.IsMouseMovingLeft())
+            if (inputManager.IsMouseMovingLeft())
             {
                 rotation.X += RotationSpeed;
             }
-            else if(inputManager.IsMouseMovingRight())
+            else if (inputManager.IsMouseMovingRight())
             {
                 rotation.X -= RotationSpeed;
             }

@@ -43,7 +43,7 @@ namespace plat_kill
             Camera camera = new Camera((float) graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
-            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 40, 50, new Vector3(0,10,0), 1f / 60f, 30,.25f,.25f,.25f);
+            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 40, 50, new Vector3(0,10,0), 5f / 60f, 30,.25f,.25f,.25f);
             player.Load(this.Content, "Models\\PlayerMarine");
             space.Add(player.Body);
         
