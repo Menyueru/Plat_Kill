@@ -61,7 +61,7 @@ namespace plat_kill
 
             projectileManager = new ProjectileManager();
 
-            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 40, 50, new Vector3(0,10,0), 5f / 60f, 30,0.25f,0.25f,0.25f,this);
+            HumanPlayer player = new HumanPlayer(playerID++, 100, 100, 100, 100, 100, 40, 100, new Vector3(0,10,0), 5f / 60f, 30,0.25f,0.25f,0.25f,this);
 
             player.Load(this.Content, "Models\\PlayerMarine");
             space.Add(player.Body);
