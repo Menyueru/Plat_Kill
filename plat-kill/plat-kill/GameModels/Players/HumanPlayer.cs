@@ -75,7 +75,7 @@ namespace plat_kill.GameModels.Players
 
             Move();
 
-            if (inputManager.IsKeyPressed(Keys.Space) && !Airborne)
+            if (inputManager.IsKeyPressed(Keys.Space) && !this.Airborne)
             {
                 jump();
             }
@@ -116,7 +116,7 @@ namespace plat_kill.GameModels.Players
 
             if (inputManager.MouseLeftIsPressed())
             {
-                Projectile bullet = new Projectile(projectileId, -50, Position + World.Forward + new Vector3(0, Height, 0), 0, 0.1f, .25f, .25f, .25f);
+                Projectile bullet = new Projectile(projectileId, -50, Position + Body.OrientationMatrix.Forward + new Vector3(0, 5, 0), 0, 0.1f, .25f, .25f, .25f);
                 bullet.LoadContent(game.Content, "Models//Objects//bullet");
                 bullet.Shoot(World.Forward);
                 game.ProjectileManager.AddProjectile(bullet);
