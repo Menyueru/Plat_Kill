@@ -24,6 +24,7 @@ namespace plat_kill
         GraphicsDeviceManager graphics;
 
         CameraManager camManager;
+
         PlayerManager playerManager;
         ProjectileManager projectileManager;
 

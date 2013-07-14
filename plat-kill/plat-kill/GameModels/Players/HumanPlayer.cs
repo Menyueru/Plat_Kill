@@ -85,6 +85,7 @@ namespace plat_kill.GameModels.Players
             #region Mouse Input
             if (inputManager.IsMouseMovingUp())
             {
+                
                 rotation.Y += RotationSpeed;
             }
             else if (inputManager.IsMouseMovingDown())
@@ -96,7 +97,7 @@ namespace plat_kill.GameModels.Players
             {
                 rotation.X += RotationSpeed;
             }
-            else if (inputManager.IsMouseMovingRight())
+            if (inputManager.IsMouseMovingRight())
             {
                 rotation.X -= RotationSpeed;
             }*/
@@ -123,6 +124,7 @@ namespace plat_kill.GameModels.Players
                 game.space.Add(game.ProjectileManager.GetProjectile(projectileId++).Body);
 
             }
+            
             #endregion
 
         }
