@@ -33,8 +33,8 @@ namespace plat_kill.GameModels.Players
 
         #region Constructor
 
-        public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length,PKGame game)
-            : base(id, health, stamina, defense, meleePower, rangePower, speed, jumpSpeed, position, rotationSpeed, mass,width,height,length)
+        public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length, bool isLocal, PKGame game)
+            : base(id, health, stamina, defense, meleePower, rangePower, speed, jumpSpeed, position, rotationSpeed, mass,width,height,length, isLocal)
         {
             this.inputManager = new InputManager();
             this.cameraDistance = -200;
@@ -48,7 +48,8 @@ namespace plat_kill.GameModels.Players
         public void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-
+            this.VelocityChanged = false;
+            
             float dt = Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             CurrentVelocity = new Vector3(0, Body.LinearVelocity.Y, 0);
 
@@ -57,19 +58,23 @@ namespace plat_kill.GameModels.Players
             #region Keyboard Input
             if (inputManager.IsKeyPressed(Keys.W))
             {
+                this.VelocityChanged = true;
                 MoveForward(-dt); 
             }
             else if (inputManager.IsKeyPressed(Keys.S))
             {
+                this.VelocityChanged = true;
                 MoveForward(dt);
             }
 
             if (inputManager.IsKeyPressed(Keys.D))
             {
+                this.VelocityChanged = true;
                 MoveRight(-dt); 
             }
             else if (inputManager.IsKeyPressed(Keys.A))
             {
+                this.VelocityChanged = true;
                 MoveRight(dt);
             }
 
@@ -77,6 +82,7 @@ namespace plat_kill.GameModels.Players
 
             if (inputManager.IsKeyPressed(Keys.Space) && !this.Airborne)
             {
+                this.VelocityChanged = true;
                 jump();
             }
 

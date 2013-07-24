@@ -11,13 +11,15 @@ using System;
 
 namespace plat_kill.GameModels.Players
 {
-     class Player : GameModel
+     public class Player : GameModel
     {
         #region Properties
 
         private Cylinder body;
         private bool airborne;
         private float radius;
+        private bool isLocal;
+        private bool velocityChanged;
 
 
         private Vector3 currentVelocity;
@@ -37,7 +39,17 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Getter-Setters
-        
+        public bool IsLocal
+        {
+            get { return isLocal; }
+            set { isLocal = value; }
+        }
+        public bool VelocityChanged
+        {
+            get { return velocityChanged; }
+            set { velocityChanged = value; }
+        }
+
         public Cylinder Body
         {
             get { return body; }
@@ -217,7 +229,7 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Initialize
-        public Player(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationspeed, float mass, float width, float height, float length)
+        public Player(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationspeed, float mass, float width, float height, float length, bool isLocal)
             : base(position, rotationspeed, mass, width, height, length)
         {
             this.id = id;
@@ -230,7 +242,9 @@ namespace plat_kill.GameModels.Players
             this.jumpSpeed = jumpSpeed;
             this.playerHeadOffset = new Vector3(0, 10, 0);
             this.currentVelocity = Vector3.Zero;
-            
+            this.isLocal = isLocal;
+            this.velocityChanged = false;
+                
             this.radius = Math.Max(width, length)/2;
         }
 
@@ -246,10 +260,10 @@ namespace plat_kill.GameModels.Players
             body.Tag=Model;
         }
         #endregion
-        protected void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
-            Position = body.Position;
-            airborne = check_support();
+                Position = body.Position;
+                airborne = check_support();
         }
         #endregion
     }

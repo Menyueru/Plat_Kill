@@ -63,6 +63,12 @@
     <Reference Include="BEPUphysics">
       <HintPath>..\bepu\BEPUphysics.dll</HintPath>
     </Reference>
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\lidgren\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Lidgren.Network.Xna">
+      <HintPath>..\lidgren\Lidgren.Network.Xna.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
       <Private>False</Private>
     </Reference>
@@ -113,6 +119,8 @@
     <Compile Include="Components\Camera\Camera.cs" />
     <Compile Include="Components\Camera\CameraManager.cs" />
     <Compile Include="Components\Camera\CameraState.cs" />
+    <Compile Include="Events\PlayerStateChangedArgs.cs" />
+    <Compile Include="Events\ShotFiredArgs.cs" />
     <Compile Include="GameModels\GameModel.cs" />
     <Compile Include="GameModels\Players\HumanPlayer.cs" />
     <Compile Include="GameModels\Players\Player.cs" />
@@ -121,6 +129,13 @@
     <Compile Include="Helpers\InputManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Managers\ProjectileManager.cs" />
+    <Compile Include="Networking\ClientNetworkManager.cs" />
+    <Compile Include="Networking\INetworkManager.cs" />
+    <Compile Include="Networking\Messages\GameMessageTypes.cs" />
+    <Compile Include="Networking\Messages\IGameMessage.cs" />
+    <Compile Include="Networking\Messages\ShotFiredMessage.cs" />
+    <Compile Include="Networking\Messages\UpdatePlayerStateMessage.cs" />
+    <Compile Include="Networking\ServerNetworkManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PKGame.cs" />

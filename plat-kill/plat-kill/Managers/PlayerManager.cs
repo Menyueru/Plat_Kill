@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using plat_kill.GameModels;
 using plat_kill.GameModels.Players;
+using plat_kill.Events;
 
 namespace plat_kill.Managers
 {
@@ -17,7 +18,13 @@ namespace plat_kill.Managers
     {
         #region Propierties, Getters and Setters
 
+        public event EventHandler<PlayerStateChangedArgs> PlayerStateChanged;
+
         private Dictionary<long, Player> players;
+
+        private long LocalPlayer;
+
+        private static long playerIDs;
 
         public IEnumerable<Player> Players
         {
@@ -37,9 +44,25 @@ namespace plat_kill.Managers
         #endregion
 
         #region Methods
+        protected void OnPlayerStateChanged(Player player)
+        {
+            EventHandler<PlayerStateChangedArgs> playerStateChanged = this.PlayerStateChanged;
+            if (playerStateChanged != null)
+            {
+                playerStateChanged(this, new PlayerStateChangedArgs(player));
+            }
+        }
+
         public void AddPlayer(Player player) 
         {
-            players.Add(player.Id, player);
+            if (!players.ContainsKey(player.Id))
+            {
+                players.Add(player.Id, player);
+                if (player.IsLocal)
+                {
+                    LocalPlayer = player.Id;
+                }
+            }
         }
 
         public Player GetPlayer(long playerID) 
@@ -63,12 +86,26 @@ namespace plat_kill.Managers
 
         public void UpdateAllPlayers(GameTime gameTime) 
         {
-            foreach (HumanPlayer player in this.Players)
+            if ((this.GetPlayer(this.LocalPlayer) != null))
             {
-                player.Update(gameTime);
+                if (this.GetPlayer(this.LocalPlayer).Body != null)
+                    this.OnPlayerStateChanged(this.GetPlayer(this.LocalPlayer));
+                
+            }
+
+            foreach (long key in players.Keys)
+            {
+                if (key == LocalPlayer)
+                {
+                    ((HumanPlayer)players[key]).Update(gameTime);
+                }
+                else
+                {
+                    players[key].Update(gameTime);
+                }
             }
         }
-
+       
         #endregion
 
     }
