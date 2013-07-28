@@ -57,80 +57,81 @@ namespace plat_kill.GameModels.Players
             CurrentVelocity = new Vector3(0, Body.LinearVelocity.Y, 0);
 
             inputManager.Update();
+            if (game.IsActive)
+            {
+                #region Keyboard Input
+                if (inputManager.IsKeyPressed(Keys.W))
+                {
+                    this.VelocityChanged = true;
+                    MoveForward(-dt);
+                }
+                else if (inputManager.IsKeyPressed(Keys.S))
+                {
+                    this.VelocityChanged = true;
+                    MoveForward(dt);
+                }
 
-            #region Keyboard Input
-            if (inputManager.IsKeyPressed(Keys.W))
-            {
-                this.VelocityChanged = true;
-                MoveForward(-dt); 
-            }
-            else if (inputManager.IsKeyPressed(Keys.S))
-            {
-                this.VelocityChanged = true;
-                MoveForward(dt);
-            }
+                if (inputManager.IsKeyPressed(Keys.D))
+                {
+                    this.VelocityChanged = true;
+                    MoveRight(-dt);
+                }
+                else if (inputManager.IsKeyPressed(Keys.A))
+                {
+                    this.VelocityChanged = true;
+                    MoveRight(dt);
+                }
 
-            if (inputManager.IsKeyPressed(Keys.D))
-            {
-                this.VelocityChanged = true;
-                MoveRight(-dt); 
-            }
-            else if (inputManager.IsKeyPressed(Keys.A))
-            {
-                this.VelocityChanged = true;
-                MoveRight(dt);
-            }
+                Move();
 
-            Move();
+                if (inputManager.IsKeyPressed(Keys.Space) && !this.Airborne)
+                {
+                    this.VelocityChanged = true;
+                    jump();
+                }
 
-            if (inputManager.IsKeyPressed(Keys.Space) && !this.Airborne)
-            {
-                this.VelocityChanged = true;
-                jump();
-            }
+                #endregion
 
-            #endregion
+                #region Mouse Input
+                if (inputManager.IsMouseMovingUp())
+                {
 
-            #region Mouse Input
-            if (inputManager.IsMouseMovingUp())
-            {
-                
-                rotation.Y += RotationSpeed;
-            }
-            else if (inputManager.IsMouseMovingDown())
-            {
-                rotation.Y -= RotationSpeed;
-            }
+                    rotation.Y += RotationSpeed;
+                }
+                else if (inputManager.IsMouseMovingDown())
+                {
+                    rotation.Y -= RotationSpeed;
+                }
 
-            /*if (inputManager.IsMouseMovingLeft())
-            {
-                rotation.X += RotationSpeed;
-            }
-            if (inputManager.IsMouseMovingRight())
-            {
-                rotation.X -= RotationSpeed;
-            }*/
+                /*if (inputManager.IsMouseMovingLeft())
+                {
+                    rotation.X += RotationSpeed;
+                }
+                if (inputManager.IsMouseMovingRight())
+                {
+                    rotation.X -= RotationSpeed;
+                }*/
 
-            if(inputManager.IsMouseScrollingUp())
-            {
-                cameraDistance += 5;
-            }
-            else if (inputManager.IsMouseScrollingDown())
-            {
-                cameraDistance -= 5;
-            }
-            else 
-            {
-                cameraDistance = 0;
-            }
+                if (inputManager.IsMouseScrollingUp())
+                {
+                    cameraDistance += 5;
+                }
+                else if (inputManager.IsMouseScrollingDown())
+                {
+                    cameraDistance -= 5;
+                }
+                else
+                {
+                    cameraDistance = 0;
+                }
 
-            if (inputManager.MouseLeftIsPressed())
-            {
-                game.ProjectileManager.FireProjectile(ProjectileType.Bullet, this);
-            }
-            
-            #endregion
+                if (inputManager.MouseLeftIsPressed())
+                {
+                    game.ProjectileManager.FireProjectile(ProjectileType.Bullet, this);
+                }
 
+                #endregion
+            } 
         }
         
         #endregion
