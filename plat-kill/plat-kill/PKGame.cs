@@ -29,7 +29,7 @@ namespace plat_kill
         CameraManager camManager;
 
         PlayerManager playerManager;
-
+        
         ProjectileManager projectileManager;
 
         private INetworkManager networkManager;
@@ -49,6 +49,7 @@ namespace plat_kill
             set { projectileManager = value; }
         }
 
+        private SkyBox skyBox;
         private Terrain map;
         private Space space;
 
@@ -70,7 +71,7 @@ namespace plat_kill
             graphics.PreferredBackBufferHeight = 600;
             graphics.PreferMultiSampling = false;
             graphics.IsFullScreen = false;
-
+            
             this.networkManager = networkManager;
             
             base.IsMouseVisible = false;
@@ -106,6 +107,7 @@ namespace plat_kill
 
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
+            skyBox = new SkyBox(graphics.GraphicsDevice);
             map = new Terrain();        
 
             base.Initialize();
@@ -116,6 +118,8 @@ namespace plat_kill
             map.LoadContent(this.Content, "Models\\Maps\\playground");
             space.Add(map.Mesh);
 
+            skyBox.Load(this.Content, "Textures\\SkyBoxes\\BlueSky\\SkyEffect", "Textures\\SkyBoxes\\BlueSky\\SkyBoxTex");
+
             base.LoadContent();
         }
 
@@ -124,6 +128,7 @@ namespace plat_kill
             space.Update();
             ProcessNetworkMessages();
             playerManager.UpdateAllPlayers(gameTime);
+            projectileManager.UpdateAllBullets();
 
             if (playerManager.GetPlayer(localPlayerId) != null)
             {
@@ -257,10 +262,13 @@ namespace plat_kill
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            skyBox.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            map.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+
             playerManager.DrawAllPlayers(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            projectileManager.UpdateAllBullets();
-            map.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+
+
             base.Draw(gameTime);
         }
       
