@@ -94,7 +94,7 @@ namespace plat_kill
             if(this.IsHost)
             {
                 localPlayerId = playerID++;
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 10, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f, true, this);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f, true, this);
                 player.Load(Content, "Models\\Characters\\dude");
                 space.Add(player.Body);
                 playerManager.AddPlayer(player);
@@ -106,14 +106,16 @@ namespace plat_kill
 
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
-            map = new Terrain();        
+            //map = new Terrain();
+            map = new Terrain("Models//Maps//heightmap", new String[] { "Textures//sand", "Textures//grass", "Textures//rock", "Textures//rock2" });
 
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            map.LoadContent(this.Content, "Models\\Maps\\playground");
+            //map.LoadContent(this.Content, "Models\\Maps\\playground");
+            map.LoadContent(Content);
             space.Add(map.Mesh);
 
             base.LoadContent();
@@ -260,7 +262,8 @@ namespace plat_kill
             playerManager.DrawAllPlayers(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             projectileManager.UpdateAllBullets();
-            map.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            //map.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            map.Draw(GraphicsDevice,camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             base.Draw(gameTime);
         }
       
