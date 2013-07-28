@@ -2,6 +2,7 @@
 using Lidgren.Network.Xna;
 using Microsoft.Xna.Framework;
 using plat_kill.GameModels.Players;
+using plat_kill.Helpers;
 
 namespace plat_kill.Networking.Messages
 {
@@ -43,6 +44,7 @@ namespace plat_kill.Networking.Messages
             this.Velocity = player.CurrentVelocity;
             this.Rotation = player.Rotation;
             this.MessageTime = NetTime.Now;
+            this.CharacterState = player.CharecterState;
         }
 
         #endregion
@@ -84,6 +86,12 @@ namespace plat_kill.Networking.Messages
         /// Gets or sets Velocity.
         /// </summary>
         public Vector3 Velocity { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets CharacterState.
+        /// </summary>
+        public CharacterState CharacterState { get; set; }
 
         #endregion
 

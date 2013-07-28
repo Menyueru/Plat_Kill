@@ -29,7 +29,9 @@ namespace plat_kill
         CameraManager camManager;
 
         PlayerManager playerManager;
+
         ProjectileManager projectileManager;
+
         private INetworkManager networkManager;
         private long localPlayerId;
 
@@ -47,8 +49,15 @@ namespace plat_kill
             set { projectileManager = value; }
         }
 
-        Terrain map;
-        public Space space;
+        private Terrain map;
+        private Space space;
+
+        public Space Space
+        {
+            get { return space; }
+            set { space = value; }
+        }
+        
 
         long playerID = 0;
 
@@ -71,19 +80,22 @@ namespace plat_kill
         {
             this.networkManager.Connect();
 
-            space = new Space();
-            space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
+            this.space = new Space();
+            this.space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
+
             Camera camera = new Camera((float) graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
 
-            projectileManager = new ProjectileManager();
-            playerManager = new PlayerManager();
+            this.projectileManager = new ProjectileManager(this);
+            this.projectileManager.ShotFired += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.Shot));
+
+            this.playerManager = new PlayerManager();
             this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
 
             if(this.IsHost)
             {
                 localPlayerId = playerID++;
                 HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 10, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f, true, this);
-                player.Load(Content, "Models\\PlayerMarine");
+                player.Load(Content, "Models\\Characters\\dude");
                 space.Add(player.Body);
                 playerManager.AddPlayer(player);
                 camera.SetTargetToChase(playerManager.GetPlayer(localPlayerId).Position, playerManager.GetPlayer(localPlayerId).Rotation,
@@ -103,6 +115,7 @@ namespace plat_kill
         {
             map.LoadContent(this.Content, "Models\\Maps\\playground");
             space.Add(map.Mesh);
+
             base.LoadContent();
         }
 
@@ -155,7 +168,7 @@ namespace plat_kill
                                     var message = new UpdatePlayerStateMessage(im.SenderConnection.RemoteHailMessage);
                                     localPlayerId = message.Id;
                                     HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 10, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f,true,this);
-                                    player.Load(this.Content, "Models\\PlayerMarine");
+                                    player.Load(this.Content, "Models\\Characters\\dude");
                                     space.Add(player.Body);
                                     playerManager.AddPlayer(player);
                                     camManager.ActiveCamera.SetTargetToChase(playerManager.GetPlayer(localPlayerId).Position, playerManager.GetPlayer(localPlayerId).Rotation,
@@ -175,7 +188,7 @@ namespace plat_kill
                             case NetConnectionStatus.RespondedAwaitingApproval:
                                 NetOutgoingMessage hailMessage = this.networkManager.CreateMessage();
                                 Player player1= new Player(playerID++, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 10, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f,false);
-                                player1.Load(Content, "Models\\PlayerMarine");
+                                player1.Load(Content, "Models\\Characters\\dude");
                                 space.Add(player1.Body);
                                 playerManager.AddPlayer(player1);
                                 new UpdatePlayerStateMessage(player1).Encode(hailMessage);
@@ -207,12 +220,11 @@ namespace plat_kill
         {
             var message = new ShotFiredMessage(im);
 
-            var timeDelay = (float)(NetTime.Now - im.SenderConnection.GetLocalTime(message.MessageTime));
-
-            Vector3 adjustedPosition = message.Position + (message.Velocity * timeDelay);
+            if (message.FiredById != localPlayerId)
+            {
+                this.projectileManager.FireProjectile(ProjectileType.Bullet, playerManager.GetPlayer(message.FiredById));
+            }
             
-            /*this.shotManager.FireShot(
-                message.Id, adjustedPosition, message.Velocity, message.FiredById, message.FiredByPlayer);*/
         }
 
         private void HandleUpdatePlayerStateMessage(NetIncomingMessage im)
@@ -229,11 +241,12 @@ namespace plat_kill
             else 
             {
                 player = new Player(message.Id, 100, 100, 100, 100, 100, 40, 100, message.Position, 5f / 60f, 30, 0.25f, 0.25f, 0.25f,false);
-                player.Load(this.Content, "Models\\PlayerMarine");
+                player.Load(this.Content, "Models\\Characters\\dude");
                 space.Add(player.Body);    
                 playerManager.AddPlayer(player);
-            }           
+            }
 
+            player.CharecterState = message.CharacterState;
             player.Body.LinearVelocity = message.Velocity;                                        
             player.Position = message.Position += message.Velocity * timeDelay;
             player.Rotation = message.Rotation;

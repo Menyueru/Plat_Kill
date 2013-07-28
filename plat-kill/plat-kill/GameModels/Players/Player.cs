@@ -7,11 +7,12 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using plat_kill.Helpers;
 using System;
 
 namespace plat_kill.GameModels.Players
 {
-     public class Player : GameModel
+     public class Player : AnimatedModel
     {
         #region Properties
 
@@ -21,7 +22,8 @@ namespace plat_kill.GameModels.Players
         private bool isLocal;
         private bool velocityChanged;
 
-
+        private CharacterState charecterState;
+        
         private Vector3 currentVelocity;
         private long defense;
         private long health;
@@ -32,13 +34,18 @@ namespace plat_kill.GameModels.Players
         private float speed;
         private long stamina;
 
-
         private Vector3 playerHeadOffset;
         
-
         #endregion
 
         #region Getter-Setters
+
+        public CharacterState CharecterState
+        {
+            get { return charecterState; }
+            set { charecterState = value; }
+        }
+
         public bool IsLocal
         {
             get { return isLocal; }
@@ -212,12 +219,14 @@ namespace plat_kill.GameModels.Players
         {
             currentVelocity += World.Forward * (dt * speed);
             currentVelocity.Y = Body.LinearVelocity.Y;
+            this.charecterState = CharacterState.Walk;
         }
 
         protected void MoveRight(float dt)
         {
             currentVelocity += World.Right * (dt * speed);
             currentVelocity.Y = Body.LinearVelocity.Y;
+            this.charecterState = CharacterState.Walk;
         }
 
         protected void jump()
@@ -244,10 +253,9 @@ namespace plat_kill.GameModels.Players
             this.currentVelocity = Vector3.Zero;
             this.isLocal = isLocal;
             this.velocityChanged = false;
-                
             this.radius = Math.Max(width, length)/2;
+            this.charecterState = CharacterState.Idle;
         }
-
 
 
         public void Load(ContentManager content, String path)
@@ -257,13 +265,29 @@ namespace plat_kill.GameModels.Players
             CalculateHeightRadius(out h, out r);
             body = new Cylinder(Position, height* h, radius*r, mass);
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
-            body.Tag=Model;
+            body.Tag = Model;
         }
         #endregion
-        public void Update(GameTime gameTime)
+        
+         public void Update(GameTime gameTime)
         {
-                Position = body.Position;
-                airborne = check_support();
+            base.Update(gameTime);
+
+            if (this.CharecterState.Equals(CharacterState.Idle))
+            {
+                this.Refresh = false;
+                this.AnimationPlayer.Update(new TimeSpan(0, 0, 0), true, Matrix.Identity);
+            }
+            else if (this.CharecterState.Equals(CharacterState.Walk))
+            {
+                this.Refresh = true;
+                this.AnimationPlayer.Update(gameTime.ElapsedGameTime, true, Matrix.Identity);
+            }
+
+            Position = body.Position;
+            airborne = check_support();
+
+
         }
         #endregion
     }

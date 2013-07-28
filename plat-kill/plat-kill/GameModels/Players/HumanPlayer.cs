@@ -20,9 +20,10 @@ namespace plat_kill.GameModels.Players
         private InputManager inputManager;
         private int cameraDistance;
         private PKGame game;
+
         #endregion
 
-        private long projectileId = 0;
+       
         #region Getter-Setter
         public int CameraDistance
         {
@@ -36,7 +37,7 @@ namespace plat_kill.GameModels.Players
         public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length, bool isLocal, PKGame game)
             : base(id, health, stamina, defense, meleePower, rangePower, speed, jumpSpeed, position, rotationSpeed, mass,width,height,length, isLocal)
         {
-            this.inputManager = new InputManager();
+            this.inputManager = new InputManager(game);
             this.cameraDistance = -200;
             this.game = game;
         }
@@ -48,7 +49,9 @@ namespace plat_kill.GameModels.Players
         public void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+
             this.VelocityChanged = false;
+            this.CharecterState = CharacterState.Idle;
             
             float dt = Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             CurrentVelocity = new Vector3(0, Body.LinearVelocity.Y, 0);
@@ -123,12 +126,7 @@ namespace plat_kill.GameModels.Players
 
             if (inputManager.MouseLeftIsPressed())
             {
-                Projectile bullet = new Projectile(projectileId, -50, Position + Body.OrientationMatrix.Forward + new Vector3(0, 5, 0), 0, 0.1f, .25f, .25f, .25f);
-                bullet.LoadContent(game.Content, "Models//Objects//bullet");
-                bullet.Shoot(World.Forward);
-                game.ProjectileManager.AddProjectile(bullet);
-                game.space.Add(game.ProjectileManager.GetProjectile(projectileId++).Body);
-
+                game.ProjectileManager.FireProjectile(ProjectileType.Bullet, this);
             }
             
             #endregion

@@ -13,19 +13,18 @@ namespace plat_kill.Helpers
         private KeyboardState lastKeyBoardState;
         private KeyboardState currentKeyBoardState;
 
-        private Dictionary<Buttons, Keys> keyBoardMap;
+        private PKGame game;
 
         private MouseState lastMouseState;
         private MouseState currentMouseState;
-
 
         #endregion 
         
         #region Constructors
 
-        public InputManager() 
+        public InputManager(PKGame game) 
         {
-            
+            this.game = game;
             
         }
         
@@ -36,11 +35,15 @@ namespace plat_kill.Helpers
         
         public void Update()
         {
-            lastKeyBoardState = currentKeyBoardState;
-            currentKeyBoardState = Keyboard.GetState();
+            if(game.IsActive)
+            {
+                lastKeyBoardState = currentKeyBoardState;
+                currentKeyBoardState = Keyboard.GetState();
 
-            lastMouseState = currentMouseState;
-            currentMouseState = Mouse.GetState();
+                lastMouseState = currentMouseState;
+                currentMouseState = Mouse.GetState();
+            }
+
         }
 
         public bool IsKeyPressed(Keys key)

@@ -99,6 +99,12 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="SkinnedModel">
+      <HintPath>..\skinnedModel\SkinnedModel.dll</HintPath>
+    </Reference>
+    <Reference Include="SkinnedModelPipeline">
+      <HintPath>..\skinnedModel\SkinnedModelPipeline.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
@@ -121,11 +127,15 @@
     <Compile Include="Components\Camera\CameraState.cs" />
     <Compile Include="Events\PlayerStateChangedArgs.cs" />
     <Compile Include="Events\ShotFiredArgs.cs" />
+    <Compile Include="GameModels\AnimatedModel.cs" />
     <Compile Include="GameModels\GameModel.cs" />
     <Compile Include="GameModels\Players\HumanPlayer.cs" />
     <Compile Include="GameModels\Players\Player.cs" />
     <Compile Include="GameModels\Projectiles\Projectile.cs" />
+    <Compile Include="GameModels\Projectiles\ProjectileType.cs" />
+    <Compile Include="GameModels\StaticModel.cs" />
     <Compile Include="GameModels\Terrain.cs" />
+    <Compile Include="Helpers\CharacterState.cs" />
     <Compile Include="Helpers\InputManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Managers\ProjectileManager.cs" />

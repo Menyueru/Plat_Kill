@@ -34,7 +34,7 @@ namespace plat_kill.Networking.Messages
             this.Id = shot.ProjectileID;
             this.Position = shot.Position;
             this.Velocity = shot.Body.LinearVelocity;
-            //this.FiredByPlayer = shot.FiredByPlayer;
+            this.FiredById = shot.FiredByPlayerID;
             this.MessageTime = NetTime.Now;
         }
 
