@@ -32,11 +32,6 @@ namespace plat_kill.Networking
         public ClientNetworkManager(string serverIP)
         {
             this.serverIP = serverIP;
-            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Debug.AutoFlush = true;
-            Debug.Indent();
-            Debug.WriteLine("Entering Constructor" + serverIP);
-            Debug.Unindent();
         }
 
         /// <summary>
@@ -49,12 +44,6 @@ namespace plat_kill.Networking
                     //SimulatedMinimumLatency = 0.2f, 
                     // SimulatedLoss = 0.1f
                 };
-            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
-            Debug.AutoFlush = true;
-            Debug.Indent();
-            Debug.WriteLine("Entering Connect");
-            Debug.Unindent();
-
             config.EnableMessageType(NetIncomingMessageType.WarningMessage);
             config.EnableMessageType(NetIncomingMessageType.VerboseDebugMessage);
             config.EnableMessageType(NetIncomingMessageType.ErrorMessage);
