@@ -18,13 +18,16 @@ using plat_kill.GameModels.Projectiles;
 using plat_kill.Networking;
 using Lidgren.Network;
 using plat_kill.Networking.Messages;
+using plat_kill.GameScreens.ScreenComponents;
 
 
 namespace plat_kill
 {
-    public class PKGame : Microsoft.Xna.Framework.Game
+    public class PKGame : GameScreen
     {
-        GraphicsDeviceManager graphics;
+        #region Field and Propierties
+        public GraphicsDevice graphicsDevice { get; set; }
+        public ContentManager Content { get; set; }
 
         CameraManager camManager;
 
@@ -62,29 +65,29 @@ namespace plat_kill
 
         long playerID = 0;
 
-        public PKGame(INetworkManager networkManager)
-        {
-            graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+        #endregion
 
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 600;
-            graphics.PreferMultiSampling = false;
-            graphics.IsFullScreen = false;
+        #region Constructor
+        public PKGame(INetworkManager networkManager, ContentManager Content, GraphicsDevice graphicsDevice)
+        {
+            this.Content = Content;
+            this.graphicsDevice = graphicsDevice;
+            
             
             this.networkManager = networkManager;
-            
-            base.IsMouseVisible = false;
-        }
 
-        protected override void Initialize()
+        }
+        #endregion 
+
+        #region Methods
+        public void Initialize()
         {
             this.networkManager.Connect();
 
             this.space = new Space();
             this.space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
-
-            Camera camera = new Camera((float) graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
+            
+            Camera camera = new Camera((float) graphicsDevice.Viewport.Width / (float)graphicsDevice.Viewport.Width);
 
             this.projectileManager = new ProjectileManager(this);
             this.projectileManager.ShotFired += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.Shot));
@@ -107,27 +110,20 @@ namespace plat_kill
 
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
-            skyBox = new SkyBox(graphics.GraphicsDevice);
-            //map = new Terrain();        
+            skyBox = new SkyBox(graphicsDevice);
 
-            //map = new Terrain();
             map = new Terrain("Models//Maps//heightmap", new String[] { "Textures//sand", "Textures//grass", "Textures//rock", "Textures//rock2" });
-
-            base.Initialize();
         }
 
-        protected override void LoadContent()
+        public void LoadContent()
         {
-            //map.LoadContent(this.Content, "Models\\Maps\\playground");
             map.LoadContent(Content);
             space.Add(map.Mesh);
 
             skyBox.Load(this.Content, "Textures\\SkyBoxes\\BlueSky\\SkyEffect", "Textures\\SkyBoxes\\BlueSky\\SkyBoxTex");
-
-            base.LoadContent();
         }
 
-        protected override void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             space.Update();
             ProcessNetworkMessages();
@@ -141,17 +137,7 @@ namespace plat_kill
                                             playerManager.GetPlayer(localPlayerId).PlayerHeadOffset,
                                             ((HumanPlayer)playerManager.GetPlayer(localPlayerId)).CameraDistance);
             }
-            else {
-                Exit();
-            }
-            
-            
-            if(Keyboard.GetState().IsKeyDown(Keys.Escape))
-            {
-                Exit();
-            }
 
-            base.Update(gameTime);
         }
 
         private void ProcessNetworkMessages()
@@ -262,25 +248,18 @@ namespace plat_kill
 
         }
 
-        protected override void Draw(GameTime gameTime)
+        public void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
-
             skyBox.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            //map.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
 
             playerManager.DrawAllPlayers(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
 
-
-
-
-            projectileManager.UpdateAllBullets();
-            //map.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            map.Draw(GraphicsDevice,camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            map.Draw(graphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
 
             base.Draw(gameTime);
         }
-      
+        #endregion
+
     }
 }

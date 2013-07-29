@@ -2,6 +2,7 @@
 using System.Net;
 using Lidgren.Network;
 using plat_kill.Networking.Messages;
+using System.Diagnostics;
 
 namespace plat_kill.Networking
 {
@@ -22,9 +23,16 @@ namespace plat_kill.Networking
         /// </summary>
         private NetClient netClient;
 
+        private string serverIP;
+
         #endregion
 
         #region Public Methods and Operators
+
+        public ClientNetworkManager(string serverIP)
+        {
+            this.serverIP = serverIP;
+        }
 
         /// <summary>
         /// The connect.
@@ -36,7 +44,6 @@ namespace plat_kill.Networking
                     //SimulatedMinimumLatency = 0.2f, 
                     // SimulatedLoss = 0.1f
                 };
-
             config.EnableMessageType(NetIncomingMessageType.WarningMessage);
             config.EnableMessageType(NetIncomingMessageType.VerboseDebugMessage);
             config.EnableMessageType(NetIncomingMessageType.ErrorMessage);
@@ -47,7 +54,7 @@ namespace plat_kill.Networking
             this.netClient = new NetClient(config);
             this.netClient.Start();
 
-            this.netClient.Connect(new IPEndPoint(NetUtility.Resolve("127.0.0.1"), Convert.ToInt32("14242")));
+            this.netClient.Connect(new IPEndPoint(NetUtility.Resolve(this.serverIP), Convert.ToInt32("14242")));
         }
 
         /// <summary>

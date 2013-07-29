@@ -1,4 +1,6 @@
 using Microsoft.Xna.Framework;
+using plat_kill.Components.GameScreens.Screens;
+using plat_kill.Networking;
 
 namespace plat_kill.GameScreens.Screens
 {
@@ -17,18 +19,18 @@ namespace plat_kill.GameScreens.Screens
             : base("Main Menu")
         {
             // Create our menu entries.
-            MenuEntry playGameMenuEntry = new MenuEntry("Play Game");
-            MenuEntry optionsMenuEntry = new MenuEntry("Options");
+            MenuEntry serverGameMenuEntry = new MenuEntry("Server Mode");
+            MenuEntry clientMenuEntry = new MenuEntry("Client Mode");
             MenuEntry exitMenuEntry = new MenuEntry("Exit");
 
             // Hook up menu event handlers.
-            playGameMenuEntry.Selected += PlayGameMenuEntrySelected;
-            optionsMenuEntry.Selected += OptionsMenuEntrySelected;
+            serverGameMenuEntry.Selected += ServerGameMenuEntrySelected;
+            clientMenuEntry.Selected += ClientGameMenuEntrySelected;
             exitMenuEntry.Selected += OnCancel;
 
             // Add entries to the menu.
-            MenuEntries.Add(playGameMenuEntry);
-            MenuEntries.Add(optionsMenuEntry);
+            MenuEntries.Add(serverGameMenuEntry);
+            MenuEntries.Add(clientMenuEntry);
             MenuEntries.Add(exitMenuEntry);
         }
 
@@ -41,19 +43,18 @@ namespace plat_kill.GameScreens.Screens
         /// <summary>
         /// Event handler for when the Play Game menu entry is selected.
         /// </summary>
-        void PlayGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        void ServerGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            /*LoadingScreen.Load(ScreenManager, true, e.PlayerIndex,
-                               new GameplayScreen());*/
+            LoadingScreen.Load(ScreenManager, true, e.PlayerIndex, new GameplayScreen(new ServerNetworkManager()));
         }
 
 
         /// <summary>
         /// Event handler for when the Options menu entry is selected.
         /// </summary>
-        void OptionsMenuEntrySelected(object sender, PlayerIndexEventArgs e)
+        void ClientGameMenuEntrySelected(object sender, PlayerIndexEventArgs e)
         {
-            //ScreenManager.AddScreen(new OptionsMenuScreen(), e.PlayerIndex);
+            ScreenManager.AddScreen(new ClientInputScreen(), e.PlayerIndex);
         }
 
 
@@ -62,7 +63,7 @@ namespace plat_kill.GameScreens.Screens
         /// </summary>
         protected override void OnCancel(PlayerIndex playerIndex)
         {
-            const string message = "Are you sure you want to exit this sample?";
+            const string message = "Are you sure you want to exit the game?";
 
             MessageBoxScreen confirmExitMessageBox = new MessageBoxScreen(message);
 

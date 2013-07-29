@@ -18,34 +18,21 @@ namespace plat_kill
         #endregion
 
         #region Constructor
-        public PlatKillGame() 
+        public PlatKillGame()
         {
             graphics = new GraphicsDeviceManager(this);
-            
-           TargetElapsedTime = TimeSpan.FromTicks(333333);
+
+            TargetElapsedTime = TimeSpan.FromTicks(333333);
 
             Content.RootDirectory = "Content";
 
             graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 600;
+            graphics.PreferredBackBufferHeight = 480;
             graphics.PreferMultiSampling = false;
             graphics.IsFullScreen = false;
-            
 
             base.IsMouseVisible = false;
-        }
-        #endregion
 
-        #region Methods
-
-        private void AddInitialScreens() 
-        {
-            screenManager.AddScreen(new BackgroundScreen(), null);
-            screenManager.AddScreen(new MainMenuScreen(), null);
-        }
-
-        protected override void Initialize()
-        {
             // Create the screen factory and add it to the Services
             screenFactory = new ScreenFactory();
             Services.AddService(typeof(IScreenFactory), screenFactory);
@@ -56,6 +43,15 @@ namespace plat_kill
             Components.Add(screenManager);
 
             AddInitialScreens();
+        }
+        #endregion
+
+        #region Methods
+
+        private void AddInitialScreens()
+        {
+            screenManager.AddScreen(new BackgroundScreen(), null);
+            screenManager.AddScreen(new TitleScreen(), null);
         }
 
         protected override void Draw(GameTime gameTime)

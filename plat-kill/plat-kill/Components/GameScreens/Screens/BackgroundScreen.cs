@@ -51,7 +51,7 @@ namespace plat_kill.GameScreens.Screens
                     content = new ContentManager(ScreenManager.Game.Services, "Content");
                 }
 
-                backgroundTexture = content.Load<Texture2D>("background");
+                backgroundTexture = content.Load<Texture2D>("Textures\\background");
             }
         }
 

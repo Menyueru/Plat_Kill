@@ -133,6 +133,9 @@
     <Compile Include="Components\GameScreens\ScreenComponents\ScreenManager.cs" />
     <Compile Include="Components\GameScreens\Screens\BackgroundScreen.cs" />
     <Compile Include="Components\GameScreens\Screens\Button.cs" />
+    <Compile Include="Components\GameScreens\Screens\ClientInputScreen.cs" />
+    <Compile Include="Components\GameScreens\Screens\GameplayScreen.cs" />
+    <Compile Include="Components\GameScreens\Screens\LoadingScreen.cs" />
     <Compile Include="Components\GameScreens\Screens\MainMenuScreen.cs" />
     <Compile Include="Components\GameScreens\Screens\MenuEntry.cs" />
     <Compile Include="Components\GameScreens\Screens\MenuScreen.cs" />
