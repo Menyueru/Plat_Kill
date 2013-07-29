@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="1c6ab666-fbbf-483c-90a0-d07aec10176c"
+  name="Components"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="a24354b0-2096-4224-8f9d-f2accd7789fb"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dplat_kill.Components"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="99e55832-b1e2-4538-98cb-0c6e41211f3f"
+        LastKnownName="Camera"
+        LastKnownLocation="Package27_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="cd771b28-6c39-4c22-b8b9-6da9c08e1a28"
+        LastKnownName="GameScreens"
+        LastKnownLocation="Package30_1659.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

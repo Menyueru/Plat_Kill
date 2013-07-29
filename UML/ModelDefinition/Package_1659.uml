@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="7cf973c2-939d-433c-b371-ceb52fa62560"
+  name="plat_kill"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="360a504b-4a87-4417-b102-e7b96eb48708"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dplat_kill"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c23e52aa-834e-4d4a-b1b5-42b2bd754c7e"
+        LastKnownName="GameModels"
+        LastKnownLocation="Package1_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d39f0ca8-bf5e-4052-b960-98a01c456fdc"
+        LastKnownName="Managers"
+        LastKnownLocation="Package11_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e4b3b485-765c-42b9-a908-2e8a3c360b8a"
+        name="PKGame"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="023a66a3-e5f2-4704-909c-950e7a6fcfca"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="458a5ec1-76da-4ba2-aeff-d6f1d83c6ba9"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6b88f372-f543-4726-993b-4108319d1d1b">
+                <propertyInstance
+                  Id="1ec9a827-43ba-46fe-9c2b-2842915ece94"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="09c9ced9-9574-41e4-9c75-1dcdd1a00bd7">
+                <propertyInstance
+                  Id="bb200150-71d5-42d3-b312-a48d73e195d5"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cc846281-1474-4876-a06b-42d7d54cbc98">
+                <propertyInstance
+                  Id="177e6ec3-8fdf-41e5-b643-051553be208f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bcc324bf-af5a-48c0-8bbf-a2b9c5473b48">
+                <propertyInstance
+                  Id="59fe0a05-aad8-4738-9619-1cc2584af072"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8cec6683-26d7-4e91-a089-d00909b0b419">
+                <propertyInstance
+                  Id="2b32fcae-4d98-4384-aec9-d398372f5fe1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="e7c445be-01db-405d-9ffe-96cc608be18e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7d6a85ea-d0bf-4fda-9644-457276c5a620"
+              LastKnownName="GameScreen"
+              LastKnownLocation="Package17_1659.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6b2bb818-7990-429c-a8ff-2ced8085d771"
+        LastKnownName="Events"
+        LastKnownLocation="Package13_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="52c895f1-560f-4f81-b489-f0df7b786b5a"
+        LastKnownName="GameScreens"
+        LastKnownLocation="Package16_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e57c6115-fae9-4fab-93bb-e1424a43687f"
+        LastKnownName="Networking"
+        LastKnownLocation="Package19_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="3964e6a7-1983-43ae-b35e-7c73119055bd"
+        LastKnownName="Helpers"
+        LastKnownLocation="Package25_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1c6ab666-fbbf-483c-90a0-d07aec10176c"
+        LastKnownName="Components"
+        LastKnownLocation="Package26_1659.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

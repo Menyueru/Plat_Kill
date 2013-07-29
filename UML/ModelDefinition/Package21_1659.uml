@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="b7108af2-8b50-4e29-b675-e168f88fc178"
+  name="Network"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="98f39013-19f8-467d-93e2-2cf1054aceae"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DLidgren.Network"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="13a7f53f-a54f-4450-be1d-58146d9d2c78"
+        name="NetIncomingMessage"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e10c0555-9080-447c-b466-6df22478f21c"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="1f0a1f15-4090-4f13-be52-2f6c2619ae68"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5e7c65d4-9ec9-4224-b4b4-2c68d2789e71">
+                <propertyInstance
+                  Id="b56213ba-f36a-46de-95f7-1ebe41dca959"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="911d8f09-f730-4c38-ac74-585217fc97b7">
+                <propertyInstance
+                  Id="5feb34dc-e508-470f-b406-316ece74b71a"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5e7d79ff-4e6d-4a2b-aefc-987a1a1ba9d2">
+                <propertyInstance
+                  Id="465c693a-0ef9-4d6b-92ff-355eefaebcb8"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e30d2116-9341-4495-bdc1-81b2a451a6ea">
+                <propertyInstance
+                  Id="41c3de31-6448-42b5-899f-01c0421bbf20"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="064e2aa6-a693-4f6c-a04b-d8e8d6429ab8">
+                <propertyInstance
+                  Id="78638377-6a4b-431d-af1d-972f6b0d0903"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="bc1af6af-7819-4558-8450-2ddddd14217c"
+        name="NetOutgoingMessage"
+        isAbstract="false"
+        isLeaf="true"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="30292178-aae9-4720-88ad-bc40b13ebd7d"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetOutgoingMessage"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6fc3ca4f-168a-4f95-bcc5-997f66c2f403"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="24597ada-ca9e-4b47-82ee-d3acdecf7f64">
+                <propertyInstance
+                  Id="2c4b9b66-deab-482f-85f7-403e70fa17e4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a365277a-aee0-4430-a29a-5442549e3c8a">
+                <propertyInstance
+                  Id="b71cf3f8-eef8-4ea4-a4af-b64464a90b13"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4f2b6f5f-baec-4159-baa5-8b1052d2c628">
+                <propertyInstance
+                  Id="bb50337d-4375-4631-beca-6c78c76caa6d"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="425da885-8fb3-4ff8-bcae-e2aeb342b0dc">
+                <propertyInstance
+                  Id="873eb473-b78d-42a8-ac2d-ffcf0cfa3d0a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d39ff005-0fb5-4fdf-a6c0-f4d1ef30231f">
+                <propertyInstance
+                  Id="8bb67c23-3363-4227-b277-e0b99c2209ed"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="1745c297-5816-4788-9776-ddfe30e7401c"
+        name="NetServer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="8cf34ffb-711d-4957-a931-ce49da17eb10"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetServer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="778062d3-fa96-4f53-b66a-4308efd4abc4"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2c44cb97-eb29-4c87-b134-cd36cfdceb81">
+                <propertyInstance
+                  Id="23c65a6e-0008-4ec8-93f7-547322bc0f39"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5955b965-53cd-47d0-825c-851ec48b9a42">
+                <propertyInstance
+                  Id="4ca01798-289f-4cc6-9347-fff700d3c4f1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="40be846a-34e8-4e75-bcf3-d49f6c31f70f">
+                <propertyInstance
+                  Id="bb37541c-2fc4-4ea0-a977-c0ab0712303f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="dce258fb-7984-4a75-85db-2f17b4f73c2a">
+                <propertyInstance
+                  Id="c8444b62-fdd3-45d7-9e9d-7abf4b04a796"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f301b528-8492-478c-a542-0f095506b6b1">
+                <propertyInstance
+                  Id="490c063d-0d25-46ef-a077-c3e4b3cd5cb4"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="fa7adc2b-403a-4a76-be15-2a72fd50fa8f"
+        name="NetClient"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="d0355017-9041-4955-8583-6205284721db"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetClient"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d57951ae-ef61-4f28-ac88-3060b7b58de7"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="73a8cc75-2421-42f1-9d29-cb063ccd8002">
+                <propertyInstance
+                  Id="93b93acc-1f73-4be0-9ad2-3b54b6e09fc8"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="61102336-e7ad-4aae-92ad-a626db9d6813">
+                <propertyInstance
+                  Id="ad979539-3ffd-4e97-9647-10f0c521d442"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cc0d3619-c433-433d-ad18-b53b8f4824bc">
+                <propertyInstance
+                  Id="5d1e7233-e118-4ab5-b88c-b6e4aed35db3"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cf5ba807-77da-4252-92e1-6685615fcd98">
+                <propertyInstance
+                  Id="8884cd26-8595-4b86-94ee-3fb395311078"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5d92797f-bcdd-4702-96f0-eec62a85a4c6">
+                <propertyInstance
+                  Id="596e3c8a-834a-4441-9223-69efb34f2f50"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

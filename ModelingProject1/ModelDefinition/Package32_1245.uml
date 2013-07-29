@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="6588bd91-98e7-41fa-a954-c32ca286804d"
+  name="SkinnedModel"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="14d46e24-0aed-4e07-b9ee-14cf50248f00"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSkinnedModel"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="0ad35ef7-39aa-4e6b-93e0-7e8e273914b9"
+        name="AnimationPlayer"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="6cedb61f-abe5-4563-9b71-d8b7f047a18d"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2FskinnedModel%2FSkinnedModel.dll Namespace%3DSkinnedModel Type%3DAnimationPlayer"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="22f97be1-0004-435c-ba6a-cd092d56f2b1"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c9c2b7b5-a842-4939-a061-7c608f40d2ce">
+                <propertyInstance
+                  Id="38a5b5ae-ddee-44ce-b118-ceb8a8db2d5b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8cf06473-21b5-4c46-9cd5-811751a80828">
+                <propertyInstance
+                  Id="93133d92-9fd9-4528-b7df-519f43099f5b"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8ee33964-42a8-4ac5-94c4-fb4aef355047">
+                <propertyInstance
+                  Id="ea10f4ed-24b1-4894-89b2-b65cb9a064f4"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ecb75e84-5518-4371-aaa3-4a6f528edb9e">
+                <propertyInstance
+                  Id="56a8e9a1-6f75-4d86-b7e0-6990e95ad52c"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7b37a9d9-af36-470c-932b-18ad3aa443b0">
+                <propertyInstance
+                  Id="0ce9b70b-6426-49a9-bbb4-a6a68c8d8489"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5d8ac0e1-8a60-47a5-838e-d9bcdd692a9b"
+        name="AnimationClip"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="eda5a4e9-0d3a-4a36-9604-8e923000ef86"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2FskinnedModel%2FSkinnedModel.dll Namespace%3DSkinnedModel Type%3DAnimationClip"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="7b385d41-1dc7-432b-96f4-9c87741cff21"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7dc30d64-db39-4040-95a1-7b76de8ea53d">
+                <propertyInstance
+                  Id="bdb38f18-fa83-4d9d-a4e0-6ab5e4de73fa"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f044e383-df15-4c94-bfdf-0cbee1801de1">
+                <propertyInstance
+                  Id="9561329b-a506-45ee-963b-844f22162c8b"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a9b268d9-a25f-4d7e-9545-7f70f91e2351">
+                <propertyInstance
+                  Id="de72e6b6-cc79-4e6c-9741-893ac3e25b80"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4283f0cd-60e6-4930-8146-49c971811e6b">
+                <propertyInstance
+                  Id="d45d02ca-e20d-4d45-9fa9-5fae184aa7fe"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="665b07b0-d8b1-4455-8b34-31f9b5900c2e">
+                <propertyInstance
+                  Id="166eb24f-4a6f-4e78-a7af-5cd10eb4b657"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a9fc284e-41dc-4190-858d-1b1db6ce23e9"
+        name="SkinningData"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="98020cb1-a198-4f7f-87c7-ad69ef6dc058"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2FskinnedModel%2FSkinnedModel.dll Namespace%3DSkinnedModel Type%3DSkinningData"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f7035d79-3747-41b6-88ac-749d8eda396c"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="828ddbcc-d1b6-475d-8cd0-338015be68f0">
+                <propertyInstance
+                  Id="94dac8b5-5f28-46ac-aa4c-45893e0a91ac"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="80b2ba09-d1e2-4954-9c9a-7be8482b72bc">
+                <propertyInstance
+                  Id="d4482579-7764-47ee-bfd0-bd1de310492f"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="287b7bfa-70f1-45ac-94cc-826ff6e49066">
+                <propertyInstance
+                  Id="6b176fa6-56c7-4100-b098-da2246a220e8"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="90ae11a3-e339-4069-bafc-557d2e27bda9">
+                <propertyInstance
+                  Id="e9f0ec03-857a-4ac6-8d38-4b7f0cb18d08"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6ed207fc-47c4-49ac-be88-b672a65ff8a3">
+                <propertyInstance
+                  Id="bed96d07-f374-4e31-b32d-7293b68b07d2"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

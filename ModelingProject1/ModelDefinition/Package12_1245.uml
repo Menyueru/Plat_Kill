@@ -1,0 +1,2395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="585971a9-b89c-4165-9fbb-e741d16d14bc"
+  name="Networking"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="083f477e-893b-4d6b-bca7-15efcc4dfa22"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dplat_kill.Networking"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="9a06b1e1-0fe8-4864-96e6-a273d6efc40d"
+        name="ClientNetworkManager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="1e94fc03-704d-4609-96d2-6d06ab498da6"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="223f8e22-8892-468a-81b6-2e5fe7db3747"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0e153431-bfdf-4110-98d6-4dbded39235e">
+                <propertyInstance
+                  Id="138405bc-08e9-4361-b7a4-c1d132dbf9a7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0fa8010a-6cb3-4a18-81c7-a9999b95e8ba">
+                <propertyInstance
+                  Id="b9fdff10-81ab-4643-96ee-9ac62f3e0cff"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ee727b99-1d7e-482c-b5a4-d76a368210df">
+                <propertyInstance
+                  Id="4a87f701-c784-451f-b982-64c592cd1e4e"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2facb2c7-a109-4a82-b812-57997dcc6adc">
+                <propertyInstance
+                  Id="b02b416a-cf89-439e-be0a-e31f2a50a360"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9bae12b3-7f09-4d73-9c88-a2ad173d5019">
+                <propertyInstance
+                  Id="9e32a142-1ea0-4898-ba3f-135b8030d994"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="ef5991f6-d402-42f3-9f12-a782c1c6793e">
+            <interfaceMoniker
+              Id="41307ce9-cb57-4537-90a1-24eef1908d85"
+              LastKnownName="INetworkManager"
+              LastKnownLocation="Package12_1245.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="34b58ec2-c810-4a8a-86fb-cb6978f3c5eb"
+            name="isDisposed"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="043f2e4d-a452-446b-9620-06af7d2a2f6d"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3DisDisposed"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ba66bd82-6ace-4732-b16f-dfa317e36c83"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ab4a577-1ce0-4976-a6e5-448ce01d7b67">
+                    <propertyInstance
+                      Id="c93e531a-3c42-4a26-a5b6-0a9298f2a438"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e600df88-66e6-46e7-aa1f-dd73427f633f">
+                    <propertyInstance
+                      Id="27282bfc-5ebb-45f7-b509-c30652465200"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0f05f19a-eee5-43d2-813c-d4e1797dc5b4">
+                    <propertyInstance
+                      Id="6faffad4-ab14-47bc-9d6c-a7128eb7defd"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4a8ce4c-a9ad-4c21-b8b2-0349bf8756db">
+                    <propertyInstance
+                      Id="7249dde0-c6d4-4f53-a3c9-8c7b31a69dd4"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7b3894e0-1413-4631-997b-57973f2ac8a0">
+                    <propertyInstance
+                      Id="c35db5e0-540f-4e38-ba55-c9b34cc2d7ce"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="359f7266-4ac7-4f8f-970c-3627a9c8bed3"
+            name="netClient"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="d1b2a3be-ba09-418d-a981-69abea97989b"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3DnetClient"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d9ec313a-1b3d-4055-b662-213373bf109c"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b41bd568-0e10-4f84-8742-55b17bcda27e">
+                    <propertyInstance
+                      Id="db6d1c08-8234-44f7-9bb5-9c306f5966b5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="116eedfb-a710-43f1-ba0a-e2bee5cce36d">
+                    <propertyInstance
+                      Id="a7b216d7-f3e9-4f26-a695-7024108b6dc1"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1258e3df-adbd-40e9-bb0b-033f4269dc14">
+                    <propertyInstance
+                      Id="436f2e29-5e4b-4f5e-a580-c5674b37aa82"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="080a194b-c552-47d0-8dd6-06c045f39958">
+                    <propertyInstance
+                      Id="5548820c-9120-4177-91ca-1d9c44ba9858"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ad2d3e58-bbd6-485f-9aa0-540c168a3067">
+                    <propertyInstance
+                      Id="a75f0b7b-632e-49c2-81c9-544ead40e48e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b3f680c9-92bf-4353-af48-fe035b68ecd1"
+                LastKnownName="NetClient"
+                LastKnownLocation="Package15_1245.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0ff1cb86-b7fb-446a-bbfe-f43d0cc65e4e"
+            name="serverIP"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="886f5ca2-a198-4462-b85f-91e8166cdba0"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3DserverIP"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5e630e8d-6cd9-416a-9aa0-4a7c35ed7375"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9e868b87-22d4-4540-934a-45cb1dd5dc76">
+                    <propertyInstance
+                      Id="5d0f3985-838a-4c05-b502-c44348eb5b3f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6394e271-512e-42e6-ac68-9f02699150ff">
+                    <propertyInstance
+                      Id="bc49fd6a-8a3f-4a93-855b-5d30c7775c6c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e85442e4-272b-483e-9ba0-ce5916108598">
+                    <propertyInstance
+                      Id="12d2f567-e3a2-43a9-a26e-5c1f693385d6"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5c849abf-77d9-4be2-b331-08598dcdf701">
+                    <propertyInstance
+                      Id="7a1a4e3a-8251-48fa-b01e-b76d95b143bc"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ddd2903c-d153-443a-904b-fdcda3713bef">
+                    <propertyInstance
+                      Id="82683620-64c5-41ff-9a7a-2ae5334fd687"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d6cf4edc-413f-4aa8-ba58-b855de29cbb6"
+            name="Dispose"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9f6ca667-3424-4065-889d-3ca0c86899ae"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="09fbcdcc-2cde-4448-93cc-1e6f887ecdc2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75069f35-fdb3-4391-8a75-5a9ae9558470">
+                    <propertyInstance
+                      Id="ee25e012-d53a-417a-9eac-e3d45bc2f609"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff1a1953-7d84-4c3f-adbb-4d7fc30a17a1">
+                    <propertyInstance
+                      Id="e1440aff-fb44-42a2-8e62-82009457b5e7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="801bbe37-d1d8-4ca4-ad44-ac738f7c8a47">
+                    <propertyInstance
+                      Id="9e938e9e-116a-46cd-abf9-8962ae6df43b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3722eda8-3c1f-4929-98bc-2b475853cd8a">
+                    <propertyInstance
+                      Id="26910382-ada6-4db4-86f8-f7a120b327af"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4eccd715-16af-4130-b024-b9e10cb1d49c">
+                    <propertyInstance
+                      Id="86c9749a-7be8-46dd-a712-9e901667cc23"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d354bcdc-0475-4075-9bc0-8409d078e692">
+                    <propertyInstance
+                      Id="55fcf85b-9892-41c4-a6fd-5ac5798dd1d7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bc8056b8-6219-4f7a-9212-b062c9d1e673"
+                  name="disposing"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="376653c4-c1f0-477b-850c-c40790cb9b96"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Ddisposing"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d837f355-1aae-4210-9655-aa3ed10ab737"
+            name="SendMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="b9aabc8c-10e5-4bbd-a481-3ed5fdb601f4"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3D(Name%3DSendMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking.Messages Type%3DIGameMessage)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="67a47c1e-599b-44ed-9a85-2f22cd492b46"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8641376c-6295-4ff0-888f-59ac609cfe4c">
+                    <propertyInstance
+                      Id="a78de6fc-c765-4a52-b48a-55dcba21e741"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e1ff0d1b-793a-4205-a43b-f953fc544b80">
+                    <propertyInstance
+                      Id="9f43dd97-94d5-4672-8e4c-c8777f901348"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="32a8b73a-b6ec-4506-a128-22ca9b48fe8e">
+                    <propertyInstance
+                      Id="fe803cfa-7ff3-424c-94a2-de9562a83450"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0cf085da-81ae-4907-b480-5648debec6e9">
+                    <propertyInstance
+                      Id="ce2a8f7d-6cb5-41c4-beb8-5d7decf30a30"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c22352f6-dfea-4653-9ca5-3a87453c9fff">
+                    <propertyInstance
+                      Id="8fa555ae-e3c6-4116-a894-1cd1c17aaf32"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="92b739c3-ad49-4323-8c5a-36927558301a">
+                    <propertyInstance
+                      Id="353e6a0a-4406-422a-9042-a4519e7ef8eb"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5b402158-ee4c-4f8e-85dd-1f4394612457"
+                  name="gameMessage"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="aa0da1eb-c333-4699-83e2-5eef260e9f88"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3D(Name%3DSendMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking.Messages Type%3DIGameMessage)]) ParameterIdentifier%3DgameMessage"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="f106310a-fcf5-4c26-9bfb-064dfb31583c"
+                      LastKnownName="IGameMessage"
+                      LastKnownLocation="Package13_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4c9fe80e-61b9-4efc-85c1-89d157610110"
+            name="Recycle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7fa9723d-1c5f-48b3-ae14-f008a465f6d6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3D(Name%3DRecycle OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="dea5f6f1-5ffe-48b2-ab22-7ca85e290683"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="52b0dfe6-c31a-4706-bdaa-22ba41153cb3">
+                    <propertyInstance
+                      Id="eeb58c0a-ffd1-4ad0-a0cd-5dfc3fa6d019"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6531fa49-00a9-46f0-ba19-488aa8363179">
+                    <propertyInstance
+                      Id="34b9d283-c427-49f8-b13f-3789fbea8c40"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5cb2c691-0762-4b3f-bb59-bc07c9909ffc">
+                    <propertyInstance
+                      Id="e3e7c45d-3f8d-498f-9cf5-9fba2337a327"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bcb4bda6-562c-4ab2-9c80-3af224851054">
+                    <propertyInstance
+                      Id="ea36d7fd-80c3-4b8f-bb13-57495e44cd37"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="16ff077c-86f0-478a-b858-0d0a2c69d635">
+                    <propertyInstance
+                      Id="ed283d3a-1132-4be0-a9cd-e0ef0923f56a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="123950ef-fa96-4be1-b780-8ef9434cd795">
+                    <propertyInstance
+                      Id="5cfe712e-b10f-4ab8-90d8-f6305bb3547e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6364431b-a9b6-451e-a138-ab64c07cb98c"
+                  name="im"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="6a79b2f5-dbd3-4085-aa6f-726e7143c636"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3D(Name%3DRecycle OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)]) ParameterIdentifier%3Dim"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="318a00a3-8d40-43fc-8ce5-ec129c2df8f3"
+                      LastKnownName="NetIncomingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b4f6e517-cc46-4a53-82d9-d04f083fbbda"
+            name="ClientNetworkManager"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="b79d216b-d1b1-4bf2-b6ce-9faf5cdcba5e"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="aac6f3f4-9733-4fde-ab9f-c72401fdb4bc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a47174d4-971d-4ed8-bc1a-e0cec6ee7358">
+                    <propertyInstance
+                      Id="3966bd29-b271-4a90-9aae-1c661165f75e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="395bd851-37fc-43ad-bbab-1ffadbc491e8">
+                    <propertyInstance
+                      Id="85f73d2f-c4bd-455d-8c97-10f38cb6a428"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08714fe2-3fc9-4e06-bc06-82a865d61fd9">
+                    <propertyInstance
+                      Id="5389eca7-6b65-40bc-9371-12d3f4e11f2a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4b222c5-1e6e-4665-b826-d2d5be914599">
+                    <propertyInstance
+                      Id="cfb9ab0c-f32d-42a4-980c-0ea170a8c3bc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="236776f2-95af-40a2-8a92-1523889b1c89">
+                    <propertyInstance
+                      Id="cb6f7320-47c8-45bc-8119-ed8176212b2d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="740d6cf6-c17d-46f7-8128-22559e3d5ca6">
+                    <propertyInstance
+                      Id="7a269e24-bc52-436b-9cdf-d8e011adce2a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="b52e88c1-4407-49a8-a836-684e34bc7b5e"
+                  name="serverIP"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="c8df8077-3299-480b-8cf8-3e0a7ba6d1dc"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DserverIP"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="c9e05fcc-f9f1-408f-9948-5ff48d294ec8"
+            name="Connect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="d6b25cc7-f0a3-4b22-85cb-60e394f5bc49"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3DConnect"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2bef5e37-1979-4d89-a6f1-25cabd88766e"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ee60553-364e-42c7-b882-81537217474c">
+                    <propertyInstance
+                      Id="5a251a4d-49fd-4f0f-95ab-2793c648dc5b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fbef4601-4801-4011-88c3-1d77524a7f7c">
+                    <propertyInstance
+                      Id="9f98b74d-79ba-4a3b-aa2c-d36f2c32b804"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5bad384b-467e-4afb-b3d5-d8851fda50ab">
+                    <propertyInstance
+                      Id="554003ad-a9ef-435e-8dd6-1858a2203f2e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cdbdec40-ffa3-480d-9f60-ccb96b2ce97a">
+                    <propertyInstance
+                      Id="cb55810b-f2b5-488c-be30-764c878e051c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a05e5c2a-c49c-450b-93c5-929ebdb383db">
+                    <propertyInstance
+                      Id="f2e84afc-a4db-4b18-a40d-b67cfa7e45ac"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d2f10226-fe4f-455d-8e07-557a31b180b8">
+                    <propertyInstance
+                      Id="b643e559-4498-46fb-bec9-091206aa2dc3"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="8901904d-8465-4ed5-a6fa-d79abb9e0e1c"
+            name="CreateMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7d287fe2-594c-4d30-8870-ea6094122c65"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3DCreateMessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7c8ca690-6eae-4f8b-be5b-3d3f93ded9b1"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4de57c2-3d49-4809-a8ae-397cc2c8bb2d">
+                    <propertyInstance
+                      Id="0326412c-cb63-4235-8e15-e73e612e2483"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01fc8062-579b-4017-817d-91e3709d9def">
+                    <propertyInstance
+                      Id="64eebba4-6345-4243-8ad9-4b821870f38a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3530e68-69e8-4716-8614-21600e7f5b49">
+                    <propertyInstance
+                      Id="5450779c-195d-4fef-977e-83b7a605235e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="75b20dcd-ffac-43d0-a5f4-588b4c8c6131">
+                    <propertyInstance
+                      Id="d98ce9bf-d210-4bb1-806e-978311d05b5a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="96daf1b6-061e-47c8-bf73-dbf2aee45cf7">
+                    <propertyInstance
+                      Id="09900541-1991-4934-9967-6464d1dc2d91"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1c8150f8-666c-417a-ab1e-f8c808870e36">
+                    <propertyInstance
+                      Id="82dedb0d-f49e-4334-880e-c90d9b2233e8"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ecdf2d58-c043-4f0b-9fb7-c63ba13675e0"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="03a72413-d5bc-4463-8fa3-24ed37d815e0"
+                      LastKnownName="NetOutgoingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="9434e4f4-6292-43bc-bcc6-41a32c155652"
+            name="Disconnect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="971ad247-96f7-4f55-84ed-5de48b2e84a6"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3DDisconnect"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ef742665-4d6b-48bb-a405-6fb6230e805f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb0d0fd8-d1ca-46ae-b25b-f4a62a36408b">
+                    <propertyInstance
+                      Id="2d51fee9-c6be-4092-ac09-be58bfcb38a0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b20b1b85-4f14-434f-ba37-ae53f143f362">
+                    <propertyInstance
+                      Id="5e5c66ae-a3b6-49df-8a0f-a96dc2da52b7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="884eb028-5920-44df-aee5-12129b32edaa">
+                    <propertyInstance
+                      Id="244693bc-146a-45d9-86a0-4112adc50a62"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d73b32be-12aa-4094-89a7-126788c55a4c">
+                    <propertyInstance
+                      Id="a607cd62-2233-40da-a7da-3e733cd76b8c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="76b309dd-f2f6-401b-a0e0-781fac327e9a">
+                    <propertyInstance
+                      Id="9c3822cc-5b5e-4302-aedc-8066392f6c3e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="955bc102-e38d-4f5a-a9f8-c9b5bf487299">
+                    <propertyInstance
+                      Id="fb02f3fc-be41-4631-a15a-fa2b1583cb16"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="e20161d3-c448-4e12-8221-25e9e3d6e127"
+            name="Dispose"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9494b255-f495-4ef2-a80f-6f30eb70afad"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3DDispose"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="55b69607-2bd6-4b12-bbf0-18d05a1492a7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34ac4be0-45dd-4006-abc2-5cd84d66541f">
+                    <propertyInstance
+                      Id="d3e9bb66-1f7a-4c3a-9759-0d7bae92701b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4fff87b0-0962-47f1-8c8c-0c7c0be7fcc7">
+                    <propertyInstance
+                      Id="91fef780-94b1-48e5-a4f4-4ee1d4c7ea8e"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="876e5be4-2d9a-4bd7-b9d1-37706cc1a170">
+                    <propertyInstance
+                      Id="0dbc8b0d-2758-4858-940f-ec2632511768"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d03b7ba2-86ad-4063-b754-a650c2ec698b">
+                    <propertyInstance
+                      Id="0e5f3189-251e-4a7a-86cb-a0756efeac83"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3ae36d77-3a97-4d84-910d-ef1f1a2f34c8">
+                    <propertyInstance
+                      Id="40ef12fe-55b6-47d3-9764-74b2854b2c40"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fb79e3df-0d63-4dbd-a558-92aeb319bcad">
+                    <propertyInstance
+                      Id="ba8b822b-5cae-49ab-b7fe-074ece029c8f"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="b3487144-b2c1-479c-b68e-0c6b17be4345"
+            name="ReadMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9ac1537a-0934-4871-94a9-bb2cdf253224"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DClientNetworkManager Member%3DReadMessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8736301e-ff3a-443b-976b-9499ccfe5a88"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b17d4d0-e4bb-4be1-a3b2-b78b7af5fd40">
+                    <propertyInstance
+                      Id="03ca0150-d905-4afb-8a4a-5362b5519ab0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="03111156-8fbc-4e3d-a3e1-0544981dff82">
+                    <propertyInstance
+                      Id="1a8d7936-2ebb-4925-a431-8c26b92ec068"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="43f473c0-65d5-49a9-8cff-5bfaa28542bc">
+                    <propertyInstance
+                      Id="6ce6f334-80d7-4893-84c8-5b8ea92a360a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17af359f-7a86-4ac6-92ef-84f91a05743f">
+                    <propertyInstance
+                      Id="e7f78a70-8fa6-4cf4-9d34-498f0a55ba2f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1bdf87bd-e729-4d44-9958-b7758dd2ba65">
+                    <propertyInstance
+                      Id="f7b2bed5-d5d2-405f-804e-133292cabb94"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0ffb988-bec6-4741-b8d7-766bdf66805b">
+                    <propertyInstance
+                      Id="4e2f6094-5279-43d6-ab97-6887e9e44b39"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3945c520-df8e-4194-a3fd-4b5f053e2195"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="318a00a3-8d40-43fc-8ce5-ec129c2df8f3"
+                      LastKnownName="NetIncomingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="7c05c901-5c94-48fe-9b5f-c9fa2c9c556c"
+        LastKnownName="Messages"
+        LastKnownLocation="Package13_1245.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="41307ce9-cb57-4537-90a1-24eef1908d85"
+        name="INetworkManager"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="4d2babec-d642-4825-80a4-5c74c16f956b"
+            handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6a9275c2-c5af-4264-a4f4-ded9bae6b8ba"
+            name="interface"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1d2b1abb-7a08-4439-b9a1-65ae5318374c">
+                <propertyInstance
+                  Id="d8eb4305-d9a4-4029-80c2-00a199357f06"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="21d5d7a4-346d-4036-a557-6928d4923a50">
+                <propertyInstance
+                  Id="183eba39-59a8-4112-8b4d-52e3f556c562"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b4b92d19-fb13-4654-844f-e14e455992e6">
+                <propertyInstance
+                  Id="973775c9-56ec-4dfe-a8f0-9746a4154bbf"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b9b8ba2a-3dbc-4519-8411-2b548897ee08">
+                <propertyInstance
+                  Id="51e565c2-464e-4a6f-ac9d-c78b0f37d98c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="c0167022-8459-464e-9547-e654b2c9b09d"
+            isSubstitutable="false">
+            <interfaceMoniker
+              Id="5c9756a3-186d-4ae6-9c4d-c87d343940c9"
+              LastKnownName="IDisposable"
+              LastKnownLocation="Package9_1245.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedOperations>
+          <operation
+            Id="c62ce495-b472-4188-8a5e-42fe8c6378db"
+            name="SendMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="795a3cbe-4df8-4faf-b4fc-dad106c0cb4b"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager Member%3D(Name%3DSendMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking.Messages Type%3DIGameMessage)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2082b86a-9793-4484-88c5-774e5f4a0193"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a672bc6-484c-4c81-baea-62b2873df9e9">
+                    <propertyInstance
+                      Id="90fa5068-a066-46c4-b869-1e0e31d54c7f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17ede698-c30f-4b36-af36-091c5ac2cc5e">
+                    <propertyInstance
+                      Id="463d2bd3-7026-4f9b-8092-71c721a3977d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="14606d62-604d-4824-a1a7-399b22e8322a">
+                    <propertyInstance
+                      Id="5e79b8fa-a9b5-41b4-b7ac-8d4bfe143c73"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7c907236-3ba5-49e9-a043-58009ed1bc6e">
+                    <propertyInstance
+                      Id="455f75ac-714a-4ff7-bb08-9f9667385190"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="80e6a2e0-b3d1-4ac4-8f06-715cec4c9f03">
+                    <propertyInstance
+                      Id="7bf51540-c6ef-4bfd-8c05-035e37f46899"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="adcae98e-4296-4d82-a783-de27d8c64851">
+                    <propertyInstance
+                      Id="e34a6315-f25d-4070-8418-264570b6a704"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="400a4832-5ad4-44b4-9b17-870e275bdb15"
+                  name="gameMessage"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="1f38118e-5b69-478e-bd45-4c2937104882"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager Member%3D(Name%3DSendMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking.Messages Type%3DIGameMessage)]) ParameterIdentifier%3DgameMessage"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="f106310a-fcf5-4c26-9bfb-064dfb31583c"
+                      LastKnownName="IGameMessage"
+                      LastKnownLocation="Package13_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="34fd6a89-eda2-43e7-9ee0-bc6f95396512"
+            name="Recycle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="932b8a01-a0b3-45ce-8276-65fcebc74e3c"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager Member%3D(Name%3DRecycle OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8c375a51-ef94-472d-91e5-188506ec2bf2"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d03b07f-a8da-4656-98ae-e0b4ee5ac33a">
+                    <propertyInstance
+                      Id="fa67476c-0719-467c-8f7a-c071fff6f6b9"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="562d6580-477b-458e-b93d-b0021eaefa46">
+                    <propertyInstance
+                      Id="67ba93c6-c4ea-4286-8e1b-abab75d61e4d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6481146f-acbc-43f5-a68b-c885392be7c9">
+                    <propertyInstance
+                      Id="8132101d-1346-459d-90d1-ab5463ca2d93"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bbffcb08-a73b-4335-b438-0ebe33eb323a">
+                    <propertyInstance
+                      Id="ed2f3c10-c0ec-4449-bb7f-36602ae45e5a"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ea3e9aea-00f4-4560-a4f5-96917c9feeea">
+                    <propertyInstance
+                      Id="e907822f-7c81-45d4-8c9d-5de8c45ba4b1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="408256dc-c1d1-47ee-8c5b-b9008420ba13">
+                    <propertyInstance
+                      Id="812bc67a-f4d1-4239-b009-3aaf110b8d9d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="dfb2bebf-d5d5-4353-869a-e908e8dd2de6"
+                  name="im"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="8ddc212d-3d0c-4396-8a90-86e3e760ecc0"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager Member%3D(Name%3DRecycle OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)]) ParameterIdentifier%3Dim"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="318a00a3-8d40-43fc-8ce5-ec129c2df8f3"
+                      LastKnownName="NetIncomingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a65bcbbe-7a74-4438-83cb-bd46b2418d0c"
+            name="Connect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="b820a9c4-16de-435c-98d4-845b50ee6a6a"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager Member%3DConnect"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9975aa00-6319-4aee-b912-dabdaed60beb"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7f888f4a-a0b9-4baa-a558-e565cc006c24">
+                    <propertyInstance
+                      Id="cdd2f64d-1af6-4855-bc3d-6b5930772423"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0c5ecea1-1dc1-449a-bfe7-e3139d58efa2">
+                    <propertyInstance
+                      Id="48a01bb5-869c-4729-95af-427b1d4c1c6d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="429a76d8-9deb-42f8-8e7c-5ffbba70e0bb">
+                    <propertyInstance
+                      Id="bb1c408b-ad89-46bc-b4cd-99b86634bbb0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="38f884e5-ee18-4681-881a-7acb86e50d82">
+                    <propertyInstance
+                      Id="6588080b-ac4b-457f-afca-31d04cb501ec"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b3f841c4-13e1-425c-8258-b1680d40b1b4">
+                    <propertyInstance
+                      Id="de55cd3d-ed7b-4fb0-a32c-a0a1257c9432"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c728ccfd-e7d4-4725-bb32-db6e4130f8d2">
+                    <propertyInstance
+                      Id="35be49e0-47db-4260-9b80-35305fb23a74"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="42ebdf52-d86e-4b04-8536-a040222eeb26"
+            name="CreateMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="499cbec7-d289-4fdc-9f78-27773a631b38"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager Member%3DCreateMessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2be58032-993c-435f-b23f-df6757201ae5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0e8956b4-56c4-46e1-bb56-0c5759cfc65a">
+                    <propertyInstance
+                      Id="a7efe904-f361-433b-9f83-3fcbb25b6612"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5dc0f58e-b37b-49ef-868c-4d62667dcd7c">
+                    <propertyInstance
+                      Id="657d3334-e1d7-4bdb-968b-8a48b6aaf8f3"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="60a0e011-0100-456b-89d6-a0c4dad5bf88">
+                    <propertyInstance
+                      Id="ff3e5118-c225-4cdd-a56f-ced18ccea36e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8ad6500d-b6dc-4078-98af-03d38f43be88">
+                    <propertyInstance
+                      Id="c2e6d474-6ed1-49ee-87a8-d1987283aa96"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="013fb9d6-07c3-4641-8a4b-abe0a324226c">
+                    <propertyInstance
+                      Id="c3adff27-087f-4832-9aeb-d4ec75d96cde"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d3c7c5f-09f9-4290-986a-1f7f551c6b5c">
+                    <propertyInstance
+                      Id="584705cc-d589-43e6-87da-0d26640ce38d"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="3de9215e-0221-4240-8923-629d4c5fad66"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="03a72413-d5bc-4463-8fa3-24ed37d815e0"
+                      LastKnownName="NetOutgoingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="b4e853bf-4ef3-4e08-9827-4135f484e949"
+            name="Disconnect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5ccff3c8-6ff0-4e6e-8056-3e2cd28bc54d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager Member%3DDisconnect"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="392351d4-ecb8-4f45-9be3-6a0f0cbb44f5"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8df2ef64-f64b-46b8-8b51-fdc19a0147bc">
+                    <propertyInstance
+                      Id="f0dfd876-25ec-4dc2-87ba-f2572dd4bc60"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="78c74c5e-cdc8-484c-97ce-625e19b851b3">
+                    <propertyInstance
+                      Id="7bed332f-418b-4d0f-b404-9f24e0a6eee4"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="84c41f83-d519-468e-a795-bce54fa4a4f2">
+                    <propertyInstance
+                      Id="e4429714-50a2-487b-8d07-b4527092558a"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0bb60a1b-d22d-4132-ba6f-ea232cfea1ad">
+                    <propertyInstance
+                      Id="f32fa915-775d-419c-bc6f-8d4dd2b1b730"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e5591127-766b-4881-9145-407e262e2575">
+                    <propertyInstance
+                      Id="c5c922fc-6dbb-4b33-9d75-d212ec5fa69e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef070716-986e-4e9a-8f41-2473dbf46a30">
+                    <propertyInstance
+                      Id="7e4d6dd0-9f1b-4a72-98cd-01c63da53ce8"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="ae640d31-9315-4670-b845-3e8e479e7681"
+            name="ReadMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="true"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6e696714-fcc5-4576-a450-39e82a110b30"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager Member%3DReadMessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="2235305f-0a05-4c7e-835b-3297b126739a"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f76b19af-d53a-490f-a2f9-5629db70d293">
+                    <propertyInstance
+                      Id="dc63ceef-0dbd-4eb8-b9ab-6a36bc3cd1cc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="92754be6-1182-43ab-af9f-06805cda63ef">
+                    <propertyInstance
+                      Id="9a10c0e6-9236-44cc-aaaa-93931f7cfaf7"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ceb1f9de-2f2e-4911-8ba0-976202b0b987">
+                    <propertyInstance
+                      Id="90a1da26-f247-462c-a9f7-eef2c4382388"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ae8fa377-7062-4338-b62c-3c385955bc47">
+                    <propertyInstance
+                      Id="8b2ce9de-c761-4a9c-b2ab-cb28c5921255"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="568d5942-8d94-49a2-a1c2-0bc0e334c4ea">
+                    <propertyInstance
+                      Id="4fe75881-0286-4661-845a-adb187e18ef6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="28d60d86-0585-44b5-8a42-b859600e601d">
+                    <propertyInstance
+                      Id="5cbaa05c-4498-4e76-bae1-490f83fd827c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="23bbe654-8d60-47cb-ae00-0bb877543a46"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="318a00a3-8d40-43fc-8ce5-ec129c2df8f3"
+                      LastKnownName="NetIncomingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5bfb1891-bc5c-4042-a76f-5c17d1e4067b"
+        name="ServerNetworkManager"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="f984ed65-5f78-46c0-b52b-228da42e0dfe"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="01be1013-ae7d-47a1-8e08-d0370d1a1d78"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2a8f3444-7c17-4563-aa13-e699a55b46c8">
+                <propertyInstance
+                  Id="b2ab1ffa-ed9a-4918-88ff-2b686ef89d38"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f5666387-45e1-42ae-821c-5f88eb01ec7f">
+                <propertyInstance
+                  Id="84c77014-22e0-4adf-be54-723bdb879d66"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0620360e-64a8-4df4-97aa-752f6881dfeb">
+                <propertyInstance
+                  Id="7b59b73b-16ea-409d-8b79-8b3dc0168102"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2863d16c-ae9c-4980-a597-c1dad72e8b8c">
+                <propertyInstance
+                  Id="2314c3ea-0387-486e-826a-91ff6bcc59a7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="75914316-4aed-443f-921c-d6a795d032e1">
+                <propertyInstance
+                  Id="78130ffc-18e2-4da2-af61-4dae972e041f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="a81bb2da-cab4-4b24-a495-8f87543c621f">
+            <interfaceMoniker
+              Id="41307ce9-cb57-4537-90a1-24eef1908d85"
+              LastKnownName="INetworkManager"
+              LastKnownLocation="Package12_1245.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="d46ac79e-bcdf-48af-8677-065696e74ca4"
+            name="isDisposed"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="51eeaa36-d850-4622-9ffa-a2613d49ac36"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3DisDisposed"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="8c634186-15ef-4d05-86d4-77abf06cfde1"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83580996-3c67-40a7-b6df-f091d4928cd5">
+                    <propertyInstance
+                      Id="d4a93670-2d84-4606-85df-914c6a900a5d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c1faa11e-83c0-4d76-a117-b80b4c07cf9a">
+                    <propertyInstance
+                      Id="b7c23100-35bb-4642-b866-b25ce3400061"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08b1f632-571a-4b0a-ac50-2ab457544d62">
+                    <propertyInstance
+                      Id="b00ff22c-c5a6-4810-9701-9e246efeedf1"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e566e691-1a8a-4562-91de-d50f650aa62b">
+                    <propertyInstance
+                      Id="56c5cde3-7c08-4959-9a48-65d08445ee88"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="68530af1-2bf4-44f6-821c-b53e132c9e04">
+                    <propertyInstance
+                      Id="d07abc60-46f0-44e3-8a5b-3e9e733cea83"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="ModelingProject1.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="73723214-53f0-41e7-a9ab-b75566c4b6f6"
+            name="netServer"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="fb81a30e-be80-4e57-940b-d54423885505"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3DnetServer"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ab1f19b0-cd54-4133-96bb-ecd69fecd470"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cfdd6df5-cd2c-49c3-aa30-252d6b234876">
+                    <propertyInstance
+                      Id="4e94e3cf-d73e-456e-b6d7-8408b6ccd177"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="21706d70-342b-48e0-9bd5-5c7e5aba9e64">
+                    <propertyInstance
+                      Id="9ee56e43-6a24-4860-a72a-46d660b34b1b"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0ad752d-9129-4d70-ac82-a549df600262">
+                    <propertyInstance
+                      Id="801022ec-3a29-485b-ba57-475947c381ae"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d12ba795-ef1d-4f08-9221-3475d28c341b">
+                    <propertyInstance
+                      Id="f817cb3c-9b84-4a0e-9973-7dd20cc96101"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c6dc43af-20b7-4f54-a0a0-d10c24bb98d8">
+                    <propertyInstance
+                      Id="ee8ea31c-dacf-40f1-bb93-3cb0d7645a21"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="5e84c67d-3c67-430e-a3b1-a36ef21cb27c"
+                LastKnownName="NetServer"
+                LastKnownLocation="Package15_1245.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="41345911-7dd9-4413-b100-454bf56102c1"
+            name="Dispose"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="7a06a6b7-bfcf-4527-b404-354fee0765bf"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="bc50aaf5-8ecf-4e99-84f0-0086ad6160c0"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="021db0bf-5946-4fbf-8354-49520eb116ef">
+                    <propertyInstance
+                      Id="5cea56fb-b93f-4825-8503-95991534b14c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="88b07e59-2864-4af4-89db-8d3c941f74b7">
+                    <propertyInstance
+                      Id="d6f5b462-a5fd-4b13-bd01-e7311ab5bf72"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6d6f0969-03f0-43b1-a8d8-3dcf899e8773">
+                    <propertyInstance
+                      Id="0150e6c0-ceff-4269-9868-e8c5232660aa"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7713061a-7a2d-4de6-be02-5f6c634cdc15">
+                    <propertyInstance
+                      Id="934c0117-edd5-437e-9e0d-f39785c9a575"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="77d7e738-748d-402a-8b34-994ec684192b">
+                    <propertyInstance
+                      Id="fe4805f3-4bc7-494f-94cb-a9d396f4e433"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa0fa387-b782-43ed-b6e2-004fea2f260b">
+                    <propertyInstance
+                      Id="435db48e-0947-4de9-9ad2-b1c249538dfd"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="edfac0fd-cd5d-4b57-b73c-5fcc613d8b59"
+                  name="disposing"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="fae519c2-2a1f-46d0-bd64-e52c39f47e77"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3D(Name%3DDispose OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DBoolean)]) ParameterIdentifier%3Ddisposing"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                      LastKnownName="Boolean"
+                      LastKnownLocation="ModelingProject1.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="bd2da3c4-d0fb-43a3-a95a-241a1fa6181e"
+            name="SendMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="1bdc2fa7-0594-4d16-b8c5-a777a33726d9"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3D(Name%3DSendMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking.Messages Type%3DIGameMessage)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="591dc609-b838-45c5-8950-c5ca9de40927"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="efa94625-de46-42ae-827c-760d025042ee">
+                    <propertyInstance
+                      Id="21bbaf1b-9ce3-400a-9c9e-a86018c1c5dd"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45ec289a-70c8-41a5-b55b-4ecde692ab67">
+                    <propertyInstance
+                      Id="ccfc30e1-3805-49d5-8ab4-e408865931ff"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="151ec840-9454-482e-97dc-af8d4c4d2939">
+                    <propertyInstance
+                      Id="29e2f6f5-c2ba-4ea0-8b19-94797239d10f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="08a1f745-1a33-40f4-9ca9-cd08f1017551">
+                    <propertyInstance
+                      Id="a4b263f7-00e9-4ca2-83fa-5c292c557181"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b82eb6a-e317-4b54-ad89-6884b42380cb">
+                    <propertyInstance
+                      Id="b97a6a6b-5781-4306-90f3-291d31e1f066"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="02f402c9-e963-4348-81d1-cd57d05d8457">
+                    <propertyInstance
+                      Id="56bf183e-4c9a-409d-886d-1ac3fc95f6d1"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="241fc71a-63e2-47c4-8be5-08d6d95b05a9"
+                  name="gameMessage"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e14f23b2-ec0c-4292-a737-6f61cf54a413"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3D(Name%3DSendMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking.Messages Type%3DIGameMessage)]) ParameterIdentifier%3DgameMessage"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="f106310a-fcf5-4c26-9bfb-064dfb31583c"
+                      LastKnownName="IGameMessage"
+                      LastKnownLocation="Package13_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="5f4fd6a2-6ed8-4089-9aaf-5fe8fa8b621e"
+            name="Recycle"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="6fc0c0e6-0bd9-4a52-9ae9-06489e608360"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3D(Name%3DRecycle OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4293d501-a787-491f-bf99-cba8a8f85e00"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="47275057-85dc-4abb-bde8-f0516bdbed73">
+                    <propertyInstance
+                      Id="3e14fe33-9112-464a-b357-9ae8dffdeb29"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="18fc67ba-ba52-4784-932d-40881b302bc8">
+                    <propertyInstance
+                      Id="a707ad0a-9c2b-479a-a490-91aaf613eda2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="35acacff-4ee1-401d-8f75-d6d99dd6c56e">
+                    <propertyInstance
+                      Id="239d5eaf-451f-48a9-bd77-8be8032778b9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0bd2244e-ff62-4ee8-9e87-9ba32fd58b8f">
+                    <propertyInstance
+                      Id="a9f9993d-e8d7-4efb-ab99-eb580f4ab64e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee1104d4-c6f1-4c29-9e96-97e2496fb8bb">
+                    <propertyInstance
+                      Id="686f167f-33a7-4d7c-ad72-9a308986ae98"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d8c46ea-4e40-4b58-a04c-fb2c5567cad4">
+                    <propertyInstance
+                      Id="0c368005-6deb-485a-9ebc-a895b7b220df"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6f804e96-ee38-4c40-81a4-c53e2118d67d"
+                  name="im"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="5c7ea8c1-70b4-40f4-b920-3fdcc3c58b78"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3D(Name%3DRecycle OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)]) ParameterIdentifier%3Dim"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="318a00a3-8d40-43fc-8ce5-ec129c2df8f3"
+                      LastKnownName="NetIncomingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="7e9ac91c-3caa-4f61-b561-99bf8d097a2b"
+            name="ServerNetworkManager"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="2126fb8e-a5ea-4218-a68e-2e6d1cd75768"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="21763db2-9a61-4adf-8937-a0708fc29110"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="371c83d4-9ed9-4772-8d88-98d9839a6e29">
+                    <propertyInstance
+                      Id="6fe6b797-94a0-4826-9504-67ffdd58c69b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="761aff37-f90b-447a-8ee0-ee3882a5d608">
+                    <propertyInstance
+                      Id="46a7803c-6538-47eb-8147-33d2317c8e33"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3fa1fab-11b1-4a39-9bce-8b83f0875883">
+                    <propertyInstance
+                      Id="c2c467e0-a7bc-45ad-bf85-ea30fb1c1a91"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ce565e51-52b6-4107-a44c-906b9a8b4ec7">
+                    <propertyInstance
+                      Id="19a86bf5-ec6d-488a-be1d-609e2e957d59"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="eeaceef2-24e5-41e7-ba02-53fc059fc5f0">
+                    <propertyInstance
+                      Id="4f4be925-0587-454e-9617-aabd0f011e57"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cbb971a9-76a7-4045-93c1-2252513808e4">
+                    <propertyInstance
+                      Id="d5504666-1cc9-4e67-8936-9d2889cf9310"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="37fbed19-ceda-4c41-8593-4492e09a3498"
+            name="Connect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="0b09789e-c431-4ee4-97d1-27dd7961d828"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3DConnect"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a6abf55a-e732-49c4-b718-ec97f6d2b847"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="049d26b7-4c34-4616-891e-c0cb7522edd8">
+                    <propertyInstance
+                      Id="2c87944b-6c2d-42b9-85ac-970b8b5637b6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b6fcd02-6a78-431b-8464-a524ae459fd8">
+                    <propertyInstance
+                      Id="3d974d6c-b9e1-4203-85e2-8bd939c3e059"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cdd4754a-6c58-4e9b-9f6d-ff9895c3e59e">
+                    <propertyInstance
+                      Id="a3c08320-4b3a-4e61-910e-3dba84488d16"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="260c4126-6c85-41e3-8b21-5b9d1fb33230">
+                    <propertyInstance
+                      Id="148b93c6-5e09-4850-8f58-e70992135c8d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e7dde35-ba8e-4c4d-81d9-f68d73f3d02a">
+                    <propertyInstance
+                      Id="3773a11d-e571-4f0f-8ba3-bfc798dbb186"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="df18abc9-77f2-4320-85d3-a05c93b5f0e0">
+                    <propertyInstance
+                      Id="3f9a2013-854e-4561-a6d0-fbe5e1695648"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="3cff743f-9790-4f89-b739-01381813206b"
+            name="CreateMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a9525838-96ad-4285-a50c-5e957c0ea60d"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3DCreateMessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b7b11413-bb1f-4b69-b70a-a67e4b5d9eeb"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c40e0251-3008-4ce0-81f1-adbb1400e428">
+                    <propertyInstance
+                      Id="f3476482-1a41-4c9a-bb37-16db5c5b2602"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c2516540-9c9a-491a-8460-ae42f0077d3b">
+                    <propertyInstance
+                      Id="a7c85760-b414-4a99-94cd-bf254bb1e096"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d0f4c5d-90db-49ad-aca0-008e5dce5bc1">
+                    <propertyInstance
+                      Id="53dc746e-0a53-4ca3-ae5e-eae72d311041"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af547110-3466-40c3-85b2-1c53dfd595c6">
+                    <propertyInstance
+                      Id="98ba3ab0-3920-4012-bebd-c605c63adc71"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="44b00055-826a-49e9-8f1e-6ae490e08a33">
+                    <propertyInstance
+                      Id="c6135d12-5dae-4cb0-9b25-abd93ad31bf4"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c25176d2-5a35-4058-ab94-7be86962243a">
+                    <propertyInstance
+                      Id="2f87ec3f-59e3-4df4-b756-429bc466fff3"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="d9f2c189-d548-4e0b-b5fb-6ffda8f4fd9e"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="03a72413-d5bc-4463-8fa3-24ed37d815e0"
+                      LastKnownName="NetOutgoingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="79a6b86d-878a-4fe8-9311-dfe9443fe7bd"
+            name="Disconnect"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="0bf71852-e7fd-42dd-8279-7062cfe3cb45"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3DDisconnect"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="add85309-a0ca-425f-bad1-6fd32f55b2ea"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8da9cd73-aff7-4411-9ab6-37141c41608e">
+                    <propertyInstance
+                      Id="17b8b68c-ee40-4b72-8243-6599dc52a4d1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a2ef54c3-eb70-47ac-8393-d57da79f0e43">
+                    <propertyInstance
+                      Id="b875296c-c2a9-467c-a689-693e3822ad78"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b5ed910f-3604-4b5d-9ab4-82ae6f2bbcef">
+                    <propertyInstance
+                      Id="1e45e49a-7b93-4bc6-9c12-0baf4f388073"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e208aacb-433e-4661-bf11-6e2a82d41b66">
+                    <propertyInstance
+                      Id="237969d6-0df6-4805-9005-5ee667bdcb39"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9596d146-4702-4302-afe1-85b69ef93532">
+                    <propertyInstance
+                      Id="f6b2bb70-3b17-4e05-8455-75860b577c3e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ea849c8-6176-4715-8a25-574709f82727">
+                    <propertyInstance
+                      Id="0431320f-7d45-4c19-b266-1bb8e0454050"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="ece6e426-3973-4c39-9045-26bd327a2474"
+            name="Dispose"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="daf664ee-a221-4b4d-986b-6edd7ccde371"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3DDispose"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="773dd32f-7824-4cac-8724-d02f724afa33"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cbc5fb1d-f0f3-4c4f-b695-5493a3c174f1">
+                    <propertyInstance
+                      Id="1a62613d-f99a-4a2c-a158-7e0e386cc593"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12207729-ca27-4233-b61b-4357029995a8">
+                    <propertyInstance
+                      Id="f09c1676-4e9d-41ae-8b08-c4b74ea7e7fb"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e2f21823-ea02-4b80-aff8-04d8b60b7cc2">
+                    <propertyInstance
+                      Id="e9f994f4-02bf-407c-811f-37b3419c84e6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ab4cb57-889b-4940-857d-f0d9d11640fd">
+                    <propertyInstance
+                      Id="275a7dbb-12fa-42de-a77b-f57cfa52c964"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="72a9ad65-9020-48ce-9d60-50f3109c97b6">
+                    <propertyInstance
+                      Id="aa8ace27-3c52-45b3-9ded-b7121f5f5509"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="20a50350-e0eb-4995-9e6e-5dc2263be198">
+                    <propertyInstance
+                      Id="46bcb687-3d4d-4f1d-8b68-3aef49d284fe"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="b06e1a8b-2bf7-4582-9974-538a454dff79"
+            name="ReadMessage"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="90c58589-ccdd-4327-a90c-ff0409416c4a"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DServerNetworkManager Member%3DReadMessage"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="de8f08cb-c3dc-409f-94f4-92746a561912"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04768b52-40dc-4268-b198-5f430e66975c">
+                    <propertyInstance
+                      Id="bbda0302-1ffb-4f5a-a463-9205c38d725b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="be40cc8c-9654-4e04-96b8-4e9be0c6ade7">
+                    <propertyInstance
+                      Id="6baaface-532d-4d29-bad9-1fa9a49d835a"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fd08e58-5362-4015-a1f0-135a8e878681">
+                    <propertyInstance
+                      Id="d91b393d-c1eb-42b1-8c83-709e6bae65e2"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="62fb30a6-5c29-4046-8b37-9419413acb34">
+                    <propertyInstance
+                      Id="89a71dcb-e045-4ca3-b388-392b483c63a8"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b52976e6-d4a8-4846-aab3-850fe438f32b">
+                    <propertyInstance
+                      Id="edf1df2d-d64c-4079-adea-7e43d08fa12f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b76c2c48-5930-4ab2-90bb-520222eed8bb">
+                    <propertyInstance
+                      Id="c715e081-25c7-4c22-9a22-43e2e0b102bf"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="20a491b3-0e11-45c6-8d2a-2e927cd7204c"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="318a00a3-8d40-43fc-8ce5-ec129c2df8f3"
+                      LastKnownName="NetIncomingMessage"
+                      LastKnownLocation="Package15_1245.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

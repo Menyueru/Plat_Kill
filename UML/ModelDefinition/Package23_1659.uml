@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="065e3977-5213-4ded-a6fc-5b3c73c8d3bc"
+  name="Collidables"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="d399c51c-1e5d-4909-a064-e24900b6e281"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DBEPUphysics.Collidables"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="1eab9dd9-52de-40e0-aa3a-6ae971e08358"
+        name="StaticMesh"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="5ec43ccc-2015-4611-ba6c-53b64a860c6e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fbepu%2FBEPUphysics.dll Namespace%3DBEPUphysics.Collidables Type%3DStaticMesh"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d3146a71-1c3c-42ed-b7a6-626aadb6a82e"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b1aac100-61bc-4617-9a9f-4642a2522120">
+                <propertyInstance
+                  Id="06a21b3b-366c-4b16-88f9-9d750c282b01"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="abe40f0c-9908-4e3f-b049-9a128ab41d34">
+                <propertyInstance
+                  Id="528c29e3-0f15-411c-8840-2b38fef2a72d"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="94787e6f-2f3a-449d-9bc1-eecdeb154367">
+                <propertyInstance
+                  Id="70492452-3da3-4d34-9d4f-3deeb3756cd5"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="20dfa558-a190-4ff4-a7f0-5a2869f44241">
+                <propertyInstance
+                  Id="5a6e4f29-7e43-4d63-a729-d9bf13ff4bb7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8d3a687a-452b-4d29-a51b-d4b0c3941983">
+                <propertyInstance
+                  Id="fb2468d8-1ca1-4738-a5f9-d03e3ee0216c"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

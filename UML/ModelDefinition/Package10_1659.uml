@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="c2b8c8ec-ee48-4018-9c71-a0ff4dd47744"
+  name="Prefabs"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="fe723275-245b-49c8-9509-e1228d0532b3"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DBEPUphysics.Entities.Prefabs"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="411ac4ff-33bf-4f82-8067-e0a2f863f572"
+        name="Sphere"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="7bca4b95-6263-4b88-842b-0ffc1cd0e960"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fbepu%2FBEPUphysics.dll Namespace%3DBEPUphysics.Entities.Prefabs Type%3DSphere"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="20f2b242-0e10-4105-bdbd-fcf121e8ab91"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e33a5e19-970e-48da-91ff-672c3b521262">
+                <propertyInstance
+                  Id="5b2343f4-c369-40ff-8e26-38be824f8741"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8133bffb-9710-4136-84cd-2496fb1140d7">
+                <propertyInstance
+                  Id="1d937fe4-a2eb-46c8-a3e7-4fa994daa5f3"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6a9cddf1-906e-48d5-a530-2fbb95471ff9">
+                <propertyInstance
+                  Id="c5b67318-d1d6-401f-a855-20b6290d46eb"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f4dcbe34-c83f-4f8c-9d2d-372e76e0cf0f">
+                <propertyInstance
+                  Id="58f738fc-b778-4c92-a40a-bc7547585f30"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="601a8e1b-b4bd-4815-820a-d8841dfcf2dd">
+                <propertyInstance
+                  Id="05b44027-074f-4018-850a-f53e94c1bfc3"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="eb21c69d-c3c6-497b-b0e2-2e76d5498935"
+        name="Cylinder"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="c6379186-2aa3-4119-af30-a80355b30c6e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fbepu%2FBEPUphysics.dll Namespace%3DBEPUphysics.Entities.Prefabs Type%3DCylinder"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="d4e0e440-01c9-440c-8cb8-719aafc0ae58"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="99edde0f-0ade-4ca8-b97f-97a08cadd273">
+                <propertyInstance
+                  Id="5f8b5c37-0b6b-46dd-8ad8-03ef1f60283f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cef6d7e2-a8bc-4f60-a839-5d14712187ab">
+                <propertyInstance
+                  Id="49605d06-7d1a-4b0b-9be0-f7c62ad7e8d1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f18a4708-6aa7-4922-9d4a-33085495053e">
+                <propertyInstance
+                  Id="8602413e-732e-4ba3-a77f-0de0a95fc5dc"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bd768176-9914-4744-ba16-5cb51177ea56">
+                <propertyInstance
+                  Id="acff9f29-e8ee-4bd4-aff1-9a61bedefb0f"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="24a70fde-e835-4e96-9b94-e461e9d13f75">
+                <propertyInstance
+                  Id="9b249cbc-68e8-40a5-929c-cd0c27a024b1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

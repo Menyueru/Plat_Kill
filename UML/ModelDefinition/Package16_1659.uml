@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="52c895f1-560f-4f81-b489-f0df7b786b5a"
+  name="GameScreens"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="7d8e021b-c85a-4388-a0a8-2002ae0ac703"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dplat_kill.GameScreens"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="2f237548-e543-4502-ae4b-8308114c16c2"
+        name="ScreenFactory"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="ce5d7588-e350-4062-abf2-1e4de0f6154c"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameScreens Type%3DScreenFactory"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="6468bc98-2005-41bd-b67c-2532a705f2d7"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="56e42626-e13a-40eb-8ad8-460968554326">
+                <propertyInstance
+                  Id="9612ffbd-6903-45eb-8b0a-3630d1782131"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="5acdf913-6a90-4240-9dff-6e69db402e8b">
+                <propertyInstance
+                  Id="9768d9b0-7751-497c-b87a-eccded8f1db6"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1da4970e-c8db-4c9e-892f-5c281d51c3c4">
+                <propertyInstance
+                  Id="835aed60-b998-4a62-be43-cfe948cbc0c7"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="691ece32-4680-4666-af27-3a9e4ba2270d">
+                <propertyInstance
+                  Id="07a4ad31-3660-449b-8987-68ea7fca8b94"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8384df66-35ec-4222-9715-746cc7597038">
+                <propertyInstance
+                  Id="da7b606e-ce17-4c4a-8062-782131bee7db"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="1511f2db-8a76-48ca-b8c2-6163665b436b">
+            <interfaceMoniker
+              Id="60a88b97-a26a-4a75-a8c2-bf53123d49c6"
+              LastKnownName="IScreenFactory"
+              LastKnownLocation="Package17_1659.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="901f6f35-d799-4d08-b5a2-d66c70510ea7"
+            name="ScreenFactory"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9d8d0b7a-d0ff-4c5f-afd1-5550948e0c12"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameScreens Type%3DScreenFactory Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="4f820022-2b09-43e0-a761-58833b69be39"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f13e2191-9690-4ea4-8e36-86756b4996b6">
+                    <propertyInstance
+                      Id="d566d6eb-cef5-4384-ba33-33855578c3a1"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="91c855d4-a7ca-475e-978e-287b53da1e34">
+                    <propertyInstance
+                      Id="d7513468-3e24-4286-a207-8fab64a359d6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ae3799a-1396-4895-a729-f9ff891bf962">
+                    <propertyInstance
+                      Id="a0f710f4-b9f3-4ed1-813f-39e06a722477"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f01eb7b4-730f-4e71-b10f-295bd7802d33">
+                    <propertyInstance
+                      Id="7286ba65-415f-4ac0-b8fd-45b17e962cbd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="30d31657-f432-4b25-8eae-fd94a2563737">
+                    <propertyInstance
+                      Id="83bc3635-533f-463f-aff1-86bd63dbd0f6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="45243059-bafa-415b-9e45-4b6fc18b6c0a">
+                    <propertyInstance
+                      Id="6889eba4-204d-4650-8f45-20926a8527ed"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="be8e292a-5abc-490f-a76a-eeb7ed849927"
+            name="CreateScreen"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="3db4278c-a82b-4385-bff6-34a724720d23"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameScreens Type%3DScreenFactory Member%3D(Name%3DCreateScreen OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DType)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3aa4ff8b-167d-4aea-9c6e-97f3802b72cc"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d927a142-03b0-40ff-ac2c-67fab716325f">
+                    <propertyInstance
+                      Id="1946e693-1a36-4d4b-b787-362ac547ce0a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6faf8762-3e35-4cb9-88ce-d45abac9afd4">
+                    <propertyInstance
+                      Id="dc7365d4-9184-4c28-aefd-310ac793b717"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="13fd191e-eff0-4d45-93e0-648a07181d61">
+                    <propertyInstance
+                      Id="2a390090-66e7-4ed6-826c-b2f4a37b9861"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="26c395ec-cc49-4cf9-9cb0-98d0ecf15776">
+                    <propertyInstance
+                      Id="f51972e3-2e56-47b5-8182-0df8f2a3bebd"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3b08527-ce65-45b4-ab2b-14ad8a9ca0f6">
+                    <propertyInstance
+                      Id="fceacd80-f261-4633-bb65-2fad9aeea48a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57cca204-f160-4bc8-ad02-66241de4e5e8">
+                    <propertyInstance
+                      Id="78a7f2d2-d92d-4b29-857f-f7da5aaf0816"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="bde26771-5ce3-4636-aed1-a86bb2b2d315"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7d6a85ea-d0bf-4fda-9644-457276c5a620"
+                      LastKnownName="GameScreen"
+                      LastKnownLocation="Package17_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="8db536ec-bf5a-48ef-ad62-0331bd7d2d6d"
+                  name="screenType"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="469d8c2c-4c8b-4722-a678-5a6ae4051a85"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameScreens Type%3DScreenFactory Member%3D(Name%3DCreateScreen OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DType)]) ParameterIdentifier%3DscreenType"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7e147960-96a8-4075-b285-c7f1f0c85408"
+                      LastKnownName="Type"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="584264e9-d1b5-424b-9391-2669aacedcf1"
+        LastKnownName="ScreenComponents"
+        LastKnownLocation="Package17_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0d91118a-b26c-484c-a17f-dd36377a5b98"
+        LastKnownName="Screens"
+        LastKnownLocation="Package24_1659.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

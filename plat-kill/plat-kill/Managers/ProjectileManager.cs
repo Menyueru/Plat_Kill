@@ -46,17 +46,17 @@ namespace plat_kill.Managers
         {
             Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -50,
                                                    playerShotted.Position + playerShotted.Body.OrientationMatrix.Forward
-                                                   + new Vector3(0, 5, 0), 0, 0.1f, .25f, .25f, .25f, projectileType);
+                                                   + new Vector3(0, 5, 0), 0, 0.1f, .025f, .025f, .025f, projectileType);
             switch (projectileType)
             {
                 case ProjectileType.Arrow:
-                    projectile.Load(game.Content, "Models\\Objects\\bullet");
+                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
                     break;
                 case ProjectileType.Bullet:
-                    projectile.Load(game.Content, "Models\\Objects\\bullet");
+                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
                     break;
                 case ProjectileType.Beam:
-                    projectile.Load(game.Content, "Models\\Objects\\bullet");
+                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
                     break;
             }
             projectile.Shoot(playerShotted.World.Forward);
