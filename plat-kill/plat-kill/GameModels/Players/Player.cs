@@ -196,8 +196,11 @@ namespace plat_kill.GameModels.Players
                         float x = Math.Abs(BitConverter.ToSingle(vertexData, ndx) - Position.X);
                         float y = Math.Abs(BitConverter.ToSingle(vertexData, ndx + sizeof(float)) - Position.Y);
                         float z = Math.Abs(BitConverter.ToSingle(vertexData, ndx + sizeof(float) * 2) - Position.Z);
-                        maxYOffset = Math.Max(y, maxYOffset);
-                        float tempMax = Math.Max(x, z);
+                        float xoffset = Math.Abs(x - Position.X);
+                        float yoffset = Math.Abs(y - Position.Y); ;
+                        float zoffset = Math.Abs(z - Position.Z); ;
+                        maxYOffset = Math.Max(yoffset, maxYOffset);
+                        float tempMax = Math.Max(xoffset, zoffset);
                         maxHorizontal = Math.Max(tempMax, maxHorizontal);
                     }
                 }
