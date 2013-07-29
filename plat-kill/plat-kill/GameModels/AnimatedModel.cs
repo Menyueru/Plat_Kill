@@ -29,10 +29,19 @@ namespace plat_kill.GameModels
         protected float height;
         protected float length;
         protected float mass;
+        protected Matrix orientationMatrix;
+
+       
 
         #endregion
         
-        #region Getter-Setters
+        #region Getter-Setters 
+        protected Matrix OrientationMatrix
+        {
+            get { return orientationMatrix; }
+            set { orientationMatrix = value; }
+        }
+
         public bool Refresh
         {
             get { return refresh; }
@@ -124,6 +133,8 @@ namespace plat_kill.GameModels
             this.width = width;
             this.transform = Matrix.CreateScale(width,height,length);
             this.refresh = false;
+            this.orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
+                                    * Matrix.CreateRotationZ(rotation.Z);
         }
 
         #endregion     
@@ -148,8 +159,9 @@ namespace plat_kill.GameModels
 
         public void Draw(Matrix view, Matrix projection) 
         {
-           world = transform * Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
-                   * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
+            orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
+                                    * Matrix.CreateRotationZ(rotation.Z);
+           world = transform * orientationMatrix * Matrix.CreateTranslation(position);
            Matrix[] bones = animationPlayer.GetSkinTransforms();
             foreach(ModelMesh mesh in model.Meshes)
             {

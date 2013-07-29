@@ -1,5 +1,6 @@
 ﻿using BEPUphysics.CollisionRuleManagement;
 using BEPUphysics.Entities.Prefabs;
+using BEPUphysics.MathExtensions;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -263,12 +264,14 @@ namespace plat_kill.GameModels.Players
 
         public void Load(ContentManager content, String path)
         {
-            base.Load(content, path);      
+            base.Load(content, path);
             float h, r;
             CalculateHeightRadius(out h, out r);
-            body = new Cylinder(Position, height* h, radius*r, mass);
+            body = new Cylinder(Position, height * h, radius * r, mass);
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
             body.Tag = Model;
+            body.OrientationMatrix = new Matrix3X3();
+            body.LocalInertiaTensorInverse = new Matrix3X3();
         }
         #endregion
         
@@ -289,7 +292,8 @@ namespace plat_kill.GameModels.Players
 
             Position = body.Position;
             airborne = check_support();
-
+            //orientationMatrix = Matrix.CreateRotationX(body.OrientationMatrix.Forward.X) * Matrix.CreateRotationY(body.OrientationMatrix.Forward.Y)
+                                    //* Matrix.CreateRotationZ(body.OrientationMatrix.Forward.Z); ;
 
         }
         #endregion

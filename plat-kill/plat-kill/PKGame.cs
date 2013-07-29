@@ -162,7 +162,7 @@ namespace plat_kill
                                 {
                                     var message = new UpdatePlayerStateMessage(im.SenderConnection.RemoteHailMessage);
                                     localPlayerId = message.Id;
-                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 10, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f,true,this);
+                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f,true,this);
                                     player.Load(this.Content, "Models\\Characters\\dude");
                                     space.Add(player.Body);
                                     playerManager.AddPlayer(player);
@@ -182,7 +182,7 @@ namespace plat_kill
                                 break;
                             case NetConnectionStatus.RespondedAwaitingApproval:
                                 NetOutgoingMessage hailMessage = this.networkManager.CreateMessage();
-                                Player player1= new Player(playerID++, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 10, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f,false);
+                                Player player1= new Player(playerID++, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f,false);
                                 player1.Load(Content, "Models\\Characters\\dude");
                                 space.Add(player1.Body);
                                 playerManager.AddPlayer(player1);
