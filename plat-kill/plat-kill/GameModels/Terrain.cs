@@ -220,7 +220,6 @@ namespace plat_kill.GameModels
             effect.CurrentTechnique = effect.Techniques["Multitextured"];
             effect.Parameters["World"].SetValue(this.world);
 
-            // Set camera (KXNA is the game class):
             effect.Parameters["View"].SetValue(View);
             effect.Parameters["Projection"].SetValue(Projection);
 
