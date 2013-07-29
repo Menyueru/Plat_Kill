@@ -16,7 +16,6 @@ namespace plat_kill.GameModels
     {
         void Load(ContentManager content, String path);
 
-
         void Draw(Matrix view, Matrix projection);
 
         void Update(GameTime gameTime);

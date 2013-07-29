@@ -18,12 +18,14 @@ namespace plat_kill.GameScreens.Screens
 
         List<MenuEntry> menuEntries = new List<MenuEntry>();
         int selectedEntry = 0;
-        string menuTitle;
+        public string menuTitle {get; set;}
 
         InputAction menuUp;
         InputAction menuDown;
         InputAction menuSelect;
         InputAction menuCancel;
+        InputAction increment;
+        InputAction decrement;
 
         #endregion
 
@@ -71,6 +73,13 @@ namespace plat_kill.GameScreens.Screens
                 new Buttons[] { Buttons.B, Buttons.Back },
                 new Keys[] { Keys.Escape },
                 true);
+
+            increment = new InputAction(new Buttons[] { Buttons.DPadLeft },
+                                        new Keys[]{Keys.Add},true);
+
+            decrement = new InputAction(new Buttons[] { Buttons.DPadRight },
+                                        new Keys[] { Keys.Subtract }, true);
+
         }
 
 
@@ -118,6 +127,16 @@ namespace plat_kill.GameScreens.Screens
             {
                 OnCancel(playerIndex);
             }
+
+            if(increment.Evaluate(input, ControllingPlayer, out playerIndex))
+            {
+                OnSelectEntry(selectedEntry, playerIndex);
+            }
+            if (decrement.Evaluate(input, ControllingPlayer, out playerIndex))
+            {
+                OnSelectEntry(selectedEntry, playerIndex);
+            }
+
         }
 
 

@@ -14,7 +14,7 @@ namespace plat_kill_client
         static void Main(string[] args)
         {
             Thread.Sleep(3000);
-            using (var game = new PKGame(new ClientNetworkManager()))
+            using (var game = new PlatKillGame())
             {
                 game.Run();
             }

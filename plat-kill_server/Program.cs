@@ -12,11 +12,6 @@ namespace plat_kill_server
     {
         static void Main(string[] args)
         {
-            //using (var game = new PlatKillGame())
-            //{
-            //    game.Run();
-            //}
-
             using (var game = new PKGame(new ServerNetworkManager()))
             {
                 game.Run();

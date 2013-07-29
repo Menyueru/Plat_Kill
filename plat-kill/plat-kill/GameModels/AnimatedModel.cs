@@ -117,7 +117,7 @@ namespace plat_kill.GameModels
         {
             this.position = position;
             this.rotationSpeed = rotationSpeed;
-            this.rotation = Vector3.Zero;
+            this.rotation = new Vector3(0,0.25f,0); ;
             this.mass = mass;
             this.height = height;
             this.length = length;
