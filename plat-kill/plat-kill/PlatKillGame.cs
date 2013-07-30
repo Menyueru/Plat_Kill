@@ -26,10 +26,10 @@ namespace plat_kill
 
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 800;
-            graphics.PreferredBackBufferHeight = 480;
+            graphics.PreferredBackBufferWidth = 1280;
+            graphics.PreferredBackBufferHeight = 720;
             graphics.PreferMultiSampling = false;
-            //graphics.IsFullScreen = true ;
+            graphics.IsFullScreen = true ;
 
             base.IsMouseVisible = false;
 
