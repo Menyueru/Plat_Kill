@@ -246,8 +246,8 @@ namespace plat_kill
             }
 
             player.CharecterState = message.CharacterState;
-            player.Body.LinearVelocity = message.Velocity;                                        
-            player.Position = message.Position += message.Velocity * timeDelay;
+            player.Body.LinearVelocity = message.Velocity;
+            player.Position = message.Position += message.Velocity;// *timeDelay;
             player.Rotation = message.Rotation;
 
         }
@@ -261,7 +261,6 @@ namespace plat_kill
 
             map.Draw(graphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
 
-            base.Draw(gameTime);
         }
         #endregion
 
