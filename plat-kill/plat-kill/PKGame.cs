@@ -14,6 +14,7 @@ using plat_kill.GameModels.Players;
 using plat_kill.Helpers;
 using plat_kill.GameModels;
 using BEPUphysics;
+using BEPUphysics.Settings;
 using plat_kill.GameModels.Projectiles;
 using plat_kill.Networking;
 using Lidgren.Network;
