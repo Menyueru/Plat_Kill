@@ -1,6 +1,10 @@
-﻿using BEPUphysics.CollisionRuleManagement;
+﻿using BEPUphysics.BroadPhaseEntries;
+using BEPUphysics.Collidables.MobileCollidables;
+using BEPUphysics.CollisionRuleManagement;
 using BEPUphysics.Entities.Prefabs;
+using BEPUphysics.Materials;
 using BEPUphysics.MathExtensions;
+using BEPUphysics.NarrowPhaseSystems.Pairs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -210,6 +214,17 @@ namespace plat_kill.GameModels.Players
             radius = maxHorizontal;
         }
 
+        void RemoveFriction(EntityCollidable sender, BroadPhaseEntry other, NarrowPhasePair pair)
+        {
+            var collidablePair = pair as CollidablePairHandler;
+            if (collidablePair != null)
+            {
+                //The default values for InteractionProperties is all zeroes- zero friction, zero bounciness.
+                //That's exactly how we want the character to behave when hitting objects.
+                collidablePair.UpdateMaterialProperties(new InteractionProperties());
+            }
+        }
+
         #endregion
 
         #region Movers
@@ -271,6 +286,9 @@ namespace plat_kill.GameModels.Players
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
             body.Tag = Model;
             body.LocalInertiaTensorInverse = new Matrix3X3();
+            body.LinearDamping = 0;
+            body.IgnoreShapeChanges = true;
+            body.CollisionInformation.Events.DetectingInitialCollision += RemoveFriction;
         }
         #endregion
         
