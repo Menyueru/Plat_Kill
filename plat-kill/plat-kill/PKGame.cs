@@ -82,10 +82,14 @@ namespace plat_kill
         #region Methods
         public void Initialize()
         {
-            this.networkManager.Connect();
-
             this.space = new Space();
             this.space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
+
+            skyBox = new SkyBox(graphicsDevice);
+
+            map = new Terrain("Models//Maps//heightmap", new String[] { "Textures//sand", "Textures//grass", "Textures//rock", "Textures//rock2" });
+            
+            this.networkManager.Connect();
             
             Camera camera = new Camera((float) graphicsDevice.Viewport.Width / (float)graphicsDevice.Viewport.Width);
 
@@ -107,14 +111,8 @@ namespace plat_kill
                 camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).Rotation,
                         playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
             }
-
-
-
             camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
 
-            skyBox = new SkyBox(graphicsDevice);
-
-            map = new Terrain("Models//Maps//heightmap", new String[] { "Textures//sand", "Textures//grass", "Textures//rock", "Textures//rock2" });
         }
 
         public void LoadContent()

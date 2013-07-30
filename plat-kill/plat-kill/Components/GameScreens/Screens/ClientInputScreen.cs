@@ -30,10 +30,10 @@ namespace plat_kill.Components.GameScreens.Screens
             this.IP4 = new MenuEntry(String.Empty);
             this.continueMenuEntry = new MenuEntry(String.Empty);
 
-            this.firstOct = 127;
+            this.firstOct = 10;
             this.secondOct = 0;
             this.thirdOct = 0;
-            this.fourthOct = 1;
+            this.fourthOct = 4;
 
             this.IP1.Selected += IP1MenuEntrySelected;
             this.IP2.Selected += IP2MenuEntrySelected;
@@ -47,10 +47,10 @@ namespace plat_kill.Components.GameScreens.Screens
             this.MenuEntries.Add(IP4);
             this.MenuEntries.Add(continueMenuEntry);
 
-            this.IP1.Text = "127";
+            this.IP1.Text = "10";
             this.IP2.Text = "0";
             this.IP3.Text = "0";
-            this.IP4.Text = "1";
+            this.IP4.Text = "4";
             this.continueMenuEntry.Text = "Connect!";
 
         }
@@ -66,7 +66,7 @@ namespace plat_kill.Components.GameScreens.Screens
             }
             else if (keyState.IsKeyDown(Keys.Subtract))
             {
-                if ((this.firstOct - 1) >= 255)
+                if ((this.firstOct - 1) >= 0)
                     this.firstOct -= 1;
             }
 
