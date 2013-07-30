@@ -160,8 +160,8 @@ namespace plat_kill.GameModels
         public void Draw(Matrix view, Matrix projection) 
         {
             orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
-                                    * Matrix.CreateRotationZ(rotation.Z);
-           world = transform * orientationMatrix * Matrix.CreateTranslation(position);
+                                    * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateRotationY(MathHelper.Pi);
+           world = transform * orientationMatrix * Matrix.CreateTranslation(position- (new Vector3(0,6,0)));
            Matrix[] bones = animationPlayer.GetSkinTransforms();
             foreach(ModelMesh mesh in model.Meshes)
             {

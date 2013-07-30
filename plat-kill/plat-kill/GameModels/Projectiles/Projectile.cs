@@ -22,9 +22,19 @@ namespace plat_kill.GameModels.Projectiles
         private long firedByPlayerID;
         private float radius;
         private float speed;
+        private int colisiontime=0;
+
+        
         #endregion
 
         #region Getter-Setter
+        
+        public int Colisiontime
+        {
+            get { return colisiontime; }
+            set { colisiontime = value; }
+        }
+
         public long ProjectileID
         {
             get { return projectileID; }
@@ -81,7 +91,7 @@ namespace plat_kill.GameModels.Projectiles
         {
             base.Load(content, path);
             body = new Sphere(this.Position, this.radius, this.mass);
-            body.Tag = this.Model;
+            body.Tag = this.projectileID;
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
         }
         #endregion

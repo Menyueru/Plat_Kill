@@ -98,11 +98,13 @@ namespace plat_kill
             if(this.IsHost)
             {
                 localPlayerId = playerID++;
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f, true, this);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 60, 1000, new Vector3(0, 50, 0), 5f / 60f, 50, 0.25f, 0.25f, 0.25f, true, this);
                 player.Load(Content, "Models\\Characters\\dude");
                 space.Add(player.Body);
                 playerManager.AddPlayer(player);
-                camera.SetTargetToChase(playerManager.GetPlayer(localPlayerId).Position, playerManager.GetPlayer(localPlayerId).Rotation,
+                Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
+                chase.Y = playerManager.GetPlayer(localPlayerId).Body.Height / 2;
+                camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).Rotation,
                         playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
             }
 
@@ -132,7 +134,9 @@ namespace plat_kill
 
             if (playerManager.GetPlayer(localPlayerId) != null)
             {
-                camManager.UpdateAllCameras(playerManager.GetPlayer(localPlayerId).Position,
+                Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
+                chase.Y = chase.Y+playerManager.GetPlayer(localPlayerId).Body.Height / 2;
+                camManager.UpdateAllCameras(chase,
                                             playerManager.GetPlayer(localPlayerId).Rotation,
                                             playerManager.GetPlayer(localPlayerId).PlayerHeadOffset,
                                             ((HumanPlayer)playerManager.GetPlayer(localPlayerId)).CameraDistance);
@@ -166,7 +170,9 @@ namespace plat_kill
                                     player.Load(this.Content, "Models\\Characters\\dude");
                                     space.Add(player.Body);
                                     playerManager.AddPlayer(player);
-                                    camManager.ActiveCamera.SetTargetToChase(playerManager.GetPlayer(localPlayerId).Position, playerManager.GetPlayer(localPlayerId).Rotation,
+                                    Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
+                                    chase.Y = playerManager.GetPlayer(localPlayerId).Body.Height / 2;
+                                    camManager.ActiveCamera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).Rotation,
                                     playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
                                     Console.WriteLine("Connected to {0}", im.SenderEndPoint);
                                 }

@@ -270,7 +270,6 @@ namespace plat_kill.GameModels.Players
             body = new Cylinder(Position, height * h, radius * r, mass);
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
             body.Tag = Model;
-            body.OrientationMatrix = new Matrix3X3();
             body.LocalInertiaTensorInverse = new Matrix3X3();
         }
         #endregion
@@ -292,8 +291,6 @@ namespace plat_kill.GameModels.Players
 
             Position = body.Position;
             airborne = check_support();
-            //orientationMatrix = Matrix.CreateRotationX(body.OrientationMatrix.Forward.X) * Matrix.CreateRotationY(body.OrientationMatrix.Forward.Y)
-                                    //* Matrix.CreateRotationZ(body.OrientationMatrix.Forward.Z); ;
 
         }
         #endregion

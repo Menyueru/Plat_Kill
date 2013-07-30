@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using BEPUphysics.Collidables;
+using BEPUphysics.Collidables.MobileCollidables;
+using BEPUphysics.NarrowPhaseSystems.Pairs;
+using Microsoft.Xna.Framework;
 using plat_kill.Events;
 using plat_kill.GameModels.Players;
 using plat_kill.GameModels.Projectiles;
@@ -44,9 +47,9 @@ namespace plat_kill.Managers
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
         {
-            Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -50,
+            Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, 100,
                                                    playerShotted.Position + playerShotted.Body.OrientationMatrix.Forward
-                                                   + new Vector3(0, 5, 0), 0, 0.1f, .025f, .025f, .025f, projectileType);
+                                                   + new Vector3(0, 8, 0), 0, 0.1f, .025f, .025f, .025f, projectileType);
             switch (projectileType)
             {
                 case ProjectileType.Arrow:
@@ -60,11 +63,22 @@ namespace plat_kill.Managers
                     break;
             }
             projectile.Shoot(playerShotted.World.Forward);
-            this.projectiles.Add(projectileID, projectile);  
+            this.projectiles.Add(projectileID, projectile);
             
             this.game.Space.Add(projectile.Body);
-              
+            projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
             this.OnShotFired(projectile);
+        }
+
+        void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair)
+        {
+            var otherEntityInformation = other as EntityCollidable;
+            if (otherEntityInformation != null && sender!= null)
+            {
+                long collisionid=(long)sender.Entity.Tag;
+                if (projectiles[collisionid].Colisiontime==0)
+                    projectiles[collisionid].Colisiontime=DateTime.Now.Millisecond+1000;
+            }
         }
         
         public void DrawAllBullets(Matrix View, Matrix Projection) 
@@ -86,9 +100,19 @@ namespace plat_kill.Managers
 
         public void UpdateAllBullets() 
         {
+            List<long> deleteids=new List<long>();
             foreach(Projectile bullet in projectiles.Values)
             {
+                if (bullet.Colisiontime!=0 && bullet.Colisiontime <= DateTime.Now.Millisecond)
+                {
+                    deleteids.Add(bullet.ProjectileID);
+                }
                 bullet.Update();
+            }
+            foreach (long id in deleteids)
+            {
+                game.Space.Remove(projectiles[id].Body);
+                projectiles.Remove(id);
             }
         }
         #endregion

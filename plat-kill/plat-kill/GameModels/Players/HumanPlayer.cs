@@ -63,23 +63,23 @@ namespace plat_kill.GameModels.Players
                 if (inputManager.IsKeyPressed(Keys.W))
                 {
                     this.VelocityChanged = true;
-                    MoveForward(-dt);
+                    MoveForward(dt);
                 }
                 else if (inputManager.IsKeyPressed(Keys.S))
                 {
                     this.VelocityChanged = true;
-                    MoveForward(dt);
+                    MoveForward(-dt);
                 }
 
                 if (inputManager.IsKeyPressed(Keys.D))
                 {
                     this.VelocityChanged = true;
-                    MoveRight(-dt);
+                    MoveRight(dt);
                 }
                 else if (inputManager.IsKeyPressed(Keys.A))
                 {
                     this.VelocityChanged = true;
-                    MoveRight(dt);
+                    MoveRight(-dt);
                 }
 
                 Move();
