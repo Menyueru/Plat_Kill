@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="4bc514d3-47eb-4f0b-868b-61e98e384a0f"
+  name="BEPUphysics"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="6e60d5e5-1d6b-4e68-b3a3-9c622f81c4ba"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DBEPUphysics"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1c5f47a3-e07e-4c44-b809-ba23f95ac66b"
+        LastKnownName="Entities"
+        LastKnownLocation="Package9_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="065e3977-5213-4ded-a6fc-5b3c73c8d3bc"
+        LastKnownName="Collidables"
+        LastKnownLocation="Package23_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="8d473ccd-7b1e-4687-841a-6cb766740d76"
+        LastKnownName="BroadPhaseEntries"
+        LastKnownLocation="Package1_0531.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="effc9d98-c463-4693-a611-3797b862e47f"
+        LastKnownName="NarrowPhaseSystems"
+        LastKnownLocation="Package2_0531.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="0079762a-d1ed-4f2a-8c6a-73f1f69dbca4"
+        name="Space"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="26a95b5e-06a2-41b0-848b-f979525c1d32"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fbepu%2FBEPUphysics.dll Namespace%3DBEPUphysics Type%3DSpace"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0bd8df62-66a8-4566-aa76-16c8f88e0fca"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7e4cd2f1-839f-4420-90d5-3a75510d15db">
+                <propertyInstance
+                  Id="4bf4ea19-b5e1-4fb4-bebd-87063bc1f628"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b79854b5-2b2f-448b-b6d2-a01d6f329312">
+                <propertyInstance
+                  Id="586632f5-1951-4df5-b512-70499d745f54"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f3fcee8a-4d59-4971-9c55-9218cda4b9ff">
+                <propertyInstance
+                  Id="b078c236-0035-4741-a938-f21927b4dc69"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a78796c3-5499-46ff-b685-56b15d600b77">
+                <propertyInstance
+                  Id="83091fc5-22d3-440a-beb0-a78996f124b3"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d205c691-0738-411d-abc2-a52d56614245">
+                <propertyInstance
+                  Id="5ba30f3a-b3ec-4311-8c07-f303e50c1c4e"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <suppliersInternal>
+          <interfaceRealization
+            Id="935ae705-5d63-4b22-b16d-aa772e2057bb">
+            <interfaceMoniker
+              Id="a92ec315-80f1-4d94-8534-e3d374afe4f7"
+              LastKnownName="IDisposable"
+              LastKnownLocation="Package7_1659.uml" />
+          </interfaceRealization>
+        </suppliersInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

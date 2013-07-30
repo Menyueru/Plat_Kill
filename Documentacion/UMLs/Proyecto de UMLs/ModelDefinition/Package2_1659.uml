@@ -1,0 +1,2182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="d2d7a6fa-f049-4c33-ae7e-39d9e7b40c6d"
+  name="Projectiles"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="ac58cd81-64f1-42d9-b3ce-91f21dd8eb57"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dplat_kill.GameModels.Projectiles"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="c1ee23c1-c76c-4c97-b4a5-3782125f278a"
+        name="Projectile"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="2abb4653-140f-4b26-a1a4-dbced9efc420"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3af6817c-a077-401b-828d-bd7f942e9e90"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="07b9cbac-a9d3-4d8a-849f-fcac879dbfd6">
+                <propertyInstance
+                  Id="0914bd25-d182-4404-95ea-5211ac1f4ddd"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cebf2bc4-ec7e-4242-ba09-54fc6c90f3d9">
+                <propertyInstance
+                  Id="e0c20e00-9999-45ea-8005-25a201dc6e33"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="060ce8f9-009b-43e0-a05b-de25f42a8134">
+                <propertyInstance
+                  Id="d2ee1882-562a-48b5-8d5a-d859139f15fb"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2122526b-729a-4398-8749-149cbce00015">
+                <propertyInstance
+                  Id="aa78948d-8ba6-497d-8f5a-4eb2de926376"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0c4a722c-8bf3-418f-918a-01982ef11253">
+                <propertyInstance
+                  Id="5b81c245-b2dc-44f7-9e44-93c90ea8ab9f"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="996fac4d-804e-4230-9b4a-3b866ad9817d"
+            isSubstitutable="false">
+            <classMoniker
+              Id="566b7570-ff9e-466d-86a8-52edfa28bd1e"
+              LastKnownName="StaticModel"
+              LastKnownLocation="Package1_1659.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="393e2ec3-f137-4eee-9235-e3ac515a77ee"
+            isDerived="false"
+            sourceEndRoleName="Projectile"
+            targetEndRoleName="Body"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="411ac4ff-33bf-4f82-8067-e0a2f863f572"
+              LastKnownName="Sphere"
+              LastKnownLocation="Package10_1659.uml" />
+            <description>Property Body references type Sphere.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="73790a79-e7d1-4852-a796-505c1568ed69"
+                  name="Projectile"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="7dfa91cb-3606-46e6-9ee0-a033a21e7005"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7ca3541d-8177-4c6a-88e2-6672ccc8b0c9"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="cd247d90-cad4-4a6d-8c72-e856ab0a29d3"
+                  name="Body"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="830e9b17-8906-4f95-9db1-09ef42b756fd"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="e5761503-e6e3-44d6-a39e-1d990da48320"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f469c820-2e0b-42a6-99e6-2a211b5d27b6"
+            isDerived="false"
+            sourceEndRoleName="Projectile"
+            targetEndRoleName="FiredByPlayerID"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+              LastKnownName="Int64"
+              LastKnownLocation="Package7_1659.uml" />
+            <description>Property FiredByPlayerID references type Int64.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="da5c2e9b-8e4e-4cca-b13b-8633ddfc9dad"
+                  name="Projectile"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="abbe256d-e444-4684-9752-0a5e72ca1737"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="649b27b8-9034-4672-8365-b8d0677161cb"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="311439ab-53be-4fa0-a7a1-e8afe0d6be3d"
+                  name="FiredByPlayerID"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="a4b6ec7d-8493-4b21-a760-ab1ddde8026b"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="94bc080e-3a74-49d7-90a5-01b2d2d78f8e"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="9a97a71a-7df5-499e-8285-ce5fe7ee54a6"
+            isDerived="false"
+            sourceEndRoleName="Projectile"
+            targetEndRoleName="ProjectileID"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+              LastKnownName="Int64"
+              LastKnownLocation="Package7_1659.uml" />
+            <description>Property ProjectileID references type Int64.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="40adaec5-fab1-4af8-a06a-8833a7ddda2a"
+                  name="Projectile"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="0c7a0297-81d2-4922-89f7-82f65ffa0ff1"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="f3bef412-8e59-42ab-a213-4cc02fb50a3f"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d07b7a03-f4dc-4582-aa77-22c02d963b99"
+                  name="ProjectileID"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4d619f41-d248-4784-82fe-7a19916d8cde"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="800d4b89-03ce-4c10-96f6-72fe64d09596"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="f42f88f9-7572-4452-97b7-543956f2790b"
+            isDerived="false"
+            sourceEndRoleName="Projectile"
+            targetEndRoleName="ProjectileType"
+            isLeaf="false"
+            isAbstract="false">
+            <enumerationMoniker
+              Id="3fc19c78-1f3d-4b9e-8345-c9dee76207d2"
+              LastKnownName="ProjectileType"
+              LastKnownLocation="Package2_1659.uml" />
+            <description>Property ProjectileType references type ProjectileType.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="66acb4b8-3f8f-4fc4-a644-78435d1ff38d"
+                  name="Projectile"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="799e7bc3-7657-4f52-b4f4-089b3b19a15e"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="9e7c13f7-1c65-4369-bd31-906eb552cf91"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b4db1586-a860-4579-9edb-1fd942589fe8"
+                  name="ProjectileType"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="cb9c757b-4813-4b9f-b15b-8623e6aed954"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7e963e22-e7ce-40c3-b05d-00324839d7d1"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7f323d73-516a-45a0-8efb-a5d53f95542f"
+            isDerived="false"
+            sourceEndRoleName="Projectile"
+            targetEndRoleName="Radius"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+              LastKnownName="Single"
+              LastKnownLocation="Package7_1659.uml" />
+            <description>Property Radius references type Single.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0d8b30cc-bb61-47e6-a556-b2b85e394a22"
+                  name="Projectile"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="b6ac123c-2c06-4e9b-b38e-615bea4230bd"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d8abe332-84ed-46e3-b57f-b1c884183a21"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d598724b-49b1-4d0d-af85-42742ab4e015"
+                  name="Radius"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="cddec42a-2df2-4dc0-930f-92a98bbdf573"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="38e27f6b-e318-4846-8aa8-f2554ec66651"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="dde167ce-91be-4130-8ace-e79723910c51"
+            isDerived="false"
+            sourceEndRoleName="Projectile"
+            targetEndRoleName="Speed"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+              LastKnownName="Single"
+              LastKnownLocation="Package7_1659.uml" />
+            <description>Property Speed references type Single.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ea005060-31fe-4f6c-b0d0-d041dfc35c70"
+                  name="Projectile"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="4a24af9e-d217-4bdd-ba1b-75f5bed29d71"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="85b3ec83-97be-4de7-87df-93dbc3e94ddf"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="abf31294-3619-408e-b839-d68468ffe7a2"
+                  name="Speed"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="602fe337-b92c-4697-bf2e-050880459d1e"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="089165f0-9559-414e-af9b-2e8c9dc926d2"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="b257370f-a0ab-4c43-854a-81876470154b"
+            name="Body"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="c96dcc38-7c91-41b7-8b3d-31d71791aa6c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DBody"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d2d71a1b-a455-488f-b232-31b534ef44e1"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="afceedfb-9664-4cb2-b7e0-b2de65287834">
+                    <propertyInstance
+                      Id="74c1b0cd-2e33-4567-b28f-b6e181b2d252"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0bd1c845-6ae7-443f-aaa3-f5ec2c24e8f8">
+                    <propertyInstance
+                      Id="11dea735-9eee-4577-b4c7-7325ace571ec"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9836829-0475-46b0-85e6-604884ed0a59">
+                    <propertyInstance
+                      Id="6e3a2be1-822a-4c38-8d00-d0fda05cfcb1"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3fa75f03-eaed-4b60-89df-65db53618de4">
+                    <propertyInstance
+                      Id="1454a0c6-f97a-4def-92bc-9961e18fb779"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57dcddc4-56fd-4201-a528-5d61af1aa6d7">
+                    <propertyInstance
+                      Id="bec742c1-e874-4203-b188-c063a4183681"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51d3668d-2661-4e9a-84d9-c1d754982190">
+                    <propertyInstance
+                      Id="35644a01-2bd2-445c-a29b-a92aecc1adc3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3354a726-255f-490e-861e-88614f26c0de">
+                    <propertyInstance
+                      Id="5d2306fd-4cbd-471f-aab6-7a9fe790e933"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="411ac4ff-33bf-4f82-8067-e0a2f863f572"
+                LastKnownName="Sphere"
+                LastKnownLocation="Package10_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="73ca79ac-381b-46de-bfa7-fffda7a8ced8"
+            name="FiredByPlayerID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3362c517-9100-4a1f-a0b3-62df5c5f97c0"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DFiredByPlayerID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="187312e2-7cff-48d2-9183-01a32bc20773"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d9717c27-2b1e-4c6c-9e31-7a42b0842c19">
+                    <propertyInstance
+                      Id="bdd28b27-86ba-416a-ab72-393a08064348"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="548a962e-456b-4553-936f-b1ff3aa0f008">
+                    <propertyInstance
+                      Id="e0abb3cc-ac77-4935-a190-9231ec0e1c34"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="98dcdc5c-0171-4d87-9921-b091c02c1a04">
+                    <propertyInstance
+                      Id="c7d1f8ab-b03b-438b-9a63-7b86a8548a24"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6bec3639-1874-406d-af22-696129a25237">
+                    <propertyInstance
+                      Id="9363928c-416f-4131-a077-314da7251ba1"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89671744-7c81-4751-aba7-eecf306a23b5">
+                    <propertyInstance
+                      Id="85a59068-6c18-4f5c-ba8d-95a36d4e93dc"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b19cebcc-2608-4d9f-980d-341088cd70b2">
+                    <propertyInstance
+                      Id="10f5d89b-be68-439d-aa00-aece5c1f6a17"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9282974e-f784-4b1b-a245-27a020498b98">
+                    <propertyInstance
+                      Id="d921196f-5a97-4807-8450-11f837eea3e0"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+                LastKnownName="Int64"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b16a1462-9107-47bd-8053-16caf70b0e72"
+            name="ProjectileID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="22248e59-b1b6-4c15-ae18-5c30bdb6b684"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DProjectileID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ded32f1a-c787-4b4f-aba7-c1b54f416856"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd6b9fbb-0653-4592-9c2c-030a8f1f521b">
+                    <propertyInstance
+                      Id="7a26eb4b-e826-4456-b809-3df336ed4811"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d2899e3d-3002-445f-bd99-63cb21139654">
+                    <propertyInstance
+                      Id="f6173776-ff08-4496-bf05-637da0908f3e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b318259-3064-44f8-a8f3-a501826ccb43">
+                    <propertyInstance
+                      Id="64c24337-7199-4369-9ca8-fdc772b076c9"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="807b2277-99e3-44eb-b67f-65237ac35baa">
+                    <propertyInstance
+                      Id="aa8f3656-2d15-42b0-b514-439377060a8d"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5c960710-0a7e-4b30-bde1-3d214df3baac">
+                    <propertyInstance
+                      Id="5be97a1a-27ff-44cf-b434-5a906b4690ee"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3e53b4ed-b1cd-4d0a-b350-79c08843717e">
+                    <propertyInstance
+                      Id="a3e757ca-e3c8-49a4-bbcd-d87e731906aa"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="84adac85-5425-4dd6-a849-227f72f92753">
+                    <propertyInstance
+                      Id="705b4d1f-8265-45a0-8595-a6f6e58d1a83"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+                LastKnownName="Int64"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2839072d-099e-4f59-ae3e-a99cb54408ea"
+            name="ProjectileType"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="3550a17a-9851-4252-a347-03607df6e9f4"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DProjectileType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="ea2182b7-deef-4e48-87a4-8f7907e08ab9"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7e51abbb-aea1-4d92-82f2-a0abcabe8ef5">
+                    <propertyInstance
+                      Id="a628e457-03db-426d-a361-ab4b5c98b8cf"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="51917c2f-cc86-46b7-8375-b737af85e34f">
+                    <propertyInstance
+                      Id="2d032fee-01b0-4369-b653-3b50cfb1ba9b"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b221347d-6ed6-49dd-a9a9-6eb35f4f3a27">
+                    <propertyInstance
+                      Id="155f270e-c3fa-4f78-b7c7-a0f87d216a11"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="89b40cdc-8b3b-4e95-bc13-5ccca026e85b">
+                    <propertyInstance
+                      Id="aa2ccd94-910a-4d8e-9761-4d07e8c90ca0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24e3713f-3ffe-4117-8854-6ea17a201645">
+                    <propertyInstance
+                      Id="a5e2fe7b-6b66-4d58-9bbf-8578270eefce"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b3cb5d3-9079-42e5-b6cf-3901a6a9a26f">
+                    <propertyInstance
+                      Id="b1452b43-39d7-4123-8dbf-76d9be2098aa"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="25992755-d3d5-4fc8-95ef-d2aabdb581af">
+                    <propertyInstance
+                      Id="dfdbf039-9be5-4ed0-a78d-c6e7a25c562c"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="3fc19c78-1f3d-4b9e-8345-c9dee76207d2"
+                LastKnownName="ProjectileType"
+                LastKnownLocation="Package2_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e8b098b5-ae59-4073-bf13-ee2188275193"
+            name="Radius"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e979f87d-4c10-41a5-b52f-471c2ee915cf"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DRadius"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="64098436-f827-442c-a772-08bb204c9921"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="279fc122-ee8f-4387-a141-6eb937ebed4b">
+                    <propertyInstance
+                      Id="f531a00c-d922-4b0e-abc6-6d9e5190d210"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8c9ad042-b7bc-45c7-aa6e-7ccfb2947506">
+                    <propertyInstance
+                      Id="8fdab10e-7003-4e2e-9957-650d2483973e"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b7e07d9-a9b1-4255-a68b-c39077e30738">
+                    <propertyInstance
+                      Id="4b78d381-7713-4d66-af1e-9a554d708a5f"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="69c4f44a-d943-42e2-97df-278407911927">
+                    <propertyInstance
+                      Id="f5997e9e-1b0f-46b8-bf06-9a29cc371669"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="10bc3e88-3d28-45d0-9a9a-015bb6376e46">
+                    <propertyInstance
+                      Id="38e4169f-32b7-465c-900c-9797acd334e3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e2fa5d4-4f92-4e15-9b4b-c5cede0f1da5">
+                    <propertyInstance
+                      Id="0a1f0108-7e5e-4fe3-8e5d-d7eebe190f1d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="74ce962b-34b5-4223-b3de-b0c08bd79cde">
+                    <propertyInstance
+                      Id="a3d61432-4d80-4c56-b707-15bce2aece55"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                LastKnownName="Single"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="d83706a1-d6ed-47a4-9cb9-1f25c16ebddd"
+            name="Speed"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="463110d7-ebb1-4662-81be-35a9c46ac03c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DSpeed"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0f8cec42-de9a-40cf-ae3f-12e8e28f56c6"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="653a74da-df4e-41ce-9b4b-0b2ea4e6aef0">
+                    <propertyInstance
+                      Id="e9d8fcc3-4d26-4323-8b4d-92b59058a6a9"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c0f4f829-a9c2-4a07-b37b-314f808053fc">
+                    <propertyInstance
+                      Id="2eb4bf28-f62b-4c84-b8c0-47d2ceac8706"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ca635fa-208b-4bbd-8339-562034c31d83">
+                    <propertyInstance
+                      Id="eb648455-d837-47a4-ab6b-b39f18b07671"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ee2f2954-ef85-4b80-9baf-c58398591d6b">
+                    <propertyInstance
+                      Id="4986c51a-0ad2-4cd7-a4ad-9d68401673bb"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9b4e1774-ca85-447b-b340-c3e8d022b1aa">
+                    <propertyInstance
+                      Id="3609483a-dba6-4ba1-b1bd-15208eb2e9d9"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cdcb0152-86b6-4711-a59a-75e4361f7780">
+                    <propertyInstance
+                      Id="34efd9fe-8125-4bda-9a68-fdf773fd1e97"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4fe52d0f-1c34-4be9-aef9-eaf2c45e9bdb">
+                    <propertyInstance
+                      Id="1005511f-dbc3-4b92-9990-4ec7b8413564"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                LastKnownName="Single"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="968ad8e3-e8a7-4ab1-a546-0b261bea57c1"
+            name="body"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="da59b128-1293-4adb-8adf-80a7fe1a84e6"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3Dbody"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0ffce62d-e0e8-458c-b869-66be1d27ea9f"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4101acb9-81b1-4405-96e3-ade4f85a5632">
+                    <propertyInstance
+                      Id="2fad6c70-b6fb-48fc-91bf-048ed961f99b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1d4cb8c8-bc10-4e66-9253-632c95c0959d">
+                    <propertyInstance
+                      Id="c30d955c-f5fc-43ad-9dac-d51a8b425e31"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="53aff98f-9b9a-4746-8775-e0c137dd197c">
+                    <propertyInstance
+                      Id="f63b6705-cac2-4f5e-9cc9-c2c297528896"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d5e27fd-ffeb-41e7-b954-27d6878549d9">
+                    <propertyInstance
+                      Id="10fe6e5f-6377-44c4-b8d3-9372e5454e5d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="71f5cc06-aaa7-4632-adc2-4a7525199327">
+                    <propertyInstance
+                      Id="8f744e9c-895d-4896-9d4d-d0a470abd619"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="411ac4ff-33bf-4f82-8067-e0a2f863f572"
+                LastKnownName="Sphere"
+                LastKnownLocation="Package10_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1b965e5f-99b5-4276-9695-2aabcbbd2b5d"
+            name="firedByPlayerID"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="bfb1abc8-30fe-411f-9f5d-065d38f13712"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DfiredByPlayerID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a23812cc-259f-474c-88e2-3ef5d442600d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="96ac9580-9e2d-4358-8558-5655e58a281f">
+                    <propertyInstance
+                      Id="77888b4f-86b6-4dc9-b794-efb854755972"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7880bb4f-ccfd-43b0-bbaa-3d1ca582a556">
+                    <propertyInstance
+                      Id="c1d11bba-278e-4e74-b9f7-c963ba356c5a"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="987c1618-696d-4564-929b-2bd1376f921b">
+                    <propertyInstance
+                      Id="5226cc8e-fab4-47f6-bb9a-0c372e5bb4ea"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c652926e-ef53-4d10-87b1-f1278d42188a">
+                    <propertyInstance
+                      Id="fdfcfe92-f345-4166-9656-d6e554e8b66a"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="12eeada5-9d64-4b63-8d4f-d021e92f408c">
+                    <propertyInstance
+                      Id="67c2a00e-ffa2-4911-ad67-5ad064cf7d20"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+                LastKnownName="Int64"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="b05706fe-ae05-42c0-a05a-d6edc48eb085"
+            name="projectileID"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="43fb1e26-d567-40ef-9443-f63aa0201e38"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DprojectileID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="91c831fb-030f-4ed4-a66d-db2c01c75edc"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b6558686-0bfc-4c27-8704-051260f1ce34">
+                    <propertyInstance
+                      Id="4355d512-9d9b-4026-a733-f6bcc0e38138"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a1187675-19fa-4f7f-bbd0-f633d7797c11">
+                    <propertyInstance
+                      Id="2ba9080c-3746-4d86-916c-8d55092c1024"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0fdc1659-7fd4-44a9-9ff8-ac58bf2677cb">
+                    <propertyInstance
+                      Id="64c2c835-1a4a-4a5f-ae9c-be99e6a1674f"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="10446680-c5ac-4642-992f-0d68c5628126">
+                    <propertyInstance
+                      Id="be882082-5281-4955-a309-3b2e8d85cd6e"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4ac74b43-d7de-4de9-8d96-6705088e4d9b">
+                    <propertyInstance
+                      Id="26f7fd33-698a-4ab5-89f3-418a7e491394"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+                LastKnownName="Int64"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1bd8092f-7010-4353-8259-579860716b44"
+            name="projectileType"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="26b0ddda-933c-44b9-82b4-3f0f22e40d03"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DprojectileType"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="998b934d-c0e7-4931-91f7-ed652a90d6b3"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="891c0d34-7ada-4776-bc30-1ee55d6c3834">
+                    <propertyInstance
+                      Id="b0f91f3b-6b16-41e5-85c6-36b280719aef"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3f38b13f-f053-4acd-8782-cd9e1a33dcfc">
+                    <propertyInstance
+                      Id="9d6332cb-ef1f-4edf-a93a-07cd9d573ae2"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="121e1a16-ba8f-4526-8e79-48c9cc4caf6c">
+                    <propertyInstance
+                      Id="03e8a824-e54a-4194-988c-0d4b591d708d"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cc4129ef-1f4b-4cc6-b167-256848da45a6">
+                    <propertyInstance
+                      Id="afb8c775-6a64-449d-957e-bf95e5199eb6"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e6f80ba2-7324-43d8-aafb-cb056bf48f2b">
+                    <propertyInstance
+                      Id="891a1ef5-55a6-4d28-834f-d473920bca97"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <enumerationMoniker
+                Id="3fc19c78-1f3d-4b9e-8345-c9dee76207d2"
+                LastKnownName="ProjectileType"
+                LastKnownLocation="Package2_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e5f094f3-819d-4b3e-82a5-01b56dd80df5"
+            name="radius"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="7fd1d4f7-6794-4674-9cd7-03a3ff03f4ac"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3Dradius"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="c20cdc30-75b4-42b8-b2c0-2bfafe777e6d"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc0fe741-2f62-4eb9-b7e4-80986f1dff0b">
+                    <propertyInstance
+                      Id="06fa29f9-da97-4f17-9dc3-400c7f54fbe5"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fe65c7c1-e338-4abf-92af-637653a08034">
+                    <propertyInstance
+                      Id="80c7c961-679a-470e-966e-c484eca5dbe2"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9ff2d01c-7a21-4e13-a57e-72efdaa69436">
+                    <propertyInstance
+                      Id="6051dd53-d460-42fa-b3dd-3fd1f5f2ff86"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="04cd5c57-2c7d-4532-a1df-72739e886fb6">
+                    <propertyInstance
+                      Id="65fa74c5-06b2-41c8-84e6-61300c403163"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ff5deede-3621-49be-813a-663ccea2ca4a">
+                    <propertyInstance
+                      Id="3a7667a8-ede6-4455-a5fd-25772de8f8ca"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                LastKnownName="Single"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e6379bb5-c3de-4006-8735-3e56e672d1c0"
+            name="speed"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="afa30ab0-7612-40f2-b451-61b12b3eb26c"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3Dspeed"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="66c34797-e466-43d6-bd37-12f79a3afcab"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8bb8f931-212a-446c-92ef-7f6db91cf719">
+                    <propertyInstance
+                      Id="8949c97b-3906-4434-80c2-047fb76cbbdc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f9914f57-5390-4bf4-8081-6c33ead02365">
+                    <propertyInstance
+                      Id="55e842f5-44dd-415c-9917-5e5e1c34738b"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2103435f-9f76-4c16-8bfb-3076233a6c00">
+                    <propertyInstance
+                      Id="797fa2e3-64cb-4c92-9b7e-fbdb45024212"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d0699f2-e8c4-4c5e-8684-699ddbb80fd3">
+                    <propertyInstance
+                      Id="86d67987-7771-46a5-9f3f-4a836998cf1d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e4d0fa72-444c-4d83-a779-6e7e79736100">
+                    <propertyInstance
+                      Id="a9a7432d-96c3-455b-8b92-b82f4a778ce7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                LastKnownName="Single"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2aeee19a-d4a3-4bb1-a543-b8fd42c85f75"
+            name="Colisiontime"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2e12c6d2-498d-4e3e-8599-3e6fdc1eddbe"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DColisiontime"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="b4b6fa71-2a31-41b4-be27-5f51ff3f80ed"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cc966f49-371c-4043-aa7f-625ee40620fe">
+                    <propertyInstance
+                      Id="e723ec1a-9573-4117-b5a6-598e5729d0a6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d6b32419-ee37-4763-870d-7d9c630a6369">
+                    <propertyInstance
+                      Id="9069cd57-aff6-41f6-bf25-1c93e98d714f"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="43f37550-a0b3-415e-a9fc-f0da40c193e5">
+                    <propertyInstance
+                      Id="2af3ce64-a434-431c-aea7-621640ef85e8"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d76cb217-6f8b-4065-9159-4326a5b65e38">
+                    <propertyInstance
+                      Id="980c18eb-22e6-49cc-b4d5-b35c6486b741"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5df8d980-fae6-4f9b-8ed6-1155cd33d2f2">
+                    <propertyInstance
+                      Id="19556511-fc57-42d6-8197-5bc53afbe489"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1dcc68fc-8304-4e92-bb3d-bbeebb13c1ec">
+                    <propertyInstance
+                      Id="4cc595a3-6102-485a-b569-b62f6ef444d3"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="56345ce5-fddd-4b6f-a069-3b41009f722f">
+                    <propertyInstance
+                      Id="241491ac-ba2a-4371-9adb-ffb1902113ae"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="cfcbadd9-2ae1-4c3a-a43b-13dc810b1385"
+            name="colisiontime"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2e0a6083-03d7-4199-a341-cd9b670254ef"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3Dcolisiontime"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="d87ee4a4-d646-495f-b75e-12d27c6089e3"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b735eef8-250e-4446-9356-ee1824e026de">
+                    <propertyInstance
+                      Id="a9b999ec-59a5-45cb-ab71-43df637f79f0"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7d3ece6e-43e9-4bc3-8fa9-ff438ffc40e4">
+                    <propertyInstance
+                      Id="89ed28c7-e536-44b1-b28a-9663b69a20cf"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="653e2e07-6469-45c0-91cd-790da73603c1">
+                    <propertyInstance
+                      Id="845a6a4f-8868-4c08-8b0a-6c0bef7926c4"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d3c5faa-f047-4777-a368-9426b369929e">
+                    <propertyInstance
+                      Id="4fe9b3e0-f15c-4871-861d-7c74e105c095"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e1e79f1-03dc-4141-847b-fd3478ebd6f1">
+                    <propertyInstance
+                      Id="828b43dd-0217-452d-824a-1d60102471b2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="bd04f813-a608-42aa-9400-f72790f127ad"
+            name="Load"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="dbe96aeb-5043-41eb-8e14-534f9b6b9d6a"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3DLoad OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Content Type%3DContentManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="013cce0a-4602-499e-ad47-ec85972ff4fb"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c39dc1b8-d8cf-4dba-b8db-e5713ce8568a">
+                    <propertyInstance
+                      Id="e1da70f9-f0d1-49a6-a730-dea63eed5087"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a808c73-de0d-4559-9649-3b759f06d26a">
+                    <propertyInstance
+                      Id="8bf23b8a-8782-4903-8ada-5b958de08b47"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6c265d92-3280-428a-82f3-519528dee228">
+                    <propertyInstance
+                      Id="cba73274-5735-46f7-9acb-fc65cb824926"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7817616e-1748-42b2-bfae-1f8da28f633f">
+                    <propertyInstance
+                      Id="8ab46a09-8654-4a02-9d4f-56802da1fc1e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ed09199-2d62-45d6-902c-13cc222adae4">
+                    <propertyInstance
+                      Id="58ddcf55-7d48-4d60-8370-700fa837fb44"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d14b7d99-4963-4d48-b354-65cc4a05b7c4">
+                    <propertyInstance
+                      Id="06439dbb-6961-402c-9902-930d08c3c545"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5d37e699-a905-4333-a3a5-8e90949a407a"
+                  name="content"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4631f730-4b7c-4416-9194-aecaedfacf79"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3DLoad OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Content Type%3DContentManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dcontent"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="83615b04-d9a0-4535-a5d9-d9d89eaa2272"
+                      LastKnownName="ContentManager"
+                      LastKnownLocation="Package6_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a7cc79b3-9092-406a-be49-915c8fb43150"
+                  name="path"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="0bc71e2f-c35f-4061-bd56-b49a3ea4b169"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3DLoad OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Content Type%3DContentManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dpath"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="cad55089-c726-4a2c-9f2b-44a6496ce4c5"
+            name="Projectile"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a56b967a-499d-40d6-a70e-fd09192946ef"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="320621a6-9b03-4712-be91-0b1a172d54e7"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f6f120e-55c8-4529-9fd3-3d47b55a725d">
+                    <propertyInstance
+                      Id="46e25340-c0a7-42e8-ab47-a5fddd77e2e7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6998c7a4-8a79-4dce-ad3f-ce9812e11144">
+                    <propertyInstance
+                      Id="f5a7dfa7-c736-4af5-8cb8-a3b08a39a543"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ff9d56b-a068-49dd-8e6c-0f61f4c41b63">
+                    <propertyInstance
+                      Id="93c5fa3a-46c4-474d-9c57-584596501612"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="62f5502b-96b8-433a-adef-78c68a38aad6">
+                    <propertyInstance
+                      Id="64ff7fc4-5ad1-4c5d-a6a2-5e9d1849b799"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e95da08a-9f55-4800-8b2d-dcba33fbf649">
+                    <propertyInstance
+                      Id="1fc73945-0db2-4b3f-8bac-0beec2724d97"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="73072223-d9a2-4ce5-8bf6-dbedf9b9ddfc">
+                    <propertyInstance
+                      Id="a611f4b2-2702-49a3-8383-c6aab864df52"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="483cf952-715a-4280-89a2-a668feefa04a"
+                  name="projectileId"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d3b81b6d-ad2c-4ed9-8456-3338b48e5277"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3DprojectileId"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+                      LastKnownName="Int64"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ed29e1c1-f1dc-4378-bd5f-9e15ef688d25"
+                  name="firedByPlayerID"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="05bd5c38-3df5-46fa-b175-e52846589fa4"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3DfiredByPlayerID"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+                      LastKnownName="Int64"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="c4262379-e667-42c9-854e-284b957b5fa1"
+                  name="speed"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="d4d54603-82bb-4007-8b38-f7e0153cdaba"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3Dspeed"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="173f9b83-9726-4187-bf6d-7d9a71a3b468"
+                  name="position"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="766a795b-ca9b-4482-a717-f1842cad32ba"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3Dposition"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="464fcde6-fb40-4bc5-ad3e-ffb45b59d632"
+                      LastKnownName="Vector3"
+                      LastKnownLocation="Package5_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6bcee919-da36-4180-8d64-70ceb533ea17"
+                  name="rotationSpeed"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="b322db40-2532-4ed7-8309-5c6b0ca70559"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3DrotationSpeed"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="1b14c55b-ae92-42f9-bbd8-82c13f67571a"
+                  name="mass"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="977fd059-b871-4b0d-bbb0-9a13c5003a36"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3Dmass"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="6c6b33ce-8ebe-4856-9e6b-30ef4fca8e5d"
+                  name="width"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="4e69f865-d123-4ec2-ab58-20dda55068e2"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3Dwidth"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a9fa1698-d9ef-4cbb-9aef-619b0d8bdd5f"
+                  name="height"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="adfabdb7-42e9-4631-abc6-2520fc3c5300"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3Dheight"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="cc69f851-5f95-40d0-b2ab-c97b9d0022b5"
+                  name="length"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="145f810a-4e40-49b5-9f18-82073c371c52"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3Dlength"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="53b78d74-2a2b-408f-978f-cb1d93847158"
+                  name="projectileType"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="8b97d827-ac8a-4e9a-807a-183ea7d89095"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DInt64)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DSingle)%2C(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType)]) ParameterIdentifier%3DprojectileType"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <enumerationMoniker
+                      Id="3fc19c78-1f3d-4b9e-8345-c9dee76207d2"
+                      LastKnownName="ProjectileType"
+                      LastKnownLocation="Package2_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="97138df6-5119-4d66-90ca-ee99f9a37ef1"
+            name="Shoot"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="8202700a-47b3-41a1-8404-2181fff5fd87"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3DShoot OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9114836e-2a12-4557-8ea7-5a1dc83dafa3"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b301aeaa-e50c-442e-b10f-76cbb3670167">
+                    <propertyInstance
+                      Id="c93bf517-6d67-4916-979d-71a3dfce5265"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a2c74fc-f0e3-4705-9589-18cafe680c4d">
+                    <propertyInstance
+                      Id="cad3dc49-e5d7-4688-a2cd-0e39e88f2665"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c641ae64-bfe0-4229-a2c5-6667a790a511">
+                    <propertyInstance
+                      Id="bf3fb190-b5e1-4d01-b6bb-f51948e38ed9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0bedf963-1f1a-49ce-9e49-0c5136ae6fc6">
+                    <propertyInstance
+                      Id="d1ef5593-4cd1-4176-b0ad-62312975a84f"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="38b570e7-4668-4d8a-b098-7dab8d9882c9">
+                    <propertyInstance
+                      Id="f01b7c27-1a74-4c56-896a-f8775c803177"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1a6e30cf-5c7a-42b3-859e-de3920c07c61">
+                    <propertyInstance
+                      Id="0283882b-a2a9-4ad4-8c98-fdf0a92a97b6"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="f7533b53-7d68-4fad-8437-f41c8cc5efca"
+                  name="Forward"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="e5be9087-f518-499a-84dd-04fe657a1a0b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3D(Name%3DShoot OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DVector3)]) ParameterIdentifier%3DForward"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="464fcde6-fb40-4bc5-ad3e-ffb45b59d632"
+                      LastKnownName="Vector3"
+                      LastKnownLocation="Package5_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="8172b9f4-2c7a-4f15-b2c6-a3adc7362ba3"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="f3a43d75-b91b-422f-9fd2-7f5e0fd14769"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DUpdate"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a752e6d0-8af3-4894-a873-0f15ea2feab3"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61286fcc-5786-4243-a08e-1cf126e55218">
+                    <propertyInstance
+                      Id="70aa0bee-b250-4b1b-8e34-57430cb15628"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="57a6fed1-19c3-4884-9733-e0deb087a448">
+                    <propertyInstance
+                      Id="a9940dc8-93de-46db-acaf-f742dac42424"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ca8c3ab3-6c51-4ba8-8617-8db642f8ce6d">
+                    <propertyInstance
+                      Id="dacc62fc-9236-47d9-9425-5c5cf52369ef"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f6476a16-67aa-43aa-b364-dec07c98e039">
+                    <propertyInstance
+                      Id="c5abf678-89f4-4925-8548-ce2ea0e51a88"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fa8fd1b3-af45-424a-af52-982d2cae448d">
+                    <propertyInstance
+                      Id="65799b5d-998b-4273-912e-c9d2df524fdb"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="428fa1c8-ee4f-46f7-a0e5-02ad997f9c28">
+                    <propertyInstance
+                      Id="53ea8f4e-244c-448b-88ce-992b22029991"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="b5991aa7-4518-4f28-b341-8116f5fc799f"
+            name="CalculateRadius"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="affca23e-b407-4853-939a-52d6d0e7af49"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectile Member%3DCalculateRadius"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="41b8d63c-da05-4a07-ab4b-4c5c45637408"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="34c423e1-9f93-4210-9d35-348b0cb1eab6">
+                    <propertyInstance
+                      Id="2d89ba02-60b2-4341-934c-cf525befc23e"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7ca35d0f-4fe7-42d6-aeae-08fdd820d1d8">
+                    <propertyInstance
+                      Id="8ad67450-6750-420e-a573-54b7ff8c06cb"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d02ec09f-e893-4fbb-a6bd-619876722df3">
+                    <propertyInstance
+                      Id="dacf1a29-28c1-4b56-a2b1-fb4ae1d6833b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e33e3ec9-ed74-4c55-9943-317bf3f33034">
+                    <propertyInstance
+                      Id="dfaca354-bc46-4fbe-b41b-6496f12f6cf7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d35b3e48-0c3e-4cd5-80c4-39e0d1c2bbc1">
+                    <propertyInstance
+                      Id="407c161f-179c-4a45-bee4-3200538ab023"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2e980916-56eb-48c7-a012-5357db69bbaf">
+                    <propertyInstance
+                      Id="77465115-a85d-4052-8653-580cd8fd733c"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="ce40582b-1b26-493b-83ac-2588190d469f"
+                  direction="Return">
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="b614c261-f172-4ddc-a96e-89050e18ff87"
+                      LastKnownName="Single"
+                      LastKnownLocation="Package7_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="3fc19c78-1f3d-4b9e-8345-c9dee76207d2"
+        name="ProjectileType"
+        isAbstract="false"
+        isLeaf="false">
+        <referencesInternal>
+          <reference
+            Id="f9190874-4686-4645-8971-22b3562f7f3d"
+            handle="viewcode://./CodeSchema_Enum?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="7e15d298-0e08-46af-8b22-c601890c4520"
+            name="enum"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="73177254-5f0b-4924-9b21-4ce1032a1181">
+                <propertyInstance
+                  Id="6e93f31e-7ce1-4bf2-9254-f0590a131960"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7313959a-7187-499e-8aff-2fc0e3de2448">
+                <propertyInstance
+                  Id="965e965c-3a03-446c-9029-274d3eff0168"
+                  name="BaseType"
+                  value="int" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="ca074df1-8969-4dcf-ac71-f204a1876e5b">
+                <propertyInstance
+                  Id="cacffc61-df1f-4619-8284-eb2583ed2405"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="0d2fbb35-8b7b-4d17-801e-044804c5e3b5"
+            name="Arrow">
+            <referencesInternal>
+              <reference
+                Id="5dfff570-7dde-4021-8728-93226a4d9c1f"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType Member%3DArrow"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="d5e448e4-77d3-460e-ade2-90439f4c1e2a"
+            name="Beam">
+            <referencesInternal>
+              <reference
+                Id="63fdf33d-9429-4cbc-a44c-d19d30e02162"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType Member%3DBeam"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+          <enumerationLiteral
+            Id="924093a0-28aa-4362-a16b-039b182086c0"
+            name="Bullet">
+            <referencesInternal>
+              <reference
+                Id="7baec53e-8006-4534-9cbf-1c8bd18a2376"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.GameModels.Projectiles Type%3DProjectileType Member%3DBullet"
+                tag="ViewCode" />
+            </referencesInternal>
+          </enumerationLiteral>
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

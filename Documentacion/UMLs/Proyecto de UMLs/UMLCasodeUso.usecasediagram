@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="feea9e21-9b45-401c-8efd-bbd026b99d0a" name="UMLCasodeUso" linkedPackageId="1dddb166-4bef-4fcc-a4fb-a3068ce11076" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <ownedCommentsInternal>
+    <comment Id="f4515b2f-9128-4cee-9720-1d348cb27534">
+      <elementDefinition Id="34b402db-1b4e-4d55-9c12-6e6538e795f9" />
+      <body>Este diagrama de Caso de Uso representa la interaccion de los jugadores en una partida de Multi-Jugador</body>
+    </comment>
+  </ownedCommentsInternal>
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="fc0c9aae-7a62-48d9-8661-aeed78445fc5" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="ea528ce5-c8a5-4dca-82ba-fa5bb907d7b8" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="5c4740c8-6ad6-4fca-be5b-cc4af986e9aa">
+          <propertyInstance Id="08ca1770-b054-4e22-a486-e516fae785cd" name="BaseName">
+            <elementDefinition Id="2080be99-2699-4dbd-a6ca-6f579f9dd1f5" />
+          </propertyInstance>
+          <elementDefinition Id="b32324e8-e9b4-4ed4-9122-e4a6fd2d1512" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="6824b7c4-1a0d-4510-8e89-5852c3cc08f9">
+          <propertyInstance Id="43e8a3c9-3df9-4cbc-9401-d532950ef16a" name="ClrAttributes">
+            <elementDefinition Id="6d677375-fe55-4f7c-a7d0-bda6bbbaf95f" />
+          </propertyInstance>
+          <elementDefinition Id="62ef0d4c-5cb0-43ab-9e2f-b2f2669579c6" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d612db93-939c-41d4-a241-8c6f117e4895">
+          <propertyInstance Id="bda16eeb-ec76-463e-b594-eba61d50182d" name="Usings">
+            <elementDefinition Id="6ef41662-680e-4fcb-bc34-5e9366afbba2" />
+          </propertyInstance>
+          <elementDefinition Id="c4c23199-a67d-49e4-9333-580049983d78" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="5d1714fe-c043-48d4-a7f9-77bb7af0e777" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="11336c82-8a07-4b2e-b191-eb1231791d0b" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c7a90e6d-1afb-4f6a-9bc4-2880f3c526ba">
+          <propertyInstance Id="3aff7d81-881a-4ef1-b617-23fc43f872a6" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="771428b5-ba32-481d-ae53-b88ffd77189a" />
+          </propertyInstance>
+          <elementDefinition Id="93e2133d-b3aa-4c28-93ed-faaca4c90e56" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="93a85e69-200e-4536-863b-027031b6ee2a">
+          <propertyInstance Id="4b2b28b5-70ee-44a1-a39b-4697ce67a8a9" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="c02c5b24-cbde-45f9-a188-9d219fab014f" />
+          </propertyInstance>
+          <elementDefinition Id="82dd950a-3a5b-409c-9ef4-9d4789c0bb5f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="26841245-f1d5-4f15-a707-888766ebf539">
+          <propertyInstance Id="ebd26b13-d6ee-4cad-bcf4-bf46aa7fd03f" name="ProjectPath" value="ClassTemplate=..\UMLLib\UMLLib.csproj|EnumTemplate=..\UMLLib\UMLLib.csproj|InterfaceTemplate=..\UMLLib\UMLLib.csproj|StructTemplate=..\UMLLib\UMLLib.csproj">
+            <elementDefinition Id="8966fbe8-cd83-4702-8eb6-073a4463074b" />
+          </propertyInstance>
+          <elementDefinition Id="0c351ace-0d5a-46b8-b569-a0da9d5431e8" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="1736d696-fcac-4717-86c7-c99fb704b9f7">
+          <propertyInstance Id="c4cb97a8-71bc-40b0-92d4-a6bdff839c3e" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="24092bd3-d484-4d62-83f1-3c3057eed07e" />
+          </propertyInstance>
+          <elementDefinition Id="d2040b25-bc92-4850-a84d-124b0a8231a9" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="ca235dfc-db98-4dce-8628-e5f35fc72113">
+          <propertyInstance Id="cf862f9f-76b7-42ae-9e51-637d59fe0a8b" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="3e57d1e7-75f7-4af7-829a-03e407c2b457" />
+          </propertyInstance>
+          <elementDefinition Id="999e979a-e595-4e9d-8369-051d3136f16f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="8c5c2e9b-b179-4e44-9dce-a577cde78981">
+          <propertyInstance Id="ed063afa-9a8a-4ea2-af57-f658ce50225d" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="39866af3-923c-44b8-a0ec-145372111063" />
+          </propertyInstance>
+          <elementDefinition Id="d38547b0-3365-4819-a0ff-005f59a56315" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="f23075e6-bb1a-48a8-8bb6-0fbb00b57c70">
+          <propertyInstance Id="c9e2221d-8cae-4392-9d8a-fa165f0de85d" name="Parameters">
+            <elementDefinition Id="de1fb1da-e1c5-42db-9fa8-69bd1bc787ae" />
+          </propertyInstance>
+          <elementDefinition Id="faafc99d-d9d6-4f34-a320-5b56bc6163a8" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="54a3b771-da45-4755-800f-00b31acc11c3" name="Jugador1" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="74162f50-c66e-4c02-887b-fb0c12bc362d" />
+        <targetEnds>
+          <association Id="4b9e0ca3-a729-459b-9dee-28759e6022a1" isDerived="false" sourceEndRoleName="Jugador1" targetEndRoleName="Representación grafica del juego." isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6e87d5b4-2fd2-4468-9720-798f2a019df8" LastKnownName="Representación grafica del juego." />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="07f78743-b93b-4fb8-9ac6-ea1abaea8700" name="Jugador1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a9465f0d-d975-4354-a9b6-760e18324c09" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="278ff766-7fd6-43d7-9f6b-c4df4e966d1b" name="Representación grafica del juego." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="d0e43167-e208-4422-b1e2-e012a4463a83" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="3a2434fa-af63-49d4-9081-a0601460b329" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a64d1675-0a77-4770-b229-70ba1f150ef8" name="Solicita unirse a una Partida." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0843efb7-1d6e-4c21-bbcd-06cccf8fd83a" />
+        <extendedCases>
+          <extend Id="c76ebe1b-eb92-408c-bba2-64115aaf4ab2">
+            <useCaseMoniker Id="69c9e4c0-fc4f-4712-8b2c-87633066b66b" LastKnownName="Envia Mensaje por la Red." />
+            <elementDefinition Id="12e173d1-ebdd-4c18-9ef4-e4a854e6cd60" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="d90fa6db-5329-4a2f-98fb-0d6ccb782ddc" name="Gestión de la  la partida." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5e13bdd4-f441-4e35-baf6-2f9fb2f6adfa" />
+        <targetEnds>
+          <association Id="619e1db2-069f-4a58-b123-1715d250e0f7" isDerived="false" sourceEndRoleName="Gestión de la  la partida." targetEndRoleName="Envia Mensaje por la Red." isLeaf="false" name="Pasa el servidor mensajes / retorna actualizaciones del juego" isAbstract="false">
+            <useCaseMoniker Id="69c9e4c0-fc4f-4712-8b2c-87633066b66b" LastKnownName="Envia Mensaje por la Red." />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d75a0674-25ec-4de3-bbe5-67852d17c321" name="Gestión de la  la partida." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="77bc3dfb-9965-4b83-b31e-7007e66717f2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="0fabcade-c46d-405b-b3ca-e131e7c64ea3" name="Envia Mensaje por la Red." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="12448b0d-20d8-49c8-8b66-5ba22a676e61" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f0aa63f7-7bd2-4b9a-ab4c-a15609fce04f" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="06889512-a7e8-4d83-95bf-d5210f5b7d19" name="Envia nuevos valores a la partida." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a102d8f0-464b-46ec-99ce-1f28fc59b79f" />
+        <extendedCases>
+          <extend Id="ccab3e1f-634d-47f1-8744-304912e7e4ae">
+            <useCaseMoniker Id="69c9e4c0-fc4f-4712-8b2c-87633066b66b" LastKnownName="Envia Mensaje por la Red." />
+            <elementDefinition Id="6863f8a2-a4a2-469a-89cf-81fc3c8cd79a" />
+          </extend>
+        </extendedCases>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="6e87d5b4-2fd2-4468-9720-798f2a019df8" name="Representación grafica del juego." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="89caff06-2719-4faf-a211-00c2a758aff1" />
+        <targetEnds>
+          <association Id="37a4ee1d-1b93-4c09-b674-9903906dde63" isDerived="false" sourceEndRoleName="Representación grafica del juego." targetEndRoleName="Envia Mensaje por la Red." isLeaf="false" name="Envia peticiones del usuario" isAbstract="false">
+            <useCaseMoniker Id="69c9e4c0-fc4f-4712-8b2c-87633066b66b" LastKnownName="Envia Mensaje por la Red." />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="34ef02a3-b30c-4d53-ad60-6479e39a2a32" name="Representación grafica del juego." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="71e66cfa-2c35-4316-a4ce-d99fa34140f0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="891128df-7520-4437-80cd-d9a9d0e7649c" name="Envia Mensaje por la Red." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f0633f73-8fd4-48ed-9e5c-5ac5c8226830" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="f9cbb79a-9eb2-4dea-98c3-42762c926bcb" />
+          </association>
+          <association Id="6fe72cfd-ba90-47da-bbfc-37675c7cf37b" isDerived="false" sourceEndRoleName="Representación grafica del juego." targetEndRoleName="Jugador1" isLeaf="false" name="Envia datos de Entrada / Recibe la visualizacion del juego" isAbstract="false">
+            <actorMoniker Id="54a3b771-da45-4755-800f-00b31acc11c3" LastKnownName="Jugador1" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="7bb4a196-fe44-4f63-a78b-efac882495e5" name="Representación grafica del juego." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f1f90c13-487d-4ffe-9caf-a8a43f09f5ee" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="90aa2603-0075-46ba-84cc-fdb021249326" name="Jugador1" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="50e9fc56-3d25-45e9-b74f-d71b88389a4d" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="c1cedba9-7dbd-4a90-a0c5-596b9a5d2423" />
+          </association>
+          <association Id="db2fa02f-4f23-419c-bb5a-ba5c23cda4cf" isDerived="false" sourceEndRoleName="Representación grafica del juego." targetEndRoleName="Jugador2" isLeaf="false" name="Envia datos de Entrada / Recibe la visualizacion del juego" isAbstract="false">
+            <actorMoniker Id="52cc715d-5d18-41a8-9009-6bd659b37c39" LastKnownName="Jugador2" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="ce9f227e-f356-4f8d-aaa0-3fdb6972958e" name="Representación grafica del juego." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="5c072950-4ffb-4d56-bc60-eb31259334c1" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="a8ae9f0a-1d7b-4381-a086-cbea45c8dafb" name="Jugador2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0c185b09-22e5-472c-9e1c-6ceb0a6167e7" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="adb30c72-ebea-4ecc-842b-59a959953f65" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="52cc715d-5d18-41a8-9009-6bd659b37c39" name="Jugador2" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bd229667-6f02-406f-966c-4ae1f6a1228b" />
+        <targetEnds>
+          <association Id="7f6a18c3-f713-4455-b627-588099e71d6f" isDerived="false" sourceEndRoleName="Jugador2" targetEndRoleName="Representación grafica del juego." isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="6e87d5b4-2fd2-4468-9720-798f2a019df8" LastKnownName="Representación grafica del juego." />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="5fdcfcfc-8659-4476-a514-4d0b80096062" name="Jugador2" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="9ebe3dda-7433-4446-bf00-12904d96a9a6" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b9931f46-cc5c-4bcb-8cff-1b95ccf71df7" name="Representación grafica del juego." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="242a801d-efbf-4014-a544-29246cd026a2" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="856c2cb2-8dbb-4ca3-9539-a851c0b040b7" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="69c9e4c0-fc4f-4712-8b2c-87633066b66b" name="Envia Mensaje por la Red." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0639c5f7-eb67-4803-b698-0444f85ac3a8" />
+        <targetEnds>
+          <association Id="8086d996-9561-41c0-a770-1bd3feec2f0e" isDerived="false" sourceEndRoleName="Envia Mensaje por la Red." targetEndRoleName="Gestión de la  la partida." isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d90fa6db-5329-4a2f-98fb-0d6ccb782ddc" LastKnownName="Gestión de la  la partida." />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="15e1fbdd-0809-4b48-a197-fc02860e16d4" name="Envia Mensaje por la Red." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a2e76326-d4ab-440a-8add-e5c4dfbd6687" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f0e85760-cd4c-46ae-b1ef-5117c68878a2" name="Gestión de la  la partida." isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="4fc5156c-08dc-48a3-9fa2-563f7db2da7b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="537c76cf-9132-45d5-a01f-26188875a600" />
+          </association>
+        </targetEnds>
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="1dddb166-4bef-4fcc-a4fb-a3068ce11076" name="UML">
+    <elementDefinition Id="ce365804-48e4-4890-b02f-56e1fa403e38" />
+    <profileInstances>
+      <packageHasProfileInstances Id="ecc4ecee-38ad-4b0c-863d-7231496cd28f">
+        <profileInstance Id="4b990689-55df-44f3-87e1-d21d3ae7dc2e" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="02045747-f201-4e32-98a3-4e1d908af6a7">
+        <profileInstance Id="e0b08b8a-c92d-49f2-af86-fddb980ba357" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="451a378c-c610-405f-96f8-630abafef7f0">
+        <profileInstance Id="fb3178d0-d2f9-4ae4-8617-008e8b2b38a2" name="CSharpProfile">
+          <elementDefinition Id="be292661-5582-4c93-a4b6-baffba0a5b9c" />
+        </profileInstance>
+        <elementDefinition Id="068e87e7-3f52-4179-ba8a-6162253bc20c" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="a5032e23-8c4b-4ab7-8c6d-c28ff5341d35">
+        <profileInstance Id="0d016eb4-9784-4175-a16f-90b5a08fba7a" name="TextTemplateBindings">
+          <elementDefinition Id="28923e21-f5e3-4054-b832-ad7cdf892f08" />
+        </profileInstance>
+        <elementDefinition Id="6099d13e-61fc-474d-91b3-b49dd3aded0c" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</useCaseModelRoot>

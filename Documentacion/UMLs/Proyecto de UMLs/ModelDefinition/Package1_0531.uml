@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="8d473ccd-7b1e-4687-841a-6cb766740d76"
+  name="BroadPhaseEntries"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="8d84ca56-1801-4109-a6b9-92842df00bdc"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DBEPUphysics.BroadPhaseEntries"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="9a01be1a-acaf-49a4-993a-daea145c7879"
+        name="BroadPhaseEntry"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="ff4a5e24-4d46-4c24-8558-ae3f74793434"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fbepu%2FBEPUphysics.dll Namespace%3DBEPUphysics.BroadPhaseEntries Type%3DBroadPhaseEntry"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="f92849af-f7f8-49af-af77-ff7ca3490d26"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d434c47a-8bcb-4f40-a346-60a6519bd3bc">
+                <propertyInstance
+                  Id="da8411b9-fbb6-4fe8-a6df-c091652382d9"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="74f5430d-7d9e-4bcb-a3e5-015e4c22f569">
+                <propertyInstance
+                  Id="d1192b8b-71a5-4ab4-a353-e7b1ea39c2c9"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c34927f0-d5d6-4e55-9666-c55eff4d3c81">
+                <propertyInstance
+                  Id="ba9c1ae4-2dd8-4130-9363-e3775bf4b86f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0599c626-5555-4a2a-b17b-33c30548b0ad">
+                <propertyInstance
+                  Id="24bd54d4-abd8-4539-8abf-303661591bc6"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0ded60fc-77a0-498a-82e8-8e4872256442">
+                <propertyInstance
+                  Id="a4e01ea0-b741-4cca-8c4d-e139175dfa12"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

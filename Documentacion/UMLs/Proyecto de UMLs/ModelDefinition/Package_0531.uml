@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="38429cb4-e4c0-4591-b316-018dc0eb23ae"
+  name="MobileCollidables"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="db227caf-92ad-4f05-a261-cbe55f25504a"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DBEPUphysics.Collidables.MobileCollidables"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="43155635-5211-4d37-9eb5-f5e1b93a0c05"
+        name="EntityCollidable"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="efda35d0-1aeb-4338-9aaa-07c482a7cf9e"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fbepu%2FBEPUphysics.dll Namespace%3DBEPUphysics.Collidables.MobileCollidables Type%3DEntityCollidable"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="b471fd7d-eac9-4a28-86aa-697e73ab416c"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a8703023-fde1-49ec-abba-7c8b1e3adcce">
+                <propertyInstance
+                  Id="a4b5d65f-9fd1-4cb5-a2c1-5da020b9711e"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0a26a3f5-9f19-4940-ad9a-de4bcdf707d4">
+                <propertyInstance
+                  Id="aafa36fb-529d-4b01-b664-8a2fc9c9ae41"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="61253c8a-31b9-4b09-8c92-bbbfc10275ca">
+                <propertyInstance
+                  Id="aea2f5cd-6290-47cf-9516-5856cf3528e5"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c092223e-0866-4ada-b963-a0dac7a13b5f">
+                <propertyInstance
+                  Id="4ab861e6-f31c-417a-b856-78da6302b0c7"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4fea7857-04f2-4d44-8f91-3b1a061deff6">
+                <propertyInstance
+                  Id="ab2475f2-edda-4a14-9e36-8b4d2f2488f3"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

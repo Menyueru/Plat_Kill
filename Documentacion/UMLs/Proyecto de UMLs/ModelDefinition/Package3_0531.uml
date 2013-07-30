@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="5b80b2ba-a9c8-4e79-b7c1-a1b62aade420"
+  name="Pairs"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="7ce8b82b-aeae-4a48-890b-23cc17e3ca22"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DBEPUphysics.NarrowPhaseSystems.Pairs"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="cf5c8f89-18b1-496d-ade3-e6b6fa79e5e0"
+        name="NarrowPhasePair"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="453310ad-ef48-4521-b782-8f7573819af9"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fbepu%2FBEPUphysics.dll Namespace%3DBEPUphysics.NarrowPhaseSystems.Pairs Type%3DNarrowPhasePair"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="24ec4149-8fd3-4be0-97a8-34c03f96589f"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9b8dd442-eb6b-49e3-83e9-ff0bbc07769b">
+                <propertyInstance
+                  Id="e924ef6d-6f57-41eb-a034-37910364ff58"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="475a6884-8543-4b99-8cc0-230a236165ad">
+                <propertyInstance
+                  Id="ef23c01a-2b74-4e45-80bd-c99c57150689"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c913a029-1abe-457b-bd65-c08750428bfb">
+                <propertyInstance
+                  Id="e93fbf05-3e20-4f3d-80a8-64457a037695"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="566102b2-418c-4ed4-bd0c-a558eb08cea6">
+                <propertyInstance
+                  Id="8aa1e66b-0aba-4276-a230-65e5fcb55d22"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6498f295-ada7-4f29-ae17-660cba5ca57a">
+                <propertyInstance
+                  Id="63c3c92f-82c7-41ee-9cf5-1ac2c8574b87"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e1dd1449-e5e1-4255-95da-efe5ea4d5284"
+        name="CollidablePairHandler"
+        isAbstract="true"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="89c77c29-3961-45f2-b892-0e8d489e1944"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fbepu%2FBEPUphysics.dll Namespace%3DBEPUphysics.NarrowPhaseSystems.Pairs Type%3DCollidablePairHandler"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="fcb85d1d-dd36-4a5c-8f37-8150630ffcf0"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e4c3767c-5142-4fe9-80c2-e1a4762920a5">
+                <propertyInstance
+                  Id="08d72b19-9bc4-41f3-9499-0f267f538e26"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bc0648b2-a994-49a0-b559-821a7615f6cd">
+                <propertyInstance
+                  Id="189aef14-866d-4b64-b781-f52c31669372"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="64c7395a-9a92-4cc4-a9b2-d87cdbf8fd31">
+                <propertyInstance
+                  Id="335f938a-c5ae-48a9-929d-962a1933fdc5"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b25aaac7-44a5-4a2e-89d0-d5ebacdbe694">
+                <propertyInstance
+                  Id="31a11b23-88df-43e6-a057-7411d350f471"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1e974f74-12ba-475f-9905-afbff0d05360">
+                <propertyInstance
+                  Id="7a5e1dd8-6728-4321-9df5-d76fb6ee1143"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="94bb69d0-8210-4092-a24a-a51d0cadb774"
+            isSubstitutable="false">
+            <classMoniker
+              Id="cf5c8f89-18b1-496d-ade3-e6b6fa79e5e0"
+              LastKnownName="NarrowPhasePair"
+              LastKnownLocation="Package3_0531.uml" />
+          </generalization>
+        </generalsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

@@ -1,0 +1,2804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="7cf973c2-939d-433c-b371-ceb52fa62560"
+  name="plat_kill"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="360a504b-4a87-4417-b102-e7b96eb48708"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3Dplat_kill"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c23e52aa-834e-4d4a-b1b5-42b2bd754c7e"
+        LastKnownName="GameModels"
+        LastKnownLocation="Package1_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="d39f0ca8-bf5e-4052-b960-98a01c456fdc"
+        LastKnownName="Managers"
+        LastKnownLocation="Package11_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e4b3b485-765c-42b9-a908-2e8a3c360b8a"
+        name="PKGame"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="023a66a3-e5f2-4704-909c-950e7a6fcfca"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="458a5ec1-76da-4ba2-aeff-d6f1d83c6ba9"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="6b88f372-f543-4726-993b-4108319d1d1b">
+                <propertyInstance
+                  Id="1ec9a827-43ba-46fe-9c2b-2842915ece94"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="09c9ced9-9574-41e4-9c75-1dcdd1a00bd7">
+                <propertyInstance
+                  Id="bb200150-71d5-42d3-b312-a48d73e195d5"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cc846281-1474-4876-a06b-42d7d54cbc98">
+                <propertyInstance
+                  Id="177e6ec3-8fdf-41e5-b643-051553be208f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="bcc324bf-af5a-48c0-8bbf-a2b9c5473b48">
+                <propertyInstance
+                  Id="59fe0a05-aad8-4738-9619-1cc2584af072"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8cec6683-26d7-4e91-a089-d00909b0b419">
+                <propertyInstance
+                  Id="2b32fcae-4d98-4384-aec9-d398372f5fe1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="e7c445be-01db-405d-9ffe-96cc608be18e"
+            isSubstitutable="false">
+            <classMoniker
+              Id="7d6a85ea-d0bf-4fda-9644-457276c5a620"
+              LastKnownName="GameScreen"
+              LastKnownLocation="Package17_1659.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="8d3d0ce9-b495-4285-8339-ef7ff1da8517"
+            isDerived="false"
+            sourceEndRoleName="PKGame"
+            targetEndRoleName="ProjectileManager"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="42f4d634-d73b-4555-9aae-dfd4d621bfab"
+              LastKnownName="ProjectileManager"
+              LastKnownLocation="Package11_1659.uml" />
+            <description>Property ProjectileManager references type ProjectileManager.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bd84051b-c0c3-4930-9b45-da9c71db4c45"
+                  name="PKGame"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="679f401e-6357-4a7c-a476-970a6c3a254b"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6de619e6-f6fb-45fd-b70f-3665554a1ec5"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="43863e2d-46c1-48d8-a3b3-b45726327bc2"
+                  name="ProjectileManager"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="332a3486-dcc4-4183-a8a2-7cbdaba235b1"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="53579e1d-b657-4498-bf07-a6bd8070bb07"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="150f66ee-8294-42b2-8e96-3e2fa3e8a5b8"
+            isDerived="false"
+            sourceEndRoleName="PKGame"
+            targetEndRoleName="Content"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="83615b04-d9a0-4535-a5d9-d9d89eaa2272"
+              LastKnownName="ContentManager"
+              LastKnownLocation="Package6_1659.uml" />
+            <description>Property Content references type ContentManager.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="181a921b-86e4-41ee-8c22-575fe8562638"
+                  name="PKGame"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="f9d1b4fb-70e5-4cd6-9fad-2a92bf618b25"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="d983b918-2130-4120-9713-bd42029de407"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d4c893c8-27f0-4836-9b38-28aca2d852c4"
+                  name="Content"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="50c44734-d645-42d7-bd80-98da1eed7fa6"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="cc2d8fd2-5417-4af7-8824-ac2cb613b1be"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7cece981-08b7-4efb-84df-2811cad2ecd9"
+            isDerived="false"
+            sourceEndRoleName="PKGame"
+            targetEndRoleName="Space"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="0079762a-d1ed-4f2a-8c6a-73f1f69dbca4"
+              LastKnownName="Space"
+              LastKnownLocation="Package8_1659.uml" />
+            <description>Property Space references type Space.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ab660eaa-f656-4ecb-b250-d58c32d9d4b1"
+                  name="PKGame"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="e255270a-78c5-40e9-a682-ae45ccee2b8e"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="36f9381f-db0a-490a-ae1e-b33010df3888"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bdcdf5a0-8635-41a5-82b5-c60386c8f997"
+                  name="Space"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="92887568-f4c0-4b8e-b004-47ae5b1bc0ed"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="8ce1d85a-9a01-412b-9a93-4db9f77c5943"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="fd4a9953-225c-45a6-92d9-af2c26fb0ebe"
+            isDerived="false"
+            sourceEndRoleName="PKGame"
+            targetEndRoleName="graphicsDevice"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="1d0c6135-b25b-4440-9990-1b9cab5d90a1"
+              LastKnownName="GraphicsDevice"
+              LastKnownLocation="Package18_1659.uml" />
+            <description>Property graphicsDevice references type GraphicsDevice.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1fc153c0-f38f-48d8-bd5b-c177063486f9"
+                  name="PKGame"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="ddd25980-a068-4579-80df-72c001c233cd"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="58abc560-7615-4a74-9586-0652d711a910"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="fb4b5f0b-66d1-4ddd-bfc7-0a5257f53a62"
+                  name="graphicsDevice"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="3d908108-8714-4f4b-be93-aae25c3f01ad"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="df14e670-12bd-4006-8d07-9033339f3f28"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="5ef9668b-e81b-426d-accd-dffdc3f5f6fb"
+            name="ProjectileManager"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2c5ba792-5cc4-42f4-bcab-a63851672035"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DProjectileManager"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="800bafde-9c12-4fe3-a780-34d5e3ad8a95"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fdcaa57c-f629-4a7e-b93e-bcb9b2af4107">
+                    <propertyInstance
+                      Id="c012fc0d-d9fe-47b6-9fcf-d7d0afc9140b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a4b12667-891d-4208-a9c6-43a178792f4e">
+                    <propertyInstance
+                      Id="24328ae7-9648-416c-af7f-8687a141c631"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8cb37239-aa57-4e41-93e4-c52bb64abf3a">
+                    <propertyInstance
+                      Id="de0f4233-b6d9-4dd7-a4a8-18203eeb0ce6"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="81699202-20ce-47fd-b769-e23a855180fe">
+                    <propertyInstance
+                      Id="750517ca-af66-42b1-89c1-edd015e887c8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="623868ec-59c8-41db-9d6c-0a3a7b0aed02">
+                    <propertyInstance
+                      Id="1a82168d-1c1b-445a-960a-39946feff549"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9bb6aac9-105f-4eba-9586-f2bbeefb99d4">
+                    <propertyInstance
+                      Id="b929a8dd-4fd8-407c-b0fc-69f08980f636"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3192cb7a-eff9-4b2a-9ed4-c7a8b9d403f9">
+                    <propertyInstance
+                      Id="11824c5f-858b-48f5-9174-f77ee6c7ac51"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="42f4d634-d73b-4555-9aae-dfd4d621bfab"
+                LastKnownName="ProjectileManager"
+                LastKnownLocation="Package11_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e056d059-1d1f-4bd2-9944-4dffe748f9ee"
+            name="Content"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="492f2569-196c-4f29-9061-07230bb411b8"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DContent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7014b284-5b36-431a-9c8d-3a28bd3bcb37"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0ef08dc1-f93a-43cf-a095-7f9ea2f17943">
+                    <propertyInstance
+                      Id="e2db1e22-19d9-44d0-90bc-359ac6c768dc"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a6bd5b4c-eb29-455b-bac9-608bc3be1348">
+                    <propertyInstance
+                      Id="989fb25e-1170-48e1-af6d-15527bca91f5"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b18e8421-0833-497c-b716-4c042cbef888">
+                    <propertyInstance
+                      Id="d807e21c-1492-44c3-b1a0-bffa1be7072e"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d7c1753-c44c-45d2-8690-be5f71fb4f0c">
+                    <propertyInstance
+                      Id="fdd98f83-d43c-456d-ba6a-1bdcf0da3ac7"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ae5f21a2-cddf-444b-89d9-0b99b7a7d339">
+                    <propertyInstance
+                      Id="6d8d296a-152b-4721-a3a5-151a8233b6b1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6f482bb5-bc0b-4530-97ac-53fc60008986">
+                    <propertyInstance
+                      Id="1b4638fd-7a24-4e6a-a553-92ed1ed21701"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bd6852d9-6871-4d7b-ba1a-5e79c73e4bfb">
+                    <propertyInstance
+                      Id="a3db7953-faad-4055-ab5f-c6734420380e"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="83615b04-d9a0-4535-a5d9-d9d89eaa2272"
+                LastKnownName="ContentManager"
+                LastKnownLocation="Package6_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="cefe38da-e97a-40bf-9f7c-632ed7339d24"
+            name="Space"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="588c04c1-a2c6-40cf-9f75-ebc5e8b4f52c"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DSpace"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="90aea529-da5d-4fa4-a363-c8c9f8cf337a"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="158824a3-60df-4cfd-ad69-d318627763f9">
+                    <propertyInstance
+                      Id="bab7672b-7bad-402b-90b0-99debda4d8a4"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bf1127ed-6c6c-4354-acd2-0030936a1b01">
+                    <propertyInstance
+                      Id="7b4a96bb-a668-45e3-92db-517a45be09ab"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5f3d4019-b2e0-47a4-aa02-1db0c024c61f">
+                    <propertyInstance
+                      Id="b7f6daf9-872f-4377-ba32-ba648a3a1c69"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc56272e-fc03-4e73-9ec7-ddc704e38e14">
+                    <propertyInstance
+                      Id="997ca870-5c9d-4d25-9a88-767ada232dc9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f0dc6e95-b2d9-4473-848a-a7886b3f5552">
+                    <propertyInstance
+                      Id="75a5d8f5-b41b-4bff-b03e-a1aa401508ca"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d681d1e3-fd26-4e1b-8fe5-890ed469a682">
+                    <propertyInstance
+                      Id="dbafb71d-cd42-422f-9ca6-bb63de1d58ac"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af2d3ebc-030b-4ae7-a71e-53f5eb8208ed">
+                    <propertyInstance
+                      Id="fb18ccca-c45a-45b1-ac62-02d6f6b52608"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="0079762a-d1ed-4f2a-8c6a-73f1f69dbca4"
+                LastKnownName="Space"
+                LastKnownLocation="Package8_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="13f3236f-66c0-468f-86e1-c3b642468dda"
+            name="graphicsDevice"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="932359a5-685e-4d43-92e4-4d0eb14933c0"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DgraphicsDevice"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6a75ccca-e456-447d-ba37-efcc0ea0dcd4"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17f55110-c35e-45cf-b89b-8cebd8c5819b">
+                    <propertyInstance
+                      Id="066ab465-9c66-4267-b374-38cde0614228"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f7992280-bdf6-412d-bc48-3a84e08577d6">
+                    <propertyInstance
+                      Id="e986fc6a-6536-4e2f-9512-703259302a15"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a002040a-ded4-46c1-8109-91378599b07f">
+                    <propertyInstance
+                      Id="1b464fe4-040d-4d7b-8328-ecc6ffd6c37b"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa6cd688-6e5e-4a32-abb2-9c875e781b28">
+                    <propertyInstance
+                      Id="0fcb4f22-e912-45aa-a45c-08518e0e1e39"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ccd8a98-87ca-4879-a46b-25b0b1aac14c">
+                    <propertyInstance
+                      Id="49b5dc0b-d337-41f3-946c-93c0758aac8d"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="86ecec8e-2197-4ea5-97d7-367de6ca0ee6">
+                    <propertyInstance
+                      Id="ed764ee1-e80a-4022-970d-cfa0493ef610"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf3aa67b-f2fe-4994-b518-1ff46ada3b3a">
+                    <propertyInstance
+                      Id="3ce52538-f25b-4b1d-927f-a068d24b5e1b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="1d0c6135-b25b-4440-9990-1b9cab5d90a1"
+                LastKnownName="GraphicsDevice"
+                LastKnownLocation="Package18_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="48bc00b7-63ad-415d-8d9d-055237701910"
+            name="IsHost"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="true"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f6978c1d-6abd-4b32-9fb8-0ca24575945d"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DIsHost"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="446bb0e9-e4d6-4395-9316-91dcb6ab2ef4"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="edb00371-836f-4992-b576-84e2f5ce8b76">
+                    <propertyInstance
+                      Id="17f27df2-86a7-456a-84bd-5c7edb92e6ca"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="29bfb4c2-6e7a-4714-8b48-7e9e468fbbd8">
+                    <propertyInstance
+                      Id="ffc6742f-94b4-418d-8b28-cbc5cfacbe9d"
+                      name="Get"
+                      value="private" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="54b62290-02d3-4ff6-bfeb-301ca0aaf139">
+                    <propertyInstance
+                      Id="0c6f765c-f55d-42f8-bf9d-3fc525b8c91d"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="53525da7-801b-4f0b-8c79-5b6209b05714">
+                    <propertyInstance
+                      Id="4cfa05c1-da5a-4239-82be-a1f5f27e41fe"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="63b5510d-884f-416e-900f-b82a2f0020f4">
+                    <propertyInstance
+                      Id="5b477d71-29df-4287-9da4-e9937a0360bf"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="010708bb-365b-4ab3-a96b-46466d0250bf">
+                    <propertyInstance
+                      Id="4cbce551-6ac6-49d9-bc12-128f6d537717"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="31b40fda-14ea-4ffb-9443-a71f3d177b04">
+                    <propertyInstance
+                      Id="b680ec5c-ca07-4d59-bb4c-e58dfce9d4f1"
+                      name="Set"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+                LastKnownName="Boolean"
+                LastKnownLocation="UML.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0a775e8e-564d-4685-a2a2-e3362e9f9d67"
+            name="camManager"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="f3257a1a-ce35-421d-9c41-346e7e9398a7"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DcamManager"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7e97e0db-69ab-4aea-9e0d-e4df8feb1217"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7eb8b7d-df4e-4824-9be5-85dea38f1c36">
+                    <propertyInstance
+                      Id="50d0d872-6ee8-4a82-b2e6-b64bb0dac577"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="244d0930-401f-4b06-a4e0-2daf3d7a2264">
+                    <propertyInstance
+                      Id="edde2c66-9bce-43a2-8869-1702f76efeba"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="566e8d1e-e2ac-42a1-ba05-f000dcc354ba">
+                    <propertyInstance
+                      Id="e11be212-9609-4890-bcb4-463aee760b21"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5005674b-d4d6-4d7d-9c46-de14a7cd48ea">
+                    <propertyInstance
+                      Id="6264f06b-48bd-4d22-8ec4-9e70fede991d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="623fe5a9-6775-4f40-b429-2a4481c814df">
+                    <propertyInstance
+                      Id="37e7c6e7-aca1-48ea-9f09-eb120f9a5440"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="315201e6-86ce-4447-9aa3-51985831665e"
+                LastKnownName="CameraManager"
+                LastKnownLocation="Package27_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="378002e3-db16-410b-b547-f132a8176bfc"
+            name="playerManager"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="249ce3fb-8e13-46c6-ace3-c6614eeacce9"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DplayerManager"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0ef73b20-aba2-452e-bc86-5d75eb0837d0"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="24d03baa-d976-421c-8c29-9dd5c2354b9c">
+                    <propertyInstance
+                      Id="49b55575-a481-493e-a6c8-cc2b8f55db6b"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c7c28d9e-f7a6-4f25-b697-ea0b8c1d811f">
+                    <propertyInstance
+                      Id="b997f5a9-268f-4b02-8242-2783d1d85713"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="533f153d-f35a-4a3e-8cef-3dd18867860a">
+                    <propertyInstance
+                      Id="e7b148d0-0697-4ceb-b5ad-231b7f21f6cb"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cd8bd0b1-d2a8-45b4-8571-0456860cd147">
+                    <propertyInstance
+                      Id="220fc475-4909-4f52-9216-3d0f4c3b26ba"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f3c85dae-dc03-4af3-8156-aa3046f95d45">
+                    <propertyInstance
+                      Id="1c1d110a-efc6-413c-98dd-bb7ec80f0f84"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="058ac596-4ae9-4db2-9279-7b6386530b75"
+                LastKnownName="PlayerManager"
+                LastKnownLocation="Package11_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="20db8540-4138-4b49-b547-bd05838231c9"
+            name="projectileManager"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="361e17df-a1d2-40e6-b87b-151a10604573"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DprojectileManager"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="03e0e53e-7dfe-4c4d-a69c-0a1ced9b8b8f"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="896d0726-1e05-4550-878e-33a61e52c51b">
+                    <propertyInstance
+                      Id="57ce583c-b4d6-471d-ae00-8b44a963fdee"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="846266fc-f52f-44a9-a94f-ea9dffa26540">
+                    <propertyInstance
+                      Id="ac475792-03af-4b2b-939a-58ea210bf933"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2cf6cf4d-943b-47af-b302-d40962d412a6">
+                    <propertyInstance
+                      Id="84e9b7e6-a6a0-443a-aa0d-ec17bba99628"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7dc84987-55e0-4bc8-8d2e-66e8bc6d11bd">
+                    <propertyInstance
+                      Id="f4c94eb2-b504-45b5-b524-a1d0a0fc4eb8"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7baab05a-0433-4a69-a90f-2a62dde56c24">
+                    <propertyInstance
+                      Id="09277662-dc1c-4861-abfd-785fc9c9dd20"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="42f4d634-d73b-4555-9aae-dfd4d621bfab"
+                LastKnownName="ProjectileManager"
+                LastKnownLocation="Package11_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="ab28c9d7-b8be-4195-b10d-caeb32cecdca"
+            name="networkManager"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="2ce3b041-884d-4579-b9c6-b7e9b5ea73b4"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DnetworkManager"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="1d89d74b-b072-4a26-9e59-b124e0b6e204"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8faefe64-0266-4b37-90cc-39b75e7ddb0d">
+                    <propertyInstance
+                      Id="91580c99-b6ce-4e5b-a1a5-7bf1e025ed32"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2fcf274f-35cb-43c7-a5ed-08d967292a92">
+                    <propertyInstance
+                      Id="29257179-bcf3-4446-9ae3-1873ac74dfcd"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d5ff5390-6261-4bda-be60-a786055041dc">
+                    <propertyInstance
+                      Id="21df14e8-da2b-4ef8-8f18-e5e3a6d05ec8"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="11038a26-e94d-450b-8482-82b24c61b385">
+                    <propertyInstance
+                      Id="eb3422d7-2cce-4634-af8a-a04742e198b8"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8d1cd6fc-8399-403c-b769-6b029c8f30a4">
+                    <propertyInstance
+                      Id="44f7788c-6c14-46c6-919c-91c18327133d"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <interfaceMoniker
+                Id="eada3260-4460-4bee-b4d8-63664c0fb01a"
+                LastKnownName="INetworkManager"
+                LastKnownLocation="Package19_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0b1f4416-d419-4a9d-b1df-e2ecb56c8eb5"
+            name="localPlayerId"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="e96f2854-22fd-42b5-9de0-07e4f9ad6d5e"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DlocalPlayerId"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="a4a58400-aad2-419c-888b-7cb03b8f3779"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="66b20f3d-802c-43af-9f70-a1cc69bdd80e">
+                    <propertyInstance
+                      Id="1dd4437b-535d-4e5d-b827-55dc76c7d826"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="acd99297-28de-42dc-8083-5da041782d6b">
+                    <propertyInstance
+                      Id="96c31824-485e-452b-9eeb-06dbf86eff0e"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5ae4b4f6-68b8-4c16-9561-a0cdeeaf227e">
+                    <propertyInstance
+                      Id="fb5604b5-b35b-4559-a3ac-3db265ddb4b6"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5e7c3fc3-eb3c-4b2b-a41a-836bd0908716">
+                    <propertyInstance
+                      Id="0c344971-4abb-40e4-a77d-718fde7e0557"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0dc40bc6-6a50-4db6-87a6-ca7991da67c5">
+                    <propertyInstance
+                      Id="c2f8e00c-6633-495a-aed6-abbab687a43f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+                LastKnownName="Int64"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="a0ce389f-0e5c-49cc-bab3-8a80ffdb4913"
+            name="skyBox"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="797ac5b3-f3f0-4ac4-be77-72d78419fbb9"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DskyBox"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="17382c4b-ffc2-4d85-bab2-b101b0209516"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4f40f84b-d732-4e97-9593-2e6baf7fdd8a">
+                    <propertyInstance
+                      Id="1c9ab9d5-b70b-4f65-bec6-e77adddb80e2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01814de6-f04b-4257-838d-763f2e3ccc6f">
+                    <propertyInstance
+                      Id="eae13bfe-7875-4939-be0c-2e50a15d8a1a"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9786e24f-577c-4859-ba99-e02c12c874b7">
+                    <propertyInstance
+                      Id="ecedb217-9861-4526-9f1f-0f0128af69b1"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d468aeb-7ab2-41c3-a7af-e61d50e0d301">
+                    <propertyInstance
+                      Id="28512753-8655-44a2-a76c-87ce7de8ab2d"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b450eab2-a12a-4f30-a25a-82ccd33c22a0">
+                    <propertyInstance
+                      Id="efa9b401-bb02-493e-8fa3-2ef6c6327d07"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="dd968d0a-f97b-4c20-b052-38d0b20ccb0e"
+                LastKnownName="SkyBox"
+                LastKnownLocation="Package1_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="4a4f0c99-dacc-4b78-812f-2ad6d470164e"
+            name="map"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="b15ac524-aad1-44da-9518-a2227ba767e7"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3Dmap"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="db124097-bdae-4ea9-a187-a02109145e87"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5cf6054a-5698-4bcf-be21-0bb23fbb0de3">
+                    <propertyInstance
+                      Id="312bd093-f816-437a-b105-cbdf495f2c5a"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c37053f7-07a1-43d0-9d31-70d7f068a226">
+                    <propertyInstance
+                      Id="5aff09e6-f986-4750-adce-6e0e8144c5b2"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d0022097-5b5b-4fc0-aaab-a0900d963ed6">
+                    <propertyInstance
+                      Id="a81269f1-7718-44e4-8c25-5a7256f509aa"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d2f72136-568b-4ba4-8830-ce02f23a8914">
+                    <propertyInstance
+                      Id="1d54a507-f359-4c04-926c-7e38cafba14c"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="103ec784-bc80-4872-908e-730cfd96e42d">
+                    <propertyInstance
+                      Id="bdfed177-a2da-4655-929d-bc45a955865a"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="018f72a2-065f-4ec9-8333-9e1038933b8b"
+                LastKnownName="Terrain"
+                LastKnownLocation="Package1_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="1cee927d-3d07-416d-91a4-26e4586db7f3"
+            name="space"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="fccf0309-cc18-4816-8773-9739594b5cfb"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3Dspace"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="39ff2762-0b3d-49f6-9f8c-43ed16f959cf"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4b368ec1-aca8-413a-aa2f-2e2f7646b10b">
+                    <propertyInstance
+                      Id="8f450616-c935-4bf3-8d80-be2d2be64133"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="23796fde-66fb-4087-b7fc-5a31d0de107d">
+                    <propertyInstance
+                      Id="d70b2a9e-9077-4d55-8be7-faa9ae28800c"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="32548ba4-8437-4b1e-a78a-345894e39f0f">
+                    <propertyInstance
+                      Id="f63cf544-34d0-4d8e-9b7a-ade51e4fcb03"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="829db18c-d296-41b8-a29d-23726baf03ea">
+                    <propertyInstance
+                      Id="5cc3dddb-fd9d-466d-a1e9-22fecfc18b5f"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b1070143-9894-42cd-8976-011e5d53c29c">
+                    <propertyInstance
+                      Id="feb3ba12-43c7-42e1-a3f3-f979b56e6ff9"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="0079762a-d1ed-4f2a-8c6a-73f1f69dbca4"
+                LastKnownName="Space"
+                LastKnownLocation="Package8_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="0f3ea303-a725-4a45-9b74-1f4ee905be66"
+            name="playerID"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="c1447965-6b59-4c9d-be62-f14d65e58351"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DplayerID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="23fffb0f-e4ed-4cd3-af53-e5e633b46491"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1174c57e-cd24-47ba-a266-5109cbc54ef9">
+                    <propertyInstance
+                      Id="c7c3885c-1357-4e39-a2cc-f68b7e5db567"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cf456b55-f758-49e7-8dc8-2afbf5d67441">
+                    <propertyInstance
+                      Id="3c3b0eac-ade5-4745-aa37-5fc9127bb958"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="db6eafd6-75d5-46c6-8495-caa689025e64">
+                    <propertyInstance
+                      Id="81cacb87-78af-48f1-b1da-9865ca31275c"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4a67343-1112-4039-aabf-639db1625188">
+                    <propertyInstance
+                      Id="20567ad9-dbcd-4d9f-bb7b-593c649410f4"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d28070b-0782-461c-bc26-0a226b5c96fc">
+                    <propertyInstance
+                      Id="02528b72-f8f1-4b52-a5dc-852c915a69a6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7d5ccad1-658f-4d0a-8675-a3bd57ec6627"
+                LastKnownName="Int64"
+                LastKnownLocation="Package7_1659.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="d9d24d74-87c1-4254-a098-7f6eb53fedb8"
+            name="PKGame"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="a33d6635-c24b-4fd1-b700-f4acb0006c88"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Content Type%3DContentManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DGraphicsDevice)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="0e08a7d2-e54c-4375-b59a-b8357249f414"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="454a983b-eb69-491b-b4b0-ece0e4bdb0bf">
+                    <propertyInstance
+                      Id="776912ad-1a19-4324-b8dc-a730ddd70297"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ebf5958-4e0c-4b49-82a6-bfad62d76653">
+                    <propertyInstance
+                      Id="1a897d6e-8a39-4498-84df-3ea1b23b8932"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2a5faf15-51aa-44e6-806b-d1f268bf0e32">
+                    <propertyInstance
+                      Id="5577aa2d-b203-42d8-aab4-3843623a03bd"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="02ec8f08-e335-4af7-bc44-f24cabffa9aa">
+                    <propertyInstance
+                      Id="7515d5c8-400b-4a5f-8035-07d7e04a8013"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="09e5f5d6-f8de-4374-87d5-e448af0bb0aa">
+                    <propertyInstance
+                      Id="d90892a7-afb5-4f37-962a-b8207260fcb6"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bb89b655-0ce2-4509-8232-c267650bef87">
+                    <propertyInstance
+                      Id="8a90c808-f555-4309-b933-986029d2b146"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5d733c51-5a9d-45fb-beb3-decba9f6ddef"
+                  name="networkManager"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="9dc0cbbb-2d6a-4b63-aa6a-a0c9af8e3787"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Content Type%3DContentManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DGraphicsDevice)]) ParameterIdentifier%3DnetworkManager"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <interfaceMoniker
+                      Id="eada3260-4460-4bee-b4d8-63664c0fb01a"
+                      LastKnownName="INetworkManager"
+                      LastKnownLocation="Package19_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="237b2229-9ff5-4e18-8107-2fec37654004"
+                  name="Content"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="25f33b60-3eab-4698-a7c9-2e322e51269b"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Content Type%3DContentManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DGraphicsDevice)]) ParameterIdentifier%3DContent"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="83615b04-d9a0-4535-a5d9-d9d89eaa2272"
+                      LastKnownName="ContentManager"
+                      LastKnownLocation="Package6_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="9126834a-cf55-4242-a4e2-a73204a8e4d1"
+                  name="graphicsDevice"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="7c490269-5121-4081-ac09-0bc12ba836c1"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3D.ctor OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill.Networking Type%3DINetworkManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Content Type%3DContentManager)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Graphics.dll&quot; Namespace%3DMicrosoft.Xna.Framework.Graphics Type%3DGraphicsDevice)]) ParameterIdentifier%3DgraphicsDevice"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="1d0c6135-b25b-4440-9990-1b9cab5d90a1"
+                      LastKnownName="GraphicsDevice"
+                      LastKnownLocation="Package18_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="898b3392-9a4b-4425-aa48-070c8c6d7b14"
+            name="Initialize"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="ee36abd5-fc8e-4646-b72c-f9cd51f139cc"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DInitialize"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="602d9863-70c5-4d7a-be50-535167e033be"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="343c5f84-ba5a-4813-a0a2-17f60414b001">
+                    <propertyInstance
+                      Id="abaf8c59-8dec-4e2b-ac8c-4716b4d43a08"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4e6aa502-108d-4d73-9c4b-c68ab5ef9c86">
+                    <propertyInstance
+                      Id="822569ac-5a8d-4d1f-8dc0-c151b963f9db"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="680734d8-50c0-47bd-aac4-0d5022ab23fd">
+                    <propertyInstance
+                      Id="24651354-2e63-4277-b9e6-8730fd876957"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="846c088d-5505-4bf8-bc95-05754c43fe0d">
+                    <propertyInstance
+                      Id="99298c6a-e1b7-4a1e-8d18-482aea00e38e"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3a5ec9a7-769c-4beb-a8dd-a30efb7781ce">
+                    <propertyInstance
+                      Id="8f5e31ff-0a9d-4664-abf9-d7a559b08cd8"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="130eceda-9ea5-4602-97a1-4fd5810a6e80">
+                    <propertyInstance
+                      Id="0cb380ba-1b85-4ef4-9fcb-cc65a5330d79"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="69013cda-ff85-4686-8c0d-9c93705911d4"
+            name="LoadContent"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="84572773-283f-4e7f-8c10-dcf13a69b664"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DLoadContent"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="da8d3a8c-c7ba-4bdd-b105-13f22efbac86"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3db7fe75-830e-45ad-bb99-2b43438b66c4">
+                    <propertyInstance
+                      Id="d6585797-7654-41e1-933b-4901097fe378"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e60ffff-5499-4a0a-bd04-f83f6cbc8f55">
+                    <propertyInstance
+                      Id="f820d077-36b2-4c0d-98af-b863205c2738"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9be41f47-2d23-45ce-8003-05be7c75c4c0">
+                    <propertyInstance
+                      Id="447a89b5-a90c-4c15-8679-35f9158f8129"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3fe8b01e-f7b2-4aaa-8e2a-6dfa63d1b849">
+                    <propertyInstance
+                      Id="f93f3714-ddfa-4c1f-98da-684a48ad31fb"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="732eaab7-d2f5-4fe6-a3b6-af68d4b21bc2">
+                    <propertyInstance
+                      Id="12b93584-6d13-46e1-8372-8da7195d9ddf"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8e64094f-7ef0-489a-88c7-b01313b7855c">
+                    <propertyInstance
+                      Id="8d13bd81-c71d-4738-a464-178b4bc7970a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="5c5a3f82-599a-4899-9c66-093b271df0f7"
+            name="Update"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="9935a705-9e2b-489c-aec3-8fdd9ab87696"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="522bccdf-0019-4703-8854-4dc4d10ca815"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="acc6a519-0c75-4633-97ac-01544a5ed024">
+                    <propertyInstance
+                      Id="dc4d50ee-1c4e-4ac1-9600-4f95a8079f93"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3779111f-6443-42d8-8403-de4eb9402ccd">
+                    <propertyInstance
+                      Id="bb1022cc-f9ba-4a98-ad0e-13150baa8c41"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e7837b99-d29f-4bcb-bbce-4062c43e0041">
+                    <propertyInstance
+                      Id="64513f96-c78f-46db-9739-556af2301ff9"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0cb456dc-4a04-4e89-8baf-10600788483a">
+                    <propertyInstance
+                      Id="c51ccbc7-33c1-48ee-b4af-9e5e36fd2269"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7601a55a-315f-4546-9e2b-104057eac5a0">
+                    <propertyInstance
+                      Id="758ad4d1-1c65-4b2f-a1fc-972971e19469"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b15dd15-3186-4eaa-bc78-33ddb6e0b90f">
+                    <propertyInstance
+                      Id="3e20bf20-1ee5-421f-8609-86a867e751d7"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="545d07ff-eee1-4ba8-9199-cc422dce5ad2"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ab456732-d5c4-4001-9a98-0b9853441baa"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="513f4118-cedd-4d7d-8efe-32b5a98436ab"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package5_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="a07ddd93-72b5-4197-a379-789a6e549e98"
+            name="Draw"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e19b01a2-3f89-49bc-be45-97517c63a302"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="af4fbd2e-fb5e-4040-9d92-d0d16ee18793"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3447313a-306d-41c2-927e-a2b2c7b10fa3">
+                    <propertyInstance
+                      Id="a0db856e-969b-43ab-9675-f40a1c1ca8a8"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cefec439-befd-42b6-99f4-4f88e2952bab">
+                    <propertyInstance
+                      Id="2f9d2c2c-1c25-4052-a52d-a89161ea2093"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9623b09c-72ec-4fec-b987-4beb6dc92897">
+                    <propertyInstance
+                      Id="f45d636f-bb1c-4c4d-b160-0e26ed11ba81"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8de843bd-72c5-48d3-909e-ee15de1edb98">
+                    <propertyInstance
+                      Id="651e87bf-95e4-4493-acab-43caa8940e5c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="15229e5f-3223-4109-9750-648464b013c9">
+                    <propertyInstance
+                      Id="ce4da8cb-782b-4ea9-bcde-5f1582cd0e31"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5b89cf47-b91e-4a6f-a3b7-0ea2f3b70177">
+                    <propertyInstance
+                      Id="fce876bd-0181-4c2b-aafb-ab692883bd25"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="5e60a828-556d-4062-ab5b-9f7472a81028"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="35bad26a-afaf-4e5b-a1c7-51ee8363cf74"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="513f4118-cedd-4d7d-8efe-32b5a98436ab"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package5_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="d2ecb2d3-329c-4367-87dc-4e60ff5c95d9"
+            name="ProcessNetworkMessages"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5163c571-4887-4fb7-b17b-b0f89b0a5bbc"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3DProcessNetworkMessages"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e9c9cfd6-1d36-4a5d-aa34-85bfaca54201"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="42769ecb-0ff3-42b9-8f50-4fa654791ed1">
+                    <propertyInstance
+                      Id="5f76267d-7898-4884-a9ba-56ee69221d89"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="61c6c485-b335-494b-876f-f6936ac9abc3">
+                    <propertyInstance
+                      Id="cc910a59-088d-49ca-9786-f3f185051a6f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="395bf735-3e57-484e-b356-bd0189e9d49c">
+                    <propertyInstance
+                      Id="11f10300-03a8-4943-bfcd-d920d598b83e"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="d7b905ad-0098-4246-a273-a3f62298a6e0">
+                    <propertyInstance
+                      Id="606beb76-febd-4fdc-b0bc-b8a9da79fc15"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="137e1692-5a0b-4039-bbc3-ac267d0dfb6e">
+                    <propertyInstance
+                      Id="17f77341-d19b-48ea-9ac6-c34d8829a7a1"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="421a38e5-1ccd-4fff-9949-08fe9eaef7d7">
+                    <propertyInstance
+                      Id="3501bd41-e1b2-4c3c-a444-362be3262b05"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="e8072c53-c0ef-4536-8fb6-ae1360714819"
+            name="HandleShotFiredMessage"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="be54e72d-2db9-4cd1-b4f0-331d328ebcae"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3DHandleShotFiredMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="579563e4-71f9-4ba3-ba65-0dc7cb2a2177"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="fc28f7f5-cc3e-49af-ac51-afc53e4f8735">
+                    <propertyInstance
+                      Id="64541cbc-ccc5-4f51-8ecd-be10c5a02d54"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="17d4f9f4-b0d3-47ef-93a6-1bdc37efdef9">
+                    <propertyInstance
+                      Id="aa65ce2a-2419-4fff-9625-fe689a4f21ae"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b55c4d00-faa3-4251-a012-ded6cc7b2fc8">
+                    <propertyInstance
+                      Id="675a59bd-cf0f-4d1d-925b-bd5c9a94680b"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2dd1687f-562e-4d46-bb44-ea51730a0a82">
+                    <propertyInstance
+                      Id="a7563669-88b5-4144-824b-42461102882c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0fa822a-1611-45b6-95bc-3bda502277d4">
+                    <propertyInstance
+                      Id="e78b31d3-f8cc-4921-ab04-d8a757adad72"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a6e5f87-f729-4977-9272-a9ace0805195">
+                    <propertyInstance
+                      Id="6b51efb6-d73c-4cb4-bcbf-cba684fc04ac"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="150a1863-f439-4f97-8d2c-96c74b7352a8"
+                  name="im"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="f1cfa039-928b-4bfb-bb86-25445a4b30e7"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3DHandleShotFiredMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)]) ParameterIdentifier%3Dim"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="13a7f53f-a54f-4450-be1d-58146d9d2c78"
+                      LastKnownName="NetIncomingMessage"
+                      LastKnownLocation="Package21_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="011fd35c-3da6-4823-86bd-0686d045d6bf"
+            name="HandleUpdatePlayerStateMessage"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="c7882798-cd9d-4a91-b121-59962cf27d14"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3DHandleUpdatePlayerStateMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="762b9cda-5b25-4e49-8ea3-cc85aab00283"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3d0a9127-c07e-463f-81ba-14a56ebc8aa5">
+                    <propertyInstance
+                      Id="8fb373d2-3c4a-4005-afb6-a5cfebe1e32c"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2b49b7e1-5841-4317-b839-217f9de73218">
+                    <propertyInstance
+                      Id="b29df705-0f07-4651-a961-477241f7a9c2"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="578f90c7-fb1b-41bf-8d93-6583bd8c7002">
+                    <propertyInstance
+                      Id="ee0f5095-10af-43ea-806e-154be94590d8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="33d43691-5dec-4662-ba3d-827843ed7422">
+                    <propertyInstance
+                      Id="4caf9660-12ef-4c82-ba19-221bb6f81b48"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4d89cdbe-9459-4dde-b0b0-71b6e3059d21">
+                    <propertyInstance
+                      Id="9acd0463-f330-4e25-91b6-22ae081fe654"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2fb1caea-9718-4d81-8a3d-4a95dad6e3a2">
+                    <propertyInstance
+                      Id="fc4c6644-b1cb-45c5-83d4-866be2893658"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="a77e55a9-f7d7-4d8a-8d9d-df61d2ec6b68"
+                  name="im"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="ea7ad700-9f08-4e6a-b834-b847cc680218"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPKGame Member%3D(Name%3DHandleUpdatePlayerStateMessage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Flidgren%2FLidgren.Network.dll Namespace%3DLidgren.Network Type%3DNetIncomingMessage)]) ParameterIdentifier%3Dim"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="13a7f53f-a54f-4450-be1d-58146d9d2c78"
+                      LastKnownName="NetIncomingMessage"
+                      LastKnownLocation="Package21_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6b2bb818-7990-429c-a8ff-2ced8085d771"
+        LastKnownName="Events"
+        LastKnownLocation="Package13_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="52c895f1-560f-4f81-b489-f0df7b786b5a"
+        LastKnownName="GameScreens"
+        LastKnownLocation="Package16_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="e57c6115-fae9-4fab-93bb-e1424a43687f"
+        LastKnownName="Networking"
+        LastKnownLocation="Package19_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="3964e6a7-1983-43ae-b35e-7c73119055bd"
+        LastKnownName="Helpers"
+        LastKnownLocation="Package25_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1c6ab666-fbbf-483c-90a0-d07aec10176c"
+        LastKnownName="Components"
+        LastKnownLocation="Package26_1659.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="79f2ed05-9e43-493c-91d6-b2569c685bac"
+        name="PlatKillGame"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="5c126080-88d4-4751-b40d-1e445eba9fe2"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="03ebc1e1-287c-4bee-945c-0eb47821ae69"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b1738871-8c9b-477e-9802-5371332d99ba">
+                <propertyInstance
+                  Id="f6c0db38-b4de-4dde-bf5b-9fdf1fbd574b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a880c5ae-8ac2-4103-b856-51bd033eec75">
+                <propertyInstance
+                  Id="7ea1553f-1a71-4dd7-89c5-284b4a538668"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a1a563b7-4ff3-45f6-986b-58021a22214d">
+                <propertyInstance
+                  Id="bc8afea3-fb3f-4b4f-9f91-57c9fd2d244a"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f5fbf2ec-a358-4fe8-9fd8-26a8db151735">
+                <propertyInstance
+                  Id="afb4e79c-ebc6-443e-9e62-8d2290fd5ddb"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="071e6850-d18c-471c-a5ee-c2cc8d04f564">
+                <propertyInstance
+                  Id="19bf5bb4-03a9-475b-ae1b-a16f1b328893"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <generalsInternal>
+          <generalization
+            Id="c539e184-2597-484f-abae-96a98fbb884a"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0359757e-ae0d-413e-a0e8-e597ac577df3"
+              LastKnownName="Game"
+              LastKnownLocation="Package5_1659.uml" />
+          </generalization>
+        </generalsInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="0eb4920f-1dca-475d-823e-ac364c0e1b6f"
+            name="graphics"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="56cd0672-ef12-40e1-a1de-95b5b8123f10"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3Dgraphics"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="e2beff9e-9214-45cb-948e-0a6fba8b3245"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="550bc487-8a20-439b-adc2-4c37e8735ae9">
+                    <propertyInstance
+                      Id="defc31b2-9174-4fe3-8675-13935553d4e9"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0f522a2e-005d-4059-954d-88773115470d">
+                    <propertyInstance
+                      Id="8651973f-45df-4358-b588-a73a52cd3951"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a0cdcf02-feee-4e57-a0de-94ecbd4ded2b">
+                    <propertyInstance
+                      Id="fda03715-53cd-4057-87d7-5aba870d87d2"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0d22f2aa-b6fd-49bb-91f5-c19f33424596">
+                    <propertyInstance
+                      Id="e9ebd43a-b1c0-4179-91c3-47a9d1d019a4"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="bccc3436-71b3-4b4b-b50a-ec4b3493cb8c">
+                    <propertyInstance
+                      Id="e22a0652-f773-4a6b-988c-de2c6aaf71bc"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="fe28fdf0-5888-47e8-8f3f-fef25c0b9a75"
+                LastKnownName="GraphicsDeviceManager"
+                LastKnownLocation="Package5_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="2e618fb1-0cad-4d27-a872-5468d5279964"
+            name="screenManager"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="5a233b52-0e73-47cf-a203-39ebea63b061"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3DscreenManager"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="92b649c6-0c7b-49c7-94e4-cb0da444aae0"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="47c1bae8-596d-4d0d-a09c-02c8b6c4357f">
+                    <propertyInstance
+                      Id="bf0ce19a-1c09-41cd-a92d-3f22dd540fe6"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6724bfef-0ab6-40e2-8855-1af084a03df7">
+                    <propertyInstance
+                      Id="e423e403-2499-452e-959e-3ce9da3ca805"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="182ebdd4-33b6-43f8-8086-3feaacef9955">
+                    <propertyInstance
+                      Id="cda69a73-f06d-405b-8cac-9008be34028b"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="c3ffe975-8a37-4825-83ad-fc0515d155b9">
+                    <propertyInstance
+                      Id="0bb12b8a-25ea-41f3-bc84-718b43e3cf16"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1b303203-d3cd-4549-a4b2-0c34261e1ca2">
+                    <propertyInstance
+                      Id="f1b1946a-ee34-457a-ab3a-8ef6e820bccf"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="7c89beea-7e89-45f0-b330-8e3e900f5000"
+                LastKnownName="ScreenManager"
+                LastKnownLocation="Package17_1659.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="c945dc1d-8a14-416c-880c-c9bec3129a21"
+            name="screenFactory"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="a0a9f551-0c1d-4ba6-908f-bea7bd319577"
+                handle="viewcode://./CodeSchema_Field?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3DscreenFactory"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="6342667a-a29d-4afe-bb03-6db15f1ddaaa"
+                name="field"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="4bc3e89a-a2f7-4a02-8c72-33305a05068e">
+                    <propertyInstance
+                      Id="c198d3cf-89ca-4028-af32-5deb7b78f321"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="19876ced-7ebc-4860-b289-60bf8f7c01ac">
+                    <propertyInstance
+                      Id="c6b36de1-5c4b-494d-9bba-c7beec6288f6"
+                      name="IsConst"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="194205fd-e0c9-4b00-8f0d-1bd8b5a33267">
+                    <propertyInstance
+                      Id="ba9c8886-1cc3-4cc5-9110-7149b3c788d4"
+                      name="IsNullable"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b47b0fa6-3e73-43b6-b5c2-f5edf637bd47">
+                    <propertyInstance
+                      Id="db62d6fd-d9d3-4941-b493-1b60cd151d46"
+                      name="IsVolatile"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0585b6c6-ea70-4d4e-82ba-75bc450a83e5">
+                    <propertyInstance
+                      Id="426bec27-a1ef-4d2d-8ebf-85b867aabde7"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <classMoniker
+                Id="2f237548-e543-4502-ae4b-8308114c16c2"
+                LastKnownName="ScreenFactory"
+                LastKnownLocation="Package16_1659.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="648ccea4-9bb8-4ff2-b36f-ed32b45ae13c"
+            name="AddInitialScreens"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="06c5e7d1-e474-479c-84f4-9a493f4f76e3"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3DAddInitialScreens"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="9eea3bbf-a71a-4ecd-8ed5-21115449553c"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="cce8202a-6b18-4a9a-a1c1-dba0fb308ad9">
+                    <propertyInstance
+                      Id="139c5b4a-a132-4577-8638-e5a55b24d440"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="69b805a0-99b9-414d-94d2-0f1245e4f864">
+                    <propertyInstance
+                      Id="164810ea-b3ce-4a74-b1c1-38ff9543ea1f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6efba5f3-d184-485c-981d-3281e3e77295">
+                    <propertyInstance
+                      Id="e04a6e5a-ba0a-458d-9cfa-688c487db9fa"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="720dbc21-539e-431e-bb8c-caa43b21dc44">
+                    <propertyInstance
+                      Id="3dbe0ee5-b223-42d5-82c2-784ec3a14236"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="280913bd-440a-47f7-a4c8-587008c0e75b">
+                    <propertyInstance
+                      Id="1aa2281e-d2ce-41f9-9643-20b58f2d36fe"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1ef8e143-62b2-4a03-8b4c-97c0f1aedc3b">
+                    <propertyInstance
+                      Id="93190abd-309b-42cd-b9bc-68eba73d6259"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+          <operation
+            Id="5df51256-a1cb-4cd3-90aa-23ce0be5ffdf"
+            name="Draw"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="5ed2033b-c356-4042-945b-32e48707d4a1"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="aecf95d4-b249-482a-a82f-b9b9f346b990"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a2f3b290-47d1-4532-b228-4a7d70b793e0">
+                    <propertyInstance
+                      Id="febaecaa-39ce-4f05-93d2-d682faea4fb7"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b700bc0b-c7d8-423e-9a75-212ea078c7dc">
+                    <propertyInstance
+                      Id="4f2b45b5-3cc8-4966-b5fb-a56927e4bf88"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="af44288a-657d-4bd4-bc3a-0ef25825f64b">
+                    <propertyInstance
+                      Id="c4b3a9b6-310d-4cf0-bb7d-3ad534bb793f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="aa06371d-1cbe-4cba-984f-5cb5f46abcc7">
+                    <propertyInstance
+                      Id="78aa3a25-c698-4807-840c-f2d94108fed1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="f08bbdbe-e06d-4458-bdf9-9dc059b31e17">
+                    <propertyInstance
+                      Id="4b71e467-d10b-46b7-99a8-b151aa59991c"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94de2080-aa43-47b0-bdee-75bcac7a2225">
+                    <propertyInstance
+                      Id="5634731b-79f0-48e9-9e90-eb66e7296eac"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="139330fc-e28d-4f4b-9e27-1d1f04d1dc99"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="5701acbe-850f-49dd-985e-510203234a15"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3D(Name%3DDraw OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="513f4118-cedd-4d7d-8efe-32b5a98436ab"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package5_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="4d990782-4028-41b9-9330-a57ada2b7fb3"
+            name="Update"
+            visibility="Protected"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="e79325dd-6e51-44c3-a285-164042367236"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="17a42969-69d7-4719-abb5-9ec5ed016766"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e63c7df7-8213-4e4f-952a-ac4bcec0cf65">
+                    <propertyInstance
+                      Id="02d70ee2-1646-4a9c-ab63-5585974abaa2"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="972183ad-ea1b-4794-a694-0b4420a916a2">
+                    <propertyInstance
+                      Id="d4940613-e322-4256-a73f-92db1a408e3d"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="94df1ebc-0991-4cb7-a10c-62aaf3cf47ff">
+                    <propertyInstance
+                      Id="110fa6b6-c5ce-4c8e-9299-0741adbc920f"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="811ff4c2-5f14-4b5e-b5bf-5dddafb59fac">
+                    <propertyInstance
+                      Id="c9bef7d6-586b-48ed-a74b-13a10d1014d1"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b093b6e2-fd14-4411-b171-831e12dc3726">
+                    <propertyInstance
+                      Id="2e4e414f-d2af-4a40-910b-c995bbd15223"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f3c17dd-e3bb-4f49-a4eb-ce7aa49f3337">
+                    <propertyInstance
+                      Id="bfc51f32-ae3c-464f-934c-7b4a424a6e9a"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="24e4197f-4e1b-4004-9693-528ab1a8d55e"
+                  name="gameTime"
+                  direction="In">
+                  <referencesInternal>
+                    <reference
+                      Id="cb3eec67-79a0-4600-ba3e-bb1ecd1d95ba"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3D(Name%3DUpdate OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FMicrosoft XNA%2FXNA Game Studio%2Fv4.0%2FReferences%2FWindows%2Fx86%2FMicrosoft.Xna.Framework.Game.dll&quot; Namespace%3DMicrosoft.Xna.Framework Type%3DGameTime)]) ParameterIdentifier%3DgameTime"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <type_NamedElement>
+                    <classMoniker
+                      Id="513f4118-cedd-4d7d-8efe-32b5a98436ab"
+                      LastKnownName="GameTime"
+                      LastKnownLocation="Package5_1659.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation
+            Id="f4198227-29c1-4d8e-9c80-8599a9948259"
+            name="PlatKillGame"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="68f9e828-0fd9-4fb6-af7c-3cc00868bee1"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DPlatKillGame Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="5db714c2-7500-4b74-ad7f-418a0bf81f8d"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5c79bec4-5c98-4a1f-baaa-94367164f780">
+                    <propertyInstance
+                      Id="800030a1-b761-44ad-8a92-3cd0d9b8bf90"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6a6df41a-13c6-445b-8744-07d68ef11d36">
+                    <propertyInstance
+                      Id="0f334aa8-457b-429a-b043-88a59e739717"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6e01377a-3954-4c56-84e7-109f80c9f143">
+                    <propertyInstance
+                      Id="00353a4e-c8fa-474e-922b-6e6bf3125be8"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="83b9a134-0a17-4f97-bca1-8a49910babba">
+                    <propertyInstance
+                      Id="129efc07-48c6-4cc4-be34-5f05023485b3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1e19fc19-6315-421e-8b6c-9f154fdb201d">
+                    <propertyInstance
+                      Id="8f540ed4-47e2-4b42-98f1-5fbd3661fc6e"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="8a64779e-6b89-4349-bf43-edaecf646efa">
+                    <propertyInstance
+                      Id="9d1ca19c-2e82-430d-8e70-be9c7215fe27"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="c216a000-a0c4-49b3-a381-1b4a462ee55d"
+        name="Program"
+        visibility="Package"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="cfe4ab14-b5cd-40af-b4e7-1913cd77ebbb"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DProgram"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="995bda99-9cae-4a98-aae4-0551af55c585"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="092e9215-6e30-4e05-a4cf-9d7e36030262">
+                <propertyInstance
+                  Id="9495b215-b9a1-482e-a849-5f882eaf35ba"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="24792c6f-b7e2-4891-836c-354c6862fe0a">
+                <propertyInstance
+                  Id="e0dacc01-0940-4a2e-bf77-d645d8f09ae5"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a9c66b02-86d3-4a04-8f4f-7046dc97f0da">
+                <propertyInstance
+                  Id="29d8b9ec-8871-4e79-b032-bdb5b5cadb2d"
+                  name="IsStatic"
+                  value="True" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="04c1304f-0116-4947-ab91-60000c0967db">
+                <propertyInstance
+                  Id="b0e36076-223a-429d-9e20-2a527ca02196"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a6a3f0d5-8524-4a93-a791-1494d4a02b1f">
+                <propertyInstance
+                  Id="d13b98c6-3db5-4452-a953-0e796daf80bf"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="884401a4-5265-4b96-bee1-5e146926d523"
+            name="Main"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="true"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="fcc2bbc8-9c11-4257-825c-0b446e0e9c64"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DProgram Member%3D(Name%3DMain OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DString ArrayRank%3D1 ParentType%3DString))])"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="3bceda8a-3d8a-4f48-92a3-b4ca6ee6573f"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="01ea1aeb-dc02-4fd8-b9b1-8770ea747ee4">
+                    <propertyInstance
+                      Id="f87185d1-9c36-496e-bc96-24f74923b35d"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="6eb478a8-cfd0-4a9e-becf-4d96f14f0d78">
+                    <propertyInstance
+                      Id="2bcc83b9-bd37-4961-bc6a-a5ca893dd3b6"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a9823ff9-1aba-4540-97d0-84291120f792">
+                    <propertyInstance
+                      Id="fd3d9cda-c59c-47d1-92d3-60a001c683f3"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ef77c5fc-724b-4fd8-9955-ee9fb6be2194">
+                    <propertyInstance
+                      Id="274d7427-5e53-47ae-ba3f-17ad5a2f42f3"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9f2489b9-6219-4bdd-a56b-c50a5e9c6454">
+                    <propertyInstance
+                      Id="ab4aa287-70bd-4817-847b-2e8427918f78"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7f0e4307-aadd-455f-953e-5869ec375cc3">
+                    <propertyInstance
+                      Id="b5531945-ca07-4d85-9ccc-33e3e35ce84e"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter
+                  Id="0b9e58b3-40b1-457d-aa53-a300956cf487"
+                  name="args"
+                  direction="In"
+                  isOrdered="true">
+                  <referencesInternal>
+                    <reference
+                      Id="36e3edda-5533-4a95-b529-a6babb129a5c"
+                      handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FC:%2FUsers%2FJuanManuel%2FDesktop%2FRepository%2FPlat_Kill%2Fplat-kill%2Fplat-kill%2Fbin%2Fx86%2FDebug%2Fplat-kill.exe Namespace%3Dplat_kill Type%3DProgram Member%3D(Name%3DMain OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.0%2FProfile%2FClient%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DString ArrayRank%3D1 ParentType%3DString))]) ParameterIdentifier%3Dargs"
+                      tag="ViewCode" />
+                  </referencesInternal>
+                  <lowerValueInternal>
+                    <literalString
+                      Id="90f5d8d1-3bd9-4b7f-8d71-3da8dc9b4649"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="b0272144-815f-4db0-a860-d4fb9fb51681"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                  <type_NamedElement>
+                    <primitiveTypeMoniker
+                      Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                      LastKnownName="String"
+                      LastKnownLocation="UML.uml" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

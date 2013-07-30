@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="650197de-4f6c-4b40-b5d6-cefd26524299" name="UMLActividad" linkedPackageId="52f90a70-d238-4391-b56e-ab8b5f30111c" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
+  <ownedCommentsInternal>
+    <comment Id="e3ed752f-a9f5-42f3-a9e9-70752e770e33">
+      <elementDefinition Id="c0ce6415-9e06-423c-96b1-8cdbee3a7323" />
+      <body>Inicia una partida de Multi-jugador</body>
+      <annotatedElements>
+        <initialNodeMoniker Id="138488a0-554b-4e20-8518-8b7e2e959096" LastKnownName="Initial1" />
+      </annotatedElements>
+    </comment>
+    <comment Id="b820e439-af73-49b4-a7b6-8f2195ba603e">
+      <elementDefinition Id="916f1fdb-2574-4401-93ed-a4670b109179" />
+      <body>En esta bifurcación, se determina el tipo de mensaje qeu se recibe, si es de datos o de conexión.</body>
+    </comment>
+    <comment Id="815398f3-57ef-45e6-92e7-23a130e35fd2">
+      <elementDefinition Id="3eb1149e-9dcf-4702-b237-ea1e785d630e" />
+      <body>Se determina si es un cliente nuevo o si se desconecta un cliente del servidor.</body>
+    </comment>
+    <comment Id="1c30dfc8-eca7-488b-83dc-f944b651d459">
+      <elementDefinition Id="a586cf39-511a-4eb7-95f1-bd2babebe1d1" />
+      <body>Salida de un jugador o fin de partida.</body>
+      <annotatedElements>
+        <activityFinalNodeMoniker Id="6b1c7505-e7e9-413f-b2de-7cc4c59b19e1" LastKnownName="ActivityFinal1" />
+      </annotatedElements>
+    </comment>
+    <comment Id="849d63a2-1d38-410c-a1b5-492d09a2f402">
+      <elementDefinition Id="bce862ec-1963-40e0-9fdb-47286c038d90" />
+      <body>El metodo ProcessNetworkMessages , se mantendra ejecutandose mientras exista conexion.</body>
+    </comment>
+    <comment Id="b8c7749c-eec2-4794-beed-bff165cf35b0">
+      <elementDefinition Id="5bf3c72c-a57f-476a-8471-a38b37f3a6e2" />
+      <body>Este diagrama de actividad modela el proceso que realiza el programa para gestionar las comunicaciones de red.</body>
+    </comment>
+  </ownedCommentsInternal>
+  <appliedStereotypesInternal>
+    <stereotypeInstance Id="44ff67b8-ff85-4262-b074-43bd767e5b6a" name="namespace" profile="CSharpProfile">
+      <elementDefinition Id="ea528ce5-c8a5-4dca-82ba-fa5bb907d7b8" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="b6a23172-d00d-4e35-a0fd-333f8a9e2402">
+          <propertyInstance Id="e0d2279c-3f1d-497a-828e-7e49ecb47f93" name="BaseName">
+            <elementDefinition Id="2080be99-2699-4dbd-a6ca-6f579f9dd1f5" />
+          </propertyInstance>
+          <elementDefinition Id="b32324e8-e9b4-4ed4-9122-e4a6fd2d1512" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="52401a89-11ed-4fac-b398-48274ca70237">
+          <propertyInstance Id="cecc354b-43b3-449e-a4b5-065ff1b47300" name="ClrAttributes">
+            <elementDefinition Id="6d677375-fe55-4f7c-a7d0-bda6bbbaf95f" />
+          </propertyInstance>
+          <elementDefinition Id="62ef0d4c-5cb0-43ab-9e2f-b2f2669579c6" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="d6b9dcfc-246c-46bb-86b8-14d0c538197f">
+          <propertyInstance Id="5fa59fdc-abfb-4dde-b5b1-eb1242d8815b" name="Usings">
+            <elementDefinition Id="6ef41662-680e-4fcb-bc34-5e9366afbba2" />
+          </propertyInstance>
+          <elementDefinition Id="c4c23199-a67d-49e4-9333-580049983d78" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+    <stereotypeInstance Id="4bda2636-a434-49bf-b571-5033ef6e9fbd" name="TextTemplateBindings" profile="TextTemplateBindings">
+      <elementDefinition Id="11336c82-8a07-4b2e-b191-eb1231791d0b" />
+      <propertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="8c1d7ee9-5a22-4396-b2d6-b59cce6a529d">
+          <propertyInstance Id="8c0f7b66-46ab-4eb5-949a-c15c9d7720d3" name="Alias" value="ClassTemplate|EnumTemplate|InterfaceTemplate|StructTemplate">
+            <elementDefinition Id="771428b5-ba32-481d-ae53-b88ffd77189a" />
+          </propertyInstance>
+          <elementDefinition Id="93e2133d-b3aa-4c28-93ed-faaca4c90e56" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="75bc4fdf-42a0-4200-ba41-07b940e5e74d">
+          <propertyInstance Id="70de256e-cd40-44b5-9996-22c1dd519502" name="TemplateFilePath" value="ClassTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\ClassTemplate.t4|EnumTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\EnumTemplate.t4|InterfaceTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\InterfaceTemplate.t4|StructTemplate=C:\PROGRAM FILES (X86)\MICROSOFT VISUAL STUDIO 11.0\COMMON7\IDE\EXTENSIONS\MICROSOFT\ARCHITECTURE TOOLS\EXTENSIBILITY\Templates\Text\StructTemplate.t4">
+            <elementDefinition Id="c02c5b24-cbde-45f9-a188-9d219fab014f" />
+          </propertyInstance>
+          <elementDefinition Id="82dd950a-3a5b-409c-9ef4-9d4789c0bb5f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="13c6b7b7-1dc9-4044-aab2-f9e3f03663d7">
+          <propertyInstance Id="14c0bb6f-34e1-4c79-ae21-a45bb5c5aa12" name="ProjectPath" value="ClassTemplate=..\UMLLib\UMLLib.csproj|EnumTemplate=..\UMLLib\UMLLib.csproj|InterfaceTemplate=..\UMLLib\UMLLib.csproj|StructTemplate=..\UMLLib\UMLLib.csproj">
+            <elementDefinition Id="8966fbe8-cd83-4702-8eb6-073a4463074b" />
+          </propertyInstance>
+          <elementDefinition Id="0c351ace-0d5a-46b8-b569-a0da9d5431e8" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="5ff6ddb3-c61b-459b-8863-8efc1ebef0f2">
+          <propertyInstance Id="12ec3f3e-ce04-4da4-ac4c-7fab1030e48a" name="TargetDirectory" value="ClassTemplate=GeneratedCode\{PackageStructure}|EnumTemplate=GeneratedCode\{PackageStructure}|InterfaceTemplate=GeneratedCode\{PackageStructure}|StructTemplate=GeneratedCode\{PackageStructure}">
+            <elementDefinition Id="24092bd3-d484-4d62-83f1-3c3057eed07e" />
+          </propertyInstance>
+          <elementDefinition Id="d2040b25-bc92-4850-a84d-124b0a8231a9" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="2fcedcea-facf-4c2e-a897-f3985475f09c">
+          <propertyInstance Id="47d7d7f5-03c8-4ca3-888c-00d909eacc21" name="TargetName" value="ClassTemplate={Name}|EnumTemplate={Name}|InterfaceTemplate={Name}|StructTemplate={Name}">
+            <elementDefinition Id="3e57d1e7-75f7-4af7-829a-03e407c2b457" />
+          </propertyInstance>
+          <elementDefinition Id="999e979a-e595-4e9d-8369-051d3136f16f" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="930afd1a-0018-4c24-871c-216c0f19241e">
+          <propertyInstance Id="c94f62c0-4c20-4b78-b641-7e39d67975bb" name="Overwrite" value="ClassTemplate=True|EnumTemplate=True|InterfaceTemplate=True|StructTemplate=True">
+            <elementDefinition Id="39866af3-923c-44b8-a0ec-145372111063" />
+          </propertyInstance>
+          <elementDefinition Id="d38547b0-3365-4819-a0ff-005f59a56315" />
+        </stereotypeInstanceHasPropertyInstances>
+        <stereotypeInstanceHasPropertyInstances Id="c75caf76-673b-40a3-805e-fc2b2983fc31">
+          <propertyInstance Id="9feec1d9-686a-4dbe-8be0-1b95b8d15eed" name="Parameters">
+            <elementDefinition Id="de1fb1da-e1c5-42db-9fa8-69bd1bc787ae" />
+          </propertyInstance>
+          <elementDefinition Id="faafc99d-d9d6-4f34-a320-5b56bc6163a8" />
+        </stereotypeInstanceHasPropertyInstances>
+      </propertyInstances>
+    </stereotypeInstance>
+  </appliedStereotypesInternal>
+  <packagedElements>
+    <activityRootModelHasActivity>
+      <activity Id="04895641-2bfc-46b9-8f3c-231ff889a875" name="UMLActividad" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
+        <elementDefinition Id="0ca3dee3-2e7f-4c81-bc74-80bad3ff1cfc" />
+        <nodes>
+          <initialNode Id="138488a0-554b-4e20-8518-8b7e2e959096" name="Initial1" isLeaf="false">
+            <elementDefinition Id="4a43e698-fec5-4bcb-aa77-f77e15d7e850" />
+            <objectFlowTargets>
+              <objectFlow Id="b3ab5ab2-79d3-4a5b-bb58-b48e7b006616" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="b61275ce-0ee3-47bc-928c-5d8e4bdebf41" LastKnownName="Constructor recibe Objeto INetworkManager" />
+                <elementDefinition Id="c57ca58a-1628-430a-861d-b4d0aea8ed5d" />
+              </objectFlow>
+            </objectFlowTargets>
+          </initialNode>
+          <objectNode Id="b61275ce-0ee3-47bc-928c-5d8e4bdebf41" name="Constructor recibe Objeto INetworkManager" isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="c211bad8-f59d-43c2-8538-953365185b9e" />
+            <objectFlowTargets>
+              <objectFlow Id="e179bb17-8604-4d53-899a-35d9735d5a3c" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="77ce2d88-0df6-4ec8-a76e-6561da9e16ad" LastKnownName="Se llama al metodo Conectar del INetworkManager" />
+                <elementDefinition Id="b2c0cb36-8be4-46b1-96a5-de0d96140a2e" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="a15ac151-e063-4a0c-9c62-33d800b964b0" name="2147483647" value="2147483647">
+                <elementDefinition Id="491f22e8-81f2-49f0-a2cc-fb66ee295c20" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <objectNode Id="77ce2d88-0df6-4ec8-a76e-6561da9e16ad" name="Se llama al metodo Conectar del INetworkManager" isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="09b4dc8b-1a71-4ab1-a831-aa88c601b520" />
+            <objectFlowTargets>
+              <objectFlow Id="ceeefa03-23a6-4084-bdec-81d252307d67" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="1c53cf48-6555-454d-9ac5-057f788079f1" LastKnownName="Se invoca al metodo ProcessNetworkMessages " />
+                <elementDefinition Id="9888d1b2-8225-49d1-9a97-09692bd0ce75" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="fffe6552-7d9b-4673-910f-99f113232619" name="2147483647" value="2147483647">
+                <elementDefinition Id="8b6c986c-e4e6-41bf-83f9-de964d57660c" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <objectNode Id="1c53cf48-6555-454d-9ac5-057f788079f1" name="Se invoca al metodo ProcessNetworkMessages " isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="d158b293-bcc8-414d-8337-d93ed77109f7" />
+            <objectFlowTargets>
+              <objectFlow Id="e8e7057d-9e13-4fe1-87cb-d23377c311f2" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <decisionNodeMoniker Id="eb1d854b-0f57-4658-93dc-6792c26121fe" LastKnownName="Decision1" />
+                <elementDefinition Id="4c23cc93-38c5-4099-8bc4-19840d084689" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="75252642-3fb0-49e4-b2db-cf14f95d3ca9" name="2147483647" value="2147483647">
+                <elementDefinition Id="0b38ef2b-5c5b-42e5-8d55-dcd3f65bebba" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <decisionNode Id="eb1d854b-0f57-4658-93dc-6792c26121fe" name="Decision1" isLeaf="false">
+            <elementDefinition Id="c4dffd84-5f1d-41ad-88e9-db9192e22c80" />
+            <objectFlowTargets>
+              <objectFlow Id="63be1157-8f69-4d61-8bbd-6ddce30389bd" guard="Mensaje de Data" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="7bb68ac2-1613-4333-9a3e-1ed148067fe5" LastKnownName="Se procesa el mensaje" />
+                <elementDefinition Id="59eac94e-fce1-48e6-996c-b97ea45a2d5d" />
+              </objectFlow>
+              <objectFlow Id="3ebfc5b1-fa57-4f84-87c4-1cbf38b96206" guard="Mensaje de Conexión" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="09e859c7-bfed-4a79-981f-847704031d81" LastKnownName="Se procesa el mensaje" />
+                <elementDefinition Id="9e071536-d857-49c6-969d-b65743d7e6a6" />
+              </objectFlow>
+            </objectFlowTargets>
+          </decisionNode>
+          <objectNode Id="7bb68ac2-1613-4333-9a3e-1ed148067fe5" name="Se procesa el mensaje" isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="c29674c1-9c52-4c17-9f81-ae90b689f905" />
+            <objectFlowTargets>
+              <objectFlow Id="27e200d9-1c9a-4cdd-bbcd-2f3f60e50f4f" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <decisionNodeMoniker Id="94528bc5-0896-4ad4-809e-c517274289d8" LastKnownName="Decision2" />
+                <elementDefinition Id="07d27cf1-b2c3-4dba-aa58-bf37e2019b57" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="ee84d85c-c1e8-498d-81bb-157f0ffd0d25" name="2147483647" value="2147483647">
+                <elementDefinition Id="49b839c1-d8fb-43cd-a6bc-9dd67280b716" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <objectNode Id="09e859c7-bfed-4a79-981f-847704031d81" name="Se procesa el mensaje" isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="eaa3ead4-5e7f-4ffe-b25b-7f52f8fcf7c5" />
+            <objectFlowTargets>
+              <objectFlow Id="79e5adf7-dc00-4efc-a2f4-c0832bfd8bf1" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <decisionNodeMoniker Id="968481d9-4495-44a9-b4bb-68a2d6906ca7" LastKnownName="Decision3" />
+                <elementDefinition Id="488f1925-2f82-4a51-85a2-8f466f2ab3b8" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="fbb390ce-fc07-4d4b-915e-64342aaf3c6d" name="2147483647" value="2147483647">
+                <elementDefinition Id="e0b13f1f-af6e-448a-9df7-283074b63b35" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <objectNode Id="966048fd-d610-431c-8dd3-d42d60fbeac1" name="Se le asigna una instancia de jugador al nuevo cliente." isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="40b42167-7e60-4629-af30-d34100b15ef7" />
+            <objectFlowTargets>
+              <objectFlow Id="8ccd0008-2f35-41c5-882a-c27e50d3bf30" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="1c53cf48-6555-454d-9ac5-057f788079f1" LastKnownName="Se invoca al metodo ProcessNetworkMessages " />
+                <elementDefinition Id="8aee5278-e007-4d20-a998-6a5a6d009ef5" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="b12f195a-3970-4a9f-8859-47615558a5c1" name="2147483647" value="2147483647">
+                <elementDefinition Id="e22a9d36-3d03-483e-88da-bc66e9a11c8d" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <decisionNode Id="94528bc5-0896-4ad4-809e-c517274289d8" name="Decision2" isLeaf="false">
+            <elementDefinition Id="cf9ffaf5-472f-416c-bf19-ca50df8d82fa" />
+            <objectFlowTargets>
+              <objectFlow Id="930fe88f-efc2-4beb-86ef-a66841cd1789" guard="Cambio en Jugador" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="d72f2784-26a6-444b-8fd5-33f51fbec05d" LastKnownName="Se dispara el Evento de control de Jugadores de red." />
+                <elementDefinition Id="23b7801a-62fe-4b81-8e32-afd35b7d7c24" />
+              </objectFlow>
+              <objectFlow Id="ebb6fadd-6210-421e-8e3b-9c1f5d067ac9" guard="Cambio en Projectil" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="8e6d1e77-8f02-4d96-8564-f51237c4dfa0" LastKnownName="Se dispara Evento de control de projectiles" />
+                <elementDefinition Id="fe578b0b-c530-4fa7-bcd6-425e4c3320c9" />
+              </objectFlow>
+            </objectFlowTargets>
+          </decisionNode>
+          <decisionNode Id="968481d9-4495-44a9-b4bb-68a2d6906ca7" name="Decision3" isLeaf="false">
+            <elementDefinition Id="78931f27-f23e-4e4e-b1f8-5fb6efc415b3" />
+            <objectFlowTargets>
+              <objectFlow Id="a385e025-9f65-43ec-940e-751b8c86001a" guard="Se desconecta un cliente." isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="37b1ee23-b865-4590-b690-f3f6c7e130ea" LastKnownName="Se termina la conexión y se limpian los objetos." />
+                <elementDefinition Id="59421ef2-d597-4776-8eea-a78fe602f2f1" />
+              </objectFlow>
+              <objectFlow Id="72fda0ef-0d15-47ba-a09f-9f0eb6c16a34" guard="Se conecta un nuevo cliente." isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="966048fd-d610-431c-8dd3-d42d60fbeac1" LastKnownName="Se le asigna una instancia de jugador al nuevo cliente." />
+                <elementDefinition Id="75bb835b-a12d-4fd0-a7a2-bb30cb6286e6" />
+              </objectFlow>
+            </objectFlowTargets>
+          </decisionNode>
+          <objectNode Id="37b1ee23-b865-4590-b690-f3f6c7e130ea" name="Se termina la conexión y se limpian los objetos." isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="d882131c-f9d8-45e2-b4d8-2e19283286ee" />
+            <objectFlowTargets>
+              <objectFlow Id="b884c85f-9e9b-40e1-9dc5-3fa01004c1c2" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <activityFinalNodeMoniker Id="6b1c7505-e7e9-413f-b2de-7cc4c59b19e1" LastKnownName="ActivityFinal1" />
+                <elementDefinition Id="6b1bb1d3-5ba4-48ac-bb7f-6272ce56f656" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="64e2e996-ad6b-4ed2-ae7a-451f6ac25717" name="2147483647" value="2147483647">
+                <elementDefinition Id="2516e80a-98d1-4480-87d6-6f7c4e140417" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <objectNode Id="d72f2784-26a6-444b-8fd5-33f51fbec05d" name="Se dispara el Evento de control de Jugadores de red." isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="6be7bf6a-20b7-4cf1-888d-3ffadc81b15a" />
+            <objectFlowTargets>
+              <objectFlow Id="4da6da0b-0bce-40de-8a6e-598b09c86dce" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="206a8653-2c94-4079-9e24-718725828907" LastKnownName="Se actualiza la instancia del jugador." />
+                <elementDefinition Id="f5b316b8-7768-448b-bb8e-4358ee26d7d8" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="7a61fbdf-a107-4939-b5f3-a45ad4e6c86e" name="2147483647" value="2147483647">
+                <elementDefinition Id="7c17ce5b-f24b-4119-9388-158b587bb52b" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <objectNode Id="8e6d1e77-8f02-4d96-8564-f51237c4dfa0" name="Se dispara Evento de control de projectiles" isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="bce5d3d1-cd01-450b-8950-5821cd0a5228" />
+            <objectFlowTargets>
+              <objectFlow Id="e3908034-d96e-4a94-b120-38d647e0820b" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="e4eee040-9519-4a66-a304-06a17edde838" LastKnownName="Se agrega la nueva instancia de projectil a cada cliente." />
+                <elementDefinition Id="d6d4076b-41f0-4a66-8d7f-c47ee07ad892" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="520d572a-3186-41c6-b3b1-7f0be1153147" name="2147483647" value="2147483647">
+                <elementDefinition Id="fc5739b5-5790-457d-96f0-bd4e8b6eb3d3" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <activityFinalNode Id="6b1c7505-e7e9-413f-b2de-7cc4c59b19e1" name="ActivityFinal1" isLeaf="false">
+            <elementDefinition Id="b5c5067d-425e-4a3a-b25c-6c1ac32d400e" />
+          </activityFinalNode>
+          <objectNode Id="e4eee040-9519-4a66-a304-06a17edde838" name="Se agrega la nueva instancia de projectil a cada cliente." isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="991e1ee3-1cd0-4946-9108-715c11e45a20" />
+            <objectFlowTargets>
+              <objectFlow Id="ad63b6ba-32d0-4cb7-bf55-6e15b36e5f0a" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="1c53cf48-6555-454d-9ac5-057f788079f1" LastKnownName="Se invoca al metodo ProcessNetworkMessages " />
+                <elementDefinition Id="9f708396-e56b-48db-8d82-89ecd49f71f9" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="f955490f-b248-40d8-a1a8-7641ac82fa56" name="2147483647" value="2147483647">
+                <elementDefinition Id="e93aab34-daf3-417c-b48f-d4a1b610f461" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+          <objectNode Id="206a8653-2c94-4079-9e24-718725828907" name="Se actualiza la instancia del jugador." isLeaf="false" ordering="Unordered" isControlType="false">
+            <elementDefinition Id="048fdd68-4ab0-42a6-97bd-1acf5a09fc2e" />
+            <objectFlowTargets>
+              <objectFlow Id="f881a044-dba1-4c37-811c-8254714e07b8" isLeaf="false" isMulticast="false" isMultireceive="false">
+                <objectNodeMoniker Id="1c53cf48-6555-454d-9ac5-057f788079f1" LastKnownName="Se invoca al metodo ProcessNetworkMessages " />
+                <elementDefinition Id="bd360630-7d93-461a-9afd-d78ffd5aeb99" />
+              </objectFlow>
+            </objectFlowTargets>
+            <upperBound>
+              <literalInteger Id="66534740-97c4-4827-8906-81db93a52c10" name="2147483647" value="2147483647">
+                <elementDefinition Id="59b56ff6-9d1a-4899-b1f7-1950ef7429e5" />
+              </literalInteger>
+            </upperBound>
+          </objectNode>
+        </nodes>
+      </activity>
+    </activityRootModelHasActivity>
+  </packagedElements>
+  <package Id="52f90a70-d238-4391-b56e-ab8b5f30111c" name="UML">
+    <elementDefinition Id="ce365804-48e4-4890-b02f-56e1fa403e38" />
+    <profileInstances>
+      <packageHasProfileInstances Id="3f701185-30b0-43c1-8c7b-606ab56f859e">
+        <profileInstance Id="ff17c892-0d7e-49f0-a173-22e3d71308e0" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="22281582-e948-4836-a240-9d1238df8be6">
+        <profileInstance Id="57d51188-5690-4805-99c9-6420f2c5f0e2" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="b0663ca3-2caf-4a8b-a704-1260a8911531">
+        <profileInstance Id="6a4a2800-3a33-4dbb-bd92-b9c8ccb2affe" name="CSharpProfile">
+          <elementDefinition Id="be292661-5582-4c93-a4b6-baffba0a5b9c" />
+        </profileInstance>
+        <elementDefinition Id="068e87e7-3f52-4179-ba8a-6162253bc20c" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="a5b9b76f-266d-41bb-a4f9-73312dd303e5">
+        <profileInstance Id="edf6fd6d-5379-4aa0-9fb7-5bfed79dfcdf" name="TextTemplateBindings">
+          <elementDefinition Id="28923e21-f5e3-4054-b832-ad7cdf892f08" />
+        </profileInstance>
+        <elementDefinition Id="6099d13e-61fc-474d-91b3-b49dd3aded0c" />
+      </packageHasProfileInstances>
+    </profileInstances>
+  </package>
+</activityRootModel>
