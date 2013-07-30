@@ -20,6 +20,8 @@ namespace plat_kill.Managers
         
         private Dictionary<long, Projectile> projectiles;
         private static long projectileID;
+        private DateTime lastshot;
+        private TimeSpan firerate;
         
         public event EventHandler<ShotFiredArgs> ShotFired;
 
@@ -31,6 +33,8 @@ namespace plat_kill.Managers
             this.game = game;
             this.projectiles = new Dictionary<long, Projectile>();
             projectileID = 0;
+            this.firerate = new TimeSpan(0, 0, 0, 0, 700);
+            this.lastshot = DateTime.Now;
         }
         #endregion
 
@@ -47,27 +51,31 @@ namespace plat_kill.Managers
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
         {
-            Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, 100,
-                                                   playerShotted.Position + playerShotted.Body.OrientationMatrix.Forward
-                                                   + new Vector3(0, 8, 0), 0, 0.1f, .025f, .025f, .025f, projectileType);
-            switch (projectileType)
+            if ((lastshot.Add(firerate)) <= DateTime.Now)
             {
-                case ProjectileType.Arrow:
-                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
-                    break;
-                case ProjectileType.Bullet:
-                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
-                    break;
-                case ProjectileType.Beam:
-                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
-                    break;
+                Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, 500,
+                                                       playerShotted.Position + playerShotted.Body.OrientationMatrix.Forward
+                                                       + new Vector3(0, 8, 0), 0, 0.1f, .025f, .025f, .025f, projectileType);
+                switch (projectileType)
+                {
+                    case ProjectileType.Arrow:
+                        projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
+                        break;
+                    case ProjectileType.Bullet:
+                        projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
+                        break;
+                    case ProjectileType.Beam:
+                        projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
+                        break;
+                }
+                projectile.Shoot(playerShotted.World.Forward);
+                this.projectiles.Add(projectileID, projectile);
+
+                this.game.Space.Add(projectile.Body);
+                //projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
+                this.OnShotFired(projectile);
+                this.lastshot = DateTime.Now;
             }
-            projectile.Shoot(playerShotted.World.Forward);
-            this.projectiles.Add(projectileID, projectile);
-            
-            this.game.Space.Add(projectile.Body);
-            //projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
-            this.OnShotFired(projectile);
         }
 
         void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair)

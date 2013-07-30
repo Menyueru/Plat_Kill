@@ -83,7 +83,7 @@ namespace plat_kill
         public void Initialize()
         {
             this.space = new Space();
-            this.space.ForceUpdater.Gravity = new Vector3(0, -9.81f, 0);
+            this.space.ForceUpdater.Gravity = new Vector3(0, -50.81f, 0);
 
             skyBox = new SkyBox(graphicsDevice);
 
@@ -102,7 +102,7 @@ namespace plat_kill
             if(this.IsHost)
             {
                 localPlayerId = playerID++;
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 60, 1000, new Vector3(0, 50, 0), 5f / 60f, 50, 0.25f, 0.25f, 0.25f, true, this);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 60, 2000, new Vector3(0, 50, 0), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
                 player.Load(Content, "Models\\Characters\\dude");
                 space.Add(player.Body);
                 playerManager.AddPlayer(player);
@@ -164,7 +164,7 @@ namespace plat_kill
                                 {
                                     var message = new UpdatePlayerStateMessage(im.SenderConnection.RemoteHailMessage);
                                     localPlayerId = message.Id;
-                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f,true,this);
+                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f,true,this);
                                     player.Load(this.Content, "Models\\Characters\\dude");
                                     space.Add(player.Body);
                                     playerManager.AddPlayer(player);
@@ -186,7 +186,7 @@ namespace plat_kill
                                 break;
                             case NetConnectionStatus.RespondedAwaitingApproval:
                                 NetOutgoingMessage hailMessage = this.networkManager.CreateMessage();
-                                Player player1= new Player(playerID++, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.25f, 0.25f, 0.25f,false);
+                                Player player1= new Player(playerID++, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f,false);
                                 player1.Load(Content, "Models\\Characters\\dude");
                                 space.Add(player1.Body);
                                 playerManager.AddPlayer(player1);
@@ -239,7 +239,7 @@ namespace plat_kill
             }
             else 
             {
-                player = new Player(message.Id, 100, 100, 100, 100, 100, 40, 100, message.Position, 5f / 60f, 30, 0.25f, 0.25f, 0.25f,false);
+                player = new Player(message.Id, 100, 100, 100, 100, 100, 40, 100, message.Position, 5f / 60f, 30, 0.15f, 0.15f, 0.15f,false);
                 player.Load(this.Content, "Models\\Characters\\dude");
                 space.Add(player.Body);    
                 playerManager.AddPlayer(player);

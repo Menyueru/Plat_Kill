@@ -95,6 +95,8 @@ namespace plat_kill.GameModels
             
             world = Matrix.CreateTranslation(-Width / 2.0f, 0, Height / 2.0f);
             mesh = new StaticMesh(verts, indices,new AffineTransform(world.Translation));
+            mesh.ImproveBoundaryBehavior = false;
+            mesh.IgnoreShapeChanges = true;
         }
 
         private void LoadHeightData()
@@ -113,7 +115,7 @@ namespace plat_kill.GameModels
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    data[x, y] = pixels[x + y * Width].R / 5.0f; // using red channel only.
+                    data[x, y] = pixels[x + y * Width].R / 4.0f; // using red channel only.
                     minheight = (int)Math.Min(data[x, y], minheight);
                     maxheight = (int)Math.Max(data[x, y], maxheight);
                 }

@@ -40,8 +40,9 @@ namespace plat_kill.Helpers
                 lastKeyBoardState = currentKeyBoardState;
                 currentKeyBoardState = Keyboard.GetState();
 
-                lastMouseState = currentMouseState;
                 currentMouseState = Mouse.GetState();
+                Mouse.SetPosition(200, 200);
+                lastMouseState = Mouse.GetState();
             }
 
         }

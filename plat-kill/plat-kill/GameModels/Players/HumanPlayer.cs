@@ -50,68 +50,60 @@ namespace plat_kill.GameModels.Players
         {
             base.Update(gameTime);
 
-            this.VelocityChanged = false;
             this.CharecterState = CharacterState.Idle;
             
             float dt = Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            CurrentVelocity = new Vector3(0, Body.LinearVelocity.Y, 0);
-
             inputManager.Update();
             if (game.IsActive)
             {
                 #region Keyboard Input
                 if (inputManager.IsKeyPressed(Keys.W))
                 {
-                    this.VelocityChanged = true;
                     MoveForward(dt);
                 }
                 else if (inputManager.IsKeyPressed(Keys.S))
                 {
-                    this.VelocityChanged = true;
                     MoveForward(-dt);
                 }
 
                 if (inputManager.IsKeyPressed(Keys.D))
                 {
-                    this.VelocityChanged = true;
                     MoveRight(dt);
                 }
                 else if (inputManager.IsKeyPressed(Keys.A))
                 {
-                    this.VelocityChanged = true;
                     MoveRight(-dt);
                 }
 
-                Move();
+                //Move();
 
                 if (inputManager.IsKeyPressed(Keys.Space) && !this.Airborne)
                 {
-                    this.VelocityChanged = true;
                     jump();
                 }
 
                 #endregion
 
                 #region Mouse Input
-                if (inputManager.IsMouseMovingUp())
+                if (inputManager.IsMouseMovingLeft())
                 {
 
                     rotation.Y += RotationSpeed;
                 }
-                else if (inputManager.IsMouseMovingDown())
+                else if (inputManager.IsMouseMovingRight())
                 {
                     rotation.Y -= RotationSpeed;
                 }
 
-                /*if (inputManager.IsMouseMovingLeft())
+               /* if (inputManager.IsMouseMovingUp())
                 {
                     rotation.X += RotationSpeed;
                 }
-                if (inputManager.IsMouseMovingRight())
+                if (inputManager.IsMouseMovingDown())
                 {
                     rotation.X -= RotationSpeed;
-                }*/
-
+                }
+                */
                 if (inputManager.IsMouseScrollingUp())
                 {
                     cameraDistance += 5;

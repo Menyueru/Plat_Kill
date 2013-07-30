@@ -73,6 +73,34 @@ namespace plat_kill.GameModels.Projectiles
         #endregion
 
         #region Methods
+        private float CalculateRadius()
+        {
+            float maxRadius=float.MinValue;
+            foreach (var mesh in Model.Meshes)
+            {
+                foreach (var part in mesh.MeshParts)
+                {
+                    int stride = part.VertexBuffer.VertexDeclaration.VertexStride;
+                    byte[] vertexData = new byte[stride * part.NumVertices];
+                    part.VertexBuffer.GetData(part.VertexOffset * stride, vertexData, 0, part.NumVertices, 1);
+                    for (int ndx = 0; ndx < vertexData.Length; ndx += stride)
+                    {
+                        float x = Math.Abs(BitConverter.ToSingle(vertexData, ndx) - Position.X);
+                        float y = Math.Abs(BitConverter.ToSingle(vertexData, ndx + sizeof(float)) - Position.Y);
+                        float z = Math.Abs(BitConverter.ToSingle(vertexData, ndx + sizeof(float) * 2) - Position.Z);
+                        float xoffset = Math.Abs(x - Position.X);
+                        float yoffset = Math.Abs(y - Position.Y); ;
+                        float zoffset = Math.Abs(z - Position.Z); ;
+                        float tempMax = Math.Max(yoffset, xoffset);
+                        tempMax = Math.Max(tempMax, zoffset);
+                        maxRadius = Math.Max(tempMax, maxRadius);
+                    }
+                }
+            }
+           return maxRadius/2;
+        }
+
+
         #region Initialize
         public Projectile(long projectileId, long firedByPlayerID, float speed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length, ProjectileType projectileType)
             : base(position, rotationSpeed, mass, width, height, length)
@@ -81,8 +109,7 @@ namespace plat_kill.GameModels.Projectiles
             this.firedByPlayerID = firedByPlayerID;
             this.speed = speed;
             float tempradius = Math.Max(width, height);
-            this.radius = Math.Max(tempradius, length) / 2;
-
+            this.radius = Math.Max(tempradius, length);
             this.projectileType = projectileType;
 
         }
@@ -90,6 +117,7 @@ namespace plat_kill.GameModels.Projectiles
         public void Load(ContentManager content, String path)
         {
             base.Load(content, path);
+            this.radius *= CalculateRadius() ;
             body = new Sphere(this.Position, this.radius, this.mass);
             body.Tag = this.projectileID;
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
@@ -105,7 +133,6 @@ namespace plat_kill.GameModels.Projectiles
         public void Update()
         {
             Position = body.Position;
-
         }
         #endregion
     }

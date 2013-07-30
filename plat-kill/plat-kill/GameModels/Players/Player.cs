@@ -25,11 +25,9 @@ namespace plat_kill.GameModels.Players
         private bool airborne;
         private float radius;
         private bool isLocal;
-        private bool velocityChanged;
 
         private CharacterState charecterState;
         
-        private Vector3 currentVelocity;
         private long defense;
         private long health;
         private long id;
@@ -38,6 +36,8 @@ namespace plat_kill.GameModels.Players
         private long rangePower;
         private float speed;
         private long stamina;
+        protected float maxjump;
+        protected float lastyposition;
 
         private Vector3 playerHeadOffset;
         
@@ -56,11 +56,7 @@ namespace plat_kill.GameModels.Players
             get { return isLocal; }
             set { isLocal = value; }
         }
-        public bool VelocityChanged
-        {
-            get { return velocityChanged; }
-            set { velocityChanged = value; }
-        }
+
 
         public Cylinder Body
         {
@@ -72,12 +68,6 @@ namespace plat_kill.GameModels.Players
         {
             get { return airborne; }
             set { airborne = value; }
-        }
-
-        public Vector3 CurrentVelocity
-        {
-            get { return currentVelocity; }
-            set { currentVelocity = value; }
         }
 
         public long Defense
@@ -229,22 +219,24 @@ namespace plat_kill.GameModels.Players
 
         #region Movers
 
-        protected void Move()
+        /*protected void Move()
         {
             Body.LinearVelocity = currentVelocity;
-        }
+        }*/
 
         protected void MoveForward(float dt)
         {
-            currentVelocity += World.Forward * (dt * speed);
-            currentVelocity.Y = Body.LinearVelocity.Y;
+            float currentVelocity =(dt * speed);
+            float currentMoveSpeed = Vector3.Dot(World.Forward, Body.LinearVelocity);
+            Body.LinearVelocity += World.Forward * (currentVelocity - currentMoveSpeed);
             this.charecterState = CharacterState.Walk;
         }
 
         protected void MoveRight(float dt)
         {
-            currentVelocity += World.Right * (dt * speed);
-            currentVelocity.Y = Body.LinearVelocity.Y;
+            float currentVelocity = (dt * speed);
+            float currentMoveSpeed = Vector3.Dot(World.Right, Body.LinearVelocity);
+            Body.LinearVelocity += World.Right * (currentVelocity - currentMoveSpeed);
             this.charecterState = CharacterState.Walk;
         }
 
@@ -269,10 +261,10 @@ namespace plat_kill.GameModels.Players
             this.speed = speed;
             this.jumpSpeed = jumpSpeed;
             this.playerHeadOffset = new Vector3(0, 10, 0);
-            this.currentVelocity = Vector3.Zero;
             this.isLocal = isLocal;
-            this.velocityChanged = false;
             this.radius = Math.Max(width, length)/2;
+            this.maxjump = 50;
+            this.lastyposition = 0;
             this.charecterState = CharacterState.Idle;
         }
 
@@ -286,7 +278,7 @@ namespace plat_kill.GameModels.Players
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
             body.Tag = Model;
             body.LocalInertiaTensorInverse = new Matrix3X3();
-            body.LinearDamping = 0;
+            body.LinearDamping =0;
             body.IgnoreShapeChanges = true;
             body.CollisionInformation.Events.DetectingInitialCollision += RemoveFriction;
         }
@@ -295,7 +287,16 @@ namespace plat_kill.GameModels.Players
          public void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-
+            Position = body.Position;
+            if ((Position.Y - lastyposition) >= maxjump)
+            {
+               // Vector3 fall = new Vector3(0, -jumpSpeed, 0);
+                //body.ApplyLinearImpulse(ref fall);
+                float currentVelocity = (-25);
+                float currentMoveSpeed = Vector3.Dot(World.Up, Body.LinearVelocity);
+                Body.LinearVelocity += World.Up * (currentVelocity - currentMoveSpeed);
+            }
+            Body.LinearVelocity = new Vector3(0,Body.LinearVelocity.Y,0);
             if (this.CharecterState.Equals(CharacterState.Idle))
             {
                 this.Refresh = false;
@@ -306,9 +307,11 @@ namespace plat_kill.GameModels.Players
                 this.Refresh = true;
                 this.AnimationPlayer.Update(gameTime.ElapsedGameTime, true, Matrix.Identity);
             }
-
-            Position = body.Position;
             airborne = check_support();
+            if (!airborne)
+            {
+                lastyposition = Position.Y;
+            }
 
         }
         #endregion

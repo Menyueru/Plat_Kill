@@ -161,7 +161,7 @@ namespace plat_kill.GameModels
         {
             orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
                                     * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateRotationY(MathHelper.Pi);
-           world = transform * orientationMatrix * Matrix.CreateTranslation(position- (new Vector3(0,6,0)));
+           world = transform * orientationMatrix * Matrix.CreateTranslation(position- (new Vector3(0,3,0)));
            Matrix[] bones = animationPlayer.GetSkinTransforms();
             foreach(ModelMesh mesh in model.Meshes)
             {
