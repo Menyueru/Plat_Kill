@@ -66,7 +66,7 @@ namespace plat_kill.Managers
             this.projectiles.Add(projectileID, projectile);
             
             this.game.Space.Add(projectile.Body);
-            projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
+            //projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
             this.OnShotFired(projectile);
         }
 
@@ -109,11 +109,11 @@ namespace plat_kill.Managers
                 }
                 bullet.Update();
             }
-            foreach (long id in deleteids)
+            /*foreach (long id in deleteids)
             {
                 game.Space.Remove(projectiles[id].Body);
                 projectiles.Remove(id);
-            }
+            }*/
         }
         #endregion
     }
