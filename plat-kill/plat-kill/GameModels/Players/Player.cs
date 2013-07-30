@@ -263,7 +263,7 @@ namespace plat_kill.GameModels.Players
             this.playerHeadOffset = new Vector3(0, 10, 0);
             this.isLocal = isLocal;
             this.radius = Math.Max(width, length)/2;
-            this.maxjump = 50;
+            this.maxjump = 20;
             this.lastyposition = 0;
             this.charecterState = CharacterState.Idle;
         }
