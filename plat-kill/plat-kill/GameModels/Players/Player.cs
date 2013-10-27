@@ -1,17 +1,14 @@
 ﻿using BEPUphysics.BroadPhaseEntries;
-using BEPUphysics.Collidables.MobileCollidables;
+using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 using BEPUphysics.CollisionRuleManagement;
 using BEPUphysics.Entities.Prefabs;
 using BEPUphysics.Materials;
-using BEPUphysics.MathExtensions;
+using BEPUutilities;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
+using plat_kill.GameModels.Players.Helpers;
 using plat_kill.Helpers;
 using System;
 
@@ -26,8 +23,42 @@ namespace plat_kill.GameModels.Players
         private float radius;
         private bool isLocal;
 
+    #region helpers
         private CharacterState charecterState;
-        
+        /// <summary>
+        /// Gets the manager responsible for finding places for the character to step up and down to.
+        /// </summary>
+        public StepManager StepManager { get; private set; }
+
+        /// <summary>
+        /// Gets the manager responsible for crouching, standing, and the verification involved in changing states.
+        /// </summary>
+        public StanceManager StanceManager { get; private set; }
+
+        /// <summary>
+        /// Gets the support system which other systems use to perform local ray casts and contact queries.
+        /// </summary>
+        public QueryManager QueryManager { get; private set; }
+
+        /// <summary>
+        /// Gets the constraint used by the character to handle horizontal motion.  This includes acceleration due to player input and deceleration when the relative velocity
+        /// between the support and the character exceeds specified maximums.
+        /// </summary>
+        public HorizontalMotionConstraint HorizontalMotionConstraint { get; private set; }
+
+        /// <summary>
+        /// Gets the constraint used by the character to stay glued to surfaces it stands on.
+        /// </summary>
+        public VerticalMotionConstraint VerticalMotionConstraint { get; private set; }
+
+        /// <summary>
+        /// Gets the support finder used by the character.
+        /// The support finder analyzes the character's contacts to see if any of them provide support and/or traction.
+        /// </summary>
+        public SupportFinder SupportFinder { get; private set; }
+
+    #endregion
+
         private long defense;
         private long health;
         private long id;
@@ -269,7 +300,7 @@ namespace plat_kill.GameModels.Players
         }
 
 
-        public void Load(ContentManager content, String path)
+        public new void Load(ContentManager content, String path)
         {
             base.Load(content, path);
             float h, r;
@@ -277,14 +308,14 @@ namespace plat_kill.GameModels.Players
             body = new Cylinder(Position, height * h, radius * r, mass);
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
             body.Tag = Model;
-            body.LocalInertiaTensorInverse = new Matrix3X3();
+            body.LocalInertiaTensorInverse = new Matrix3x3();
             body.LinearDamping =0;
             body.IgnoreShapeChanges = true;
             body.CollisionInformation.Events.DetectingInitialCollision += RemoveFriction;
         }
         #endregion
         
-         public void Update(GameTime gameTime)
+         public new void Update(GameTime gameTime)
         {
             base.Update(gameTime);
             Position = body.Position;

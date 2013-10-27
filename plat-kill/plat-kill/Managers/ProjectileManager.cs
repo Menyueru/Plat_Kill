@@ -1,5 +1,5 @@
-﻿using BEPUphysics.Collidables;
-using BEPUphysics.Collidables.MobileCollidables;
+﻿using BEPUphysics.BroadPhaseEntries;
+using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
 using Microsoft.Xna.Framework;
 using plat_kill.Events;
@@ -7,8 +7,6 @@ using plat_kill.GameModels.Players;
 using plat_kill.GameModels.Projectiles;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace plat_kill.Managers

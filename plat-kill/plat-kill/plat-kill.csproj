@@ -80,6 +80,9 @@
     <Reference Include="BEPUphysics">
       <HintPath>..\bepu\BEPUphysics.dll</HintPath>
     </Reference>
+    <Reference Include="BEPUutilities">
+      <HintPath>..\bepu\BEPUutilities.dll</HintPath>
+    </Reference>
     <Reference Include="Lidgren.Network">
       <HintPath>..\lidgren\Lidgren.Network.dll</HintPath>
     </Reference>
@@ -163,6 +166,12 @@
     <Compile Include="Events\ShotFiredArgs.cs" />
     <Compile Include="GameModels\AnimatedModel.cs" />
     <Compile Include="GameModels\GameModel.cs" />
+    <Compile Include="GameModels\Players\Helpers\HorizontalMotionConstraint.cs" />
+    <Compile Include="GameModels\Players\Helpers\QueryManager.cs" />
+    <Compile Include="GameModels\Players\Helpers\StanceManager.cs" />
+    <Compile Include="GameModels\Players\Helpers\StepManager.cs" />
+    <Compile Include="GameModels\Players\Helpers\SupportFinder.cs" />
+    <Compile Include="GameModels\Players\Helpers\VerticalMotionConstraint.cs" />
     <Compile Include="GameModels\Players\HumanPlayer.cs" />
     <Compile Include="GameModels\Players\Player.cs" />
     <Compile Include="GameModels\Projectiles\Projectile.cs" />

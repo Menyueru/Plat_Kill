@@ -1,13 +1,9 @@
-﻿using BEPUphysics.Collidables;
-using BEPUphysics.DataStructures;
-using BEPUphysics.MathExtensions;
+﻿using BEPUphysics.BroadPhaseEntries;
+using BEPUutilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace plat_kill.GameModels
 {
@@ -115,7 +111,7 @@ namespace plat_kill.GameModels
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    data[x, y] = pixels[x + y * Width].R / 4.0f; // using red channel only.
+                    data[x, y] = pixels[x + y * Width].G / 3.1f; // using red channel only.
                     minheight = (int)Math.Min(data[x, y], minheight);
                     maxheight = (int)Math.Max(data[x, y], maxheight);
                 }
@@ -175,9 +171,9 @@ namespace plat_kill.GameModels
                 for (int x = 0; x < Width - 1; x++)
                 {
                     int lowerLeft = x + y * Width;
-                    int lowerRight = (x + 1) + y * Width;
+                    int lowerRight = x + y * Width + 1;
                     int topLeft = x + (y + 1) * Width;
-                    int topRight = (x + 1) + (y + 1) * Width;
+                    int topRight = (x) + (y + 1) * Width + 1;
 
                     indices[counter++] = topLeft;
                     indices[counter++] = lowerRight;

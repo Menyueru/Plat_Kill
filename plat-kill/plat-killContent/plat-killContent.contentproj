@@ -71,13 +71,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Maps\playground.fbx">
-      <Name>playground</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>ModelProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Models\Objects\bullet.FBX">
       <Name>bullet</Name>
       <Importer>FbxImporter</Importer>
