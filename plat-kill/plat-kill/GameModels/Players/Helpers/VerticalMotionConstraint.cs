@@ -14,7 +14,7 @@ namespace plat_kill.GameModels.Players.Helpers
     /// </summary>
     public class VerticalMotionConstraint : EntitySolverUpdateable
     {
-        Player character;
+        CharacterController character;
 
 
         SupportData supportData;
@@ -102,7 +102,7 @@ namespace plat_kill.GameModels.Players.Helpers
         /// Constructs a new vertical motion constraint.
         /// </summary>
         /// <param name="characterController">Character governed by the constraint.</param>
-        public VerticalMotionConstraint(Player characterController)
+        public VerticalMotionConstraint(CharacterController characterController)
         {
             this.character = characterController;
         }

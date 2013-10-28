@@ -1,14 +1,14 @@
 ﻿using System;
 using BEPUphysics.BroadPhaseEntries;
+using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 using BEPUphysics.CollisionTests;
+using BEPUutilities;
+using BEPUutilities.DataStructures;
 using Microsoft.Xna.Framework;
 using BEPUphysics.NarrowPhaseSystems;
 using BEPUphysics.CollisionRuleManagement;
 using BEPUphysics.CollisionShapes.ConvexShapes;
 using BEPUphysics.Settings;
-using BEPUutilities.DataStructures;
-using BEPUphysics.BroadPhaseEntries.MobileCollidables;
-using BEPUutilities;
 
 namespace plat_kill.GameModels.Players.Helpers
 {
@@ -33,13 +33,13 @@ namespace plat_kill.GameModels.Players.Helpers
         ConvexCollidable<CylinderShape> standingQueryObject;
         ConvexCollidable<CylinderShape> crouchingQueryObject;
         ConvexCollidable<CylinderShape> currentQueryObject;
-        Player character;
+        CharacterController character;
 
         /// <summary>
         /// Constructs the query manager for a character.
         /// </summary>
         /// <param name="character">Character to manage queries for.</param>
-        public QueryManager(Player character)
+        public QueryManager(CharacterController character)
         {
             this.character = character;
             //We can share the real shape with the 'current' query object.

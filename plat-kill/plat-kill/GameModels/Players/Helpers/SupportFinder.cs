@@ -315,7 +315,7 @@ namespace plat_kill.GameModels.Players.Helpers
             }
         }
 
-        Player character;
+        CharacterController character;
 
         internal float sinMaximumSlope = (float)Math.Sin(MathHelper.PiOver4 + .01f);
         internal float cosMaximumSlope = (float)Math.Cos(MathHelper.PiOver4 + .01f);
@@ -339,7 +339,7 @@ namespace plat_kill.GameModels.Players.Helpers
         /// Constructs a new support finder.
         /// </summary>
         /// <param name="character">Character to analyze.</param>
-        public SupportFinder(Player character)
+        public SupportFinder(CharacterController character)
         {
             this.character = character;
         }

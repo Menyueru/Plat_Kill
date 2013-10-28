@@ -76,13 +76,13 @@ namespace plat_kill.GameModels.Players.Helpers
             set;
         }
 
-        Player character;
+        CharacterController character;
         /// <summary>
         /// Constructs a stance manager for a character.
         /// </summary>
         /// <param name="character">Character governed by the manager.</param>
         /// <param name="crouchingHeight">Crouching height of the character.</param>
-        public StanceManager(Player character, float crouchingHeight)
+        public StanceManager(CharacterController character, float crouchingHeight)
         {
             this.character = character;
             standingHeight = character.Body.Height;

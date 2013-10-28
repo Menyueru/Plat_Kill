@@ -3,7 +3,6 @@ using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 using BEPUphysics.CollisionRuleManagement;
 using BEPUphysics.Entities.Prefabs;
 using BEPUphysics.Materials;
-using BEPUutilities;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -11,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using plat_kill.GameModels.Players.Helpers;
 using plat_kill.Helpers;
 using System;
+using BEPUphysics;
 
 namespace plat_kill.GameModels.Players
 {
@@ -18,46 +18,11 @@ namespace plat_kill.GameModels.Players
     {
         #region Properties
 
-        private Cylinder body;
-        private bool airborne;
+        public CharacterController CharacterController;
         private float radius;
         private bool isLocal;
 
-    #region helpers
         private CharacterState charecterState;
-        /// <summary>
-        /// Gets the manager responsible for finding places for the character to step up and down to.
-        /// </summary>
-        public StepManager StepManager { get; private set; }
-
-        /// <summary>
-        /// Gets the manager responsible for crouching, standing, and the verification involved in changing states.
-        /// </summary>
-        public StanceManager StanceManager { get; private set; }
-
-        /// <summary>
-        /// Gets the support system which other systems use to perform local ray casts and contact queries.
-        /// </summary>
-        public QueryManager QueryManager { get; private set; }
-
-        /// <summary>
-        /// Gets the constraint used by the character to handle horizontal motion.  This includes acceleration due to player input and deceleration when the relative velocity
-        /// between the support and the character exceeds specified maximums.
-        /// </summary>
-        public HorizontalMotionConstraint HorizontalMotionConstraint { get; private set; }
-
-        /// <summary>
-        /// Gets the constraint used by the character to stay glued to surfaces it stands on.
-        /// </summary>
-        public VerticalMotionConstraint VerticalMotionConstraint { get; private set; }
-
-        /// <summary>
-        /// Gets the support finder used by the character.
-        /// The support finder analyzes the character's contacts to see if any of them provide support and/or traction.
-        /// </summary>
-        public SupportFinder SupportFinder { get; private set; }
-
-    #endregion
 
         private long defense;
         private long health;
@@ -67,8 +32,6 @@ namespace plat_kill.GameModels.Players
         private long rangePower;
         private float speed;
         private long stamina;
-        protected float maxjump;
-        protected float lastyposition;
 
         private Vector3 playerHeadOffset;
         
@@ -86,19 +49,6 @@ namespace plat_kill.GameModels.Players
         {
             get { return isLocal; }
             set { isLocal = value; }
-        }
-
-
-        public Cylinder Body
-        {
-            get { return body; }
-            set { body = value; }
-        }
-
-        public bool Airborne
-        {
-            get { return airborne; }
-            set { airborne = value; }
         }
 
         public long Defense
@@ -165,47 +115,7 @@ namespace plat_kill.GameModels.Players
         #region Methods
 
         #region Checkers
-        private bool check_support()
-        {
-            Vector3 pos = Position;
-            Vector3 downDirection = body.OrientationMatrix.Down; //For a cylinder orientation-locked to the Up axis, this is always {0, -1, 0}.  Keeping it generic doesn't cost much.
-            var pairs = body.CollisionInformation.Pairs;
-            foreach (var pair in pairs)
-            {
-                if (pair.CollisionRule != CollisionRule.Normal)
-                    continue;
-                
-                foreach (var c in pair.Contacts)
-                {
-                    //It's possible that a subpair has a non-normal collision rule, even if the parent pair is normal.
-                    if (c.Pair.CollisionRule != CollisionRule.Normal)
-                        continue;
-                    //Compute the offset from the position of the character's body to the contact.
-                    Vector3 contactOffset;
-                    Vector3.Subtract(ref c.Contact.Position, ref pos, out contactOffset);
-                    //Calibrate the normal of the contact away from the center of the object.
-                    float dot;
-                    Vector3 normal;
-                    Vector3.Dot(ref contactOffset, ref c.Contact.Normal, out dot);
-                    normal = c.Contact.Normal;
-                    if (dot < 0)
-                    {
-                        Vector3.Negate(ref normal, out normal);
-                        dot = -dot;
-                    }
-                    //Support contacts are all contacts on the feet of the character- a set that include contacts that support traction and those which do not
-                    Vector3.Dot(ref normal, ref downDirection, out dot);
-                    if (dot > .01f)
-                    {
-                        return false;
-                    }
-
-                }
-            }
-
-            return true;
-        }
-
+       
         private void CalculateHeightRadius(out float height, out float radius)
         {
             float maxYOffset = float.MinValue;
@@ -235,16 +145,6 @@ namespace plat_kill.GameModels.Players
             radius = maxHorizontal;
         }
 
-        void RemoveFriction(EntityCollidable sender, BroadPhaseEntry other, NarrowPhasePair pair)
-        {
-            var collidablePair = pair as CollidablePairHandler;
-            if (collidablePair != null)
-            {
-                //The default values for InteractionProperties is all zeroes- zero friction, zero bounciness.
-                //That's exactly how we want the character to behave when hitting objects.
-                collidablePair.UpdateMaterialProperties(new InteractionProperties());
-            }
-        }
 
         #endregion
 
@@ -257,24 +157,49 @@ namespace plat_kill.GameModels.Players
 
         protected void MoveForward(float dt)
         {
-            float currentVelocity =(dt * speed);
-            float currentMoveSpeed = Vector3.Dot(World.Forward, Body.LinearVelocity);
-            Body.LinearVelocity += World.Forward * (currentVelocity - currentMoveSpeed);
+            Vector2 totalMovement = Vector2.Zero;
+            Vector3 movementDir;
+            movementDir = World.Forward;
+            if (dt > 0)
+            {
+                totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+            }
+            else
+            {
+                totalMovement -= Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+            }
+            if (totalMovement == Vector2.Zero)
+                CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
+            else
+                CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Normalize(totalMovement);
             this.charecterState = CharacterState.Walk;
         }
 
         protected void MoveRight(float dt)
         {
-            float currentVelocity = (dt * speed);
-            float currentMoveSpeed = Vector3.Dot(World.Right, Body.LinearVelocity);
-            Body.LinearVelocity += World.Right * (currentVelocity - currentMoveSpeed);
+            Vector2 totalMovement = Vector2.Zero;
+            Vector3 movementDir;
+
+            if (dt > 0)
+            {
+                movementDir = World.Right;
+                totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+            }
+            else
+            {
+                movementDir = World.Left;
+                totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+            }
+            if (totalMovement == Vector2.Zero)
+                CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
+            else
+                CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Normalize(totalMovement);
             this.charecterState = CharacterState.Walk;
         }
 
         protected void jump()
         {
-            Vector3 impulse = new Vector3(0, jumpSpeed, 0);
-            Body.ApplyLinearImpulse(ref impulse);
+            CharacterController.Jump();
         }
 
         #endregion
@@ -294,40 +219,30 @@ namespace plat_kill.GameModels.Players
             this.playerHeadOffset = new Vector3(0, 10, 0);
             this.isLocal = isLocal;
             this.radius = Math.Max(width, length)/2;
-            this.maxjump = 20;
-            this.lastyposition = 0;
             this.charecterState = CharacterState.Idle;
         }
 
 
-        public new void Load(ContentManager content, String path)
+        public void Load(ContentManager content, String path,Space ownspace)
         {
             base.Load(content, path);
             float h, r;
             CalculateHeightRadius(out h, out r);
-            body = new Cylinder(Position, height * h, radius * r, mass);
-            body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
-            body.Tag = Model;
-            body.LocalInertiaTensorInverse = new Matrix3x3();
-            body.LinearDamping =0;
-            body.IgnoreShapeChanges = true;
-            body.CollisionInformation.Events.DetectingInitialCollision += RemoveFriction;
+            CharacterController = new CharacterController(Position, height * h, height * h*.7f, radius * r, mass);
+            CharacterController.JumpSpeed = jumpSpeed;
+            CharacterController.SlidingJumpSpeed= jumpSpeed * .6f;
+            CharacterController.HorizontalMotionConstraint.Speed = speed;
+            CharacterController.HorizontalMotionConstraint.MaximumForce *= mass;
+            CharacterController.VerticalMotionConstraint.MaximumGlueForce /= mass*mass;
+            ownspace.Add(CharacterController);
         }
         #endregion
         
          public new void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            Position = body.Position;
-            if ((Position.Y - lastyposition) >= maxjump)
-            {
-               // Vector3 fall = new Vector3(0, -jumpSpeed, 0);
-                //body.ApplyLinearImpulse(ref fall);
-                float currentVelocity = (-25);
-                float currentMoveSpeed = Vector3.Dot(World.Up, Body.LinearVelocity);
-                Body.LinearVelocity += World.Up * (currentVelocity - currentMoveSpeed);
-            }
-            Body.LinearVelocity = new Vector3(0,Body.LinearVelocity.Y,0);
+            Position = CharacterController.Body.Position;
+            
             if (this.CharecterState.Equals(CharacterState.Idle))
             {
                 this.Refresh = false;
@@ -338,12 +253,7 @@ namespace plat_kill.GameModels.Players
                 this.Refresh = true;
                 this.AnimationPlayer.Update(gameTime.ElapsedGameTime, true, Matrix.Identity);
             }
-            airborne = check_support();
-            if (!airborne)
-            {
-                lastyposition = Position.Y;
-            }
-
+            CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
         }
         #endregion
     }

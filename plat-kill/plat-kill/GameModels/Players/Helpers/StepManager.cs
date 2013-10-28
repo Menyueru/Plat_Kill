@@ -12,7 +12,7 @@ namespace plat_kill.GameModels.Players.Helpers
     /// </summary>
     public class StepManager
     {
-        Player character;
+        CharacterController character;
         float maximumStepHeight = 1f;
         /// <summary>
         /// Gets or sets the maximum height which the character is capable of stepping up or down onto.
@@ -55,7 +55,7 @@ namespace plat_kill.GameModels.Players.Helpers
         /// Constructs a new step manager for a character.
         /// </summary>
         /// <param name="character">Character governed by the manager.</param>
-        public StepManager(Player character)
+        public StepManager(CharacterController character)
         {
             this.character = character;
             //The minimum step height is just barely above where the character would generally find the ground.

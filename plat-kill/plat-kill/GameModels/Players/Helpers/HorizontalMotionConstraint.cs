@@ -1,11 +1,10 @@
-﻿using BEPUphysics;
-using BEPUphysics.BroadPhaseEntries.MobileCollidables;
+﻿using System;
 using BEPUphysics.Constraints;
 using BEPUphysics.Entities;
 using BEPUutilities;
 using BEPUutilities.DataStructures;
 using Microsoft.Xna.Framework;
-using System;
+using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 
 namespace plat_kill.GameModels.Players.Helpers
 {
@@ -14,7 +13,7 @@ namespace plat_kill.GameModels.Players.Helpers
     /// </summary>
     public class HorizontalMotionConstraint : EntitySolverUpdateable
     {
-        Player character;
+        CharacterController character;
 
 
         SupportData supportData;
@@ -259,7 +258,7 @@ namespace plat_kill.GameModels.Players.Helpers
         /// Constructs a new horizontal motion constraint.
         /// </summary>
         /// <param name="characterController">Character to be governed by this constraint.</param>
-        public HorizontalMotionConstraint(Player characterController)
+        public HorizontalMotionConstraint(CharacterController characterController)
         {
             this.character = characterController;
             SpeedScale = 1;

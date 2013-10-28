@@ -51,8 +51,8 @@ namespace plat_kill.GameModels.Players
             base.Update(gameTime);
 
             this.CharecterState = CharacterState.Idle;
-            
-            float dt = Speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+            float dt = 1;
             inputManager.Update();
             if (game.IsActive)
             {
@@ -77,7 +77,7 @@ namespace plat_kill.GameModels.Players
 
                 //Move();
 
-                if (inputManager.IsKeyPressed(Keys.Space) && !this.Airborne)
+                if (inputManager.IsKeyPressed(Keys.Space))
                 {
                     jump();
                 }

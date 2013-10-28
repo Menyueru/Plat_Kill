@@ -103,12 +103,16 @@ namespace plat_kill
             if(this.IsHost)
             {
                 localPlayerId = playerID++;
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 60, 2000, new Vector3(0, 50, 0), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
-                player.Load(Content, "Models\\Characters\\dude");
-                space.Add(player.Body);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 60, 100, new Vector3(0, 50, 0), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
+                player.Load(Content, "Models\\Characters\\dude", space);
+                //space.Add(player.Body);
+
+                //player.Body.AngularVelocity = new Vector3();
+                //player.Body.LinearVelocity = new Vector3();
+
                 playerManager.AddPlayer(player);
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
-                chase.Y = playerManager.GetPlayer(localPlayerId).Body.Height / 2;
+                chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                 camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).Rotation,
                         playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
             }
@@ -134,7 +138,7 @@ namespace plat_kill
             if (playerManager.GetPlayer(localPlayerId) != null)
             {
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
-                chase.Y = chase.Y+playerManager.GetPlayer(localPlayerId).Body.Height / 2;
+                chase.Y = chase.Y+playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                 camManager.UpdateAllCameras(chase,
                                             playerManager.GetPlayer(localPlayerId).Rotation,
                                             playerManager.GetPlayer(localPlayerId).PlayerHeadOffset,
@@ -166,11 +170,10 @@ namespace plat_kill
                                     var message = new UpdatePlayerStateMessage(im.SenderConnection.RemoteHailMessage);
                                     localPlayerId = message.Id;
                                     HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f,true,this);
-                                    player.Load(this.Content, "Models\\Characters\\dude");
-                                    space.Add(player.Body);
+                                    player.Load(this.Content, "Models\\Characters\\dude",space);
                                     playerManager.AddPlayer(player);
                                     Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
-                                    chase.Y = playerManager.GetPlayer(localPlayerId).Body.Height / 2;
+                                    chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                                     camManager.ActiveCamera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).Rotation,
                                     playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
                                     Console.WriteLine("Connected to {0}", im.SenderEndPoint);
@@ -188,8 +191,7 @@ namespace plat_kill
                             case NetConnectionStatus.RespondedAwaitingApproval:
                                 NetOutgoingMessage hailMessage = this.networkManager.CreateMessage();
                                 Player player1= new Player(playerID++, 100, 100, 100, 100, 100, 40, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f,false);
-                                player1.Load(Content, "Models\\Characters\\dude");
-                                space.Add(player1.Body);
+                                player1.Load(Content, "Models\\Characters\\dude",space);
                                 playerManager.AddPlayer(player1);
                                 new UpdatePlayerStateMessage(player1).Encode(hailMessage);
                                 im.SenderConnection.Approve(hailMessage);
@@ -241,13 +243,12 @@ namespace plat_kill
             else 
             {
                 player = new Player(message.Id, 100, 100, 100, 100, 100, 40, 100, message.Position, 5f / 60f, 30, 0.15f, 0.15f, 0.15f,false);
-                player.Load(this.Content, "Models\\Characters\\dude");
-                space.Add(player.Body);    
+                player.Load(this.Content, "Models\\Characters\\dude",space); 
                 playerManager.AddPlayer(player);
             }
 
             player.CharecterState = message.CharacterState;
-            player.Body.LinearVelocity = message.Velocity;
+            player.CharacterController.Body.LinearVelocity = message.Velocity;
             player.Position = message.Position += message.Velocity;// *timeDelay;
             player.Rotation = message.Rotation;
 

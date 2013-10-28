@@ -166,7 +166,9 @@
     <Compile Include="Events\ShotFiredArgs.cs" />
     <Compile Include="GameModels\AnimatedModel.cs" />
     <Compile Include="GameModels\GameModel.cs" />
+    <Compile Include="GameModels\Players\Helpers\CharacterController.cs" />
     <Compile Include="GameModels\Players\Helpers\HorizontalMotionConstraint.cs" />
+    <Compile Include="GameModels\Players\Helpers\ICharacterTag.cs" />
     <Compile Include="GameModels\Players\Helpers\QueryManager.cs" />
     <Compile Include="GameModels\Players\Helpers\StanceManager.cs" />
     <Compile Include="GameModels\Players\Helpers\StepManager.cs" />

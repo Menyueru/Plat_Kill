@@ -29,7 +29,7 @@ namespace plat_kill
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
             graphics.PreferMultiSampling = false;
-            graphics.IsFullScreen = true ;
+            graphics.IsFullScreen = false ;
 
             base.IsMouseVisible = false;
 

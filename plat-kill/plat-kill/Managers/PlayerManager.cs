@@ -89,7 +89,7 @@ namespace plat_kill.Managers
         {
             if ((this.GetPlayer(this.LocalPlayer) != null))
             {
-                if (this.GetPlayer(this.LocalPlayer).Body != null)
+                if (this.GetPlayer(this.LocalPlayer).CharacterController.Body != null)
                     this.OnPlayerStateChanged(this.GetPlayer(this.LocalPlayer));
                 
             }

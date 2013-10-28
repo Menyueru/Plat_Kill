@@ -52,8 +52,9 @@ namespace plat_kill.Managers
             if ((lastshot.Add(firerate)) <= DateTime.Now)
             {
                 Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, 500,
-                                                       playerShotted.Position + playerShotted.Body.OrientationMatrix.Forward
+                                                       playerShotted.Position + playerShotted.CharacterController.Body.OrientationMatrix.Forward
                                                        + new Vector3(0, 8, 0), 0, 0.1f, .025f, .025f, .025f, projectileType);
+
                 switch (projectileType)
                 {
                     case ProjectileType.Arrow:

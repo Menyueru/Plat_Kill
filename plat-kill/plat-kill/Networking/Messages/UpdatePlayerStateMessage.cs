@@ -40,8 +40,8 @@ namespace plat_kill.Networking.Messages
         public UpdatePlayerStateMessage(Player player)
         {
             this.Id = player.Id;
-            this.Position = player.Body.Position;
-            this.Velocity = player.Body.LinearVelocity;
+            this.Position = player.CharacterController.Body.Position;
+            this.Velocity = player.CharacterController.Body.LinearVelocity;
             this.Rotation = player.Rotation;
             this.MessageTime = NetTime.Now;
             this.CharacterState = player.CharecterState;
