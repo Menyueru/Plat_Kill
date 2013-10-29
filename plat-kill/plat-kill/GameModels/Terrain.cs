@@ -111,7 +111,7 @@ namespace plat_kill.GameModels
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    data[x, y] = pixels[x + y * Width].G / 3.1f; // using red channel only.
+                    data[x, y] = pixels[x + y * Width].G / 3.1f; 
                     minheight = (int)Math.Min(data[x, y], minheight);
                     maxheight = (int)Math.Max(data[x, y], maxheight);
                 }
@@ -131,8 +131,8 @@ namespace plat_kill.GameModels
                 for (int y = 0; y < Height; y++)
                 {
                     vertices[x + y * Width].Position = new Vector3(x, data[x, y], -y);
-                    vertices[x + y * Width].TextureCoordinate.X = x/30f;
-                    vertices[x + y * Width].TextureCoordinate.Y = y/30f;
+                    vertices[x + y * Width].TextureCoordinate.X = x/25.5f;
+                    vertices[x + y * Width].TextureCoordinate.Y = y/25.5f;
 
                     vertices[x + y * Width].TexWeights = Vector4.Zero;
 

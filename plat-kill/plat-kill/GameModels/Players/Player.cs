@@ -169,9 +169,9 @@ namespace plat_kill.GameModels.Players
                 totalMovement -= Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
             }
             if (totalMovement == Vector2.Zero)
-                CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
+                CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Zero;
             else
-                CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Normalize(totalMovement);
+                CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);
             this.charecterState = CharacterState.Walk;
         }
 
@@ -191,9 +191,9 @@ namespace plat_kill.GameModels.Players
                 totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
             }
             if (totalMovement == Vector2.Zero)
-                CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
+                CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Zero;
             else
-                CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Normalize(totalMovement);
+                CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);
             this.charecterState = CharacterState.Walk;
         }
 
