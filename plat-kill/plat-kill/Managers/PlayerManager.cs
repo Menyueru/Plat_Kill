@@ -25,8 +25,6 @@ namespace plat_kill.Managers
 
         private long LocalPlayer;
 
-        private static long playerIDs;
-
         public IEnumerable<Player> Players
         {
             get
@@ -36,7 +34,7 @@ namespace plat_kill.Managers
         }
 
         #endregion
-        
+
         #region Constructors
         public PlayerManager()
         {
@@ -54,7 +52,7 @@ namespace plat_kill.Managers
             }
         }
 
-        public void AddPlayer(Player player) 
+        public void AddPlayer(Player player)
         {
             if (!players.ContainsKey(player.Id))
             {
@@ -66,9 +64,9 @@ namespace plat_kill.Managers
             }
         }
 
-        public Player GetPlayer(long playerID) 
+        public Player GetPlayer(long playerID)
         {
-            if (this.players.ContainsKey(playerID)) 
+            if (this.players.ContainsKey(playerID))
             {
                 return this.players[playerID];
             }
@@ -76,22 +74,27 @@ namespace plat_kill.Managers
             return null;
         }
 
-
-        public void DrawAllPlayers(Matrix view, Matrix projection) 
+        public long GetCurrentAmountOfPlayers()
         {
-            foreach(Player player in this.Players)
+            return players.Count;
+        }
+
+
+        public void DrawAllPlayers(Matrix view, Matrix projection)
+        {
+            foreach (Player player in this.Players)
             {
                 player.Draw(view, projection);
             }
         }
 
-        public void UpdateAllPlayers(GameTime gameTime) 
+        public void UpdateAllPlayers(GameTime gameTime)
         {
             if ((this.GetPlayer(this.LocalPlayer) != null))
             {
                 if (this.GetPlayer(this.LocalPlayer).CharacterController.Body != null)
                     this.OnPlayerStateChanged(this.GetPlayer(this.LocalPlayer));
-                
+
             }
 
             foreach (long key in players.Keys)
@@ -106,7 +109,7 @@ namespace plat_kill.Managers
                 }
             }
         }
-       
+
         #endregion
 
     }

@@ -30,10 +30,10 @@ namespace plat_kill.Components.GameScreens.Screens
             this.IP4 = new MenuEntry(String.Empty);
             this.continueMenuEntry = new MenuEntry(String.Empty);
 
-            this.firstOct = 10;
+            this.firstOct = 127;
             this.secondOct = 0;
             this.thirdOct = 0;
-            this.fourthOct = 4;
+            this.fourthOct = 1;
 
             this.IP1.Selected += IP1MenuEntrySelected;
             this.IP2.Selected += IP2MenuEntrySelected;

@@ -33,7 +33,7 @@ namespace plat_kill
         CameraManager camManager;
 
         PlayerManager playerManager;
-        
+
         ProjectileManager projectileManager;
 
         private INetworkManager networkManager;
@@ -62,7 +62,7 @@ namespace plat_kill
             get { return space; }
             set { space = value; }
         }
-        
+
 
         long playerID = 0;
 
@@ -73,12 +73,12 @@ namespace plat_kill
         {
             this.Content = Content;
             this.graphicsDevice = graphicsDevice;
-            
-            
+
+
             this.networkManager = networkManager;
 
         }
-        #endregion 
+        #endregion
 
         #region Methods
         public void Initialize()
@@ -89,10 +89,10 @@ namespace plat_kill
             skyBox = new SkyBox(graphicsDevice);
 
             map = new Terrain("Models//Maps//heightmap", new String[] { "Textures//sand", "Textures//grass", "Textures//rock", "Textures//rock2" });
-            
+
             this.networkManager.Connect();
-            
-            Camera camera = new Camera((float) graphicsDevice.Viewport.Width / (float)graphicsDevice.Viewport.Width);
+
+            Camera camera = new Camera((float)graphicsDevice.Viewport.Width / (float)graphicsDevice.Viewport.Width);
 
             this.projectileManager = new ProjectileManager(this);
             this.projectileManager.ShotFired += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.Shot));
@@ -100,9 +100,9 @@ namespace plat_kill
             this.playerManager = new PlayerManager();
             this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
 
-            if(this.IsHost)
+            if (this.IsHost)
             {
-                localPlayerId = playerID++;
+                localPlayerId = playerManager.GetCurrentAmountOfPlayers();
                 HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
                 player.Load(Content, "Models\\Characters\\dude", space);
                 //space.Add(player.Body);
@@ -138,7 +138,7 @@ namespace plat_kill
             if (playerManager.GetPlayer(localPlayerId) != null)
             {
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
-                chase.Y = chase.Y+playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
+                chase.Y = chase.Y + playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                 camManager.UpdateAllCameras(chase,
                                             playerManager.GetPlayer(localPlayerId).Rotation,
                                             playerManager.GetPlayer(localPlayerId).PlayerHeadOffset,
@@ -169,8 +169,8 @@ namespace plat_kill
                                 {
                                     var message = new UpdatePlayerStateMessage(im.SenderConnection.RemoteHailMessage);
                                     localPlayerId = message.Id;
-                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f,true,this);
-                                    player.Load(this.Content, "Models\\Characters\\dude",space);
+                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f, true, this);
+                                    player.Load(this.Content, "Models\\Characters\\dude", space);
                                     playerManager.AddPlayer(player);
                                     Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                                     chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
@@ -190,8 +190,8 @@ namespace plat_kill
                                 break;
                             case NetConnectionStatus.RespondedAwaitingApproval:
                                 NetOutgoingMessage hailMessage = this.networkManager.CreateMessage();
-                                Player player1= new Player(playerID++, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f,false);
-                                player1.Load(Content, "Models\\Characters\\dude",space);
+                                Player player1 = new Player(playerManager.GetCurrentAmountOfPlayers(), 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f, false);
+                                player1.Load(Content, "Models\\Characters\\dude", space);
                                 playerManager.AddPlayer(player1);
                                 new UpdatePlayerStateMessage(player1).Encode(hailMessage);
                                 im.SenderConnection.Approve(hailMessage);
@@ -226,7 +226,7 @@ namespace plat_kill
             {
                 this.projectileManager.FireProjectile(ProjectileType.Bullet, playerManager.GetPlayer(message.FiredById));
             }
-            
+
         }
 
         private void HandleUpdatePlayerStateMessage(NetIncomingMessage im)
@@ -235,15 +235,15 @@ namespace plat_kill
 
             var timeDelay = (float)(NetTime.Now - im.SenderConnection.GetLocalTime(message.MessageTime));
 
-             Player player;
+            Player player;
             if (this.playerManager.GetPlayer(message.Id) != null)
             {
                 player = this.playerManager.GetPlayer(message.Id);
             }
-            else 
+            else
             {
-                player = new Player(message.Id, 100, 100, 100, 100, 100, 30, 100, message.Position, 5f / 60f, 30, 0.15f, 0.15f, 0.15f,false);
-                player.Load(this.Content, "Models\\Characters\\dude",space); 
+                player = new Player(message.Id, 100, 100, 100, 100, 100, 30, 100, message.Position, 5f / 60f, 30, 0.15f, 0.15f, 0.15f, false);
+                player.Load(this.Content, "Models\\Characters\\dude", space);
                 playerManager.AddPlayer(player);
             }
 
