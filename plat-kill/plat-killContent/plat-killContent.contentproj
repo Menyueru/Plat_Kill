@@ -58,6 +58,9 @@
     <Reference Include="SkinnedModelPipeline">
       <HintPath>..\skinnedModel\SkinnedModelPipeline.dll</HintPath>
     </Reference>
+    <Reference Include="Xclna.Xna.AnimationContent">
+      <HintPath>..\..\..\..\stuff\Content\bin\x86\Debug\Xclna.Xna.AnimationContent.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Sounds\Music\" />
@@ -230,6 +233,28 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Effects\skinFX.fx">
+      <Name>skinFX</Name>
+      <Importer>EffectImporter</Importer>
+      <Processor>EffectProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Characters\vincent.fbx">
+      <Name>vincent</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>AnimatedModelProcessor</Processor>
+      <ProcessorParameters_Scale>0.05</ProcessorParameters_Scale>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\Characters\vincentanimation.xml">
+      <Name>vincentanimation</Name>
+      <Importer>XmlImporter</Importer>
+      <Processor>AnimationProcessor</Processor>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

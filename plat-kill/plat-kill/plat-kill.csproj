@@ -140,28 +140,15 @@
     <Reference Include="System.Net">
       <Private>False</Private>
     </Reference>
+    <Reference Include="Xclna.Xna.Animationx86, Version=1.0.2.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\stuff\Windows\bin\x86\Debug\Xclna.Xna.Animationx86.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\Camera\Camera.cs" />
     <Compile Include="Components\Camera\CameraManager.cs" />
     <Compile Include="Components\Camera\CameraState.cs" />
-    <Compile Include="Components\GameScreens\ScreenFactory.cs" />
-    <Compile Include="Components\GameScreens\ScreenComponents\GameScreen.cs" />
-    <Compile Include="Components\GameScreens\ScreenComponents\InputAction.cs" />
-    <Compile Include="Components\GameScreens\ScreenComponents\InputState.cs" />
-    <Compile Include="Components\GameScreens\ScreenComponents\IScreenFactory.cs" />
-    <Compile Include="Components\GameScreens\ScreenComponents\ScreenManager.cs" />
-    <Compile Include="Components\GameScreens\Screens\BackgroundScreen.cs" />
-    <Compile Include="Components\GameScreens\Screens\Button.cs" />
-    <Compile Include="Components\GameScreens\Screens\ClientInputScreen.cs" />
-    <Compile Include="Components\GameScreens\Screens\GameplayScreen.cs" />
-    <Compile Include="Components\GameScreens\Screens\LoadingScreen.cs" />
-    <Compile Include="Components\GameScreens\Screens\MainMenuScreen.cs" />
-    <Compile Include="Components\GameScreens\Screens\MenuEntry.cs" />
-    <Compile Include="Components\GameScreens\Screens\MenuScreen.cs" />
-    <Compile Include="Components\GameScreens\Screens\MessageBoxScreen.cs" />
-    <Compile Include="Components\GameScreens\Screens\PlayerIndexEventArgs.cs" />
-    <Compile Include="Components\GameScreens\Screens\TitleScreen.cs" />
     <Compile Include="Events\PlayerStateChangedArgs.cs" />
     <Compile Include="Events\ShotFiredArgs.cs" />
     <Compile Include="GameModels\AnimatedModel.cs" />
@@ -193,7 +180,6 @@
     <Compile Include="Networking\Messages\ShotFiredMessage.cs" />
     <Compile Include="Networking\Messages\UpdatePlayerStateMessage.cs" />
     <Compile Include="Networking\ServerNetworkManager.cs" />
-    <Compile Include="PlatKillGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="PKGame.cs" />

@@ -1,0 +1,97 @@
+<animation>
+  <name>mixamo.com</name>
+  <tickspersecond>15.0</tickspersecond>
+
+  <animationsubset>
+    <name>t_pose</name>
+    <startframe>1</startframe>
+    <endframe>4</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>rifle_walk</name>
+    <startframe>7</startframe>
+    <endframe>23</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>rifle_run</name>
+    <startframe>24</startframe>
+    <endframe>35</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>shoot_rifle</name>
+    <startframe>36</startframe>
+    <endframe>49</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>firing_rifle</name>
+    <startframe>50</startframe>
+    <endframe>68</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>rifle_jump_in_place</name>
+    <startframe>68</startframe>
+    <endframe>95</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>great_sword_slash</name>
+    <startframe>96</startframe>
+    <endframe>116</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>rifle_idle</name>
+    <startframe>117</startframe>
+    <endframe>273</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>reloading</name>
+    <startframe>274</startframe>
+    <endframe>321</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>reload</name>
+    <startframe>322</startframe>
+    <endframe>378</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>toss_grenade</name>
+    <startframe>379</startframe>
+    <endframe>425</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>dodging</name>
+    <startframe>426</startframe>
+    <endframe>462</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>standard_walk</name>
+    <startframe>463</startframe>
+    <endframe>479</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>running</name>
+    <startframe>480</startframe>
+    <endframe>490</endframe>
+  </animationsubset>
+
+  <animationsubset>
+    <name>sprinting_forward_roll</name>
+    <startframe>491</startframe>
+    <endframe>530</endframe>
+  </animationsubset>
+  
+</animation>
+
+

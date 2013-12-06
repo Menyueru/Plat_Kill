@@ -50,7 +50,7 @@ namespace plat_kill.GameModels.Players
         {
             base.Update(gameTime);
 
-            this.CharecterState = CharacterState.Idle;
+            this.CharecterState = CharacterState.RifleIdle;
 
             float dt = 1;
             inputManager.Update();
@@ -80,6 +80,7 @@ namespace plat_kill.GameModels.Players
                 if (inputManager.IsKeyPressed(Keys.Space))
                 {
                     jump();
+                    this.CharecterState = CharacterState.RifleJumpInPlace;
                 }
 
                 #endregion

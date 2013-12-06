@@ -80,11 +80,11 @@ namespace plat_kill.Managers
         }
 
 
-        public void DrawAllPlayers(Matrix view, Matrix projection)
+        public void DrawAllPlayers(GameTime gameTime, Matrix view, Matrix projection)
         {
             foreach (Player player in this.Players)
             {
-                player.Draw(view, projection);
+                player.Draw(gameTime, view, projection);
             }
         }
 

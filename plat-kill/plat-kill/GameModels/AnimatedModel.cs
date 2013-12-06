@@ -6,11 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Xclna.Xna.Animation;
 
 
 namespace plat_kill.GameModels
 {
-    public class AnimatedModel : GameModel
+    public class AnimatedModel
     {
         #region Fields
         private Vector3 position;
@@ -19,10 +20,9 @@ namespace plat_kill.GameModels
         private Matrix world;
         private Matrix transform;
 
-        private AnimationPlayer animationPlayer;
-        private AnimationClip clip;
-        private SkinningData skinningData;
-        private Matrix[] boneTransforms;
+        private ModelAnimator modelAnimator;
+        private AnimationController currentAnimationController;
+
         private Model model;
         private bool refresh;
         
@@ -32,11 +32,20 @@ namespace plat_kill.GameModels
         protected float mass;
         protected Matrix orientationMatrix;
 
-       
-
         #endregion
         
         #region Getter-Setters 
+        public AnimationController CurrentAnimationController
+        {
+            get { return currentAnimationController; }
+            set { currentAnimationController = value; }
+        }
+        public ModelAnimator ModelAnimator
+        {
+            get { return modelAnimator; }
+            set { modelAnimator = value; }
+        }
+
         protected Matrix OrientationMatrix
         {
             get { return orientationMatrix; }
@@ -47,16 +56,6 @@ namespace plat_kill.GameModels
         {
             get { return refresh; }
             set { refresh = value; }
-        }
-        public AnimationPlayer AnimationPlayer
-        {
-            get { return animationPlayer; }
-            set { animationPlayer = value; }
-        }
-        public AnimationClip Clip
-        {
-            get { return clip; }
-            set { clip = value; }
         }
 
         public Matrix Transform
@@ -140,55 +139,96 @@ namespace plat_kill.GameModels
 
         #endregion     
 
-        public void Load(ContentManager content, String path)
+        public void Load(ContentManager content, String path, GraphicsDevice graphics, Matrix view, Matrix projection)
         {
             this.model = content.Load<Model>(path);
 
-            skinningData = model.Tag as SkinningData;
+            Viewport port = graphics.Viewport;
 
-            if (skinningData != null)
+            Matrix tempView = Matrix.CreateLookAt(new Vector3(0, 15, -20), Vector3.Zero, Vector3.Up);
+            Matrix tempProjection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, (float)port.Width / port.Height, .1f, 100000f);
+            Effect myEffect = content.Load<Effect>("Effects\\skinFX");
+
+            // Replace the old effects with your custom shader
+            foreach (ModelMesh mesh in model.Meshes)
             {
-                boneTransforms = new Matrix[skinningData.BindPose.Count];
+                foreach (ModelMeshPart part in mesh.MeshParts)
+                {
+                    BasicEffect oldEffect = (BasicEffect)part.Effect;
+                    Effect newEffect = myEffect.Clone();
+                    newEffect.Parameters["Texture"].SetValue(oldEffect.Texture);
 
-                animationPlayer = new AnimationPlayer(skinningData);
+                    newEffect.Parameters["LightColor"].SetValue(new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
+                    newEffect.Parameters["AmbientLightColor"].SetValue(new Vector4(1.25f, 1.25f, 1.25f, 1.0f));
+                    newEffect.Parameters["Shininess"].SetValue(0.6f);
+                    newEffect.Parameters["SpecularPower"].SetValue(0.4f);
 
-                this.clip = skinningData.AnimationClips["Take 001"];
+                    newEffect.Parameters["View"].SetValue(tempView);
+                    newEffect.Parameters["Projection"].SetValue(tempProjection);
 
-                animationPlayer.StartClip(clip);
+                    part.Effect = newEffect;
+                    oldEffect.Dispose();
+                }
             }
+
+            ModelAnimator = new ModelAnimator(model);
+
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                foreach (Effect effect in mesh.Effects)
+                {
+                    if (effect is BasicEffect)
+                    {
+                        BasicEffect basic = (BasicEffect)effect;
+                        basic.View = tempView;
+                        basic.Projection = tempProjection;
+                    }
+                    else if (effect is BasicPaletteEffect)
+                    {
+                        BasicPaletteEffect palette = (BasicPaletteEffect)effect;
+                        palette.View = tempView;
+                        palette.Projection = tempProjection;
+                        palette.EnableDefaultLighting();
+                        palette.DirectionalLight0.Direction = new Vector3(0, 0, 1);
+                    }
+                }
+            }
+
         }
 
-        public void Draw(Matrix view, Matrix projection) 
+        public void Draw(GameTime gameTime, Matrix view, Matrix projection) 
         {
-            orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
+           orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
                                     * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateRotationY(MathHelper.Pi);
            world = transform * orientationMatrix * Matrix.CreateTranslation(position- (new Vector3(0,3,0)));
-           Matrix[] bones = animationPlayer.GetSkinTransforms();
-            foreach(ModelMesh mesh in model.Meshes)
-            {
-                foreach(SkinnedEffect effect in mesh.Effects)
-                {
-                    effect.SetBoneTransforms(bones);
 
-                    effect.Projection = projection;
-                    effect.View = view;
-                    effect.World = world;
-                    effect.EnableDefaultLighting();
-                }
-                mesh.Draw();
-            }
+           foreach (ModelMesh mesh in ModelAnimator.Model.Meshes)
+           {
+               foreach (Effect effect in mesh.Effects)
+               {
+                   //effect.Parameters["View"].SetValue(view);
+                   effect.Parameters["Projection"].SetValue(projection);
+                   //effect.Parameters["World"].SetValue(world);
+               }
+           }
+
+           ModelAnimator.Draw(gameTime);
         }
 
         public void Update(GameTime gameTime) 
         {
-            if(refresh)
+            ModelAnimator.Update(gameTime);
+            currentAnimationController.Update(gameTime);
+        }
+
+        protected void runAnimationController(ModelAnimator animator, AnimationController controller)
+        {
+            this.currentAnimationController = controller;
+            foreach (BonePose p in animator.BonePoses)
             {
-                animationPlayer.UpdateBoneTransforms(gameTime.ElapsedGameTime, true);
+                p.CurrentController = controller;
+                p.CurrentBlendController = null;
             }
-            
-            animationPlayer.GetBoneTransforms().CopyTo(boneTransforms, 0);
-            animationPlayer.UpdateWorldTransforms(Matrix.Identity, boneTransforms);
-            animationPlayer.UpdateSkinTransforms();
         }
 
     }

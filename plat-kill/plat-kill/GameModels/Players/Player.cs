@@ -11,6 +11,7 @@ using plat_kill.GameModels.Players.Helpers;
 using plat_kill.Helpers;
 using System;
 using BEPUphysics;
+using Xclna.Xna.Animation;
 
 namespace plat_kill.GameModels.Players
 {
@@ -23,6 +24,8 @@ namespace plat_kill.GameModels.Players
         private bool isLocal;
 
         private CharacterState charecterState;
+        private AnimationController tPose, rifleWalk, rifleRun, shootRifle, firingRifle, rifleJumpInPlace, greatSwordSlash, rifleIdle,
+                  reloading, reload, tossGrenade, dodging, standardWalk, running, sprintingFowardRoll;
 
         private long defense;
         private long health;
@@ -38,6 +41,95 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Getter-Setters
+        public AnimationController SprintingFowardRoll
+        {
+            get { return sprintingFowardRoll; }
+            set { sprintingFowardRoll = value; }
+        }
+
+        public AnimationController Running
+        {
+            get { return running; }
+            set { running = value; }
+        }
+
+        public AnimationController StandardWalk
+        {
+            get { return standardWalk; }
+            set { standardWalk = value; }
+        }
+
+        public AnimationController Dodging
+        {
+            get { return dodging; }
+            set { dodging = value; }
+        }
+
+        public AnimationController TossGrenade
+        {
+            get { return tossGrenade; }
+            set { tossGrenade = value; }
+        }
+
+        public AnimationController Reload
+        {
+            get { return reload; }
+            set { reload = value; }
+        }
+
+        public AnimationController Reloading
+        {
+            get { return reloading; }
+            set { reloading = value; }
+        }
+
+        public AnimationController RifleIdle
+        {
+            get { return rifleIdle; }
+            set { rifleIdle = value; }
+        }
+
+        public AnimationController GreatSwordSlash
+        {
+            get { return greatSwordSlash; }
+            set { greatSwordSlash = value; }
+        }
+
+        public AnimationController RifleJumpInPlace
+        {
+            get { return rifleJumpInPlace; }
+            set { rifleJumpInPlace = value; }
+        }
+
+        public AnimationController FiringRifle
+        {
+            get { return firingRifle; }
+            set { firingRifle = value; }
+        }
+
+        public AnimationController ShootRifle
+        {
+            get { return shootRifle; }
+            set { shootRifle = value; }
+        }
+
+        public AnimationController RifleRun
+        {
+            get { return rifleRun; }
+            set { rifleRun = value; }
+        }
+
+        public AnimationController RifleWalk
+        {
+            get { return rifleWalk; }
+            set { rifleWalk = value; }
+        }
+
+        public AnimationController TPose
+        {
+            get { return tPose; }
+            set { tPose = value; }
+        }
 
         public CharacterState CharecterState
         {
@@ -172,7 +264,7 @@ namespace plat_kill.GameModels.Players
                 CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Zero;
             else
                 CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);
-            this.charecterState = CharacterState.Walk;
+            this.charecterState = CharacterState.Running;
         }
 
         protected void MoveRight(float dt)
@@ -194,12 +286,14 @@ namespace plat_kill.GameModels.Players
                 CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Zero;
             else
                 CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);
-            this.charecterState = CharacterState.Walk;
+           
+            this.charecterState = CharacterState.RifleWalk;
         }
 
         protected void jump()
         {
             CharacterController.Jump();
+            this.charecterState = CharacterState.RifleJumpInPlace;
         }
 
         #endregion
@@ -219,13 +313,13 @@ namespace plat_kill.GameModels.Players
             this.playerHeadOffset = new Vector3(0, 10, 0);
             this.isLocal = isLocal;
             this.radius = Math.Max(width, length)/2;
-            this.charecterState = CharacterState.Idle;
+            this.charecterState = CharacterState.RifleIdle;
         }
 
 
-        public void Load(ContentManager content, String path,Space ownspace)
+        public void Load(ContentManager content, String path, Space ownspace, GraphicsDevice graphicsDevice, Matrix view, Matrix projection)
         {
-            base.Load(content, path);
+            base.Load(content, path, graphicsDevice, view, projection);
             float h, r;
             CalculateHeightRadius(out h, out r);
             CharacterController = new CharacterController(Position, height * h, height * h*.7f, radius * r, mass);
@@ -235,25 +329,84 @@ namespace plat_kill.GameModels.Players
             CharacterController.HorizontalMotionConstraint.MaximumForce *= mass;
             CharacterController.VerticalMotionConstraint.MaximumGlueForce /= mass*mass;
             ownspace.Add(CharacterController);
+
+            TPose = new AnimationController(ModelAnimator.Animations["t_pose"]);
+            RifleWalk = new AnimationController(ModelAnimator.Animations["rifle_walk"]);
+            RifleRun = new AnimationController(ModelAnimator.Animations["rifle_run"]);
+            ShootRifle = new AnimationController(ModelAnimator.Animations["shoot_rifle"]);
+            FiringRifle = new AnimationController(ModelAnimator.Animations["firing_rifle"]);
+            RifleJumpInPlace = new AnimationController(ModelAnimator.Animations["rifle_jump_in_place"]);
+            GreatSwordSlash = new AnimationController(ModelAnimator.Animations["great_sword_slash"]);
+            RifleIdle = new AnimationController(ModelAnimator.Animations["rifle_idle"]);
+            Reloading = new AnimationController(ModelAnimator.Animations["reloading"]);
+            Reload = new AnimationController(ModelAnimator.Animations["reload"]);
+            TossGrenade = new AnimationController(ModelAnimator.Animations["toss_grenade"]);
+            Dodging = new AnimationController(ModelAnimator.Animations["dodging"]);
+            StandardWalk = new AnimationController(ModelAnimator.Animations["standard_walk"]);
+            Running = new AnimationController(ModelAnimator.Animations["running"]);
+            SprintingFowardRoll = new AnimationController(ModelAnimator.Animations["sprinting_forward_roll"]);
         }
         #endregion
         
          public new void Update(GameTime gameTime)
         {
-            base.Update(gameTime);
+            switch(CharecterState)
+            {
+                case CharacterState.StandardWalk:
+                    runAnimationController(ModelAnimator, StandardWalk);
+                    break;
+                case CharacterState.Running:
+                    runAnimationController(ModelAnimator, RifleWalk);
+                    break;
+                case CharacterState.RifleIdle:
+                    runAnimationController(ModelAnimator, RifleIdle);
+                    break;
+                case CharacterState.RifleRun:
+                    runAnimationController(ModelAnimator, RifleRun);
+                    break;
+                case CharacterState.RifleWalk:
+                    runAnimationController(ModelAnimator, RifleWalk);
+                    break;
+                case CharacterState.RifleJumpInPlace:
+                    runAnimationController(ModelAnimator, RifleJumpInPlace);
+                    break;
+                case CharacterState.FiringRifle:
+                    runAnimationController(ModelAnimator, FiringRifle);
+                    break;
+                case CharacterState.ShootRifle:
+                    runAnimationController(ModelAnimator, ShootRifle);
+                    break;
+                case CharacterState.TossGrenad:
+                    runAnimationController(ModelAnimator, TossGrenade);
+                    break;
+                case CharacterState.SprintingFowardRol:
+                    runAnimationController(ModelAnimator, SprintingFowardRoll);
+                    break;
+                case CharacterState.Dodging:
+                    runAnimationController(ModelAnimator, Dodging);
+                    break;
+                case CharacterState.GreatSwordSlash:
+                    runAnimationController(ModelAnimator, GreatSwordSlash);
+                    break;
+                case CharacterState.Reload:
+                    runAnimationController(ModelAnimator, Reload);
+                    break;
+                case CharacterState.Reloading:
+                    runAnimationController(ModelAnimator, Reloading);
+                    break;
+                case CharacterState.TPose:
+                    runAnimationController(ModelAnimator, TPose);
+                    break;
+                
+                default:
+                    runAnimationController(ModelAnimator, RifleIdle);
+                    break;
+            }
+
             Position = CharacterController.Body.Position;
-            
-            if (this.CharecterState.Equals(CharacterState.Idle))
-            {
-                this.Refresh = false;
-                this.AnimationPlayer.Update(new TimeSpan(0, 0, 0), true, Matrix.Identity);
-            }
-            else if (this.CharecterState.Equals(CharacterState.Walk))
-            {
-                this.Refresh = true;
-                this.AnimationPlayer.Update(gameTime.ElapsedGameTime, true, Matrix.Identity);
-            }
             CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
+
+            base.Update(gameTime);             
         }
         #endregion
     }

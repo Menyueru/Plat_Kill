@@ -7,7 +7,20 @@ namespace plat_kill.Helpers
 {
     public enum CharacterState
     {
-        Walk,
-        Idle
+        TPose,
+        RifleWalk,
+        RifleRun,
+        ShootRifle,
+        FiringRifle,
+        RifleJumpInPlace,
+        GreatSwordSlash,
+        RifleIdle,
+        Reloading,
+        Reload,
+        TossGrenad,
+        Dodging,
+        StandardWalk,
+        Running,
+        SprintingFowardRol
     }
 }

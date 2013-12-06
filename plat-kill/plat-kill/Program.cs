@@ -11,7 +11,7 @@ namespace plat_kill
         /// </summary>
         static void Main(string[] args)
         {
-            using (PlatKillGame game = new PlatKillGame())
+            using (PKGame game = new PKGame(new ServerNetworkManager()))
             {
                 game.Run();
             }
