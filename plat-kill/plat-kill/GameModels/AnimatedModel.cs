@@ -180,14 +180,14 @@ namespace plat_kill.GameModels
                     if (effect is BasicEffect)
                     {
                         BasicEffect basic = (BasicEffect)effect;
-                        basic.View = tempView;
-                        basic.Projection = tempProjection;
+                        basic.View = view;
+                        basic.Projection = projection;
                     }
                     else if (effect is BasicPaletteEffect)
                     {
                         BasicPaletteEffect palette = (BasicPaletteEffect)effect;
-                        palette.View = tempView;
-                        palette.Projection = tempProjection;
+                        palette.View = view;
+                        palette.Projection = projection;
                         palette.EnableDefaultLighting();
                         palette.DirectionalLight0.Direction = new Vector3(0, 0, 1);
                     }
@@ -206,9 +206,7 @@ namespace plat_kill.GameModels
            {
                foreach (Effect effect in mesh.Effects)
                {
-                   //effect.Parameters["View"].SetValue(view);
                    effect.Parameters["Projection"].SetValue(projection);
-                   //effect.Parameters["World"].SetValue(world);
                }
            }
 

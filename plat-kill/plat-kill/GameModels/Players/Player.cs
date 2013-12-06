@@ -287,7 +287,7 @@ namespace plat_kill.GameModels.Players
             else
                 CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);
            
-            this.charecterState = CharacterState.RifleWalk;
+            this.charecterState = CharacterState.RifleRun;
         }
 
         protected void jump()

@@ -120,6 +120,7 @@ namespace plat_kill.GameModels.Players
 
                 if (inputManager.MouseLeftIsPressed())
                 {
+                    this.CharecterState = CharacterState.FiringRifle;
                     game.ProjectileManager.FireProjectile(ProjectileType.Bullet, this);
                 }
 

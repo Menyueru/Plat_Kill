@@ -59,7 +59,7 @@
       <HintPath>..\skinnedModel\SkinnedModelPipeline.dll</HintPath>
     </Reference>
     <Reference Include="Xclna.Xna.AnimationContent">
-      <HintPath>..\..\..\..\stuff\Content\bin\x86\Debug\Xclna.Xna.AnimationContent.dll</HintPath>
+      <HintPath>..\animations\Xclna.Xna.AnimationContent.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
