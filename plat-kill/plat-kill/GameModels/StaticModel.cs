@@ -93,11 +93,11 @@ namespace plat_kill.GameModels
 
         #region Initialization
 
-        public StaticModel(Vector3 position, float rotationSpeed, float mass, float width, float height, float length)
+        public StaticModel(Vector3 position,Vector3 rotation, float rotationSpeed, float mass, float width, float height, float length)
         {
             this.position = position;
             this.rotationSpeed = rotationSpeed;
-            this.rotation = Vector3.Zero;
+            this.rotation = rotation;
             this.mass = mass;
             this.height = height;
             this.length = length;

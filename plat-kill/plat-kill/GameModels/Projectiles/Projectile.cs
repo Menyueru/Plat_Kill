@@ -102,8 +102,8 @@ namespace plat_kill.GameModels.Projectiles
 
 
         #region Initialize
-        public Projectile(long projectileId, long firedByPlayerID, float speed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length, ProjectileType projectileType)
-            : base(position, rotationSpeed, mass, width, height, length)
+        public Projectile(long projectileId, long firedByPlayerID, float speed, Vector3 position,Vector3 rotation, float rotationSpeed, float mass, float width, float height, float length, ProjectileType projectileType)
+            : base(position,rotation, rotationSpeed, mass, width, height, length)
         {
             this.projectileID = projectileId;
             this.firedByPlayerID = firedByPlayerID;
