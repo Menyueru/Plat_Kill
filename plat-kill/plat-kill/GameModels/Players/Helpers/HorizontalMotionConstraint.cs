@@ -126,7 +126,7 @@ namespace plat_kill.GameModels.Players.Helpers
                 slidingSpeed = value;
             }
         }
-        float airSpeed = 1;
+        float airSpeed = 1f;
         /// <summary>
         /// Gets or sets the maximum speed at which the character can move with no support.
         /// The character will not be decelerated while airborne.
@@ -178,7 +178,7 @@ namespace plat_kill.GameModels.Players.Helpers
                 maximumSlidingForce = value;
             }
         }
-        float maximumAirForce = 250;
+        float maximumAirForce = 800;
         /// <summary>
         /// Gets or sets the maximum force that the character can apply with no support.
         /// </summary>

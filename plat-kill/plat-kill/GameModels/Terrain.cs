@@ -4,6 +4,10 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.IO;
+using System.Xml;
 
 namespace plat_kill.GameModels
 {
@@ -53,6 +57,8 @@ namespace plat_kill.GameModels
         private int[] indices;
         private VertexDeclaration vertexDeclaration;
 
+        private Dictionary<String, SceneObject> models;
+
         private Matrix world;
 
         public StaticMesh Mesh
@@ -61,18 +67,25 @@ namespace plat_kill.GameModels
             set { mesh = value; }
         }
 
-        public Terrain(string heightmap, string[] textures)
+        public Terrain(string path)
         {
-            if (textures.Length < 4)
-                throw new ArgumentException("Need four terrain textures.");
-            this.asset = heightmap;
-            this.textureAssets = textures;
+            this.models = new Dictionary<string, SceneObject>();
+            this.asset = path;
         }
 
         public void LoadContent(ContentManager content)
         {
-            this.effect = content.Load<Effect>("Effects//terrain");
-            this.bitmap = content.Load<Texture2D>(this.asset);
+            this.effect = content.Load<Effect>("Effects\\terrain");
+
+            using (XmlTextReader reader = new XmlTextReader(this.asset))
+            {
+                XmlDocument sceneFile = new XmlDocument();
+                sceneFile.Load(reader);
+
+                Load(sceneFile, content);
+
+                reader.Close();
+            }
 
             this.textures = new Texture2D[4];
             for (int i = 0; i < 4; i++)
@@ -88,11 +101,98 @@ namespace plat_kill.GameModels
             {
                 verts[i] = vertices[i].Position;
             }
-            
+
             world = Matrix.CreateTranslation(-Width / 2.0f, 0, Height / 2.0f);
-            mesh = new StaticMesh(verts, indices,new AffineTransform(world.Translation));
+            mesh = new StaticMesh(verts, indices, new AffineTransform(world.Translation));
             mesh.ImproveBoundaryBehavior = false;
             mesh.IgnoreShapeChanges = true;
+        }
+
+        /// <summary>
+        /// Attempts to parse a *.scn file.
+        /// </summary>
+        public void Load(XmlDocument sceneFile, ContentManager content)
+        {
+
+            foreach (XmlNode node in sceneFile.DocumentElement.ChildNodes)
+            {
+                if (node.Name == "SceneObjects")
+                {
+                    foreach (XmlNode entityNode in node.ChildNodes)
+                    {
+                        XmlAttributeCollection entityAttributes = entityNode.Attributes;
+                        string name = entityAttributes["Name"].InnerText;
+                        string assetPath = entityAttributes["AssetPath"].InnerText;
+
+                        string groupPath = string.Empty;
+
+                        if (entityAttributes["GroupPath"] != null)
+                        {
+                            groupPath = entityAttributes["GroupPath"].InnerText;
+                        }
+
+                        Vector3 position = ParseVector3(entityAttributes["Position"].InnerText);
+                        Vector3 rotation = ToEulerAngles(ParseQuaternion(entityAttributes["Rotation"].InnerText));
+                        Vector3 scale = ParseVector3(entityAttributes["Scale"].InnerText);
+
+                        //bool visible = bool.Parse(entityAttributes["Visible"].InnerText);
+
+                        bool placeOnTerrain = true;
+
+                        if (entityAttributes["PlaceOnTerrain"] != null)
+                        {
+                            placeOnTerrain = bool.Parse(entityAttributes["PlaceOnTerrain"].InnerText);
+                        }
+
+                        SceneObject entity = new SceneObject(position, rotation, scale);
+                        entity.Load(content, assetPath);
+
+                        Add(name, entity);
+                    }
+                }
+                else if (node.Name == "Terrain")
+                {
+                    XmlAttributeCollection terrainAttributes = node.Attributes;
+                    String heightMapPath = terrainAttributes["Path"].InnerText;
+
+                    float cellSize = float.Parse(terrainAttributes["CellSize"].InnerText,
+                                                 CultureInfo.InvariantCulture);
+
+                    if (string.IsNullOrEmpty(heightMapPath))
+                    {
+                        continue;
+                    }
+
+
+                    try
+                    {
+                        this.bitmap = content.Load<Texture2D>(heightMapPath);
+                    }
+                    catch
+                    {
+                        // MessageBox.Show("Height map was not found.");
+                        continue;
+                    }
+
+
+                    if (node.HasChildNodes)
+                    {
+                        int counter = 0;
+                        this.textureAssets = new String[4];
+                        foreach (XmlNode materialNode in node.ChildNodes[0].ChildNodes)
+                        {
+                            foreach (XmlNode child in materialNode.ChildNodes)
+                            {
+                                if (child.Name == "Path")
+                                {
+                                    this.textureAssets[counter++] = Path.ChangeExtension(child.InnerText, null);
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
         }
 
         private void LoadHeightData()
@@ -111,7 +211,7 @@ namespace plat_kill.GameModels
             {
                 for (int y = 0; y < Height; y++)
                 {
-                    data[x, y] = pixels[x + y * Width].G / 3.1f; 
+                    data[x, y] = pixels[x + y * Width].G / 3.1f;
                     minheight = (int)Math.Min(data[x, y], minheight);
                     maxheight = (int)Math.Max(data[x, y], maxheight);
                 }
@@ -131,8 +231,8 @@ namespace plat_kill.GameModels
                 for (int y = 0; y < Height; y++)
                 {
                     vertices[x + y * Width].Position = new Vector3(x, data[x, y], -y);
-                    vertices[x + y * Width].TextureCoordinate.X = x/25.5f;
-                    vertices[x + y * Width].TextureCoordinate.Y = y/25.5f;
+                    vertices[x + y * Width].TextureCoordinate.X = x / 25.5f;
+                    vertices[x + y * Width].TextureCoordinate.Y = y / 25.5f;
 
                     vertices[x + y * Width].TexWeights = Vector4.Zero;
 
@@ -210,7 +310,91 @@ namespace plat_kill.GameModels
                 vertices[i].Normal.Normalize();
         }
 
+        public void AddToSpace(BEPUphysics.Space space)
+        {
+            space.Add(mesh);
+            foreach (String key in models.Keys)
+            {
+                space.Add(models[key].Mesh);
+            }
+        }
 
+        public static Vector3 ToEulerAngles(Quaternion q)
+        {
+            // Store the Euler angles in radians
+            Vector3 pitchYawRoll = new Vector3();
+
+            double sqw = q.W * q.W;
+            double sqx = q.X * q.X;
+            double sqy = q.Y * q.Y;
+            double sqz = q.Z * q.Z;
+
+            // If quaternion is normalised the unit is one, otherwise it is the correction factor
+            double unit = sqx + sqy + sqz + sqw;
+            double test = q.X * q.Y + q.Z * q.W;
+
+            if (test > 0.499f * unit)
+            {
+                // Singularity at north pole
+                pitchYawRoll.Y = 2f * (float)Math.Atan2(q.X, q.W);  // Yaw
+                pitchYawRoll.X = MathHelper.PiOver2;                // Pitch
+                pitchYawRoll.Z = 0f;                                // Roll
+                return pitchYawRoll;
+            }
+            else if (test < -0.499f * unit)
+            {
+                // Singularity at south pole
+                pitchYawRoll.Y = -2f * (float)Math.Atan2(q.X, q.W); // Yaw
+                pitchYawRoll.X = -MathHelper.PiOver2;               // Pitch
+                pitchYawRoll.Z = 0f;                                // Roll
+                return pitchYawRoll;
+            }
+
+            pitchYawRoll.Y = (float)Math.Atan2(2 * q.Y * q.W - 2 * q.X * q.Z, sqx - sqy - sqz + sqw);       // Yaw
+            pitchYawRoll.X = (float)Math.Asin(2 * test / unit);                                             // Pitch
+            pitchYawRoll.Z = (float)Math.Atan2(2 * q.X * q.W - 2 * q.Y * q.Z, -sqx + sqy - sqz + sqw);      // Roll
+
+            return pitchYawRoll;
+        }
+
+
+        public static Vector3 ParseVector3(string value)
+        {
+            string[] attributeSplit = value.Split();
+
+            Vector3 parsedVector = new Vector3(float.Parse(attributeSplit[0], CultureInfo.InvariantCulture),
+                                               float.Parse(attributeSplit[1], CultureInfo.InvariantCulture),
+                                               float.Parse(attributeSplit[2], CultureInfo.InvariantCulture));
+
+            return parsedVector;
+        }
+        public static Quaternion ParseQuaternion(string value)
+        {
+            string[] attributeSplit = value.Split();
+
+            Quaternion parsedVector = new Quaternion(float.Parse(attributeSplit[0], CultureInfo.InvariantCulture),
+                                                     float.Parse(attributeSplit[1], CultureInfo.InvariantCulture),
+                                                     float.Parse(attributeSplit[2], CultureInfo.InvariantCulture),
+                                                     float.Parse(attributeSplit[3], CultureInfo.InvariantCulture));
+
+            return parsedVector;
+        }
+
+        /// <summary>
+        /// Adds a new object to the scene.
+        /// </summary>
+        public void Add(string name, SceneObject entity)
+        {
+            if (models.ContainsKey(name))
+            {
+                //MessageBox.Show("An entity with this name already exists " +
+                //"in the scene, please choose another name");
+            }
+            else
+            {
+                models.Add(name, entity);
+            }
+        }
 
         public void Draw(GraphicsDevice device, Matrix View, Matrix Projection)
         {
@@ -235,6 +419,10 @@ namespace plat_kill.GameModels
             {
                 pass.Apply();
                 device.DrawUserIndexedPrimitives(PrimitiveType.TriangleList, vertices, 0, vertices.Length, indices, 0, indices.Length / 3, this.vertexDeclaration);
+            }
+            foreach (String key in models.Keys)
+            {
+                models[key].Draw(View, Projection);
             }
         }
     }

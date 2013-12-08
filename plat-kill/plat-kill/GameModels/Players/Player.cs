@@ -326,6 +326,7 @@ namespace plat_kill.GameModels.Players
             CharacterController.JumpSpeed = jumpSpeed;
             CharacterController.SlidingJumpSpeed= jumpSpeed * .6f;
             CharacterController.HorizontalMotionConstraint.Speed = speed;
+            CharacterController.HorizontalMotionConstraint.AirSpeed = speed;
             CharacterController.HorizontalMotionConstraint.MaximumForce *= mass;
             CharacterController.VerticalMotionConstraint.MaximumGlueForce /= mass*mass;
             ownspace.Add(CharacterController);

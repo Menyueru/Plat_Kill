@@ -92,7 +92,7 @@ namespace plat_kill
 
             skyBox = new SkyBox(graphics.GraphicsDevice);
 
-            map = new Terrain("Models//Maps//heightmap", new String[] { "Textures//sand", "Textures//grass", "Textures//rock", "Textures//rock2" });
+            map = new Terrain("Content\\Scenes\\Test.scn");
 
             this.networkManager.Connect();
 
@@ -127,7 +127,7 @@ namespace plat_kill
         protected override void LoadContent()
         {
             map.LoadContent(Content);
-            space.Add(map.Mesh);
+            map.AddToSpace(space);
 
             skyBox.Load(this.Content, "Textures\\SkyBoxes\\BlueSky\\SkyEffect", "Textures\\SkyBoxes\\BlueSky\\SkyBoxTex");
         }

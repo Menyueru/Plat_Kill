@@ -1,11 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using SkinnedModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace plat_kill.GameModels
 {
@@ -19,14 +15,14 @@ namespace plat_kill.GameModels
         private Matrix transform;
 
         private Model model;
-        
+
         protected float width;
         protected float height;
         protected float length;
         protected float mass;
 
         #endregion
-        
+
         #region Getter-Setters
 
         public Matrix Transform
@@ -93,7 +89,7 @@ namespace plat_kill.GameModels
 
         #region Initialization
 
-        public StaticModel(Vector3 position,Vector3 rotation, float rotationSpeed, float mass, float width, float height, float length)
+        public StaticModel(Vector3 position, Vector3 rotation, float rotationSpeed, float mass, float width, float height, float length)
         {
             this.position = position;
             this.rotationSpeed = rotationSpeed;
@@ -102,25 +98,27 @@ namespace plat_kill.GameModels
             this.height = height;
             this.length = length;
             this.width = width;
-            this.transform = Matrix.CreateScale(width,height,length);
+            this.transform = Matrix.CreateScale(width, height, length);
+            this.world = this.transform * Matrix.CreateRotationX(this.rotation.X) * Matrix.CreateRotationY(this.rotation.Y)
+                    * Matrix.CreateRotationZ(this.rotation.Z) * Matrix.CreateTranslation(this.position);
         }
 
-        #endregion     
+        #endregion
 
         public void Load(ContentManager content, String path)
         {
             this.model = content.Load<Model>(path);
         }
 
-        public void Draw(Matrix view, Matrix projection) 
+        public void Draw(Matrix view, Matrix projection)
         {
-           world = transform * Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y) 
-                   * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
-            
-            foreach(ModelMesh mesh in model.Meshes)
+             world = transform * Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
+             * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateTranslation(position);
+
+            foreach (ModelMesh mesh in model.Meshes)
             {
-                foreach(BasicEffect effect in mesh.Effects)
-                {   
+                foreach (BasicEffect effect in mesh.Effects)
+                {
                     effect.Projection = projection;
                     effect.View = view;
                     effect.World = world;
@@ -130,7 +128,7 @@ namespace plat_kill.GameModels
             }
         }
 
-        public void Update(GameTime gameTime) 
+        public void Update(GameTime gameTime)
         {
         }
     }

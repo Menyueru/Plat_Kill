@@ -1,0 +1,26 @@
+<Scene>
+  <SceneObjects>
+    <SceneObject Name="HouseBricksThin" AssetPath="Models\Maps\Objects\HouseBricksThin" GroupPath="Objects" Position="0 0 -100.554" Rotation="0 0 0 1" Scale="0.05 0.05 0.05"  />
+    <SceneObject Name="HouseBricksThin_1" AssetPath="Models\Maps\Objects\HouseBricksThin" GroupPath="Objects" Position="54.325 0 -116.833" Rotation="0 -0.6946585 0 0.7193398" Scale="0.05 0.05 0.05"  />
+  </SceneObjects>
+  <Terrain Path="Models\Maps\heightmap"  CellSize="10" MaxHeight="512">
+    <Materials>
+      <Material1>
+        <Path>Textures\sand</Path>
+        <Scale>30</Scale>
+      </Material1>
+      <Material2>
+        <Path>Textures\grass</Path>
+        <Scale>30</Scale>
+      </Material2>
+      <Material3>
+        <Path>Textures\rock</Path>
+        <Scale>30</Scale>
+      </Material3>
+      <Material4>
+        <Path>Textures\rock2</Path>
+        <Scale>512</Scale>
+      </Material4>
+    </Materials>
+  </Terrain>
+</Scene>

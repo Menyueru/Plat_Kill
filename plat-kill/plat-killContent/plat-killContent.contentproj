@@ -37,6 +37,9 @@
     <RootNamespace>plat_killContent</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EnginePipeline">
+      <HintPath>..\SceneEngine\EnginePipeline.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Xna.Framework.Content.Pipeline.EffectImporter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=MSIL">
       <Private>False</Private>
     </Reference>
@@ -255,6 +258,21 @@
       <Importer>XmlImporter</Importer>
       <Processor>AnimationProcessor</Processor>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scenes\Test.scn">
+      <Name>Test</Name>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Importer>EngineXmlImporter</Importer>
+      <Processor>PassThroughProcessor</Processor>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Maps\Objects\HouseBricksThin.fbx">
+      <Name>HouseBricksThin</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -119,6 +119,9 @@
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
+    <Reference Include="SceneEngine">
+      <HintPath>..\SceneEngine\SceneEngine.dll</HintPath>
+    </Reference>
     <Reference Include="SkinnedModel">
       <HintPath>..\skinnedModel\SkinnedModel.dll</HintPath>
     </Reference>
@@ -165,6 +168,7 @@
     <Compile Include="GameModels\Players\Player.cs" />
     <Compile Include="GameModels\Projectiles\Projectile.cs" />
     <Compile Include="GameModels\Projectiles\ProjectileType.cs" />
+    <Compile Include="GameModels\SceneObject.cs" />
     <Compile Include="GameModels\SkyBox.cs" />
     <Compile Include="GameModels\StaticModel.cs" />
     <Compile Include="GameModels\Terrain.cs" />
