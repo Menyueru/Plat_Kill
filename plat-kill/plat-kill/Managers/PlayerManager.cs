@@ -15,7 +15,7 @@ using plat_kill.Helpers;
 
 namespace plat_kill.Managers
 {
-    class PlayerManager
+    public class PlayerManager
     {
         #region Propierties, Getters and Setters
 
@@ -23,7 +23,17 @@ namespace plat_kill.Managers
 
         private Dictionary<long, Player> players;
 
+        private List<Vector3> spawnPoints;
+
+        private int nextPoint;
+
         private long LocalPlayer;
+
+
+        public List<Vector3> SpawnPoints
+        {
+            set { spawnPoints = value; }
+        }
 
         public IEnumerable<Player> Players
         {
@@ -39,8 +49,20 @@ namespace plat_kill.Managers
         public PlayerManager()
         {
             this.players = new Dictionary<long, Player>();
+            this.nextPoint = 0;
         }
         #endregion
+
+
+        public Vector3 nextSpawnPoint()
+        {
+            return spawnPoints[nextPoint++];
+        }
+
+        public Vector3 nextSpawnPoint(int id)
+        {
+            return spawnPoints[id];
+        }
 
         #region Methods
         protected void OnPlayerStateChanged(Player player)

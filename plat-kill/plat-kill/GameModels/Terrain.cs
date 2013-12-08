@@ -57,6 +57,8 @@ namespace plat_kill.GameModels
         private int[] indices;
         private VertexDeclaration vertexDeclaration;
 
+        private PKGame game;
+
         private Dictionary<String, SceneObject> models;
 
         private Matrix world;
@@ -67,10 +69,11 @@ namespace plat_kill.GameModels
             set { mesh = value; }
         }
 
-        public Terrain(string path)
+        public Terrain(string path, PKGame game)
         {
             this.models = new Dictionary<string, SceneObject>();
             this.asset = path;
+            this.game = game;
         }
 
         public void LoadContent(ContentManager content)
@@ -149,6 +152,18 @@ namespace plat_kill.GameModels
 
                         Add(name, entity);
                     }
+                }
+                else if (node.Name == "SpawnPoints")
+                {
+                    List<Vector3> SpawnPoints = new List<Vector3>();
+                    foreach (XmlNode entityNode in node.ChildNodes)
+                    {
+                        XmlAttributeCollection entityAttributes = entityNode.Attributes;
+                        string name = entityAttributes["Name"].InnerText;
+                        Vector3 Position = ParseVector3(entityAttributes["Position"].InnerText);
+                        SpawnPoints.Add(Position);
+                    }
+                    game.PlayerManager.SpawnPoints = SpawnPoints;
                 }
                 else if (node.Name == "Terrain")
                 {
