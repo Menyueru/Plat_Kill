@@ -50,11 +50,11 @@ namespace plat_kill.Managers
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
         {
-            if ((lastshot.Add(firerate)) <= DateTime.Now)
+            if ((lastshot.Add(firerate)) < DateTime.Now)
             {
                 Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -150,
-                                                       playerShotted.Position + playerShotted.CharacterController.Body.OrientationMatrix.Forward
-                                                       + new Vector3(0, 8, 0),playerShotted.Rotation, 0, 0.05f, .025f, .025f, .025f, projectileType);
+                                                       playerShotted.Position + playerShotted.World.Forward
+                                                       + new Vector3(0, 6, 0),playerShotted.Rotation, 0, 0.05f, .025f, .025f, .025f, projectileType);
 
                 switch (projectileType)
                 {

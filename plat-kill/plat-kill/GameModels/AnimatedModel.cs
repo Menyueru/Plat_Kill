@@ -333,6 +333,11 @@ namespace plat_kill.GameModels
            }
 
            ModelAnimator.Draw(gameTime);
+           orientationMatrix = Matrix.CreateRotationX(rotation.X)
+                                    * Matrix.CreateRotationY(rotation.Y)
+                                    * Matrix.CreateRotationZ(rotation.Z)
+                                    * Matrix.CreateRotationY(MathHelper.Pi);
+           world = orientationMatrix * Matrix.CreateTranslation(position);
         }
 
         public void Update(GameTime gameTime) 
