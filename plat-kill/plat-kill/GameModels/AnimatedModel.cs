@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using plat_kill.Helpers;
 using SkinnedModel;
 using System;
 using System.Collections.Generic;
@@ -19,12 +20,15 @@ namespace plat_kill.GameModels
         protected Vector3 rotation;
         private Matrix world;
         private Matrix transform;
-
+        private Vector3 movementCurrentDirection;
         private ModelAnimator modelAnimator;
+        private CharacterState charecterState;
         private AnimationController currentAnimationController;
-
+        private AnimationController previousAnimationController;
+        private AnimationController tPose, rifleWalk, rifleRun, shootRifle, firingRifle, rifleJumpInPlace, greatSwordSlash, rifleIdle,
+                  reloading, reload, tossGrenade, dodging, standardWalk, running, sprintingFowardRoll;
+        private Boolean animationEnded;
         private Model model;
-        private bool refresh;
         
         protected float width;
         protected float height;
@@ -35,6 +39,116 @@ namespace plat_kill.GameModels
         #endregion
         
         #region Getter-Setters 
+        public Vector3 MovementCurrentDirection
+        {
+            get { return movementCurrentDirection; }
+            set { movementCurrentDirection = value; }
+        }
+        public AnimationController SprintingFowardRoll
+        {
+            get { return sprintingFowardRoll; }
+            set { sprintingFowardRoll = value; }
+        }
+
+        public AnimationController Running
+        {
+            get { return running; }
+            set { running = value; }
+        }
+
+        public AnimationController StandardWalk
+        {
+            get { return standardWalk; }
+            set { standardWalk = value; }
+        }
+
+        public AnimationController Dodging
+        {
+            get { return dodging; }
+            set { dodging = value; }
+        }
+
+        public AnimationController TossGrenade
+        {
+            get { return tossGrenade; }
+            set { tossGrenade = value; }
+        }
+
+        public AnimationController Reload
+        {
+            get { return reload; }
+            set { reload = value; }
+        }
+
+        public AnimationController Reloading
+        {
+            get { return reloading; }
+            set { reloading = value; }
+        }
+
+        public AnimationController RifleIdle
+        {
+            get { return rifleIdle; }
+            set { rifleIdle = value; }
+        }
+
+        public AnimationController GreatSwordSlash
+        {
+            get { return greatSwordSlash; }
+            set { greatSwordSlash = value; }
+        }
+
+        public AnimationController RifleJumpInPlace
+        {
+            get { return rifleJumpInPlace; }
+            set { rifleJumpInPlace = value; }
+        }
+
+        public AnimationController FiringRifle
+        {
+            get { return firingRifle; }
+            set { firingRifle = value; }
+        }
+
+        public AnimationController ShootRifle
+        {
+            get { return shootRifle; }
+            set { shootRifle = value; }
+        }
+
+        public AnimationController RifleRun
+        {
+            get { return rifleRun; }
+            set { rifleRun = value; }
+        }
+
+        public AnimationController RifleWalk
+        {
+            get { return rifleWalk; }
+            set { rifleWalk = value; }
+        }
+
+        public AnimationController TPose
+        {
+            get { return tPose; }
+            set { tPose = value; }
+        }
+
+        public CharacterState CharecterState
+        {
+            get { return charecterState; }
+            set { charecterState = value; }
+        }
+        public Boolean AnimationEnded
+        {
+            get { return animationEnded; }
+            set { animationEnded = value; }
+        }
+        public AnimationController PreviousAnimationController
+        {
+            get { return previousAnimationController; }
+            set { previousAnimationController = value; }
+        }
         public AnimationController CurrentAnimationController
         {
             get { return currentAnimationController; }
@@ -50,12 +164,6 @@ namespace plat_kill.GameModels
         {
             get { return orientationMatrix; }
             set { orientationMatrix = value; }
-        }
-
-        public bool Refresh
-        {
-            get { return refresh; }
-            set { refresh = value; }
         }
 
         public Matrix Transform
@@ -132,9 +240,9 @@ namespace plat_kill.GameModels
             this.length = length;
             this.width = width;
             this.transform = Matrix.CreateScale(width,height,length);
-            this.refresh = false;
             this.orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
                                     * Matrix.CreateRotationZ(rotation.Z);
+            this.animationEnded = true;
         }
 
         #endregion     
@@ -198,14 +306,28 @@ namespace plat_kill.GameModels
 
         public void Draw(GameTime gameTime, Matrix view, Matrix projection) 
         {
-           orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
-                                    * Matrix.CreateRotationZ(rotation.Z) * Matrix.CreateRotationY(MathHelper.Pi);
-           world = transform * orientationMatrix * Matrix.CreateTranslation(position- (new Vector3(0,3,0)));
-
+            Vector3 modelRotationModifier = Vector3.Zero;
+            if (CharecterState == CharacterState.FiringRifle || CharecterState == CharacterState.ShootRifle)
+            {
+               modelRotationModifier.Y = 100;
+            }
+            else if((CharecterState == CharacterState.RifleRun) && (MovementCurrentDirection.X > 0))
+            {
+                modelRotationModifier.Y = 100;
+            }
+           
+           orientationMatrix =  Matrix.CreateRotationX(rotation.X + modelRotationModifier.X) 
+                                    * Matrix.CreateRotationY(rotation.Y + modelRotationModifier.Y)
+                                    * Matrix.CreateRotationZ(rotation.Z + modelRotationModifier.Z) 
+                                    * Matrix.CreateRotationY(MathHelper.Pi);
+           world = orientationMatrix * Matrix.CreateTranslation(position);
+           
+            ModelAnimator.World = world;
            foreach (ModelMesh mesh in ModelAnimator.Model.Meshes)
            {
                foreach (Effect effect in mesh.Effects)
                {
+                   effect.Parameters["View"].SetValue(view);
                    effect.Parameters["Projection"].SetValue(projection);
                }
            }
@@ -218,16 +340,28 @@ namespace plat_kill.GameModels
             ModelAnimator.Update(gameTime);
             currentAnimationController.Update(gameTime);
         }
-
+        public void animationEndedEvent() 
+        {
+            animationEnded = true;
+        }
         protected void runAnimationController(ModelAnimator animator, AnimationController controller)
         {
+            this.PreviousAnimationController = currentAnimationController;
             this.currentAnimationController = controller;
+            //this.currentAnimationController.AnimationEnded += (sender, e) => animationEndedEvent();
+           // this.animationEnded = false;
+
             foreach (BonePose p in animator.BonePoses)
             {
-                p.CurrentController = controller;
-                p.CurrentBlendController = null;
+                p.CurrentController = this.PreviousAnimationController;
+                p.CurrentBlendController = this.CurrentAnimationController;
+                p.BlendFactor = 0.5f;
             }
         }
 
+        protected void changeCharacterState(CharacterState newState) 
+        {
+            this.charecterState = newState;
+        }
     }
 }
