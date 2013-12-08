@@ -50,8 +50,6 @@ namespace plat_kill.GameModels.Players
         {
             base.Update(gameTime);
 
-            this.CharecterState = CharacterState.RifleIdle;
-
             float dt = 1;
             inputManager.Update();
             if (game.IsActive)
@@ -59,28 +57,25 @@ namespace plat_kill.GameModels.Players
                 #region Keyboard Input
                 if (inputManager.IsKeyPressed(Keys.W))
                 {
-                    MoveForward(dt);
+                    MoveForward(-dt);
                 }
                 else if (inputManager.IsKeyPressed(Keys.S))
                 {
-                    MoveForward(-dt);
+                    MoveForward(dt);
                 }
 
                 if (inputManager.IsKeyPressed(Keys.D))
                 {
-                    MoveRight(dt);
+                    MoveRight(-dt);
                 }
                 else if (inputManager.IsKeyPressed(Keys.A))
                 {
-                    MoveRight(-dt);
+                    MoveRight(dt);
                 }
-
-                //Move();
 
                 if (inputManager.IsKeyPressed(Keys.Space))
                 {
                     jump();
-                    this.CharecterState = CharacterState.RifleJumpInPlace;
                 }
 
                 #endregion
@@ -120,7 +115,7 @@ namespace plat_kill.GameModels.Players
 
                 if (inputManager.MouseLeftIsPressed())
                 {
-                    this.CharecterState = CharacterState.FiringRifle;
+                    changeCharacterState(CharacterState.FiringRifle);
                     game.ProjectileManager.FireProjectile(ProjectileType.Bullet, this);
                 }
 

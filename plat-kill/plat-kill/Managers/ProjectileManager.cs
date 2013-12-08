@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework;
 using plat_kill.Events;
 using plat_kill.GameModels.Players;
 using plat_kill.GameModels.Projectiles;
+using plat_kill.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -51,7 +52,7 @@ namespace plat_kill.Managers
         {
             if ((lastshot.Add(firerate)) <= DateTime.Now)
             {
-                Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, 500,
+                Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -150,
                                                        playerShotted.Position + playerShotted.CharacterController.Body.OrientationMatrix.Forward
                                                        + new Vector3(0, 8, 0), 0, 0.05f, .025f, .025f, .025f, projectileType);
 
