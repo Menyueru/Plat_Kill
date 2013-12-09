@@ -19,6 +19,7 @@ using plat_kill.GameModels.Projectiles;
 using plat_kill.Networking;
 using Lidgren.Network;
 using plat_kill.Networking.Messages;
+using plat_kill.GameModels.Weapons;
 
 
 namespace plat_kill
@@ -110,6 +111,8 @@ namespace plat_kill
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
                 HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,0,0));
+                
                 //space.Add(player.Body);
 
                 //player.Body.AngularVelocity = new Vector3();

@@ -12,6 +12,8 @@ using plat_kill.Helpers;
 using System;
 using BEPUphysics;
 using Xclna.Xna.Animation;
+using System.Collections.Generic;
+using plat_kill.GameModels.Weapons;
 
 namespace plat_kill.GameModels.Players
 {
@@ -32,11 +34,25 @@ namespace plat_kill.GameModels.Players
         private float speed;
         private long stamina;
 
+        private int activeWeaponIndex;
+        private List<Weapon> equippedWeapons;
+
         private Vector3 playerHeadOffset;
         
         #endregion
 
         #region Getter-Setters
+
+        public int ActiveWeaponIndex
+        {
+            get { return activeWeaponIndex; }
+            set { activeWeaponIndex = value; }
+        }
+        public List<Weapon> EquippedWeapons
+        {
+            get { return equippedWeapons; }
+            set { equippedWeapons = value; }
+        }
 
         public bool IsLocal
         {
@@ -211,7 +227,10 @@ namespace plat_kill.GameModels.Players
             this.playerHeadOffset = new Vector3(0, 10, 0);
             this.isLocal = isLocal;
             this.radius = Math.Max(width, length)/2;
-            CharecterState = CharacterState.StandardWalk;
+            this.CharecterState = CharacterState.StandardWalk;
+
+            this.equippedWeapons = new List<Weapon>();
+
         }
 
 
@@ -246,8 +265,26 @@ namespace plat_kill.GameModels.Players
             SprintingFowardRoll = new AnimationController(ModelAnimator.Animations["sprinting_forward_roll"]);
         }
         #endregion
-        
-         public new void Update(GameTime gameTime)
+
+        public void addWeapon(Weapon weapon)
+        {
+            this.EquippedWeapons.Add(weapon);
+            this.activeWeaponIndex = equippedWeapons.Count - 1;
+        }
+
+        public void changeToNextWeapon() 
+        {
+            if (activeWeaponIndex < equippedWeapons.Count)
+            {
+                activeWeaponIndex += 1;
+            }
+            else 
+            {
+                activeWeaponIndex = 0;
+            }
+        }
+
+        public new void Update(GameTime gameTime)
         {
                 switch (CharecterState)
                 {
@@ -308,7 +345,7 @@ namespace plat_kill.GameModels.Players
             base.Update(gameTime);             
         }
 
-         public void UpdateState()
+        public void UpdateState()
          {
              MovementCurrentDirection = CharacterController.Body.LinearVelocity;
 
@@ -322,6 +359,7 @@ namespace plat_kill.GameModels.Players
                  changeCharacterState(CharacterState.RifleIdle);
              }
          }
+
         #endregion
     }
 }

@@ -85,6 +85,11 @@ namespace plat_kill.Managers
             foreach (Player player in this.Players)
             {
                 player.Draw(gameTime, view, projection);
+                if(player.EquippedWeapons.Count > 0)
+                    player.EquippedWeapons[player.ActiveWeaponIndex].DrawOnCharacter(player.ModelAnimator, 
+                                                                                     player.Rotation, 
+                                                                                     view, projection, player.Position, 
+                                                                                     player.CharecterState);
             }
         }
 

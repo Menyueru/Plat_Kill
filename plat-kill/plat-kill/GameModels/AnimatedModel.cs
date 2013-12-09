@@ -257,7 +257,6 @@ namespace plat_kill.GameModels
             Matrix tempProjection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, (float)port.Width / port.Height, .1f, 100000f);
             Effect myEffect = content.Load<Effect>("Effects\\skinFX");
 
-            // Replace the old effects with your custom shader
             foreach (ModelMesh mesh in model.Meshes)
             {
                 foreach (ModelMeshPart part in mesh.MeshParts)
@@ -315,7 +314,7 @@ namespace plat_kill.GameModels
             {
                 modelRotationModifier.Y = 100;
             }
-           
+
            orientationMatrix =  Matrix.CreateRotationX(rotation.X + modelRotationModifier.X) 
                                     * Matrix.CreateRotationY(rotation.Y + modelRotationModifier.Y)
                                     * Matrix.CreateRotationZ(rotation.Z + modelRotationModifier.Z) 
@@ -345,16 +344,11 @@ namespace plat_kill.GameModels
             ModelAnimator.Update(gameTime);
             currentAnimationController.Update(gameTime);
         }
-        public void animationEndedEvent() 
-        {
-            animationEnded = true;
-        }
+
         protected void runAnimationController(ModelAnimator animator, AnimationController controller)
         {
             this.PreviousAnimationController = currentAnimationController;
             this.currentAnimationController = controller;
-            //this.currentAnimationController.AnimationEnded += (sender, e) => animationEndedEvent();
-           // this.animationEnded = false;
 
             foreach (BonePose p in animator.BonePoses)
             {
