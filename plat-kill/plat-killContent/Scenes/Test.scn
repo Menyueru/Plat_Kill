@@ -23,4 +23,10 @@
       </Material4>
     </Materials>
   </Terrain>
+  <SpawnPoints>
+    <Point Name="1" Position="55 20 0"/>
+    <Point Name="2" Position="20 20 10"/>
+    <Point Name="3" Position="30 20 51"/>
+    <Point Name="4" Position="50 20 -10"/>
+  </SpawnPoints>
 </Scene>

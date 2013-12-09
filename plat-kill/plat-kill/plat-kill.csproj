@@ -177,8 +177,10 @@
     <Compile Include="Helpers\States\CharacterState.cs" />
     <Compile Include="Helpers\InputManager.cs" />
     <Compile Include="Helpers\States\GameState.cs" />
+    <Compile Include="Managers\IGameManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Managers\ProjectileManager.cs" />
+    <Compile Include="Managers\TimeMatch.cs" />
     <Compile Include="Networking\ClientNetworkManager.cs" />
     <Compile Include="Networking\INetworkManager.cs" />
     <Compile Include="Networking\Messages\GameMessageTypes.cs" />

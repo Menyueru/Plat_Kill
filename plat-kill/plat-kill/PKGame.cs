@@ -35,6 +35,8 @@ namespace plat_kill
 
         ProjectileManager projectileManager;
 
+        IGameManager gameManager;
+
         private INetworkManager networkManager;
         private long localPlayerId;
 
@@ -45,6 +47,13 @@ namespace plat_kill
                 return this.networkManager is ServerNetworkManager;
             }
         }
+
+        public PlayerManager PlayerManager
+        {
+            get { return playerManager; }
+            set { playerManager = value; }
+        }
+
 
         public ProjectileManager ProjectileManager
         {
@@ -65,7 +74,7 @@ namespace plat_kill
         #endregion
 
         #region Constructor
-        public PKGame(INetworkManager networkManager)
+        public PKGame(INetworkManager networkManager,IGameManager gameManager)
         {
 
             graphics = new GraphicsDeviceManager(this);
@@ -79,7 +88,7 @@ namespace plat_kill
             graphics.PreferMultiSampling = false;
             graphics.IsFullScreen = false;
 
-
+            this.gameManager = gameManager;
             this.networkManager = networkManager;
 
         }
@@ -93,7 +102,7 @@ namespace plat_kill
 
             skyBox = new SkyBox(graphics.GraphicsDevice);
 
-            map = new Terrain("Content\\Scenes\\Test.scn");
+            map = new Terrain("Content\\Scenes\\Test.scn",this);
 
             this.networkManager.Connect();
 
@@ -105,18 +114,15 @@ namespace plat_kill
             this.playerManager = new PlayerManager();
             this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
             this.camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
+            base.Initialize();
 
             if (this.IsHost)
             {
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                 player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,0,0));
                 
-                //space.Add(player.Body);
-
-                //player.Body.AngularVelocity = new Vector3();
-                //player.Body.LinearVelocity = new Vector3();
 
                 playerManager.AddPlayer(player);
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
@@ -124,7 +130,7 @@ namespace plat_kill
                 camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).Rotation,
                         playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
             }
-            base.Initialize();
+
         }
 
         protected override void LoadContent()
@@ -133,6 +139,7 @@ namespace plat_kill
             map.AddToSpace(space);
 
             skyBox.Load(this.Content, "Textures\\SkyBoxes\\BlueSky\\SkyEffect", "Textures\\SkyBoxes\\BlueSky\\SkyBoxTex");
+            gameManager.Init(this);
         }
 
         protected override void Update(GameTime gameTime)
@@ -141,7 +148,11 @@ namespace plat_kill
             ProcessNetworkMessages();
             playerManager.UpdateAllPlayers(gameTime);
             projectileManager.UpdateAllBullets();
-
+            gameManager.Update();
+            if (gameManager.GameOver())
+            {
+                this.Exit();
+            }
             if (playerManager.GetPlayer(localPlayerId) != null)
             {
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
