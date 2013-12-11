@@ -334,7 +334,7 @@ namespace plat_kill.GameModels
             }
         }
 
-        public static Vector3 ToEulerAngles(Quaternion q)
+        public Vector3 ToEulerAngles(Quaternion q)
         {
             // Store the Euler angles in radians
             Vector3 pitchYawRoll = new Vector3();
@@ -373,7 +373,7 @@ namespace plat_kill.GameModels
         }
 
 
-        public static Vector3 ParseVector3(string value)
+        public Vector3 ParseVector3(string value)
         {
             string[] attributeSplit = value.Split();
 
@@ -383,7 +383,7 @@ namespace plat_kill.GameModels
 
             return parsedVector;
         }
-        public static Quaternion ParseQuaternion(string value)
+        public Quaternion ParseQuaternion(string value)
         {
             string[] attributeSplit = value.Split();
 

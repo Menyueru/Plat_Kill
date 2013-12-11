@@ -89,10 +89,10 @@ namespace plat_kill
 
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1280;
-            graphics.PreferredBackBufferHeight = 720;
+            graphics.PreferredBackBufferWidth = 1020;
+            graphics.PreferredBackBufferHeight = 480;
             graphics.PreferMultiSampling = false;
-            graphics.IsFullScreen = true;
+            graphics.IsFullScreen = false;
 
             this.gameManager = gameManager;
             this.networkManager = networkManager;
@@ -104,7 +104,7 @@ namespace plat_kill
         protected override void Initialize()
         {
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            
             this.space = new Space();
             this.space.ForceUpdater.Gravity = new Vector3(0, -166.77f, 0);
 
@@ -127,7 +127,7 @@ namespace plat_kill
             if (this.IsHost)
             {
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 200, 100, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                 player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,5,100));
 
@@ -155,6 +155,7 @@ namespace plat_kill
             infinity = Content.Load<Texture2D>("Textures\\infinity");
 
             gameManager.Init(this);
+            Console.WriteLine(DateTime.Now);
         }
 
         protected override void Update(GameTime gameTime)

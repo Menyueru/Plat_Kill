@@ -347,6 +347,8 @@ namespace plat_kill.GameModels.Players
             Reloading.AnimationEnded += Reload_AnimationEnded;
             Dodging.AnimationEnded += Dodging_AnimationEnded;
             SprintingFowardRoll.AnimationEnded += Dodging_AnimationEnded;
+
+            Dodging.SpeedFactor = 1.5f;
         }
 
         void Dodging_AnimationEnded(object sender, EventArgs e)

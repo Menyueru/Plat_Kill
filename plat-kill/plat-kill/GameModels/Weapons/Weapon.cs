@@ -174,7 +174,7 @@ namespace plat_kill.GameModels.Weapons
         {
             if (((lastShot.Add(fireRate)) < DateTime.Now) && ((LastReload.Add(ReloadRate)) < DateTime.Now))
             {
-                if (this.loadedAmmo > 0)
+                if (this.loadedAmmo > 0 && !playerWhoIsFiring.IsDodging)
                 {
                     playerWhoIsFiring.IsShooting = true;
                     projectileManager.FireProjectile(ProjectileType.Bullet, playerWhoIsFiring);

@@ -49,7 +49,7 @@ namespace plat_kill.Managers
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
         {
-            Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -150,
+            Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -50,
                                                        playerShotted.Position + playerShotted.World.Forward
                                                        + new Vector3(0, 6, 0), playerShotted.Rotation, 0, 0.05f, .025f, .025f, .025f, projectileType);
 
