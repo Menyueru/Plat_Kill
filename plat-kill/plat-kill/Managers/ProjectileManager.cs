@@ -37,7 +37,6 @@ namespace plat_kill.Managers
         }
         #endregion
 
-
         #region Methods
         public Projectile GetProjectile(long projectileID) 
         {
@@ -50,32 +49,29 @@ namespace plat_kill.Managers
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
         {
-            if ((lastshot.Add(firerate)) < DateTime.Now)
-            {
-                Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -150,
+            Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -150,
                                                        playerShotted.Position + playerShotted.World.Forward
-                                                       + new Vector3(0, 6, 0),playerShotted.Rotation, 0, 0.05f, .025f, .025f, .025f, projectileType);
+                                                       + new Vector3(0, 6, 0), playerShotted.Rotation, 0, 0.05f, .025f, .025f, .025f, projectileType);
 
-                switch (projectileType)
-                {
-                    case ProjectileType.Arrow:
-                        projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
-                        break;
-                    case ProjectileType.Bullet:
-                        projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
-                        break;
-                    case ProjectileType.Beam:
-                        projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
-                        break;
-                }
-                projectile.Shoot(playerShotted.World.Forward);
-                this.projectiles.Add(projectileID, projectile);
-
-                this.game.Space.Add(projectile.Body);
-                //projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
-                this.OnShotFired(projectile);
-                this.lastshot = DateTime.Now;
+            switch (projectileType)
+            {
+                case ProjectileType.Arrow:
+                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
+                    break;
+                case ProjectileType.Bullet:
+                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
+                    break;
+                case ProjectileType.Beam:
+                    projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
+                    break;
             }
+            projectile.Shoot(playerShotted.World.Forward);
+            this.projectiles.Add(projectileID, projectile);
+
+            this.game.Space.Add(projectile.Body);
+            //projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
+            this.OnShotFired(projectile);
+            this.lastshot = DateTime.Now;
         }
 
         void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair)

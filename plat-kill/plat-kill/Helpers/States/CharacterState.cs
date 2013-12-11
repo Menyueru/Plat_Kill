@@ -21,6 +21,7 @@ namespace plat_kill.Helpers
         Dodging,
         StandardWalk,
         Running,
-        SprintingFowardRol
+        SprintingFowardRol,
+        Falling
     }
 }

@@ -23,11 +23,11 @@ namespace plat_kill.GameModels
         private Vector3 movementCurrentDirection;
         private ModelAnimator modelAnimator;
         private CharacterState charecterState;
+
         private AnimationController currentAnimationController;
         private AnimationController previousAnimationController;
         private AnimationController tPose, rifleWalk, rifleRun, shootRifle, firingRifle, rifleJumpInPlace, greatSwordSlash, rifleIdle,
-                  reloading, reload, tossGrenade, dodging, standardWalk, running, sprintingFowardRoll;
-        private Boolean animationEnded;
+                  reloading, reload, tossGrenade, dodging, standardWalk, running, sprintingFowardRoll, falling;
         private Model model;
         
         protected float width;
@@ -39,6 +39,11 @@ namespace plat_kill.GameModels
         #endregion
         
         #region Getter-Setters 
+        public AnimationController Falling
+        {
+            get { return falling; }
+            set { falling = value; }
+        }
         public Vector3 MovementCurrentDirection
         {
             get { return movementCurrentDirection; }
@@ -139,11 +144,6 @@ namespace plat_kill.GameModels
             get { return charecterState; }
             set { charecterState = value; }
         }
-        public Boolean AnimationEnded
-        {
-            get { return animationEnded; }
-            set { animationEnded = value; }
-        }
         public AnimationController PreviousAnimationController
         {
             get { return previousAnimationController; }
@@ -242,7 +242,6 @@ namespace plat_kill.GameModels
             this.transform = Matrix.CreateScale(width,height,length);
             this.orientationMatrix = Matrix.CreateRotationX(rotation.X) * Matrix.CreateRotationY(rotation.Y)
                                     * Matrix.CreateRotationZ(rotation.Z);
-            this.animationEnded = true;
         }
 
         #endregion     
@@ -306,7 +305,8 @@ namespace plat_kill.GameModels
         public void Draw(GameTime gameTime, Matrix view, Matrix projection) 
         {
             Vector3 modelRotationModifier = Vector3.Zero;
-            if (CharecterState == CharacterState.FiringRifle || CharecterState == CharacterState.ShootRifle)
+            if (CharecterState == CharacterState.FiringRifle 
+                || CharecterState == CharacterState.ShootRifle)
             {
                modelRotationModifier.Y = 100;
             }
@@ -314,6 +314,7 @@ namespace plat_kill.GameModels
             {
                 modelRotationModifier.Y = 100;
             }
+
 
            orientationMatrix =  Matrix.CreateRotationX(rotation.X + modelRotationModifier.X) 
                                     * Matrix.CreateRotationY(rotation.Y + modelRotationModifier.Y)

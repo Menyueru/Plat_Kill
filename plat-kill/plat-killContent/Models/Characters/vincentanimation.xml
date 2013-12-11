@@ -91,6 +91,12 @@
     <startframe>491</startframe>
     <endframe>530</endframe>
   </animationsubset>
+
+  <animationsubset>
+    <name>falling</name>
+    <startframe>509</startframe>
+    <endframe>530</endframe>
+  </animationsubset>
   
 </animation>
 

@@ -20,25 +20,39 @@ using plat_kill.Networking;
 using Lidgren.Network;
 using plat_kill.Networking.Messages;
 using plat_kill.GameModels.Weapons;
-
+using plat_kill.Components;
 
 namespace plat_kill
 {
     public class PKGame : Game
     {
-        #region Field and Propierties
+        #region Field
+
         private GraphicsDeviceManager graphics;
+        private SpriteFont font;
+        private SpriteBatch spriteBatch;
 
-        CameraManager camManager;
+        private Texture2D sexyTexture;
+        private Texture2D staminaTex;
+        private Texture2D healthTex;
+        private Texture2D backBar;
+        private Texture2D infinity;
 
-        PlayerManager playerManager;
-
-        ProjectileManager projectileManager;
-
-        IGameManager gameManager;
-
+        private CameraManager camManager;
+        private PlayerManager playerManager;
+        private ProjectileManager projectileManager;
+        private IGameManager gameManager;
         private INetworkManager networkManager;
+
+        private SkyBox skyBox;
+        private Terrain map;
+        private Space space;
+
         private long localPlayerId;
+
+        #endregion
+
+        #region Propierties
 
         private bool IsHost
         {
@@ -47,30 +61,22 @@ namespace plat_kill
                 return this.networkManager is ServerNetworkManager;
             }
         }
-
         public PlayerManager PlayerManager
         {
             get { return playerManager; }
             set { playerManager = value; }
         }
-
-
         public ProjectileManager ProjectileManager
         {
             get { return projectileManager; }
             set { projectileManager = value; }
         }
-
-        private SkyBox skyBox;
-        private Terrain map;
-        private Space space;
-
         public Space Space
         {
             get { return space; }
             set { space = value; }
         }
-
+        
         #endregion
 
         #region Constructor
@@ -86,7 +92,7 @@ namespace plat_kill
             graphics.PreferredBackBufferWidth = 1280;
             graphics.PreferredBackBufferHeight = 720;
             graphics.PreferMultiSampling = false;
-            graphics.IsFullScreen = false;
+            graphics.IsFullScreen = true;
 
             this.gameManager = gameManager;
             this.networkManager = networkManager;
@@ -97,6 +103,8 @@ namespace plat_kill
         #region Methods
         protected override void Initialize()
         {
+            this.spriteBatch = new SpriteBatch(GraphicsDevice);
+
             this.space = new Space();
             this.space.ForceUpdater.Gravity = new Vector3(0, -166.77f, 0);
 
@@ -119,9 +127,9 @@ namespace plat_kill
             if (this.IsHost)
             {
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 200, 100, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,0,0));
+                player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,5,5));
                 
 
                 playerManager.AddPlayer(player);
@@ -139,6 +147,14 @@ namespace plat_kill
             map.AddToSpace(space);
 
             skyBox.Load(this.Content, "Textures\\SkyBoxes\\BlueSky\\SkyEffect", "Textures\\SkyBoxes\\BlueSky\\SkyBoxTex");
+            font = Content.Load<SpriteFont>("Fonts\\gameFont");
+
+            sexyTexture = Content.Load<Texture2D>("Textures\\lolbar");
+            staminaTex = Content.Load<Texture2D>("Textures\\yellowGradient");
+            healthTex = Content.Load<Texture2D>("Textures\\greenGradient");
+            backBar = Content.Load<Texture2D>("Textures\\rock");
+            infinity = Content.Load<Texture2D>("Textures\\infinity");
+
             gameManager.Init(this);
         }
 
@@ -163,6 +179,57 @@ namespace plat_kill
                                             ((HumanPlayer)playerManager.GetPlayer(localPlayerId)).CameraDistance);
             }
 
+        }
+
+        protected override void Draw(GameTime gameTime)
+        {
+            GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            skyBox.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            map.Draw(graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            playerManager.DrawAllPlayers(gameTime, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+
+            DrawUIComponents();
+
+            base.Draw(gameTime);
+
+        }
+
+        private void DrawUIComponents()
+        {
+            spriteBatch.Begin();
+
+            float totalBarWidth = 300;
+            float totalBarHeigth = 15;
+
+            float staminaWidth = (totalBarWidth / playerManager.GetPlayer(localPlayerId).MaxStamina) * playerManager.GetPlayer(localPlayerId).Stamina;
+            float healthWidth = (totalBarWidth / playerManager.GetPlayer(localPlayerId).MaxHealth) * playerManager.GetPlayer(localPlayerId).Health;
+
+            Rectangle sexyBackground = new Rectangle((GraphicsDevice.Viewport.Width / 2) - 200, GraphicsDevice.Viewport.Height - 100, 400, 100);
+            Rectangle staminaRec = new Rectangle((GraphicsDevice.Viewport.Width / 2) - 150, GraphicsDevice.Viewport.Height - 20, (int)staminaWidth, (int)totalBarHeigth);
+            Rectangle healthRec = new Rectangle((GraphicsDevice.Viewport.Width / 2) - 150, GraphicsDevice.Viewport.Height - 35, (int)healthWidth, (int)totalBarHeigth);
+            Rectangle backStaminaRec = new Rectangle((GraphicsDevice.Viewport.Width / 2) - 150, GraphicsDevice.Viewport.Height - 20, (int)totalBarWidth, (int)totalBarHeigth);
+            Rectangle backHealthRec = new Rectangle((GraphicsDevice.Viewport.Width / 2) - 150, GraphicsDevice.Viewport.Height - 35, (int)totalBarWidth, (int)totalBarHeigth);
+
+            spriteBatch.Draw(sexyTexture, sexyBackground, Color.White);
+            spriteBatch.Draw(backBar, backStaminaRec, Color.White);
+            spriteBatch.Draw(backBar, backHealthRec, Color.White);
+            spriteBatch.Draw(healthTex, healthRec, Color.White);
+            spriteBatch.Draw(staminaTex, staminaRec, Color.White);
+
+            if (playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].WeaponType.Equals(WeaponType.Range))
+            {
+                spriteBatch.DrawString(font, "Ammo on Weapon : " + playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].LoadedAmmo, new Vector2((GraphicsDevice.Viewport.Width / 2) - 145, (GraphicsDevice.Viewport.Height - 80)), Color.DarkSlateBlue);
+                spriteBatch.DrawString(font, "Ammo on Inventory : " + playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].TotalAmmo, new Vector2((GraphicsDevice.Viewport.Width / 2) - 145, (GraphicsDevice.Viewport.Height - 65)), Color.DarkSlateBlue);
+            }
+            else if (playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].WeaponType.Equals(WeaponType.Melee))
+            {
+                Rectangle infinityRect = new Rectangle((GraphicsDevice.Viewport.Width / 2) - 130, (GraphicsDevice.Viewport.Height - 80), 90, 40);
+                spriteBatch.Draw(infinity, infinityRect, Color.White);
+            }
+
+            spriteBatch.End();
         }
 
         private void ProcessNetworkMessages()
@@ -271,17 +338,7 @@ namespace plat_kill
             player.Rotation = message.Rotation;
 
         }
-
-        protected override void Draw(GameTime gameTime)
-        {
-            skyBox.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-
-            playerManager.DrawAllPlayers(gameTime, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-
-            map.Draw(graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-
-        }
+               
         #endregion
 
     }

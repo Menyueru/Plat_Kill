@@ -55,27 +55,42 @@ namespace plat_kill.GameModels.Players
             if (game.IsActive)
             {
                 #region Keyboard Input
+                bool speedModify = false;
+                if(inputManager.IsKeyPressed(Keys.LeftShift))
+                {
+                    speedModify = true;
+                }
                 if (inputManager.IsKeyPressed(Keys.W))
                 {
-                    MoveForward(-dt);
+                    MoveForward(-dt, speedModify);
                 }
                 else if (inputManager.IsKeyPressed(Keys.S))
                 {
-                    MoveForward(dt);
+                    MoveForward(dt, false);
                 }
 
                 if (inputManager.IsKeyPressed(Keys.D))
                 {
-                    MoveRight(-dt);
+                    MoveRight(-dt, speedModify);
                 }
                 else if (inputManager.IsKeyPressed(Keys.A))
                 {
-                    MoveRight(dt);
+                    MoveRight(dt, speedModify);
                 }
 
                 if (inputManager.IsKeyPressed(Keys.Space))
                 {
                     jump();
+                }
+
+                if(inputManager.IsKeyPressed(Keys.R))
+                {
+                    this.EquippedWeapons[ActiveWeaponIndex].ReloadWeapon(this);
+                }
+
+                if(inputManager.IsKeyPressed(Keys.E))
+                {
+                    this.Dodge();
                 }
 
                 #endregion
@@ -115,8 +130,12 @@ namespace plat_kill.GameModels.Players
 
                 if (inputManager.MouseLeftIsPressed())
                 {
-                    changeCharacterState(CharacterState.FiringRifle);
-                    game.ProjectileManager.FireProjectile(ProjectileType.Bullet, this);
+                    this.EquippedWeapons[ActiveWeaponIndex].Shoot(game.ProjectileManager, this);
+                    //game.ProjectileManager.FireProjectile(ProjectileType.Bullet, this);
+                }
+                else 
+                {
+                    this.IsShooting = false;
                 }
 
                 #endregion

@@ -27,12 +27,22 @@ namespace plat_kill.GameModels.Players
 
         private long defense;
         private long health;
+        private long maxHealth;
         private long id;
         private float jumpSpeed;
         private long meleePower;
         private long rangePower;
         private float speed;
         private long stamina;
+        private long maxStamina;
+        private const long staminaRegen = 5;
+        private const long actionsStaminaCost = 30;
+        private TimeSpan staminaRegenRate;
+        private DateTime lastTimeStaminaRegen;
+
+        private bool isShooting;
+        private bool isReloading;
+        private bool isDodging;
 
         private int activeWeaponIndex;
         private List<Weapon> equippedWeapons;
@@ -42,6 +52,31 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Getter-Setters
+        public long MaxHealth
+        {
+            get { return maxHealth; }
+            set { maxHealth = value; }
+        }
+        public long MaxStamina
+        {
+            get { return maxStamina; }
+            set { maxStamina = value; }
+        }
+        public bool IsDodging
+        {
+            get { return isDodging; }
+            set { isDodging = value; }
+        }
+        public bool IsReloading
+        {
+            get { return isReloading; }
+            set { isReloading = value; }
+        }
+        public bool IsShooting
+        {
+            get { return isShooting; }
+            set { isShooting = value; }
+        }
 
         public int ActiveWeaponIndex
         {
@@ -154,62 +189,99 @@ namespace plat_kill.GameModels.Players
             radius = maxHorizontal;
         }
 
-
         #endregion
 
         #region Movers
-
-        /*protected void Move()
+        protected void MoveForward(float dt, bool speedModify)
         {
-            Body.LinearVelocity = currentVelocity;
-        }*/
+            if(!this.CharecterState.Equals(CharacterState.Dodging))
+            {
+                if (speedModify)
+                {
+                    CharacterController.HorizontalMotionConstraint.Speed = this.speed * 2;
+                }
+                else
+                {
+                    CharacterController.HorizontalMotionConstraint.Speed = this.speed;
+                }
 
-        protected void MoveForward(float dt)
-        {
-            Vector2 totalMovement = Vector2.Zero;
-            Vector3 movementDir;
-            movementDir = World.Forward;
-            if (dt > 0)
-            {
-                totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+                Vector2 totalMovement = Vector2.Zero;
+                Vector3 movementDir;
+                movementDir = World.Forward;
+                if (dt > 0)
+                {
+                    totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+                }
+                else
+                {
+                    totalMovement -= Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+                }
+                if (totalMovement == Vector2.Zero)
+                    CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Zero;
+                else
+                    CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);
+
             }
-            else
-            {
-                totalMovement -= Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
-            }
-            if (totalMovement == Vector2.Zero)
-                CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Zero;
-            else
-                CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);            
+
+
         }
 
-        protected void MoveRight(float dt)
+        protected void MoveRight(float dt, bool speedModify)
         {
-            Vector2 totalMovement = Vector2.Zero;
-            Vector3 movementDir;
+            if (!this.CharecterState.Equals(CharacterState.Dodging)
+                && !this.CharecterState.Equals(CharacterState.SprintingFowardRol))
+            {
+                if (speedModify)
+                {
+                    CharacterController.HorizontalMotionConstraint.Speed = this.speed * 2;
+                }
+                else
+                {
+                    CharacterController.HorizontalMotionConstraint.Speed = this.speed;
+                }
 
-            if (dt > 0)
-            {
-                movementDir = World.Right;
-                totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
-            }
-            else
-            {
-                movementDir = World.Left;
-                totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
-            }
-            if (totalMovement == Vector2.Zero)
-                CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Zero;
-            else
-                CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);
-             
+                Vector2 totalMovement = Vector2.Zero;
+                Vector3 movementDir;
+
+                if (dt > 0)
+                {
+                    movementDir = World.Right;
+                    totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+                }
+                else
+                {
+                    movementDir = World.Left;
+                    totalMovement += Vector2.Normalize(new Vector2(movementDir.X, movementDir.Z));
+                }
+                if (totalMovement == Vector2.Zero)
+                    CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Zero;
+                else
+                    CharacterController.HorizontalMotionConstraint.MovementDirection += Vector2.Normalize(totalMovement);
+            }             
         }
 
         protected void jump()
         {
-            CharacterController.Jump();
+            if (!this.IsDodging
+                && CharacterController.SupportFinder.HasSupport
+                && ((Stamina - actionsStaminaCost) > 0))
+            {
+                this.Stamina -= actionsStaminaCost;
+                CharacterController.Jump();
+            }
+
         }
 
+        protected void Dodge()
+        {
+            if (!this.IsDodging
+                && CharacterController.SupportFinder.HasSupport
+                && ((Stamina - actionsStaminaCost) > 0))
+            {
+                this.Stamina -= actionsStaminaCost;
+                this.isDodging = true;
+            }
+        }
         #endregion
 
         #region Initialize
@@ -218,7 +290,12 @@ namespace plat_kill.GameModels.Players
         {
             this.id = id;
             this.health = health;
+            this.maxHealth = health;
             this.stamina = stamina;
+            this.maxStamina = stamina;
+            this.staminaRegenRate = new TimeSpan(0, 0, 0, 1, 250);
+            this.lastTimeStaminaRegen = DateTime.Now;
+
             this.defense = defense;
             this.meleePower = meleePower;
             this.rangePower = rangePower;
@@ -227,8 +304,9 @@ namespace plat_kill.GameModels.Players
             this.playerHeadOffset = new Vector3(0, 10, 0);
             this.isLocal = isLocal;
             this.radius = Math.Max(width, length)/2;
-            this.CharecterState = CharacterState.StandardWalk;
-
+            this.isShooting = false;
+            this.isReloading = false;
+            this.isDodging = false;
             this.equippedWeapons = new List<Weapon>();
 
         }
@@ -263,7 +341,24 @@ namespace plat_kill.GameModels.Players
             StandardWalk = new AnimationController(ModelAnimator.Animations["standard_walk"]);
             Running = new AnimationController(ModelAnimator.Animations["running"]);
             SprintingFowardRoll = new AnimationController(ModelAnimator.Animations["sprinting_forward_roll"]);
+            Falling = new AnimationController(ModelAnimator.Animations["falling"]);
+
+            Reload.AnimationEnded += Reload_AnimationEnded;
+            Reloading.AnimationEnded += Reload_AnimationEnded;
+            Dodging.AnimationEnded += Dodging_AnimationEnded;
+            SprintingFowardRoll.AnimationEnded += Dodging_AnimationEnded;
         }
+
+        void Dodging_AnimationEnded(object sender, EventArgs e)
+        {
+            this.isDodging = false;
+        }
+
+        private void Reload_AnimationEnded(object sender, EventArgs e)
+        {
+            IsReloading = false;
+        }
+
         #endregion
 
         public void addWeapon(Weapon weapon)
@@ -284,7 +379,7 @@ namespace plat_kill.GameModels.Players
             }
         }
 
-        public new void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
                 switch (CharecterState)
                 {
@@ -333,11 +428,37 @@ namespace plat_kill.GameModels.Players
                     case CharacterState.TPose:
                         runAnimationController(ModelAnimator, TPose);
                         break;
+                    case CharacterState.Falling:
+                        runAnimationController(ModelAnimator, Falling);
+                        break;
 
                     default:
                         runAnimationController(ModelAnimator, StandardWalk);
                         break;
                 }
+
+
+            //Stamina Regen.
+            if((lastTimeStaminaRegen.Add(this.staminaRegenRate) < DateTime.Now))
+            {
+                if(this.Stamina < MaxStamina)
+                {
+                    long amountToRegen = 0;
+                    if((this.Stamina + staminaRegen) <= MaxStamina)
+                    {
+                        amountToRegen = staminaRegen;
+                    }
+                    else if ((this.Stamina + staminaRegen) > MaxStamina) 
+                    {
+                        amountToRegen = MaxStamina - Stamina;
+                    }
+
+                    this.Stamina += amountToRegen;
+                    this.lastTimeStaminaRegen = DateTime.Now;
+                }
+            }
+
+
             UpdateState();
             Position = CharacterController.Body.Position;
             CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
@@ -349,17 +470,88 @@ namespace plat_kill.GameModels.Players
          {
              MovementCurrentDirection = CharacterController.Body.LinearVelocity;
 
-             if (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
+             if (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0 
+                 && CharacterController.HorizontalMotionConstraint.Speed <= speed
+                 && (this.EquippedWeapons[this.activeWeaponIndex].TotalAmmo <= 0))
              {
-
                  changeCharacterState(CharacterState.StandardWalk);
              }
-             else 
+             else if (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0
+                  && CharacterController.HorizontalMotionConstraint.Speed > speed 
+                  && (this.EquippedWeapons[this.activeWeaponIndex].TotalAmmo <= 0))
+             {
+                 changeCharacterState(CharacterState.Running);
+             }
+             else if ((CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0) 
+                    && CharacterController.HorizontalMotionConstraint.Speed <= speed 
+                    && (this.EquippedWeapons[this.activeWeaponIndex].TotalAmmo > 0))
+             {
+                 changeCharacterState(CharacterState.RifleWalk);
+             }
+             else if ((CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
+                && CharacterController.HorizontalMotionConstraint.Speed > speed
+                && (this.EquippedWeapons[this.activeWeaponIndex].TotalAmmo > 0))
+             {
+                 changeCharacterState(CharacterState.RifleRun);
+             }
+             else
              {
                  changeCharacterState(CharacterState.RifleIdle);
              }
-         }
+             
+             if(IsShooting 
+                && (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
+                && (this.equippedWeapons[this.activeWeaponIndex].WeaponType == WeaponType.Range))
+             {
+                 changeCharacterState(CharacterState.ShootRifle);
+             }
+             else if (IsShooting 
+                 && !(CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
+                 && (this.equippedWeapons[this.activeWeaponIndex].WeaponType == WeaponType.Range))
+             {
+                 changeCharacterState(CharacterState.FiringRifle);
+             }
+             else if(IsShooting
+                     && (this.equippedWeapons[this.activeWeaponIndex].WeaponType == WeaponType.Melee))
+             {
+                 changeCharacterState(CharacterState.GreatSwordSlash);
+             }
 
+             if ((IsReloading)
+                 && (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0))
+             {
+                 changeCharacterState(CharacterState.Reload);
+             }
+             else if ((IsReloading)
+                 && !(CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0))
+             {
+                 changeCharacterState(CharacterState.Reloading);
+             }
+
+             if((IsDodging)
+                 && (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0))
+             {
+                 changeCharacterState(CharacterState.SprintingFowardRol);
+             }
+             else if((IsDodging)
+                 && !(CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0))
+             {
+                 changeCharacterState(CharacterState.Dodging);
+             }
+             
+             if (CharacterController.Body.MotionState.LinearVelocity.Y < 0 
+                 &&!CharacterController.SupportFinder.HasSupport)
+             {
+                 changeCharacterState(CharacterState.Falling);
+             }
+             else if (CharacterController.Body.MotionState.LinearVelocity.Y > 0
+                 && !CharacterController.SupportFinder.HasSupport)
+             {
+                 changeCharacterState(CharacterState.RifleJumpInPlace);
+             }
+
+
+         }
         #endregion
     }
 }
