@@ -122,15 +122,14 @@ namespace plat_kill
             this.playerManager = new PlayerManager();
             this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
             this.camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
-            base.Initialize();
+            base.Initialize(); 
 
             if (this.IsHost)
             {
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
                 HumanPlayer player = new HumanPlayer(localPlayerId, 100, 200, 100, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 0.15f, 0.15f, 0.15f, true, this);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,5,5));
-                
+                player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,5,100));
 
                 playerManager.AddPlayer(player);
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
@@ -162,19 +161,22 @@ namespace plat_kill
         {
             space.Update();
             ProcessNetworkMessages();
+            gameManager.Update();
+
             playerManager.UpdateAllPlayers(gameTime);
             projectileManager.UpdateAllBullets();
-            gameManager.Update();
+
             if (gameManager.GameOver())
             {
                 this.Exit();
             }
+
             if (playerManager.GetPlayer(localPlayerId) != null)
             {
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                 chase.Y = chase.Y + playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                 camManager.UpdateAllCameras(chase,
-                                            playerManager.GetPlayer(localPlayerId).Rotation,
+                                            ((HumanPlayer)playerManager.GetPlayer(localPlayerId)).CameraRotation,
                                             playerManager.GetPlayer(localPlayerId).PlayerHeadOffset,
                                             ((HumanPlayer)playerManager.GetPlayer(localPlayerId)).CameraDistance);
             }
@@ -217,7 +219,7 @@ namespace plat_kill
             spriteBatch.Draw(backBar, backHealthRec, Color.White);
             spriteBatch.Draw(healthTex, healthRec, Color.White);
             spriteBatch.Draw(staminaTex, staminaRec, Color.White);
-
+            
             if (playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].WeaponType.Equals(WeaponType.Range))
             {
                 spriteBatch.DrawString(font, "Ammo on Weapon : " + playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].LoadedAmmo, new Vector2((GraphicsDevice.Viewport.Width / 2) - 145, (GraphicsDevice.Viewport.Height - 80)), Color.DarkSlateBlue);

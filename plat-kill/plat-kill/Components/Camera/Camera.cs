@@ -13,6 +13,10 @@ namespace plat_kill.Components.Camera
 
         private Matrix viewMatrix;
         private Matrix projectionMatrix;
+
+        public Vector3 transformedReference;
+        public Vector3 cameraPosition;
+
         private Vector3 cameraReference;
         public Vector3 thirdPersonReference;
         private Vector3 cameraRotation;
@@ -192,16 +196,15 @@ namespace plat_kill.Components.Camera
         /// </summary>
         public void UpdateCameraThirdPerson()
         {
-            
 
-            Matrix rotationMatrix = Matrix.CreateRotationX(targetRotation.X)
-                                  * Matrix.CreateRotationY(targetRotation.Y);
+            Matrix rotationMatrix =  Matrix.CreateRotationX(targetRotation.X) 
+                                    * Matrix.CreateRotationY(targetRotation.Y);
 
             // Create a vector pointing the direction the camera is facing.
-            Vector3 transformedReference = Vector3.Transform(thirdPersonReference, rotationMatrix);
+           transformedReference = Vector3.Transform(thirdPersonReference, rotationMatrix);
 
             // Calculate the position the camera is looking from.
-            Vector3 cameraPosition = transformedReference + targetPosition;
+           cameraPosition = transformedReference + targetPosition;
 
             // Set up the view matrix and projection matrix.
             viewMatrix = Matrix.CreateLookAt(cameraPosition, targetPosition, new Vector3(0.0f, 1.0f, 0.0f));

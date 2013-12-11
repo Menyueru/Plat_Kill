@@ -55,7 +55,7 @@ namespace plat_kill.Components.Camera
         public void UpdateAllCameras(Vector3 targetPosition, Vector3 targetRotation, Vector3 targetHeadOffSet, int cameraDistance)
         {
             activeCamera.SetTargetToChase(targetPosition, targetRotation, targetHeadOffSet);
-
+            
             if (activeCamera.thirdPersonReference.Z + cameraDistance < zoomInLimit && activeCamera.thirdPersonReference.Z + cameraDistance >=  zoomOutLimit)
             {
                 activeCamera.thirdPersonReference.Z += cameraDistance;

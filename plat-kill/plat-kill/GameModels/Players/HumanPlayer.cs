@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using plat_kill.Helpers;
 using plat_kill.GameModels.Projectiles;
+using plat_kill.Components.Camera;
 
 namespace plat_kill.GameModels.Players
 {
@@ -18,13 +19,20 @@ namespace plat_kill.GameModels.Players
         #region Property
 
         private InputManager inputManager;
+
         private int cameraDistance;
+        private Vector3 cameraRotation;
+
         private PKGame game;
 
         #endregion
 
-       
         #region Getter-Setter
+        public Vector3 CameraRotation
+        {
+            get { return cameraRotation; }
+            set { cameraRotation = value; }
+        }
         public int CameraDistance
         {
             get { return cameraDistance; }
@@ -39,6 +47,7 @@ namespace plat_kill.GameModels.Players
         {
             this.inputManager = new InputManager(game);
             this.cameraDistance = -200;
+            this.cameraRotation = Rotation;
             this.game = game;
         }
 
@@ -98,7 +107,6 @@ namespace plat_kill.GameModels.Players
                 #region Mouse Input
                 if (inputManager.IsMouseMovingLeft())
                 {
-
                     rotation.Y += RotationSpeed;
                 }
                 else if (inputManager.IsMouseMovingRight())
@@ -106,32 +114,22 @@ namespace plat_kill.GameModels.Players
                     rotation.Y -= RotationSpeed;
                 }
 
-               /* if (inputManager.IsMouseMovingUp())
+                if (inputManager.IsMouseMovingUp())
                 {
-                    rotation.X += RotationSpeed;
+                    if (cameraRotation.X <= (MathHelper.PiOver4 / 4))
+                        cameraRotation.X += 0.04f;
                 }
                 if (inputManager.IsMouseMovingDown())
                 {
-                    rotation.X -= RotationSpeed;
+                    if (cameraRotation.X > (-MathHelper.PiOver4 / 2))
+                        cameraRotation.X -= 0.04f; 
                 }
-                */
-                if (inputManager.IsMouseScrollingUp())
-                {
-                    cameraDistance += 5;
-                }
-                else if (inputManager.IsMouseScrollingDown())
-                {
-                    cameraDistance -= 5;
-                }
-                else
-                {
-                    cameraDistance = 0;
-                }
+
+                cameraRotation.Y = Rotation.Y;
 
                 if (inputManager.MouseLeftIsPressed())
                 {
                     this.EquippedWeapons[ActiveWeaponIndex].Shoot(game.ProjectileManager, this);
-                    //game.ProjectileManager.FireProjectile(ProjectileType.Bullet, this);
                 }
                 else 
                 {
