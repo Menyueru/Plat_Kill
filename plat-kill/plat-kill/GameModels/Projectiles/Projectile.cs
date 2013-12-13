@@ -24,6 +24,7 @@ namespace plat_kill.GameModels.Projectiles
         private float speed;
         private int colisiontime=0;
 
+        private bool removeFromSpace = false;
         
         #endregion
 
@@ -34,6 +35,13 @@ namespace plat_kill.GameModels.Projectiles
             get { return colisiontime; }
             set { colisiontime = value; }
         }
+
+        public bool RemoveFromSpace
+        {
+            get { return removeFromSpace; }
+            set { removeFromSpace = value; }
+        }
+
 
         public long ProjectileID
         {
@@ -119,7 +127,7 @@ namespace plat_kill.GameModels.Projectiles
             base.Load(content, path);
             this.radius *= CalculateRadius() ;
             body = new Sphere(this.Position, this.radius, this.mass);
-            body.Tag = this.projectileID;
+            body.Tag = this;
             body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
         }
         #endregion

@@ -69,19 +69,29 @@ namespace plat_kill.Managers
             this.projectiles.Add(projectileID, projectile);
 
             this.game.Space.Add(projectile.Body);
-            //projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
+            projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
             this.OnShotFired(projectile);
             this.lastshot = DateTime.Now;
         }
 
         void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair)
         {
-            var otherEntityInformation = other as EntityCollidable;
-            if (otherEntityInformation != null && sender!= null)
+            Projectile proj = sender.Entity.Tag as Projectile;
+            if (proj != null)
             {
-                long collisionid=(long)sender.Entity.Tag;
-                if (projectiles[collisionid].Colisiontime==0)
-                    projectiles[collisionid].Colisiontime=DateTime.Now.Millisecond+1000;
+                proj.RemoveFromSpace = true;
+                var otherEntityInformation = other as EntityCollidable;
+                if (otherEntityInformation != null)
+                {
+                    Player p = otherEntityInformation.Entity.Tag as Player;
+                    if (p != null)
+                    {
+                        Player shooter=game.PlayerManager.GetPlayer(proj.FiredByPlayerID);
+                        float damage = shooter.RangePower + shooter.EquippedWeapons[shooter.ActiveWeaponIndex].WeaponDamage;
+                        p.Health -= (long)damage;
+                    }
+                }
+
             }
         }
         
@@ -104,20 +114,19 @@ namespace plat_kill.Managers
 
         public void UpdateAllBullets() 
         {
-            List<long> deleteids=new List<long>();
-            foreach(Projectile bullet in projectiles.Values)
+            List<long> keys = new List<long>(projectiles.Keys);
+            foreach(long key in keys)
             {
-                if (bullet.Colisiontime!=0 && bullet.Colisiontime <= DateTime.Now.Millisecond)
+                if (projectiles[key].RemoveFromSpace)
                 {
-                    deleteids.Add(bullet.ProjectileID);
+                    game.Space.Remove(projectiles[key].Body);
+                    projectiles.Remove(key);
                 }
-                bullet.Update();
+                else
+                {
+                    projectiles[key].Update();
+                }
             }
-            /*foreach (long id in deleteids)
-            {
-                game.Space.Remove(projectiles[id].Body);
-                projectiles.Remove(id);
-            }*/
         }
         #endregion
     }

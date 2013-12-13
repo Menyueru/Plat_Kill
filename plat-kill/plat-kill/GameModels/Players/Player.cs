@@ -317,15 +317,17 @@ namespace plat_kill.GameModels.Players
             base.Load(content, path, graphicsDevice, view, projection);
             float h, r;
             CalculateHeightRadius(out h, out r);
-            CharacterController = new CharacterController(Position, height * h, height * h*.7f, radius * r, mass);
+            CharacterController = new CharacterController(Position, height * h, height * h * .7f, radius * r * .3f, mass);
             CharacterController.JumpSpeed = jumpSpeed;
             CharacterController.SlidingJumpSpeed= jumpSpeed * .6f;
             CharacterController.HorizontalMotionConstraint.Speed = speed;
             CharacterController.HorizontalMotionConstraint.AirSpeed = speed;
             CharacterController.HorizontalMotionConstraint.MaximumForce *= mass;
             CharacterController.VerticalMotionConstraint.MaximumGlueForce /= mass*mass;
+            CharacterController.Body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
+            CharacterController.Tag = this;
+            CharacterController.Body.Tag = this;
             ownspace.Add(CharacterController);
-
             TPose = new AnimationController(ModelAnimator.Animations["t_pose"]);
             RifleWalk = new AnimationController(ModelAnimator.Animations["rifle_walk"]);
             RifleRun = new AnimationController(ModelAnimator.Animations["rifle_run"]);
@@ -462,7 +464,7 @@ namespace plat_kill.GameModels.Players
 
 
             UpdateState();
-            Position = CharacterController.Body.Position;
+            Position = CharacterController.Body.Position+new Vector3(0,-2,0);
             CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
 
             base.Update(gameTime);             

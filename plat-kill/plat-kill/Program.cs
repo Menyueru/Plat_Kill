@@ -12,7 +12,7 @@ namespace plat_kill
         /// </summary>
         static void Main(string[] args)
         {
-            using (PKGame game = new PKGame(new ServerNetworkManager(), new TimeMatch(new TimeSpan(0,0,10))))
+            using (PKGame game = new PKGame(new ServerNetworkManager(), new TimeMatch(new TimeSpan(0,10,0))))
             {
                 game.Run();
             }
