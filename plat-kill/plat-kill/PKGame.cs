@@ -115,27 +115,27 @@ namespace plat_kill
             this.networkManager.Connect();
 
             Camera camera = new Camera((float)graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
+            this.camManager = new CameraManager(camera);
 
-            this.projectileManager = new ProjectileManager(this);
+            this.projectileManager = new ProjectileManager(this, camera);
             this.projectileManager.ShotFired += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.Shot));
 
             this.playerManager = new PlayerManager();
             this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
-            this.camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
+
             base.Initialize(); 
 
             if (this.IsHost)
             {
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 20, 20, 30, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 20, 20, 30, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,5,100));
-
+                player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,20,100));
                 playerManager.AddPlayer(player);
+
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                 chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
-                camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).Rotation,
-                        playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
+                camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
                
             }
 
@@ -176,11 +176,7 @@ namespace plat_kill
             if (playerManager.GetPlayer(localPlayerId) != null)
             {
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
-                chase.Y = chase.Y + playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
-                camManager.UpdateAllCameras(chase,
-                                            ((HumanPlayer)playerManager.GetPlayer(localPlayerId)).CameraRotation,
-                                            playerManager.GetPlayer(localPlayerId).PlayerHeadOffset,
-                                            ((HumanPlayer)playerManager.GetPlayer(localPlayerId)).CameraDistance);
+                camManager.UpdateAllCameras(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
             }
 
         }
@@ -258,13 +254,12 @@ namespace plat_kill
                                 {
                                     var message = new UpdatePlayerStateMessage(im.SenderConnection.RemoteHailMessage);
                                     localPlayerId = message.Id;
-                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f, true, this);
+                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f, true, this, camManager.ActiveCamera);
                                     player.Load(this.Content, "Models\\Characters\\dude", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                                     playerManager.AddPlayer(player);
                                     Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                                     chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
-                                    camManager.ActiveCamera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).Rotation,
-                                    playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
+                                    camManager.ActiveCamera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
                                     Console.WriteLine("Connected to {0}", im.SenderEndPoint);
                                 }
                                 else

@@ -5,13 +5,9 @@ using System.Text;
 
 namespace plat_kill.Components.Camera
 {
-    public class CameraState
-    {
-        public enum State
+        public enum CameraState
         {
             FirstPersonCamera,
-            FirstPersonCameraOffSet,
             ThirdPersonCamera
         }
-    }
 }

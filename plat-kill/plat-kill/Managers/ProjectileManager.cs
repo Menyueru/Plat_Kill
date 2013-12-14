@@ -2,6 +2,7 @@
 using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
 using Microsoft.Xna.Framework;
+using plat_kill.Components.Camera;
 using plat_kill.Events;
 using plat_kill.GameModels.Players;
 using plat_kill.GameModels.Projectiles;
@@ -24,11 +25,15 @@ namespace plat_kill.Managers
         
         public event EventHandler<ShotFiredArgs> ShotFired;
 
+
+        public Camera camera;
+
         #endregion
 
         #region Constructor
-        public ProjectileManager(PKGame game) 
+        public ProjectileManager(PKGame game, Camera camera)
         {
+            this.camera = camera;
             this.game = game;
             this.projectiles = new Dictionary<long, Projectile>();
             projectileID = 0;
@@ -49,9 +54,17 @@ namespace plat_kill.Managers
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
         {
-            Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -50,
-                                                       playerShotted.Position + playerShotted.World.Backward 
-                                                       + new Vector3(0, 5, 0), playerShotted.Rotation, 0, 0.05f, .025f, .025f, .025f, projectileType);
+            Console.WriteLine("Cam Rot: ");
+            
+            Vector3 unitar = camera.transformedReference;
+            unitar.Normalize();
+
+            if(!((HumanPlayer)playerShotted).activeCamera.CamState.Equals(CameraState.FirstPersonCamera))
+                unitar = Vector3.Multiply(unitar, -1);
+
+            Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, 50f,
+                                                       playerShotted.Position + new Vector3(0, playerShotted.CharacterController.Body.Height, 0),
+                                                       unitar, 0, 0.05f, .025f, .025f, .025f, projectileType);
 
             switch (projectileType)
             {
@@ -65,7 +78,7 @@ namespace plat_kill.Managers
                     projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
                     break;
             }
-            projectile.Shoot(playerShotted.World.Forward);
+            projectile.Shoot();
             this.projectiles.Add(projectileID, projectile);
 
             this.game.Space.Add(projectile.Body);
