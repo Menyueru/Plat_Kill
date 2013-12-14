@@ -271,6 +271,10 @@ namespace plat_kill.GameModels.Players
             }
 
         }
+        protected void bounce()
+        {
+            CharacterController.Jump();
+        }
 
         protected void Dodge()
         {
@@ -462,10 +466,25 @@ namespace plat_kill.GameModels.Players
                 }
             }
 
-
             UpdateState();
-            Position = CharacterController.Body.Position+new Vector3(0,-2,0);
             CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
+            if (CharacterController.OldSupport.SupportObject==null &&CharacterController.SupportData.SupportObject != null && CharacterController.SupportData.HasTraction)
+            {
+                var entity = CharacterController.SupportData.SupportObject as EntityCollidable;
+                if (entity != null)
+                {
+                    var p = entity.Entity.Tag as Player;
+
+                    if (p != null)
+                    {
+
+                        p.health -= p.health;
+                        MoveForward(1, true);
+                        this.bounce();
+                    }
+                }
+            }
+            Position = CharacterController.Body.Position+new Vector3(0,-0.5f,0);
 
             base.Update(gameTime);             
         }

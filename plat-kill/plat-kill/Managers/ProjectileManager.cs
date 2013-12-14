@@ -88,7 +88,7 @@ namespace plat_kill.Managers
                         if (p.Id == proj.FiredByPlayerID) return;
                         Player shooter=game.PlayerManager.GetPlayer(proj.FiredByPlayerID);
                         float damage = shooter.RangePower + shooter.EquippedWeapons[shooter.ActiveWeaponIndex].WeaponDamage;
-                        p.Health -= (long)damage;
+                        p.Health -= (long)damage - p.Defense;
                     }
                 }
                 proj.RemoveFromSpace = true;

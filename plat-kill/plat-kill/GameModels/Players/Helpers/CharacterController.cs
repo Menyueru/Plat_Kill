@@ -270,6 +270,7 @@ namespace plat_kill.GameModels.Players.Helpers
 
         void CollectSupportData()
         {
+            oldSupport = supportData;
             //Identify supports.
             SupportFinder.UpdateSupports();
 
@@ -287,6 +288,19 @@ namespace plat_kill.GameModels.Players.Helpers
         }
 
         SupportData supportData;
+        SupportData oldSupport;
+
+        public SupportData OldSupport
+        {
+            get { return oldSupport; }
+            set { oldSupport = value; }
+        }
+
+        public SupportData SupportData
+        {
+            get { return supportData; }
+            set { supportData = value; }
+        }
 
 
         void IBeforeSolverUpdateable.Update(float dt)
