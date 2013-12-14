@@ -50,8 +50,8 @@ namespace plat_kill.Managers
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
         {
             Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, -50,
-                                                       playerShotted.Position + playerShotted.World.Forward
-                                                       + new Vector3(0, 6, 0), playerShotted.Rotation, 0, 0.05f, .025f, .025f, .025f, projectileType);
+                                                       playerShotted.Position + playerShotted.World.Backward 
+                                                       + new Vector3(0, 5, 0), playerShotted.Rotation, 0, 0.05f, .025f, .025f, .025f, projectileType);
 
             switch (projectileType)
             {
@@ -79,19 +79,19 @@ namespace plat_kill.Managers
             Projectile proj = sender.Entity.Tag as Projectile;
             if (proj != null)
             {
-                proj.RemoveFromSpace = true;
                 var otherEntityInformation = other as EntityCollidable;
                 if (otherEntityInformation != null)
                 {
                     Player p = otherEntityInformation.Entity.Tag as Player;
                     if (p != null)
                     {
+                        if (p.Id == proj.FiredByPlayerID) return;
                         Player shooter=game.PlayerManager.GetPlayer(proj.FiredByPlayerID);
                         float damage = shooter.RangePower + shooter.EquippedWeapons[shooter.ActiveWeaponIndex].WeaponDamage;
                         p.Health -= (long)damage;
                     }
                 }
-
+                proj.RemoveFromSpace = true;
             }
         }
         

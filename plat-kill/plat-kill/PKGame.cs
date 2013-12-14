@@ -127,7 +127,7 @@ namespace plat_kill
             if (this.IsHost)
             {
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 20, 20, 30, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                 player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,5,100));
 

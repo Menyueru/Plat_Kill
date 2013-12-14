@@ -317,7 +317,7 @@ namespace plat_kill.GameModels.Players
             base.Load(content, path, graphicsDevice, view, projection);
             float h, r;
             CalculateHeightRadius(out h, out r);
-            CharacterController = new CharacterController(Position, height * h, height * h * .7f, radius * r * .3f, mass);
+            CharacterController = new CharacterController(Position, height   * h , height * h*.7F , radius * r * .4f, mass);
             CharacterController.JumpSpeed = jumpSpeed;
             CharacterController.SlidingJumpSpeed= jumpSpeed * .6f;
             CharacterController.HorizontalMotionConstraint.Speed = speed;
