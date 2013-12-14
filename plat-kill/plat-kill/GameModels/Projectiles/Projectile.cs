@@ -132,9 +132,9 @@ namespace plat_kill.GameModels.Projectiles
         }
         #endregion
 
-        public void Shoot(Vector3 Forward)
+        public void Shoot()
         {
-            Vector3 impulse = Forward * speed;
+            Vector3 impulse = rotation * speed;
             body.ApplyLinearImpulse(ref impulse);
         }
 
@@ -175,6 +175,7 @@ namespace plat_kill.GameModels.Projectiles
 
             return pitchYawRoll;
         }
+       
         public void Update()
         {
             Position = body.Position;

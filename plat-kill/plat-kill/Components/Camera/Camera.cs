@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 
 namespace plat_kill.Components.Camera
 {
-    class Camera
+    public class Camera
     {
         #region Fields
 
@@ -16,11 +16,11 @@ namespace plat_kill.Components.Camera
 
         public Vector3 transformedReference;
         public Vector3 cameraPosition;
+        public Vector3 cameraRotation;
 
+        private CameraState camState;
         private Vector3 cameraReference;
         public Vector3 thirdPersonReference;
-        private Vector3 cameraRotation;
-        private Vector3 targetRotation;
         private Vector3 targetPosition;
         private Vector3 targetHeadOffSet;
         private float aspectRatio;
@@ -33,6 +33,13 @@ namespace plat_kill.Components.Camera
         #endregion
 
         #region Public Propierties
+
+        public CameraState CamState
+        {
+            get { return camState; }
+            set { camState = value; }
+        }
+        
         public Matrix ViewMatrix
         {
             get { return viewMatrix; }
@@ -44,11 +51,13 @@ namespace plat_kill.Components.Camera
             get { return projectionMatrix; }
             set { projectionMatrix = value; }
         }
+        
         public Vector3 CameraReference
         {
             get { return cameraReference; }
             set { cameraReference = value; }
         }
+        
         public float AspectRatio
         {
             get { return aspectRatio; }
@@ -63,11 +72,6 @@ namespace plat_kill.Components.Camera
         {
             get { return farClip; }
             set { farClip = value; }
-        }
-        public Vector3 TargetRotation
-        {
-            get { return targetRotation; }
-            set { targetRotation = value; }
         }
         public Vector3 TargetPosition
         {
@@ -111,7 +115,7 @@ namespace plat_kill.Components.Camera
             this.farClip = 2000.0f;
             this.aspectRatio = aspectRatio;
             this.cameraRotation = Vector3.Zero;
-
+            this.camState = CameraState.FirstPersonCamera;
             SetCameraReferences();
             
         }
@@ -137,41 +141,16 @@ namespace plat_kill.Components.Camera
         #endregion
 
         #region Public Methods
-        public void SetTargetToChase(Vector3 targetPosition, Vector3 targetRotation, Vector3 targetHeadOffSet) 
+        public void SetTargetToChase(Vector3 targetPosition, Vector3 targetHeadOffSet) 
         {
             this.targetPosition = targetPosition;
-            this.targetRotation = targetRotation;
             this.targetHeadOffSet = targetHeadOffSet;
         }
 
 
-        /// <summary>
-        /// Updates the camera when it's in the 1st person state.
-        /// </summary>
-        public void UpdateCamera()
-        {
-            // Calculate the camera's current position.
-            Vector3 cameraPosition = targetPosition;
-
-            Matrix rotationMatrix = Matrix.CreateRotationY(targetRotation.Y);
-
-            // Create a vector pointing the direction the camera is facing.
-            Vector3 transformedReference = Vector3.Transform(cameraReference, rotationMatrix);
-
-            // Calculate the position the camera is looking at.
-            Vector3 cameraLookat = cameraPosition + transformedReference;
-
-            // Set up the view matrix and projection matrix.
-            viewMatrix = Matrix.CreateLookAt(cameraPosition, cameraLookat, new Vector3(0.0f, 1.0f, 0.0f));
-            projectionMatrix = Matrix.CreatePerspectiveFieldOfView(viewAngle, aspectRatio, nearClip, farClip);
-        }
-
-        /// <summary>
-        /// Updates the camera when it's in the 1st person offset state.
-        /// </summary>
         public void UpdateCameraFirstPerson()
         {
-            Matrix rotationMatrix = Matrix.CreateRotationY(targetRotation.Y);
+            Matrix rotationMatrix = Matrix.CreateRotationX(cameraRotation.X) * Matrix.CreateRotationY(cameraRotation.Y);
 
             // Transform the head offset so the camera is positioned properly relative to the avatar.
             Vector3 headOffset = Vector3.Transform(targetHeadOffSet, rotationMatrix);
@@ -180,7 +159,7 @@ namespace plat_kill.Components.Camera
             Vector3 cameraPosition = targetPosition + headOffset;
 
             // Create a vector pointing the direction the camera is facing.
-            Vector3 transformedReference = Vector3.Transform(cameraReference, rotationMatrix);
+            transformedReference = Vector3.Transform(cameraReference, rotationMatrix);
 
             // Calculate the position the camera is looking at.
             Vector3 cameraLookat = transformedReference + cameraPosition;
@@ -191,14 +170,11 @@ namespace plat_kill.Components.Camera
 
         }
 
-        /// <summary>
-        /// Updates the camera when it's in the 3rd person state.
-        /// </summary>
         public void UpdateCameraThirdPerson()
         {
 
-            Matrix rotationMatrix =  Matrix.CreateRotationX(targetRotation.X) 
-                                    * Matrix.CreateRotationY(targetRotation.Y);
+            Matrix rotationMatrix = Matrix.CreateRotationX(cameraRotation.X)
+                                    * Matrix.CreateRotationY(cameraRotation.Y);
 
             // Create a vector pointing the direction the camera is facing.
            transformedReference = Vector3.Transform(thirdPersonReference, rotationMatrix);

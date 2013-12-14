@@ -20,35 +20,22 @@ namespace plat_kill.GameModels.Players
 
         private InputManager inputManager;
 
-        private int cameraDistance;
-        private Vector3 cameraRotation;
-
+        public Camera activeCamera;
         private PKGame game;
 
         #endregion
 
         #region Getter-Setter
-        public Vector3 CameraRotation
-        {
-            get { return cameraRotation; }
-            set { cameraRotation = value; }
-        }
-        public int CameraDistance
-        {
-            get { return cameraDistance; }
-            set { cameraDistance = value; }
-        }
         #endregion 
 
         #region Constructor
 
-        public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length, bool isLocal, PKGame game)
+        public HumanPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length, bool isLocal, PKGame game, Camera camera)
             : base(id, health, stamina, defense, meleePower, rangePower, speed, jumpSpeed, position, rotationSpeed, mass,width,height,length, isLocal)
         {
             this.inputManager = new InputManager(game);
-            this.cameraDistance = -200;
-            this.cameraRotation = Rotation;
             this.game = game;
+            this.activeCamera = camera;
         }
 
         #endregion
@@ -116,16 +103,16 @@ namespace plat_kill.GameModels.Players
 
                 if (inputManager.IsMouseMovingUp())
                 {
-                    if (cameraRotation.X <= (MathHelper.PiOver4 / 4))
-                        cameraRotation.X += 0.04f;
+                    if (activeCamera.cameraRotation.X <= (MathHelper.PiOver4 / 4))
+                        activeCamera.cameraRotation.X += 0.04f;
                 }
                 if (inputManager.IsMouseMovingDown())
                 {
-                    if (cameraRotation.X > (-MathHelper.PiOver4 / 2))
-                        cameraRotation.X -= 0.04f; 
+                    if (activeCamera.cameraRotation.X > (-MathHelper.PiOver4 / 2))
+                        activeCamera.cameraRotation.X -= 0.04f; 
                 }
 
-                cameraRotation.Y = Rotation.Y;
+                activeCamera.cameraRotation.Y = Rotation.Y;
 
                 if (inputManager.MouseLeftIsPressed())
                 {
@@ -134,6 +121,16 @@ namespace plat_kill.GameModels.Players
                 else 
                 {
                     this.IsShooting = false;
+                }
+
+                if(inputManager.MouseRightIsPressed())
+                {
+                    activeCamera.CamState = CameraState.FirstPersonCamera;
+                    
+                }
+                else
+                {
+                    activeCamera.CamState = CameraState.ThirdPersonCamera;
                 }
 
                 #endregion
