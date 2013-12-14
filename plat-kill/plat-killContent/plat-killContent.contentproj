@@ -66,14 +66,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Characters\vincent2.fbx">
-      <Name>vincent2</Name>
-      <Importer>FbxImporter</Importer>
-      <Processor>AnimatedModelProcessor</Processor>
-      <ProcessorParameters_Scale>0.05</ProcessorParameters_Scale>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Fonts\gameFont.spritefont">
       <Name>gameFont</Name>
       <Importer>FontDescriptionImporter</Importer>
@@ -218,11 +210,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\Characters\vincent2animation.xml">
-      <Name>vincent2animation</Name>
-      <Importer>XmlImporter</Importer>
-      <Processor>AnimationProcessor</Processor>
-    </Content>
     <Content Include="Models\Characters\vincentanimation.xml">
       <Name>vincentanimation</Name>
       <Importer>XmlImporter</Importer>

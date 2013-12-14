@@ -121,7 +121,7 @@ namespace plat_kill
 
             this.playerManager = new PlayerManager();
             this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
-            this.camManager = new CameraManager(camera, CameraState.State.ThirdPersonCamera);
+            this.camManager = new CameraManager(camera, CameraState.State.FirstPersonCamera);
             base.Initialize(); 
 
             if (this.IsHost)
