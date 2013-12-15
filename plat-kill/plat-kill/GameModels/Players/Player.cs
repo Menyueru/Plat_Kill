@@ -40,6 +40,7 @@ namespace plat_kill.GameModels.Players
         private TimeSpan staminaRegenRate;
         private DateTime lastTimeStaminaRegen;
 
+        private bool isDead;
         private bool isShooting;
         private bool isReloading;
         private bool isDodging;
@@ -153,6 +154,11 @@ namespace plat_kill.GameModels.Players
         {
             get { return radius; }
             set { radius = value; }
+        }
+
+        public bool IsDead
+        {
+            get { return isDead; }
         }
         #endregion
 
@@ -308,6 +314,7 @@ namespace plat_kill.GameModels.Players
             this.playerHeadOffset = new Vector3(0, 10, 0);
             this.isLocal = isLocal;
             this.radius = Math.Max(width, length)/2;
+            this.isDead = false;
             this.isShooting = false;
             this.isReloading = false;
             this.isDodging = false;
@@ -328,7 +335,6 @@ namespace plat_kill.GameModels.Players
             CharacterController.HorizontalMotionConstraint.AirSpeed = speed;
             CharacterController.HorizontalMotionConstraint.MaximumForce *= mass;
             CharacterController.VerticalMotionConstraint.MaximumGlueForce /= mass*mass;
-            CharacterController.Body.PositionUpdateMode = BEPUphysics.PositionUpdating.PositionUpdateMode.Continuous;
             CharacterController.Tag = this;
             CharacterController.Body.Tag = this;
             ownspace.Add(CharacterController);
@@ -386,6 +392,18 @@ namespace plat_kill.GameModels.Players
                 activeWeaponIndex = 0;
             }
         }
+
+        public void die()
+        {
+            isDead = true;   
+        }
+
+        public void respawn(Vector3 pos)
+        {
+            this.Position = pos;
+            this.CharacterController.Body.Position = pos;
+        }
+    
 
         public void Update(GameTime gameTime)
         {
@@ -484,7 +502,7 @@ namespace plat_kill.GameModels.Players
                     }
                 }
             }
-            Position = CharacterController.Body.Position+new Vector3(0,-0.5f,0);
+            Position = CharacterController.Body.Position+new Vector3(0,-3.5f,0);
 
             base.Update(gameTime);             
         }
