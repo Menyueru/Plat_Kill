@@ -1,4 +1,5 @@
-﻿using BEPUphysics.BroadPhaseEntries;
+﻿using BEPUphysics;
+using BEPUphysics.BroadPhaseEntries;
 using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
 using Microsoft.Xna.Framework;
@@ -51,6 +52,33 @@ namespace plat_kill.Managers
             }
             return null;
         }
+
+        public void MeleeAttack(Player playerShotted)
+        {
+            Ray ray = new Ray(playerShotted.Position + new Vector3(0, playerShotted.CharacterController.Body.Height/2, 0), 
+                                playerShotted.World.Backward);
+            RayCastResult result;
+            if (game.Space.RayCast(ray, candidate => candidate != playerShotted.CharacterController.Body.CollisionInformation, out result))
+            {
+                var obj = result.HitObject as EntityCollidable;
+                if (obj != null)
+                {
+                    float distance =result.HitData.T * ray.Direction.Length();
+                    if (distance <= 7)
+                    {
+                        var person = obj.Entity.Tag as Player;
+                        if (person != null)
+                        {
+                            float damage = playerShotted.MeleePower + playerShotted.EquippedWeapons[playerShotted.ActiveWeaponIndex].WeaponDamage;
+                            float reduction = (damage * ((float)person.Defense / 100f));
+                            person.Health -=(long)(damage - reduction);
+                            person.LastHit = playerShotted.Id;
+                        }
+                    }
+                }
+            }
+            this.lastshot = DateTime.Now;
+        }
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
         {   
@@ -100,7 +128,7 @@ namespace plat_kill.Managers
                         Player shooter=game.PlayerManager.GetPlayer(proj.FiredByPlayerID);
                         float damage = shooter.RangePower + shooter.EquippedWeapons[shooter.ActiveWeaponIndex].WeaponDamage;
                         float reduction= (damage*((float)p.Defense/100f));
-                        p.Health -= ((long)damage -(long)reduction);
+                        p.Health -= (long)(damage - reduction);
                         p.LastHit = shooter.Id;
                     }
                 }
