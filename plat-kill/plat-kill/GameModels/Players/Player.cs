@@ -372,6 +372,7 @@ namespace plat_kill.GameModels.Players
             Reloading.AnimationEnded += Reload_AnimationEnded;
             Dodging.AnimationEnded += Dodging_AnimationEnded;
             SprintingFowardRoll.AnimationEnded += Dodging_AnimationEnded;
+            GreatSwordSlash.AnimationEnded += Great_Sword_Slash_Ended;
 
             Dodging.SpeedFactor = 1.5f;
         }
@@ -379,6 +380,11 @@ namespace plat_kill.GameModels.Players
         void Dodging_AnimationEnded(object sender, EventArgs e)
         {
             this.isDodging = false;
+        }
+
+        void Great_Sword_Slash_Ended(object sender, EventArgs e)
+        {
+            this.isShooting = false;
         }
 
         private void Reload_AnimationEnded(object sender, EventArgs e)

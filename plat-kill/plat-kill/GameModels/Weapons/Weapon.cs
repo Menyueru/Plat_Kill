@@ -109,7 +109,18 @@ namespace plat_kill.GameModels.Weapons
 
             weaponModel.CopyAbsoluteBoneTransformsTo(Model2TransfoMatrix);
 
-            Vector3 rotAxis = new Vector3(.5f * MathHelper.PiOver4, 2.5f * MathHelper.PiOver2, 2f * MathHelper.PiOver2);
+            Vector3 rotAxis;
+            Matrix translate;
+            if(weaponType.Equals(WeaponType.Melee))
+            {
+                rotAxis = new Vector3(7.5f*MathHelper.PiOver4, 2.5f * MathHelper.PiOver2, 4.5f*MathHelper.PiOver2);
+                translate = Matrix.CreateTranslation(-0.16f, -0.24f, 0.8f);
+            }
+            else
+            {
+                rotAxis = new Vector3(.5f * MathHelper.PiOver4, 2.5f * MathHelper.PiOver2, 2f * MathHelper.PiOver2);
+                translate = Matrix.CreateTranslation(0f, -0.3f, 0);
+            }
             rotAxis.Normalize();
 
 
@@ -129,7 +140,7 @@ namespace plat_kill.GameModels.Weapons
                     Matrix model2Transform = tempRotation * Matrix.CreateRotationY(MathHelper.Pi)
                                             * Matrix.CreateTranslation(position) ;
 
-                    effect.World =  Matrix.CreateFromAxisAngle(rotAxis, MathHelper.Pi) * Matrix.CreateTranslation(0f,-0.3f,0)
+                    effect.World =  Matrix.CreateFromAxisAngle(rotAxis, MathHelper.Pi) * translate
                                  * Model1TransfoMatrix 
                                  * model2Transform;
                     effect.View = view;
@@ -174,19 +185,30 @@ namespace plat_kill.GameModels.Weapons
         {
             if (((lastShot.Add(fireRate)) < DateTime.Now) && ((LastReload.Add(ReloadRate)) < DateTime.Now))
             {
-                if (this.loadedAmmo > 0 && !playerWhoIsFiring.IsDodging)
+                if (this.weaponType.Equals(WeaponType.Melee))
                 {
-                    playerWhoIsFiring.IsShooting = true;
-                    projectileManager.FireProjectile(ProjectileType.Bullet, playerWhoIsFiring);
-                    this.LoadedAmmo -= 1;
+                    if (!playerWhoIsFiring.IsShooting)
+                    {
+                        playerWhoIsFiring.IsShooting = true;
+                        projectileManager.MeleeAttack(playerWhoIsFiring);
+                    }
                 }
                 else
                 {
-                    ReloadWeapon(playerWhoIsFiring);
-                }
+                    if (this.loadedAmmo > 0 && !playerWhoIsFiring.IsDodging)
+                    {
+                        playerWhoIsFiring.IsShooting = true;
+                        projectileManager.FireProjectile(this.projectileType, playerWhoIsFiring);
+                        this.LoadedAmmo -= 1;
+                    }
+                    else
+                    {
+                        ReloadWeapon(playerWhoIsFiring);
+                    }
 
+                }
                 this.lastShot = DateTime.Now;
-            }            
+            }           
         }
 
         #endregion

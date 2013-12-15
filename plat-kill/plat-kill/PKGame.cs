@@ -134,13 +134,12 @@ namespace plat_kill
                 HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 20, 50, 50, 30, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                 player.addWeapon(new Weapon(Content, "Models\\Objects\\rifle", WeaponType.Range, ProjectileType.Bullet, 0f,0f,20,100));
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\laserRifle", WeaponType.Range, ProjectileType.Bullet, 0f, 0f, 20, 100));
+                player.addWeapon(new Weapon(Content, "Models\\Objects\\gorehowl", WeaponType.Melee, ProjectileType.Bullet, 0f, 0f, 20, 100));
                 playerManager.AddPlayer(player);
 
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                 chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                 camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
-               
             }
 
         }

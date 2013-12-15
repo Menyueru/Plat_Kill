@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Media;
 using plat_kill.Helpers;
 using plat_kill.GameModels.Projectiles;
 using plat_kill.Components.Camera;
+using plat_kill.GameModels.Weapons;
 
 namespace plat_kill.GameModels.Players
 {
@@ -122,7 +123,7 @@ namespace plat_kill.GameModels.Players
                 {
                     this.EquippedWeapons[ActiveWeaponIndex].Shoot(game.ProjectileManager, this);
                 }
-                else 
+                else if(this.EquippedWeapons[ActiveWeaponIndex].WeaponType.Equals(WeaponType.Range))
                 {
                     this.IsShooting = false;
                 }
