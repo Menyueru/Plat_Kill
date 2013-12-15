@@ -48,6 +48,7 @@ namespace plat_kill.GameModels.Players
             base.Update(gameTime);
 
             float dt = 1;
+            bool weaponchanged=inputManager.IsKeyPressed(Keys.Tab);
             inputManager.Update();
             if (game.IsActive)
             {
@@ -70,7 +71,7 @@ namespace plat_kill.GameModels.Players
                 {
                     MoveForward(dt, false);
                 }
-                if (inputManager.IsKeyPressed(Keys.Tab))
+                if (inputManager.IsKeyPressed(Keys.Tab) && !weaponchanged)
                 {
                     changeToNextWeapon();
                 }
