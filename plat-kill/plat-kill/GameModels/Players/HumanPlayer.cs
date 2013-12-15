@@ -52,6 +52,11 @@ namespace plat_kill.GameModels.Players
             if (game.IsActive)
             {
                 #region Keyboard Input
+                if(inputManager.IsKeyPressed(Keys.Escape))
+                {
+                    game.Exit();
+                }
+
                 bool speedModify = false;
                 if(inputManager.IsKeyPressed(Keys.LeftShift))
                 {
@@ -108,7 +113,12 @@ namespace plat_kill.GameModels.Players
 
                 if (inputManager.IsMouseMovingUp())
                 {
-                    if (activeCamera.cameraRotation.X <= (MathHelper.PiOver4 / 4))
+                    double maxAngle;
+                    if(activeCamera.CamState.Equals(CameraState.FirstPersonCamera))
+                        maxAngle = MathHelper.PiOver4 / 4;
+                    else
+                        maxAngle = MathHelper.PiOver4 / 6;
+                    if (activeCamera.cameraRotation.X <= (maxAngle))
                         activeCamera.cameraRotation.X += 0.04f;
                 }
                 if (inputManager.IsMouseMovingDown())

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<CharacterCollection>
+  <Characters>
+    <Character>
+      <Name>ClassicVincent</Name>
+      <MeleePower>50</MeleePower>
+      <RangePower>50</RangePower>
+      <Stamina>150</Stamina>
+      <Health>200</Health>
+      <Defense>40</Defense>
+      <Speed>100</Speed>
+    </Character>
+
+    <Character>
+      <Name>BlackVincent</Name>
+      <MeleePower>100</MeleePower>
+      <RangePower>30</RangePower>
+      <Stamina>500</Stamina>
+      <Health>400</Health>
+      <Defense>20</Defense>
+      <Speed>300</Speed>
+    </Character>
+
+    <Character>
+      <Name>BlueVincent</Name>
+      <MeleePower>20</MeleePower>
+      <RangePower>100</RangePower>
+      <Stamina>250</Stamina>
+      <Health>150</Health>
+      <Defense>35</Defense>
+      <Speed>250</Speed>
+    </Character>
+
+    <Character>
+      <Name>RedVincent</Name>
+      <MeleePower>60</MeleePower>
+      <RangePower>60</RangePower>
+      <Stamina>100</Stamina>
+      <Health>500</Health>
+      <Defense>70</Defense>
+      <Speed>175</Speed>
+    </Character>
+  </Characters>
+</CharacterCollection>
+

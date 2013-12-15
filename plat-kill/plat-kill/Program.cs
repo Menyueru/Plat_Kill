@@ -1,6 +1,7 @@
 using plat_kill.Networking;
 using System;
 using plat_kill.Managers;
+using plat_kill.Helpers;
 
 namespace plat_kill
 {
@@ -12,7 +13,7 @@ namespace plat_kill
         /// </summary>
         static void Main(string[] args)
         {
-            using (PKGame game = new PKGame(new ServerNetworkManager(), new TimeMatch(new TimeSpan(0,10,0))))
+            using (PKGame game = new PKGame(new GameConfiguration()))
             {
                 game.Run();
             }

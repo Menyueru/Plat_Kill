@@ -249,34 +249,6 @@ namespace plat_kill.GameModels
         public void Load(ContentManager content, String path, GraphicsDevice graphics, Matrix view, Matrix projection)
         {
             this.model = content.Load<Model>(path);
-
-            Viewport port = graphics.Viewport;
-
-            Matrix tempView = Matrix.CreateLookAt(new Vector3(0, 15, -20), Vector3.Zero, Vector3.Up);
-            Matrix tempProjection = Matrix.CreatePerspectiveFieldOfView(MathHelper.PiOver4, (float)port.Width / port.Height, .1f, 100000f);
-            Effect myEffect = content.Load<Effect>("Effects\\skinFX");
-
-            foreach (ModelMesh mesh in model.Meshes)
-            {
-                foreach (ModelMeshPart part in mesh.MeshParts)
-                {
-                    BasicEffect oldEffect = (BasicEffect)part.Effect;
-                    Effect newEffect = myEffect.Clone();
-                    newEffect.Parameters["Texture"].SetValue(oldEffect.Texture);
-
-                    newEffect.Parameters["LightColor"].SetValue(new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
-                    newEffect.Parameters["AmbientLightColor"].SetValue(new Vector4(1.25f, 1.25f, 1.25f, 1.0f));
-                    newEffect.Parameters["Shininess"].SetValue(0.6f);
-                    newEffect.Parameters["SpecularPower"].SetValue(0.4f);
-
-                    newEffect.Parameters["View"].SetValue(tempView);
-                    newEffect.Parameters["Projection"].SetValue(tempProjection);
-
-                    part.Effect = newEffect;
-                    oldEffect.Dispose();
-                }
-            }
-
             ModelAnimator = new ModelAnimator(model);
 
             foreach (ModelMesh mesh in model.Meshes)
@@ -299,7 +271,6 @@ namespace plat_kill.GameModels
                     }
                 }
             }
-
         }
 
         public void Draw(GameTime gameTime, Matrix view, Matrix projection) 
