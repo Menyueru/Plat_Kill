@@ -53,9 +53,7 @@ namespace plat_kill.Managers
         }
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
-        {
-            Console.WriteLine("Cam Rot: ");
-            
+        {   
             Vector3 unitar = camera.transformedReference;
             unitar.Normalize();
 
