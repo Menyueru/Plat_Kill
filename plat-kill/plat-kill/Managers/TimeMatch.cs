@@ -5,7 +5,7 @@ using System.Text;
 
 namespace plat_kill.Managers
 {
-    class TimeMatch : IGameManager
+    public class TimeMatch : IGameManager
     {
         private DateTime startTime;
         private TimeSpan time;

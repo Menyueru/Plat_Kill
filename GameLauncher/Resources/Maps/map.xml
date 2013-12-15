@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MapCollection>
+  <Maps>
+    <Map>
+      <Name>City</Name>
+      <Model>Map1</Model>
+    </Map>
+    <Map>
+      <Name>Forest</Name>
+      <Model>Map2</Model>
+    </Map>
+  </Maps>
+</MapCollection>
+

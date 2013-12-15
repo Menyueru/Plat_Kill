@@ -174,9 +174,14 @@
     <Compile Include="GameModels\Terrain.cs" />
     <Compile Include="GameModels\Weapons\Weapon.cs" />
     <Compile Include="GameModels\Weapons\WeaponType.cs" />
+    <Compile Include="Helpers\GameConfiguration.cs" />
+    <Compile Include="Helpers\States\AIDifficulty.cs" />
+    <Compile Include="Helpers\States\Character.cs" />
     <Compile Include="Helpers\States\CharacterState.cs" />
     <Compile Include="Helpers\InputManager.cs" />
     <Compile Include="Helpers\States\GameState.cs" />
+    <Compile Include="Helpers\States\GameTypes.cs" />
+    <Compile Include="Helpers\States\Maps.cs" />
     <Compile Include="Managers\IGameManager.cs" />
     <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Managers\ProjectileManager.cs" />
@@ -195,12 +200,6 @@
   <ItemGroup>
     <Content Include="Game.ico" />
     <Content Include="GameThumbnail.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\plat-killContent\plat-killContent.contentproj">
-      <Name>plat_killContent</Name>
-      <XnaReferenceType>Content</XnaReferenceType>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
@@ -224,7 +223,12 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\ContentReference\ContentReference.csproj">
+      <Project>{216ce505-e577-4692-8a84-82f72dc130da}</Project>
+      <Name>ContentReference</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" />
   <!--

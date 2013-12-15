@@ -35,7 +35,7 @@ namespace plat_kill.GameModels.Players
         private float speed;
         private long stamina;
         private long maxStamina;
-        private const long staminaRegen = 5;
+        private long staminaRegen;
         private const long actionsStaminaCost = 30;
         private TimeSpan staminaRegenRate;
         private DateTime lastTimeStaminaRegen;
@@ -305,6 +305,7 @@ namespace plat_kill.GameModels.Players
             this.maxStamina = stamina;
             this.staminaRegenRate = new TimeSpan(0, 0, 0, 1, 250);
             this.lastTimeStaminaRegen = DateTime.Now;
+            this.staminaRegen = (long)(stamina * 0.10f);
 
             this.defense = defense;
             this.meleePower = meleePower;

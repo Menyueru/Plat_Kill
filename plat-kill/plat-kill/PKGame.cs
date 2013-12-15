@@ -43,6 +43,7 @@ namespace plat_kill
         private ProjectileManager projectileManager;
         private IGameManager gameManager;
         private INetworkManager networkManager;
+        private GameConfiguration gameConfiguration;
 
         private SkyBox skyBox;
         private Terrain map;
@@ -58,9 +59,17 @@ namespace plat_kill
         {
             get
             {
-                return this.networkManager is ServerNetworkManager;
+                if (this.networkManager == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    return this.networkManager is ServerNetworkManager;
+                }
             }
         }
+
         public PlayerManager PlayerManager
         {
             get { return playerManager; }
@@ -80,8 +89,9 @@ namespace plat_kill
         #endregion
 
         #region Constructor
-        public PKGame(INetworkManager networkManager,IGameManager gameManager)
+        public PKGame(GameConfiguration gameConfiguration)
         {
+            this.gameConfiguration = gameConfiguration;
 
             graphics = new GraphicsDeviceManager(this);
 
@@ -89,18 +99,20 @@ namespace plat_kill
 
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 1020;
-            graphics.PreferredBackBufferHeight = 480;
+            graphics.PreferredBackBufferWidth = gameConfiguration.ResolutionWidth;
+            graphics.PreferredBackBufferHeight = gameConfiguration.ResolutionHeigth;
+            graphics.IsFullScreen = gameConfiguration.IsFullScreen;
             graphics.PreferMultiSampling = false;
-            graphics.IsFullScreen = false;
 
-            this.gameManager = gameManager;
-            this.networkManager = networkManager;
+
+            this.gameManager = gameConfiguration.GameManager;
+
+            this.networkManager = gameConfiguration.NetworkManager;
 
         }
         #endregion
 
-        #region Methods
+        #region Methods            
         protected override void Initialize()
         {
             this.spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -108,20 +120,21 @@ namespace plat_kill
             this.space = new Space();
             this.space.ForceUpdater.Gravity = new Vector3(0, -166.77f, 0);
 
-            skyBox = new SkyBox(graphics.GraphicsDevice);
+            this.skyBox = new SkyBox(graphics.GraphicsDevice);
 
-            map = new Terrain("Content\\Scenes\\Test.scn",this);
-
-            this.networkManager.Connect();
+            if(networkManager != null)
+                this.networkManager.Connect();
 
             Camera camera = new Camera((float)graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
             this.camManager = new CameraManager(camera);
 
             this.projectileManager = new ProjectileManager(this, camera);
-            this.projectileManager.ShotFired += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.Shot));
+            if (networkManager != null)
+                this.projectileManager.ShotFired += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.Shot));
 
             this.playerManager = new PlayerManager();
-            this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
+            if(networkManager != null)
+                this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
 
             base.Initialize(); 
 
@@ -143,9 +156,6 @@ namespace plat_kill
 
         protected override void LoadContent()
         {
-            map.LoadContent(Content);
-            map.AddToSpace(space);
-
             skyBox.Load(this.Content, "Textures\\SkyBoxes\\BlueSky\\SkyEffect", "Textures\\SkyBoxes\\BlueSky\\SkyBoxTex");
             font = Content.Load<SpriteFont>("Fonts\\gameFont");
 
@@ -154,15 +164,22 @@ namespace plat_kill
             healthTex = Content.Load<Texture2D>("Textures\\greenGradient");
             backBar = Content.Load<Texture2D>("Textures\\rock");
             infinity = Content.Load<Texture2D>("Textures\\infinity");
+            
+            LoadCharacterModels();
+            LoadMap();
 
             gameManager.Init(this);
-            Console.WriteLine(DateTime.Now);
         }
 
         protected override void Update(GameTime gameTime)
         {
             space.Update();
-            ProcessNetworkMessages();
+
+            if(networkManager != null)
+            {
+                ProcessNetworkMessages();
+            }
+            
             gameManager.Update();
 
             playerManager.UpdateAllPlayers(gameTime);
@@ -194,6 +211,68 @@ namespace plat_kill
 
             base.Draw(gameTime);
 
+        }
+
+        private void LoadCharacterModels() 
+        {
+            Effect myEffect = Content.Load<Effect>("Effects\\skinFX");
+
+            Model model;
+            switch(gameConfiguration.Character)
+            {
+                case Helpers.States.Character.ClassicVincent:
+                    model = Content.Load<Model>("Models\\Characters\\vincent");
+                    break;
+                case Helpers.States.Character.BlackVincent:
+                    model = Content.Load<Model>("Models\\Characters\\vincent");
+                    break;
+                case Helpers.States.Character.BlueVincent:
+                    model = Content.Load<Model>("Models\\Characters\\vincent");
+                    break;
+                case Helpers.States.Character.RedVincent:
+                    model = Content.Load<Model>("Models\\Characters\\vincent");
+                    break;
+                default:
+                    model = Content.Load<Model>("Models\\Characters\\vincent");
+                    break;
+            }
+
+            foreach (ModelMesh mesh in model.Meshes)
+            {
+                foreach (ModelMeshPart part in mesh.MeshParts)
+                {
+                    BasicEffect oldEffect = (BasicEffect)part.Effect;
+                    Effect newEffect = myEffect.Clone();
+                    newEffect.Parameters["Texture"].SetValue(oldEffect.Texture);
+
+                    newEffect.Parameters["LightColor"].SetValue(new Vector4(0.3f, 0.3f, 0.3f, 1.0f));
+                    newEffect.Parameters["AmbientLightColor"].SetValue(new Vector4(1.25f, 1.25f, 1.25f, 1.0f));
+                    newEffect.Parameters["Shininess"].SetValue(0.6f);
+                    newEffect.Parameters["SpecularPower"].SetValue(0.4f);
+
+                    newEffect.Parameters["View"].SetValue(camManager.ActiveCamera.ViewMatrix);
+                    newEffect.Parameters["Projection"].SetValue(camManager.ActiveCamera.ProjectionMatrix);
+
+                    part.Effect = newEffect;
+                    oldEffect.Dispose();
+                }
+            }
+
+        }
+
+        private void LoadMap() 
+        {
+            switch(gameConfiguration.Map)
+            {
+                case Helpers.States.Maps.Map1:
+                                this.map = new Terrain("Content\\Scenes\\Test.scn", this);
+                                break;
+                default:
+                                this.map = new Terrain("Content\\Scenes\\Test.scn", this);
+                                break;
+            }
+            this.map.LoadContent(Content);
+            this.map.AddToSpace(space);
         }
 
         private void DrawUIComponents()
