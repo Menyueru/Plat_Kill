@@ -44,6 +44,8 @@ namespace plat_kill.GameModels.Players
         private bool isShooting;
         private bool isReloading;
         private bool isDodging;
+        private long lastHit;
+        private DateTime timeOfDeath;
 
         private int activeWeaponIndex;
         private List<Weapon> equippedWeapons;
@@ -159,6 +161,16 @@ namespace plat_kill.GameModels.Players
         public bool IsDead
         {
             get { return isDead; }
+        }
+        public long LastHit
+        {
+            get { return lastHit; }
+            set { lastHit = value; }
+        }
+
+        public DateTime TimeOfDeath
+        {
+            get { return timeOfDeath; }
         }
         #endregion
 
@@ -319,6 +331,7 @@ namespace plat_kill.GameModels.Players
             this.isShooting = false;
             this.isReloading = false;
             this.isDodging = false;
+            this.lastHit = id;
             this.equippedWeapons = new List<Weapon>();
 
         }
@@ -384,7 +397,7 @@ namespace plat_kill.GameModels.Players
 
         public void changeToNextWeapon() 
         {
-            if (activeWeaponIndex < equippedWeapons.Count)
+            if (activeWeaponIndex+1 < equippedWeapons.Count)
             {
                 activeWeaponIndex += 1;
             }
@@ -396,13 +409,16 @@ namespace plat_kill.GameModels.Players
 
         public void die()
         {
-            isDead = true;   
+            this.isDead = true;
+            this.timeOfDeath = DateTime.Now;
         }
 
         public void respawn(Vector3 pos)
         {
             this.Position = pos;
             this.CharacterController.Body.Position = pos;
+            this.isDead = false;
+            this.health = this.maxHealth;
         }
     
 
@@ -498,6 +514,7 @@ namespace plat_kill.GameModels.Players
                     {
 
                         p.health -= p.health;
+                        p.lastHit = this.id;
                         MoveForward(1, true);
                         this.bounce();
                     }

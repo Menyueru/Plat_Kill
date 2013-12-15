@@ -69,6 +69,10 @@ namespace plat_kill.GameModels.Players
                 {
                     MoveForward(dt, false);
                 }
+                if (inputManager.IsKeyPressed(Keys.Tab))
+                {
+                    changeToNextWeapon();
+                }
 
                 if (inputManager.IsKeyPressed(Keys.D))
                 {

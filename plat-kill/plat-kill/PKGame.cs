@@ -51,6 +51,8 @@ namespace plat_kill
 
         private long localPlayerId;
 
+        public ScoreBoard ScoreBoard;
+
         #endregion
 
         #region Propierties
@@ -132,7 +134,7 @@ namespace plat_kill
             if (networkManager != null)
                 this.projectileManager.ShotFired += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.Shot));
 
-            this.playerManager = new PlayerManager();
+            this.playerManager = new PlayerManager(this);
             if(networkManager != null)
                 this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
 
@@ -141,9 +143,10 @@ namespace plat_kill
             if (this.IsHost)
             {
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 20, 20, 30, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
+                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 20, 50, 50, 30, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\M4A1", WeaponType.Range, ProjectileType.Bullet, 0f,0f,20,100));
+                player.addWeapon(new Weapon(Content, "Models\\Objects\\rifle", WeaponType.Range, ProjectileType.Bullet, 0f,0f,20,100));
+                player.addWeapon(new Weapon(Content, "Models\\Objects\\laserRifle", WeaponType.Range, ProjectileType.Bullet, 0f, 0f, 20, 100));
                 playerManager.AddPlayer(player);
 
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;

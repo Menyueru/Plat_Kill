@@ -109,7 +109,7 @@ namespace plat_kill.GameModels.Weapons
 
             weaponModel.CopyAbsoluteBoneTransformsTo(Model2TransfoMatrix);
 
-            Vector3 rotAxis = new Vector3(3.5f, 2.5f * MathHelper.PiOver2, 3.5f);
+            Vector3 rotAxis = new Vector3(.5f * MathHelper.PiOver4, 2.5f * MathHelper.PiOver2, 2f * MathHelper.PiOver2);
             rotAxis.Normalize();
 
 
@@ -129,7 +129,7 @@ namespace plat_kill.GameModels.Weapons
                     Matrix model2Transform = tempRotation * Matrix.CreateRotationY(MathHelper.Pi)
                                             * Matrix.CreateTranslation(position) ;
 
-                    effect.World =  Matrix.CreateFromAxisAngle(rotAxis, MathHelper.PiOver2) 
+                    effect.World =  Matrix.CreateFromAxisAngle(rotAxis, MathHelper.Pi) * Matrix.CreateTranslation(0f,-0.3f,0)
                                  * Model1TransfoMatrix 
                                  * model2Transform;
                     effect.View = view;
