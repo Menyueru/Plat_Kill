@@ -29,6 +29,8 @@ namespace plat_kill.Managers
 
         private long LocalPlayer;
 
+        private PKGame game;
+
 
         public List<Vector3> SpawnPoints
         {
@@ -46,25 +48,28 @@ namespace plat_kill.Managers
         #endregion
 
         #region Constructors
-        public PlayerManager()
+        public PlayerManager( PKGame game)
         {
             this.players = new Dictionary<long, Player>();
             this.nextPoint = 0;
+            this.game = game;
         }
         #endregion
 
-
+        #region Methods
         public Vector3 nextSpawnPoint()
         {
+            if (nextPoint + 1 >= spawnPoints.Count) nextPoint = 0;
             return spawnPoints[nextPoint++];
         }
 
         public Vector3 nextSpawnPoint(int id)
         {
+            if (id >= spawnPoints.Count) return spawnPoints[0];
             return spawnPoints[id];
         }
 
-        #region Methods
+        
         protected void OnPlayerStateChanged(Player player)
         {
             EventHandler<PlayerStateChangedArgs> playerStateChanged = this.PlayerStateChanged;
@@ -106,12 +111,15 @@ namespace plat_kill.Managers
         {
             foreach (Player player in this.Players)
             {
-                player.Draw(gameTime, view, projection);
-                if(player.EquippedWeapons.Count > 0)
-                    player.EquippedWeapons[player.ActiveWeaponIndex].DrawOnCharacter(player.ModelAnimator, 
-                                                                                     player.Rotation, 
-                                                                                     view, projection, player.Position, 
-                                                                                     player.CharecterState);
+                if (!player.IsDead)
+                {
+                    player.Draw(gameTime, view, projection);
+                    if (player.EquippedWeapons.Count > 0)
+                        player.EquippedWeapons[player.ActiveWeaponIndex].DrawOnCharacter(player.ModelAnimator,
+                                                                                         player.Rotation,
+                                                                                         view, projection, player.Position,
+                                                                                         player.CharecterState);
+                }
             }
         }
 
@@ -126,13 +134,33 @@ namespace plat_kill.Managers
 
             foreach (long key in players.Keys)
             {
-                if (key == LocalPlayer)
+                if (!players[key].IsDead)
                 {
-                    ((HumanPlayer)players[key]).Update(gameTime);
+                    if (players[key].Health <= 0)
+                    {
+                        players[key].die();
+                        game.Space.Remove(players[key].CharacterController);
+                        game.ScoreBoard.kill(players[key].LastHit, key);
+                    }
+                    else
+                    {
+                        if (key == LocalPlayer)
+                        {
+                            ((HumanPlayer)players[key]).Update(gameTime);
+                        }
+                        else
+                        {
+                            players[key].Update(gameTime);
+                        }
+                    }
                 }
                 else
                 {
-                    players[key].Update(gameTime);
+                    if (players[key].TimeOfDeath.Add(new TimeSpan(0, 0, 10)) < DateTime.Now)
+                    {
+                        players[key].respawn(nextSpawnPoint());
+                        game.Space.Add(players[key].CharacterController);
+                    }
                 }
             }
         }

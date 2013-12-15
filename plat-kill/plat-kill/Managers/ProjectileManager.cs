@@ -98,10 +98,12 @@ namespace plat_kill.Managers
                     Player p = otherEntityInformation.Entity.Tag as Player;
                     if (p != null)
                     {
-                        if (p.Id == proj.FiredByPlayerID) return;
+                        if (p.Id == proj.FiredByPlayerID || p.IsDodging) return;
                         Player shooter=game.PlayerManager.GetPlayer(proj.FiredByPlayerID);
                         float damage = shooter.RangePower + shooter.EquippedWeapons[shooter.ActiveWeaponIndex].WeaponDamage;
-                        p.Health -= (long)damage - p.Defense;
+                        float reduction= (damage*((float)p.Defense/100f));
+                        p.Health -= ((long)damage -(long)reduction);
+                        p.LastHit = shooter.Id;
                     }
                 }
                 proj.RemoveFromSpace = true;
