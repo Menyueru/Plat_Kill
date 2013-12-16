@@ -116,6 +116,8 @@ namespace plat_kill
 
             this.networkManager = gameConfiguration.NetworkManager;
 
+            this.ScoreBoard = new ScoreBoard(4);
+
             this.weaponManager = new WeaponManager(this);
 
         }
