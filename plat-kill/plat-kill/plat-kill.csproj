@@ -154,6 +154,8 @@
     <Compile Include="Components\Camera\CameraState.cs" />
     <Compile Include="Events\PlayerStateChangedArgs.cs" />
     <Compile Include="Events\ShotFiredArgs.cs" />
+    <Compile Include="Events\WeaponHasBeenCreated.cs" />
+    <Compile Include="Events\WeaponHasBeenLooted.cs" />
     <Compile Include="GameModels\AnimatedModel.cs" />
     <Compile Include="GameModels\GameModel.cs" />
     <Compile Include="GameModels\Players\Helpers\CharacterController.cs" />
@@ -196,6 +198,8 @@
     <Compile Include="Networking\Messages\IGameMessage.cs" />
     <Compile Include="Networking\Messages\ShotFiredMessage.cs" />
     <Compile Include="Networking\Messages\UpdatePlayerStateMessage.cs" />
+    <Compile Include="Networking\Messages\WeaponCreatedMessage.cs" />
+    <Compile Include="Networking\Messages\WeaponLooted.cs" />
     <Compile Include="Networking\ServerNetworkManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />

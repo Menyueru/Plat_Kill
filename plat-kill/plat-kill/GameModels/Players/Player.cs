@@ -55,6 +55,7 @@ namespace plat_kill.GameModels.Players
         #endregion
 
         #region Getter-Setters
+
         public long MaxHealth
         {
             get { return maxHealth; }
@@ -519,7 +520,9 @@ namespace plat_kill.GameModels.Players
                 }
             }
 
-            UpdateState();
+            if(isLocal)
+                UpdateState();
+
             CharacterController.HorizontalMotionConstraint.MovementDirection = Vector2.Zero;
             if (CharacterController.OldSupport.SupportObject==null &&CharacterController.SupportData.SupportObject != null && CharacterController.SupportData.HasTraction)
             {

@@ -3,6 +3,7 @@ using Lidgren.Network.Xna;
 using Microsoft.Xna.Framework;
 using plat_kill.GameModels.Players;
 using plat_kill.Helpers;
+using System;
 
 namespace plat_kill.Networking.Messages
 {
@@ -44,7 +45,12 @@ namespace plat_kill.Networking.Messages
             this.Velocity = player.CharacterController.Body.LinearVelocity;
             this.Rotation = player.Rotation;
             this.MessageTime = NetTime.Now;
-            this.CharacterState = player.CharecterState;
+            this.CharState = player.CharecterState;
+
+            if (player.EquippedWeapons.Count != 0)
+            {
+               this.CurrentWeaponID = player.EquippedWeapons[player.ActiveWeaponIndex].WeaponID;
+            }
         }
 
         #endregion
@@ -91,7 +97,13 @@ namespace plat_kill.Networking.Messages
         /// <summary>
         /// Gets or sets CharacterState.
         /// </summary>
-        public CharacterState CharacterState { get; set; }
+        public CharacterState CharState { get; set; }
+
+
+        /// <summary>
+        /// Gets or sets CurrentWeaponID
+        /// </summary>
+        public long CurrentWeaponID { get; set; }
 
         #endregion
 
@@ -109,7 +121,9 @@ namespace plat_kill.Networking.Messages
             this.MessageTime = im.ReadDouble();
             this.Position = im.ReadVector3();
             this.Velocity = im.ReadVector3();
-            this.Rotation = im.ReadVector3();
+            this.Rotation = im.ReadVector3(); 
+            this.CharState = (CharacterState)Enum.Parse(typeof(CharacterState), im.ReadString());
+            this.CurrentWeaponID = im.ReadInt64();
         }
 
         /// <summary>
@@ -125,6 +139,8 @@ namespace plat_kill.Networking.Messages
             om.Write(this.Position);
             om.Write(this.Velocity);
             om.Write(this.Rotation);
+            om.Write(this.CharState.ToString());
+            om.Write(this.CurrentWeaponID);
             
         }
 

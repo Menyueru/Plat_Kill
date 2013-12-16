@@ -68,8 +68,7 @@ namespace plat_kill.Managers
             if (id >= spawnPoints.Count) return spawnPoints[0];
             return spawnPoints[id];
         }
-
-        
+       
         protected void OnPlayerStateChanged(Player player)
         {
             EventHandler<PlayerStateChangedArgs> playerStateChanged = this.PlayerStateChanged;
@@ -105,7 +104,6 @@ namespace plat_kill.Managers
         {
             return players.Count;
         }
-
 
         public void DrawAllPlayers(GameTime gameTime, Matrix view, Matrix projection)
         {

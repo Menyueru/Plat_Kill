@@ -14,6 +14,8 @@ namespace plat_kill.Networking.Messages
         /// <summary>
         /// The shot fired.
         /// </summary>
-        ShotFired
+        ShotFired,
+
+        WeaponStateChange
     }
 }

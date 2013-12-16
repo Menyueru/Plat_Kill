@@ -18,6 +18,7 @@ namespace plat_kill.GameModels.Weapons
         #region Fields
         private WeaponType weaponType;
         private ProjectileType projectileType;
+        private long weaponID;
 
         private string name;
         private int loadedAmmo;
@@ -36,6 +37,11 @@ namespace plat_kill.GameModels.Weapons
         #endregion
 
         #region Propierties
+        public long WeaponID
+        {
+          get { return weaponID; }
+          set { weaponID = value; }
+        }
         public DateTime LastReload
         {
             get { return lastReload; }
@@ -84,10 +90,11 @@ namespace plat_kill.GameModels.Weapons
         }
         #endregion
 
-        public Weapon(ContentManager content,string name, string modelPath, WeaponType weaponType,
+        public Weapon(long weaponID, ContentManager content,string name, string modelPath, WeaponType weaponType,
                       ProjectileType projectileType, float weaponDamage, float fireRate,
                       int loadedAmmo, int totalAmmo) 
         {
+            this.weaponID = weaponID;
             this.name = name;
             this.weaponModel = LoadContent(content, modelPath);
             this.weaponType = weaponType;
@@ -158,9 +165,9 @@ namespace plat_kill.GameModels.Weapons
             }
         }
 
-        public void DrawOnFloor(Vector3 position, Matrix view, Matrix projection) 
+        public void DrawOnFloor(Vector3 position, Matrix view, Matrix projection)
         {
-            Matrix world =  Matrix.CreateTranslation(position);
+            Matrix world = Matrix.CreateTranslation(position);
 
             foreach (ModelMesh mesh in weaponModel.Meshes)
             {
@@ -173,6 +180,7 @@ namespace plat_kill.GameModels.Weapons
                 }
                 mesh.Draw();
             }
+        }
         public void ReloadWeapon(Player player) 
         {
             if(this.WeaponType.Equals(WeaponType.Range))

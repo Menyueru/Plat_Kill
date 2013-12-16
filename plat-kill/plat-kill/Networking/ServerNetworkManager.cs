@@ -1,6 +1,7 @@
 ﻿using System;
 using Lidgren.Network;
 using plat_kill.Networking.Messages;
+using System.Threading;
 
 namespace plat_kill.Networking
 {
@@ -28,7 +29,7 @@ namespace plat_kill.Networking
         /// <summary>
         /// The connect.
         /// </summary>
-        public void Connect()
+        public void Connect(SendOrPostCallback method)
         {
             var config = new NetPeerConfiguration("plat-kill")
                 {
@@ -45,6 +46,8 @@ namespace plat_kill.Networking
 
             this.netServer = new NetServer(config);
             this.netServer.Start();
+
+            netServer.RegisterReceivedCallback(method);
         }
 
         /// <summary>

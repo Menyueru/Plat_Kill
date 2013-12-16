@@ -50,7 +50,7 @@ namespace plat_kill.Networking
             config.EnableMessageType(NetIncomingMessageType.Error);
             config.EnableMessageType(NetIncomingMessageType.DebugMessage);
             config.EnableMessageType(NetIncomingMessageType.ConnectionApproval);
-
+            
             this.netClient = new NetClient(config);
             this.netClient.Start();
 

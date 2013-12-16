@@ -3,10 +3,14 @@ using BEPUphysics.BroadPhaseEntries.MobileCollidables;
 using BEPUphysics.CollisionTests;
 using BEPUphysics.Entities.Prefabs;
 using BEPUphysics.NarrowPhaseSystems.Pairs;
+using Lidgren.Network;
 using Microsoft.Xna.Framework;
+using plat_kill.Events;
 using plat_kill.GameModels.Players;
 using plat_kill.GameModels.Weapons;
 using plat_kill.Helpers.Serializable.Weapons;
+using plat_kill.Networking;
+using plat_kill.Networking.Messages;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -18,7 +22,16 @@ namespace plat_kill.Managers
 {
     public class WeaponManager
     {
-        private Dictionary<long, Tuple<Weapon,Box>> activeWeapons;
+        public event EventHandler<WeaponHasBeenCreated> WeaponHasBeenCreated;
+//        public event EventHandler<WeaponHasBeenLooted> WeaponHasBeenLooted;
+
+        private Dictionary<long, Tuple<Weapon, Box>> activeWeapons;
+
+        public Dictionary<long, Tuple<Weapon, Box>> ActiveWeapons
+        {
+            get { return activeWeapons; }
+            set { activeWeapons = value; }
+        }
         private SerializableWeapon[] differentWeapons;
         private List<Vector3> spawnPoints;
         private TimeSpan ReloadWeapons;
@@ -46,26 +59,31 @@ namespace plat_kill.Managers
 
         public void Update()
         {
-            if(LastWeaponReload.Add(ReloadWeapons)< DateTime.Now)
+            if (game.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)))
             {
-                Random randomizer = new Random();
-                int quantity = randomizer.Next((spawnPoints.Count-activeWeapons.Count)+1);
-                if (ReloadWeapons.Seconds == 5) quantity = spawnPoints.Count;
-                for (int i = 0; i < spawnPoints.Count && quantity>0; i++)
+                if (LastWeaponReload.Add(ReloadWeapons) < DateTime.Now)
                 {
-                    if (!activeWeapons.ContainsKey(i))
+                    Random randomizer = new Random();
+                    int quantity = randomizer.Next((spawnPoints.Count - ActiveWeapons.Count) + 1);
+                    if (ReloadWeapons.Seconds == 5) quantity = spawnPoints.Count;
+                    for (int i = 0; i < spawnPoints.Count && quantity > 0; i++)
                     {
-                        var temp=new Tuple<Weapon,Box>(createWeapon(differentWeapons[randomizer.Next(differentWeapons.Length)]),
-                                                            new Box(spawnPoints[i],5,5,5));
-                        activeWeapons.Add(i, temp);
-                        activeWeapons[i].Item2.Tag = i;
-                        activeWeapons[i].Item2.CollisionInformation.Events.ContactCreated += ContactCreated;
-                        activeWeapons[i].Item2.CollisionInformation.CollisionRules.Personal = BEPUphysics.CollisionRuleManagement.CollisionRule.NoSolver;
-                        game.Space.Add(activeWeapons[i].Item2);
+                        if (!ActiveWeapons.ContainsKey(i))
+                        {
+                            var temp = new Tuple<Weapon, Box>(createWeapon(differentWeapons[randomizer.Next(differentWeapons.Length)]),
+                                                                new Box(spawnPoints[i], 5, 5, 5));
+                            
+                            ActiveWeapons.Add(i, temp);
+                            ActiveWeapons[i].Item2.Tag = i;
+                            ActiveWeapons[i].Item2.CollisionInformation.Events.ContactCreated += ContactCreated;
+                            ActiveWeapons[i].Item2.CollisionInformation.CollisionRules.Personal = BEPUphysics.CollisionRuleManagement.CollisionRule.NoSolver;
+                            game.Space.Add(ActiveWeapons[i].Item2);
+                        }
                     }
+
+                    ReloadWeapons = new TimeSpan(0, 0, randomizer.Next(20, 61));
+                    LastWeaponReload = DateTime.Now;
                 }
-                ReloadWeapons = new TimeSpan(0, 0, randomizer.Next(20,61));
-                LastWeaponReload = DateTime.Now;
             }
         }
 
@@ -88,23 +106,37 @@ namespace plat_kill.Managers
 
         public void Draw(Matrix view, Matrix projection)
         {
-            foreach (long key in activeWeapons.Keys)
+            foreach (long key in ActiveWeapons.Keys)
             {
-                activeWeapons[key].Item1.DrawOnFloor(spawnPoints[(int)key],view, projection);
+                ActiveWeapons[key].Item1.DrawOnFloor(spawnPoints[(int)key],view, projection);
             }
         }
 
         public Weapon pickupWeapon(long weapon)
         {
-            var temp = activeWeapons[weapon];
-            activeWeapons.Remove(weapon);
+            var temp = ActiveWeapons[weapon];
+            ActiveWeapons.Remove(weapon);
             game.Space.Remove(temp.Item2);
             return temp.Item1;
         }
 
+        public Weapon GetWeapon(long weaponIndex) 
+        {
+            var temp = createWeapon(differentWeapons[weaponIndex]);
+             return temp;
+        }
+
+        public void AddWeapon(Vector3 weaponPosition, long weaponID)
+        {
+            var temp = new Tuple<Weapon, Box>(createWeapon(differentWeapons[weaponID]),  new Box(weaponPosition, 5, 5, 5));
+
+            
+            ActiveWeapons.Add(ActiveWeapons.Count, temp);
+        }
+
         private Weapon createWeapon(SerializableWeapon weapon)
         {
-            return new Weapon(game.Content, weapon.modelPath,"Models\\Objects\\"+weapon.modelPath, weapon.weaponType, weapon.projectileType, weapon.weaponDamage, weapon.fireRate, weapon.loadedAmmo, weapon.totalAmmo);
+            return new Weapon(Array.IndexOf(differentWeapons, weapon),game.Content, weapon.modelPath,"Models\\Objects\\"+weapon.modelPath, weapon.weaponType, weapon.projectileType, weapon.weaponDamage, weapon.fireRate, weapon.loadedAmmo, weapon.totalAmmo);
         }
 
         private WeaponCollection DeserializeCharacterCollection(string xmlPath)
@@ -119,5 +151,22 @@ namespace plat_kill.Managers
             return tempCollection;
         }
 
+        protected void OnWeaponCreated(Weapon weapon)
+        {
+            EventHandler<WeaponHasBeenCreated> weaponHasBeenCreated = this.WeaponHasBeenCreated;
+            if (weaponHasBeenCreated != null)
+            {
+                weaponHasBeenCreated(this, new WeaponHasBeenCreated(weapon));
+            }
+        }
+
+       /* protected void OnWeaponLooted(Weapon weapon)
+        {
+            EventHandler<WeaponHasBeenLooted> weaponHasBeenLooted = this.WeaponHasBeenLooted;
+            if (weaponHasBeenLooted != null)
+            {
+                weaponHasBeenLooted(this, new WeaponHasBeenLooted(weapon));
+            }
+        }*/
     }
 }
