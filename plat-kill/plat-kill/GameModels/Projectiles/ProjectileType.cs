@@ -9,6 +9,7 @@ namespace plat_kill.GameModels.Projectiles
     {
         Bullet,
         Arrow,
-        Beam
+        Beam,
+        None
     }
 }

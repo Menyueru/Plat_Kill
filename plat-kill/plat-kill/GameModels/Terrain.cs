@@ -165,6 +165,18 @@ namespace plat_kill.GameModels
                     }
                     game.PlayerManager.SpawnPoints = SpawnPoints;
                 }
+                else if (node.Name == "WeaponPoints")
+                {
+                    List<Vector3> SpawnPoints = new List<Vector3>();
+                    foreach (XmlNode entityNode in node.ChildNodes)
+                    {
+                        XmlAttributeCollection entityAttributes = entityNode.Attributes;
+                        string name = entityAttributes["Name"].InnerText;
+                        Vector3 Position = ParseVector3(entityAttributes["Position"].InnerText);
+                        SpawnPoints.Add(Position);
+                    }
+                    game.WeaponManager.SpawnPoints = SpawnPoints;
+                }
                 else if (node.Name == "Terrain")
                 {
                     XmlAttributeCollection terrainAttributes = node.Attributes;

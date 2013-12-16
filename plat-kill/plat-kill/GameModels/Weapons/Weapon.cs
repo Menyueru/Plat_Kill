@@ -19,6 +19,7 @@ namespace plat_kill.GameModels.Weapons
         private WeaponType weaponType;
         private ProjectileType projectileType;
 
+        private string name;
         private int loadedAmmo;
         private int totalAmmo;
         private float weaponDamage;
@@ -39,6 +40,12 @@ namespace plat_kill.GameModels.Weapons
         {
             get { return lastReload; }
             set { lastReload = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
         }
         public TimeSpan ReloadRate
         {
@@ -77,10 +84,11 @@ namespace plat_kill.GameModels.Weapons
         }
         #endregion
 
-        public Weapon(ContentManager content, string modelPath, WeaponType weaponType,
+        public Weapon(ContentManager content,string name, string modelPath, WeaponType weaponType,
                       ProjectileType projectileType, float weaponDamage, float fireRate,
                       int loadedAmmo, int totalAmmo) 
         {
+            this.name = name;
             this.weaponModel = LoadContent(content, modelPath);
             this.weaponType = weaponType;
             this.projectileType = projectileType;
@@ -88,7 +96,7 @@ namespace plat_kill.GameModels.Weapons
             this.loadedAmmo = loadedAmmo;
             this.totalAmmo = totalAmmo;
 
-            this.fireRate = new TimeSpan(0, 0, 0, 0, 700);
+            this.fireRate = new TimeSpan(0, 0, 0, 0, (int)fireRate);
             this.lastShot = DateTime.Now;
 
             this.reloadRate = new TimeSpan(0, 0, 0, 2, 0);
@@ -150,6 +158,21 @@ namespace plat_kill.GameModels.Weapons
             }
         }
 
+        public void DrawOnFloor(Vector3 position, Matrix view, Matrix projection) 
+        {
+            Matrix world =  Matrix.CreateTranslation(position);
+
+            foreach (ModelMesh mesh in weaponModel.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.Projection = projection;
+                    effect.View = view;
+                    effect.World = world;
+                    effect.EnableDefaultLighting();
+                }
+                mesh.Draw();
+            }
         public void ReloadWeapon(Player player) 
         {
             if(this.WeaponType.Equals(WeaponType.Range))

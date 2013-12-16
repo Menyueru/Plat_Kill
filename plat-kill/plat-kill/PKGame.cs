@@ -43,6 +43,7 @@ namespace plat_kill
         private ProjectileManager projectileManager;
         private IGameManager gameManager;
         private INetworkManager networkManager;
+        private WeaponManager weaponManager;
         private GameConfiguration gameConfiguration;
 
         private SkyBox skyBox;
@@ -76,6 +77,11 @@ namespace plat_kill
         {
             get { return playerManager; }
             set { playerManager = value; }
+        }
+        public WeaponManager WeaponManager
+        {
+            get { return weaponManager; }
+            set { weaponManager = value; }
         }
         public ProjectileManager ProjectileManager
         {
@@ -112,6 +118,8 @@ namespace plat_kill
 
             this.ScoreBoard = new ScoreBoard(4);
 
+            this.weaponManager = new WeaponManager(this);
+
         }
         #endregion
 
@@ -139,6 +147,7 @@ namespace plat_kill
             if(networkManager != null)
                 this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
 
+
             base.Initialize(); 
 
             if (this.IsHost)
@@ -148,8 +157,8 @@ namespace plat_kill
                                                      gameConfiguration.Defense, gameConfiguration.MeleePower, gameConfiguration.RangePower,
                                                      gameConfiguration.Speed, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\rifle", WeaponType.Range, ProjectileType.Bullet, 0f,0f,20,100));
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\gorehowl", WeaponType.Melee, ProjectileType.Bullet, 0f, 0f, 20, 100));
+                player.addWeapon(new Weapon(Content, "rifle","Models\\Objects\\rifle", WeaponType.Range, ProjectileType.Bullet, 10f,700f,20,100));
+                player.addWeapon(new Weapon(Content, "gorehowl", "Models\\Objects\\gorehowl", WeaponType.Melee, ProjectileType.None, 0f, 0f, 20, 100));
                 playerManager.AddPlayer(player);
 
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
@@ -173,12 +182,13 @@ namespace plat_kill
             LoadMap();
 
             gameManager.Init(this);
+            weaponManager.Init();
         }
 
         protected override void Update(GameTime gameTime)
         {
-
-
+            weaponManager.Update();
+            
             if(networkManager != null)
             {
                 ProcessNetworkMessages();
@@ -208,10 +218,11 @@ namespace plat_kill
 
             skyBox.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             map.Draw(graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);          
             playerManager.DrawAllPlayers(gameTime, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-
+            weaponManager.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             DrawUIComponents();
+            
 
             base.Draw(gameTime);
 
