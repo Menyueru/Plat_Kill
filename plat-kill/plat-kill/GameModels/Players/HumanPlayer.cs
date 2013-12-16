@@ -132,11 +132,21 @@ namespace plat_kill.GameModels.Players
 
                 if (inputManager.MouseLeftIsPressed())
                 {
-                    this.EquippedWeapons[ActiveWeaponIndex].Shoot(game.ProjectileManager, this);
+                    if (EquippedWeapons.Count != 0)
+                    {
+                        Vector3 bulletDir = this.activeCamera.transformedReference;
+                        bulletDir.Normalize();
+
+                        if (!this.activeCamera.CamState.Equals(CameraState.FirstPersonCamera))
+                            bulletDir = Vector3.Multiply(bulletDir, -1);
+
+                        this.EquippedWeapons[ActiveWeaponIndex].Shoot(game.ProjectileManager, this, bulletDir);
+                    }
                 }
-                else if(this.EquippedWeapons[ActiveWeaponIndex].WeaponType.Equals(WeaponType.Range))
+                else if(this.EquippedWeapons.Count != 0)
                 {
-                    this.IsShooting = false;
+                    if (this.EquippedWeapons[ActiveWeaponIndex].WeaponType.Equals(WeaponType.Range))
+                        this.IsShooting = false;
                 }
 
                 if(inputManager.MouseRightIsPressed())

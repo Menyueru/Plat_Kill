@@ -36,6 +36,7 @@ namespace plat_kill.Networking.Messages
             this.Velocity = shot.Body.LinearVelocity;
             this.FiredById = shot.FiredByPlayerID;
             this.MessageTime = NetTime.Now;
+            this.bulletDirection = shot.Rotation;
         }
 
         #endregion
@@ -83,6 +84,10 @@ namespace plat_kill.Networking.Messages
         /// </summary>
         public Vector3 Velocity { get; set; }
 
+        /// <summary>
+        /// Gets or sets Bullet Direction.
+        /// </summary>
+        public Vector3 bulletDirection { get; set; }
         #endregion
 
         #region Public Methods and Operators
@@ -101,6 +106,7 @@ namespace plat_kill.Networking.Messages
             this.Velocity = im.ReadVector3();
             this.FiredByPlayer = im.ReadBoolean();
             this.FiredById = im.ReadInt64();
+            this.bulletDirection = im.ReadVector3();
         }
 
         /// <summary>
@@ -117,6 +123,7 @@ namespace plat_kill.Networking.Messages
             om.Write(this.Velocity);
             om.Write(this.FiredByPlayer);
             om.Write(this.FiredById);
+            om.Write(this.bulletDirection);
         }
 
         #endregion

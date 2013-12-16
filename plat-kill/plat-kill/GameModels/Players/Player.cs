@@ -533,55 +533,65 @@ namespace plat_kill.GameModels.Players
 
         public void UpdateState()
          {
-             MovementCurrentDirection = CharacterController.Body.LinearVelocity;
-
+            
              if (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0 
-                 && CharacterController.HorizontalMotionConstraint.Speed <= speed
-                 && (this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Melee)))
+                 && CharacterController.HorizontalMotionConstraint.Speed <= speed)
              {
-                 changeCharacterState(CharacterState.StandardWalk);
+                 if(equippedWeapons.Count != 0)
+                 {
+                     if((this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Melee)))
+                     {
+                         changeCharacterState(CharacterState.StandardWalk);
+                     }
+                     else if ((this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Range)))
+                     {
+                         changeCharacterState(CharacterState.RifleWalk);
+                     }
+                 }
+
              }
              else if (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0
-                  && CharacterController.HorizontalMotionConstraint.Speed > speed
-                  && (this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Melee)))
+                  && CharacterController.HorizontalMotionConstraint.Speed > speed )
              {
-                 changeCharacterState(CharacterState.Running);
-             }
-             
-            else if ((CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0) 
-                    && CharacterController.HorizontalMotionConstraint.Speed <= speed
-                    && (this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Range)))
-             {
-                 changeCharacterState(CharacterState.RifleWalk);
-             }
-             else if ((CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
-                && CharacterController.HorizontalMotionConstraint.Speed > speed
-                && (this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Range)))
-             {
-                 changeCharacterState(CharacterState.RifleRun);
+                 if(this.equippedWeapons.Count != 0)
+                 {
+                     if((this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Range)))
+                     {
+                          changeCharacterState(CharacterState.RifleRun);
+                     }
+                     else if ((this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Melee)))
+                     {
+                         changeCharacterState(CharacterState.Running);
+                     }
+                 }
+
              }
              else
              {
                  changeCharacterState(CharacterState.RifleIdle);
              }
              
-             if(IsShooting 
+            if(this.equippedWeapons.Count != 0)
+            {
+                if (IsShooting
                 && (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
                 && (this.equippedWeapons[this.activeWeaponIndex].WeaponType == WeaponType.Range))
-             {
-                 changeCharacterState(CharacterState.ShootRifle);
-             }
-             else if (IsShooting 
-                 && !(CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
-                 && (this.equippedWeapons[this.activeWeaponIndex].WeaponType == WeaponType.Range))
-             {
-                 changeCharacterState(CharacterState.FiringRifle);
-             }
-             else if(IsShooting
-                     && (this.equippedWeapons[this.activeWeaponIndex].WeaponType == WeaponType.Melee))
-             {
-                 changeCharacterState(CharacterState.GreatSwordSlash);
-             }
+                {
+                    changeCharacterState(CharacterState.ShootRifle);
+                }
+                else if (IsShooting
+                    && !(CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
+                    && (this.equippedWeapons[this.activeWeaponIndex].WeaponType == WeaponType.Range))
+                {
+                    changeCharacterState(CharacterState.FiringRifle);
+                }
+                else if (IsShooting
+                        && (this.equippedWeapons[this.activeWeaponIndex].WeaponType == WeaponType.Melee))
+                {
+                    changeCharacterState(CharacterState.GreatSwordSlash);
+                }
+            }
+             
 
              if ((IsReloading)
                  && (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0))

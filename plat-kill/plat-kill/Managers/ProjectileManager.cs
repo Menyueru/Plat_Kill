@@ -80,19 +80,17 @@ namespace plat_kill.Managers
             this.lastshot = DateTime.Now;
         }
         
-        public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
-        {   
-            Vector3 unitar = camera.transformedReference;
-            unitar.Normalize();
-
-            if(!((HumanPlayer)playerShotted).activeCamera.CamState.Equals(CameraState.FirstPersonCamera))
-                unitar = Vector3.Multiply(unitar, -1);
-
+        public void FireProjectile(Player playerShotted, Vector3 projectileDir) 
+        {
+            ProjectileType pType;
+            if (playerShotted.EquippedWeapons.Count != 0)
+                pType = playerShotted.EquippedWeapons[playerShotted.ActiveWeaponIndex].ProjectileType;
+            else pType = ProjectileType.Bullet;
             Projectile projectile = new Projectile(Interlocked.Increment(ref projectileID), playerShotted.Id, 50f,
                                                        playerShotted.Position + new Vector3(0, playerShotted.CharacterController.Body.Height, 0),
-                                                       unitar, 0, 0.05f, .025f, .025f, .025f, projectileType);
+                                                       projectileDir, 0, 0.05f, .025f, .025f, .025f, pType);
 
-            switch (projectileType)
+            switch (pType)
             {
                 case ProjectileType.Arrow:
                     projectile.Load(game.Content, "Models\\Objects\\AppleGreen");
@@ -106,7 +104,6 @@ namespace plat_kill.Managers
             }
             projectile.Shoot();
             this.projectiles.Add(projectileID, projectile);
-
             this.game.Space.Add(projectile.Body);
             projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
             this.OnShotFired(projectile);
@@ -126,7 +123,9 @@ namespace plat_kill.Managers
                     {
                         if (p.Id == proj.FiredByPlayerID || p.IsDodging) return;
                         Player shooter=game.PlayerManager.GetPlayer(proj.FiredByPlayerID);
-                        float damage = shooter.RangePower + shooter.EquippedWeapons[shooter.ActiveWeaponIndex].WeaponDamage;
+                        float damage = 0;
+                        if(shooter.EquippedWeapons != null)
+                            damage = shooter.RangePower + shooter.EquippedWeapons[shooter.ActiveWeaponIndex].WeaponDamage;
                         float reduction= (damage*((float)p.Defense/100f));
                         p.Health -= (long)(damage - reduction);
                         p.LastHit = shooter.Id;

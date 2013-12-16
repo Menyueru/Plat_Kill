@@ -177,13 +177,13 @@ namespace plat_kill
 
         protected override void Update(GameTime gameTime)
         {
-            space.Update();
+
 
             if(networkManager != null)
             {
                 ProcessNetworkMessages();
             }
-            
+            space.Update();
             gameManager.Update();
 
             playerManager.UpdateAllPlayers(gameTime);
@@ -300,16 +300,29 @@ namespace plat_kill
             spriteBatch.Draw(backBar, backHealthRec, Color.White);
             spriteBatch.Draw(healthTex, healthRec, Color.White);
             spriteBatch.Draw(staminaTex, staminaRec, Color.White);
-            
-            if (playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].WeaponType.Equals(WeaponType.Range))
+            spriteBatch.DrawString(font, "Local Player ID:" + localPlayerId, new Vector2(0,0), Color.White);
+
+            spriteBatch.DrawString(font, "Local PlayerPosition:" + playerManager.GetPlayer(localPlayerId).Position.X + ":::::::" + playerManager.GetPlayer(localPlayerId).Position.Y + ":::::::" + playerManager.GetPlayer(localPlayerId).Position.Z, new Vector2(0, 10), Color.White);
+            if (localPlayerId == 1 && playerManager.GetPlayer(0) != null)
             {
-                spriteBatch.DrawString(font, "Ammo on Weapon : " + playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].LoadedAmmo, new Vector2((GraphicsDevice.Viewport.Width / 2) - 145, (GraphicsDevice.Viewport.Height - 80)), Color.DarkSlateBlue);
-                spriteBatch.DrawString(font, "Ammo on Inventory : " + playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].TotalAmmo, new Vector2((GraphicsDevice.Viewport.Width / 2) - 145, (GraphicsDevice.Viewport.Height - 65)), Color.DarkSlateBlue);
+
+                spriteBatch.DrawString(font, "Remote PlayerPosition:" + playerManager.GetPlayer(0).Position.X + ":::::::" + playerManager.GetPlayer(0).Position.Y + ":::::::" + playerManager.GetPlayer(0).Position.Z, new Vector2(0, 20), Color.White);
             }
-            else if (playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].WeaponType.Equals(WeaponType.Melee))
+            else if (localPlayerId == 0 && playerManager.GetPlayer(1) != null)
+                spriteBatch.DrawString(font, "Remote PlayerPosition:" + playerManager.GetPlayer(1).Position.X + ":::::::" + playerManager.GetPlayer(1).Position.Y + ":::::::" + playerManager.GetPlayer(1).Position.Z, new Vector2(0, 30), Color.White);
+            
+            if (playerManager.GetPlayer(localPlayerId).EquippedWeapons.Count != 0)
             {
-                Rectangle infinityRect = new Rectangle((GraphicsDevice.Viewport.Width / 2) - 130, (GraphicsDevice.Viewport.Height - 80), 90, 40);
-                spriteBatch.Draw(infinity, infinityRect, Color.White);
+                if (playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].WeaponType.Equals(WeaponType.Range))
+                {
+                    spriteBatch.DrawString(font, "Ammo on Weapon : " + playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].LoadedAmmo, new Vector2((GraphicsDevice.Viewport.Width / 2) - 145, (GraphicsDevice.Viewport.Height - 80)), Color.DarkSlateBlue);
+                    spriteBatch.DrawString(font, "Ammo on Inventory : " + playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].TotalAmmo, new Vector2((GraphicsDevice.Viewport.Width / 2) - 145, (GraphicsDevice.Viewport.Height - 65)), Color.DarkSlateBlue);
+                }
+                else if (playerManager.GetPlayer(localPlayerId).EquippedWeapons[playerManager.GetPlayer(localPlayerId).ActiveWeaponIndex].WeaponType.Equals(WeaponType.Melee))
+                {
+                    Rectangle infinityRect = new Rectangle((GraphicsDevice.Viewport.Width / 2) - 130, (GraphicsDevice.Viewport.Height - 80), 90, 40);
+                    spriteBatch.Draw(infinity, infinityRect, Color.White);
+                }
             }
 
             spriteBatch.End();
@@ -352,8 +365,7 @@ namespace plat_kill
 
                                 break;
                             case NetConnectionStatus.Disconnected:
-                                Console.WriteLine(
-                                    this.IsHost ? "{0} Disconnected" : "Disconnected from {0}", im.SenderEndPoint);
+                                Console.WriteLine(this.IsHost ? "{0} Disconnected" : "Disconnected from {0}", im.SenderEndPoint);
                                 break;
                             case NetConnectionStatus.RespondedAwaitingApproval:
                                 NetOutgoingMessage hailMessage = this.networkManager.CreateMessage();
@@ -391,7 +403,7 @@ namespace plat_kill
 
             if (message.FiredById != localPlayerId)
             {
-                this.projectileManager.FireProjectile(ProjectileType.Bullet, playerManager.GetPlayer(message.FiredById));
+                this.projectileManager.FireProjectile(playerManager.GetPlayer(message.FiredById), message.bulletDirection);
             }
 
         }
@@ -414,9 +426,10 @@ namespace plat_kill
                 playerManager.AddPlayer(player);
             }
 
-            player.CharecterState = message.CharacterState;
+            //player.CharecterState = message.CharacterState;
             player.CharacterController.Body.LinearVelocity = message.Velocity;
-            player.Position = message.Position += message.Velocity;
+            player.CharacterController.Body.Position = message.Position;
+            player.Position = message.Position;
             player.Rotation = message.Rotation;
 
         }

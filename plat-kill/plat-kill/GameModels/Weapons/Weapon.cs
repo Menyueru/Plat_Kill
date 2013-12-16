@@ -150,11 +150,6 @@ namespace plat_kill.GameModels.Weapons
             }
         }
 
-        public void DrawOnFloor() 
-        {
-            //TODO
-        }
-
         public void ReloadWeapon(Player player) 
         {
             if(this.WeaponType.Equals(WeaponType.Range))
@@ -181,7 +176,7 @@ namespace plat_kill.GameModels.Weapons
             }
         }
 
-        public void Shoot(ProjectileManager projectileManager, Player playerWhoIsFiring)
+        public void Shoot(ProjectileManager projectileManager, Player playerWhoIsFiring, Vector3 bulletDir)
         {
             if (((lastShot.Add(fireRate)) < DateTime.Now) && ((LastReload.Add(ReloadRate)) < DateTime.Now))
             {
@@ -198,7 +193,7 @@ namespace plat_kill.GameModels.Weapons
                     if (this.loadedAmmo > 0 && !playerWhoIsFiring.IsDodging)
                     {
                         playerWhoIsFiring.IsShooting = true;
-                        projectileManager.FireProjectile(this.projectileType, playerWhoIsFiring);
+                        projectileManager.FireProjectile(playerWhoIsFiring, bulletDir);
                         this.LoadedAmmo -= 1;
                     }
                     else

@@ -125,6 +125,7 @@ namespace plat_kill.Networking.Messages
             om.Write(this.Position);
             om.Write(this.Velocity);
             om.Write(this.Rotation);
+            
         }
 
         #endregion
