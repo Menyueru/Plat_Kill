@@ -34,6 +34,7 @@ namespace plat_kill.GameModels.Players
         public void Update(GameTime gametime)
         {
             base.Update(gametime);
+            UpdateState();
             if (crumb2 == null)
             {
                 Vector3 temp = game.PlayerManager.nextSpawnPoint();
