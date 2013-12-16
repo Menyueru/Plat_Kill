@@ -150,7 +150,9 @@ namespace plat_kill.Managers
                         }
                         else
                         {
-                            players[key].Update(gameTime);
+                            AIPlayer test = players[key] as AIPlayer;
+                            if (test != null) test.Update(gameTime);
+                            else players[key].Update(gameTime);
                         }
                     }
                 }

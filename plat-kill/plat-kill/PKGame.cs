@@ -21,6 +21,7 @@ using Lidgren.Network;
 using plat_kill.Networking.Messages;
 using plat_kill.GameModels.Weapons;
 using plat_kill.Components;
+using plat_kill.GameModels.Players.Helpers.AI;
 
 namespace plat_kill
 {
@@ -50,6 +51,8 @@ namespace plat_kill
         private Terrain map;
         private Space space;
 
+        private World place;
+
         private long localPlayerId;
 
         public ScoreBoard ScoreBoard;
@@ -57,6 +60,12 @@ namespace plat_kill
         #endregion
 
         #region Propierties
+
+        public World Place
+        {
+            get { return place; }
+            set { place = value; }
+        }
 
         private bool IsHost
         {
@@ -148,7 +157,8 @@ namespace plat_kill
                 this.playerManager.PlayerStateChanged += (sender, e) => this.networkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
 
 
-            base.Initialize(); 
+            base.Initialize();
+            place=map.CreateWorld();
 
             if (this.IsHost)
             {

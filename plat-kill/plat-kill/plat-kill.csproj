@@ -156,6 +156,12 @@
     <Compile Include="Events\ShotFiredArgs.cs" />
     <Compile Include="GameModels\AnimatedModel.cs" />
     <Compile Include="GameModels\GameModel.cs" />
+    <Compile Include="GameModels\Players\AIPlayer.cs" />
+    <Compile Include="GameModels\Players\Helpers\AI\BreadCrumb.cs" />
+    <Compile Include="GameModels\Players\Helpers\AI\MinHeap.cs" />
+    <Compile Include="GameModels\Players\Helpers\AI\PathFinder.cs" />
+    <Compile Include="GameModels\Players\Helpers\AI\Point3D.cs" />
+    <Compile Include="GameModels\Players\Helpers\AI\World.cs" />
     <Compile Include="GameModels\Players\Helpers\CharacterController.cs" />
     <Compile Include="GameModels\Players\Helpers\HorizontalMotionConstraint.cs" />
     <Compile Include="GameModels\Players\Helpers\ICharacterTag.cs" />

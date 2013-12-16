@@ -3,6 +3,8 @@ using BEPUutilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using plat_kill.GameModels.Players.Helpers;
+using plat_kill.GameModels.Players.Helpers.AI;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -105,10 +107,82 @@ namespace plat_kill.GameModels
                 verts[i] = vertices[i].Position;
             }
 
-            world = Matrix.CreateTranslation(-Width / 2.0f, 0, Height / 2.0f);
+            world = Matrix.CreateTranslation(0, 0, Height);
             mesh = new StaticMesh(verts, indices, new AffineTransform(world.Translation));
             mesh.ImproveBoundaryBehavior = false;
             mesh.IgnoreShapeChanges = true;
+        }
+
+
+        public World CreateWorld()
+        {
+            World place = new World((Width / 20)+1, 1, (Height / 20)+1);
+
+            for (int x = 0; x < place.Right; x++)
+            {
+                for (int y = 0; y < place.Top; y++)
+                {
+                    for (int z = 0; z < place.Back; z++)
+                    {
+                        BoundingBox box = new BoundingBox(new Vector3(x * 20, minheight+5, z * 20), new Vector3(((x+1) * 20)-1, minheight+25, ((z+1) * 20)-1));
+                        List<BroadPhaseEntry> list = new List<BroadPhaseEntry>(); 
+                        game.Space.BroadPhase.QueryAccelerator.GetEntries(box, list);
+                        Ray ray;
+                        
+                        if (list.Count > 0)
+                        {
+                            for (int k = 0; k<list.Count; k++)
+                            {
+                                StaticMesh temp = list[k] as StaticMesh;
+                                bool found = false;
+                                
+                                if (temp != null)
+                                {
+                                    for (int i = 0; i < 20; i++)
+                                    {
+                                        for (int j = 0; j < 20; j++)
+                                        {
+                                            ray.Position = new Vector3((x * 20)+i, minheight + 5, (z * 20)+j);
+                                            RayHit hit = new RayHit();
+                                            ray.Direction = new Vector3(0, -1, 1);
+                                            bool tempo = temp.RayCast(ray, 3, out hit);
+                                            ray.Direction = new Vector3(1, -1, 1);
+                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
+                                            ray.Direction = new Vector3(1, -1, 0);
+                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
+                                            ray.Direction = new Vector3(0, -1, 0);
+                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
+                                            ray.Direction = new Vector3(-1, -1, 0);
+                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
+                                            ray.Direction = new Vector3(-1, -1, -1);
+                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
+                                            ray.Direction = new Vector3(0, -1, -1);
+                                            if (temp.RayCast(ray, 3, out hit) || tempo)
+                                            {
+                                                place.MarkPosition(new Point3D(x, y, z), true);
+                                                found = true;
+                                                break;
+                                            }
+                                            
+                                        }
+                                        if (found) break;
+
+                                    }
+                                    if (found) break;
+                                }
+                            }
+                        }
+                        //prevent the starting square from being blocked
+                        /*if ((x + y + z) % 3 == 0 && (x + y + z) != 0)
+                        {
+                            place.MarkPosition(new Point3D(x, y, z), true);
+                        }*/
+                    }
+                }
+            }
+
+
+            return place;
         }
 
         /// <summary>
