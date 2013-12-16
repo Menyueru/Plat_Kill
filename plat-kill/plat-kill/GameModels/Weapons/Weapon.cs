@@ -88,7 +88,7 @@ namespace plat_kill.GameModels.Weapons
             this.loadedAmmo = loadedAmmo;
             this.totalAmmo = totalAmmo;
 
-            this.fireRate = new TimeSpan(0, 0, 0, 0, 700);
+            this.fireRate = new TimeSpan(0, 0, 0, 0, (int)fireRate);
             this.lastShot = DateTime.Now;
 
             this.reloadRate = new TimeSpan(0, 0, 0, 2, 0);
@@ -150,9 +150,21 @@ namespace plat_kill.GameModels.Weapons
             }
         }
 
-        public void DrawOnFloor() 
+        public void DrawOnFloor(Vector3 position, Matrix view, Matrix projection) 
         {
-            //TODO
+            Matrix world =  Matrix.CreateTranslation(position);
+
+            foreach (ModelMesh mesh in weaponModel.Meshes)
+            {
+                foreach (BasicEffect effect in mesh.Effects)
+                {
+                    effect.Projection = projection;
+                    effect.View = view;
+                    effect.World = world;
+                    effect.EnableDefaultLighting();
+                }
+                mesh.Draw();
+            }
         }
 
         public void ReloadWeapon(Player player) 

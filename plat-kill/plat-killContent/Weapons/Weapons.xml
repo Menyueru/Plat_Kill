@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<WeaponCollection>
+  <Weapons>
+    <Weapon>
+      <Name>rifle</Name>
+      <WeaponType>Range</WeaponType>
+      <ProjectileType>Bullet</ProjectileType>
+      <WeaponDamage>10</WeaponDamage>
+      <FireRate>700</FireRate>
+      <LoadedAmmo>20</LoadedAmmo>
+      <totalAmmo>100</totalAmmo>
+    </Weapon>
+  <Weapon>
+      <Name>gorehowl</Name>
+      <WeaponType>Melee</WeaponType>
+      <ProjectileType>None</ProjectileType>
+      <WeaponDamage>5</WeaponDamage>
+      <FireRate>0</FireRate>
+      <LoadedAmmo>0</LoadedAmmo>
+      <totalAmmo>0</totalAmmo>
+    </Weapon>
+  <Weapon>
+      <Name>laserRifle</Name>
+      <WeaponType>Range</WeaponType>
+      <ProjectileType>Bullet</ProjectileType>
+      <WeaponDamage>15</WeaponDamage>
+      <FireRate>200</FireRate>
+      <LoadedAmmo>5</LoadedAmmo>
+      <totalAmmo>80</totalAmmo>
+    </Weapon>
+  </Weapons>
+</WeaponCollection>
