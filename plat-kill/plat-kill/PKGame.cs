@@ -180,14 +180,16 @@ namespace plat_kill
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                 chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                 camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
+                if (this.networkManager == null)
+                {
+                    AIPlayer play = new AIPlayer(localPlayerId + 1, gameConfiguration.Health, gameConfiguration.Stamina,
+                                                         gameConfiguration.Defense, gameConfiguration.MeleePower, gameConfiguration.RangePower,
+                                                         gameConfiguration.Speed, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, false, this);
+                    play.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                    play.addWeapon(weaponManager.GetWeapon(0));
 
-                AIPlayer play = new AIPlayer(localPlayerId+1, gameConfiguration.Health, gameConfiguration.Stamina,
-                                                     gameConfiguration.Defense, gameConfiguration.MeleePower, gameConfiguration.RangePower,
-                                                     gameConfiguration.Speed, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, false, this);
-                play.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                play.addWeapon(weaponManager.GetWeapon(0));
-
-                playerManager.AddPlayer(play);
+                    playerManager.AddPlayer(play);
+                }
             }
         }
 
