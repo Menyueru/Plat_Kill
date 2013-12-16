@@ -113,6 +113,8 @@
     <Compile Include="SerializableObjects\DeSerializer.cs" />
     <Compile Include="SerializableObjects\Maps\MapCollection.cs" />
     <Compile Include="SerializableObjects\Maps\MapSeriazable.cs" />
+    <Compile Include="SerializableObjects\Preferences\PreferenceSerializable.cs" />
+    <Compile Include="SerializableObjects\Preferences\PreferenceCollection.cs" />
     <Compile Include="UIComponents\GeneralConfiguration.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,10 +203,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Characters\characters.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Maps\map.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Preferences\preferences.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
@@ -224,6 +229,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

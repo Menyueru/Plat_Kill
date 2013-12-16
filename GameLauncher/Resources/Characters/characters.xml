@@ -8,17 +8,17 @@
       <Stamina>150</Stamina>
       <Health>200</Health>
       <Defense>40</Defense>
-      <Speed>100</Speed>
+      <Speed>30</Speed>
     </Character>
 
     <Character>
       <Name>BlackVincent</Name>
       <MeleePower>100</MeleePower>
       <RangePower>30</RangePower>
-      <Stamina>500</Stamina>
+      <Stamina>300</Stamina>
       <Health>400</Health>
       <Defense>20</Defense>
-      <Speed>300</Speed>
+      <Speed>70</Speed>
     </Character>
 
     <Character>
@@ -28,7 +28,7 @@
       <Stamina>250</Stamina>
       <Health>150</Health>
       <Defense>35</Defense>
-      <Speed>250</Speed>
+      <Speed>35</Speed>
     </Character>
 
     <Character>
@@ -37,8 +37,8 @@
       <RangePower>60</RangePower>
       <Stamina>100</Stamina>
       <Health>500</Health>
-      <Defense>70</Defense>
-      <Speed>175</Speed>
+      <Defense>80</Defense>
+      <Speed>20</Speed>
     </Character>
   </Characters>
 </CharacterCollection>

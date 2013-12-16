@@ -1,4 +1,6 @@
-﻿using GameLauncher.UIComponents;
+﻿using GameLauncher.SerializableObjects;
+using GameLauncher.SerializableObjects.Preferences;
+using GameLauncher.UIComponents;
 using plat_kill;
 using plat_kill.Helpers;
 using plat_kill.Managers;
@@ -76,10 +78,14 @@ namespace GameLauncher
             notifyIcon = new NotifyIcon();
             userControls = new List<UserControl>();
             previousControlsIndexes = new Stack<int>();
+
+            PreferenceCollection pC = DeSerializer.DeserializePreferencesCollection("Resources\\Preferences\\preferences.xml");
+            
             gameConfiguration = new GameConfiguration();
-            gameConfiguration.ResolutionWidth = 680;
-            gameConfiguration.ResolutionHeigth = 420;
-            gameConfiguration.IsFullScreen = false;
+            gameConfiguration.ResolutionWidth = pC.Preferences[0].ResolutionWidth;
+            gameConfiguration.ResolutionHeigth = pC.Preferences[0].ResolutionHeight;
+            gameConfiguration.IsFullScreen = pC.Preferences[0].FullScreen;
+            gameConfiguration.MasterVolume = pC.Preferences[0].MasterVolume;
 
             currentActiveUserControlIndex = 0;
             userControls.Add(new MainScreen(this)); //0
@@ -133,15 +139,16 @@ namespace GameLauncher
             notifyIcon.BalloonTipText = "The Vincents Running!";
             notifyIcon.BalloonTipTitle = "Game On!";
             notifyIcon.BalloonTipIcon = ToolTipIcon.Warning;
-            notifyIcon.ShowBalloonTip(500);
             notifyIcon.MouseDoubleClick += notifyIcon_MouseDoubleClick;
+            notifyIcon.ShowBalloonTip(20000);
             this.WindowState = FormWindowState.Minimized;
             this.Hide();
         }
 
         private void MaximizeFromSystemTray() 
         {
-            this.WindowState = FormWindowState.Normal;
+            notifyIcon.Visible = false;
+            this.WindowState = FormWindowState.Maximized;
             this.Show();
         }
 

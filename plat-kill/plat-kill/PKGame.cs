@@ -106,10 +106,11 @@ namespace plat_kill
             graphics.IsFullScreen = gameConfiguration.IsFullScreen;
             graphics.PreferMultiSampling = false;
 
-
             this.gameManager = gameConfiguration.GameManager;
 
             this.networkManager = gameConfiguration.NetworkManager;
+
+            this.ScoreBoard = new ScoreBoard(4);
 
         }
         #endregion
@@ -143,7 +144,9 @@ namespace plat_kill
             if (this.IsHost)
             {
                 localPlayerId = playerManager.GetCurrentAmountOfPlayers();
-                HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 20, 50, 50, 30, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
+                HumanPlayer player = new HumanPlayer(localPlayerId, gameConfiguration.Health, gameConfiguration.Stamina,
+                                                     gameConfiguration.Defense, gameConfiguration.MeleePower, gameConfiguration.RangePower,
+                                                     gameConfiguration.Speed, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                 player.addWeapon(new Weapon(Content, "Models\\Objects\\rifle", WeaponType.Range, ProjectileType.Bullet, 0f,0f,20,100));
                 player.addWeapon(new Weapon(Content, "Models\\Objects\\gorehowl", WeaponType.Melee, ProjectileType.Bullet, 0f, 0f, 20, 100));
@@ -153,7 +156,6 @@ namespace plat_kill
                 chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                 camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
             }
-
         }
 
         protected override void LoadContent()
@@ -335,8 +337,8 @@ namespace plat_kill
                                 {
                                     var message = new UpdatePlayerStateMessage(im.SenderConnection.RemoteHailMessage);
                                     localPlayerId = message.Id;
-                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f, true, this, camManager.ActiveCamera);
-                                    player.Load(this.Content, "Models\\Characters\\dude", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 10, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
+                                    player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                                     playerManager.AddPlayer(player);
                                     Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                                     chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
@@ -355,8 +357,8 @@ namespace plat_kill
                                 break;
                             case NetConnectionStatus.RespondedAwaitingApproval:
                                 NetOutgoingMessage hailMessage = this.networkManager.CreateMessage();
-                                Player player1 = new Player(playerManager.GetCurrentAmountOfPlayers(), 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 30, 0.15f, 0.15f, 0.15f, false);
-                                player1.Load(this.Content, "Models\\Characters\\dude", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                                Player player1 = new Player(playerManager.GetCurrentAmountOfPlayers(), 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 50, 1f, 1f, 1f, false);
+                                player1.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                                 playerManager.AddPlayer(player1);
                                 new UpdatePlayerStateMessage(player1).Encode(hailMessage);
                                 im.SenderConnection.Approve(hailMessage);
@@ -407,14 +409,14 @@ namespace plat_kill
             }
             else
             {
-                player = new Player(message.Id, 100, 100, 100, 100, 100, 30, 100, message.Position, 5f / 60f, 30, 0.15f, 0.15f, 0.15f, false);
-                player.Load(this.Content, "Models\\Characters\\dude", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                player = new Player(message.Id, 100, 100, 100, 100, 100, 30, 100, message.Position, 5f / 60f, 30, 1f, 1f, 1f, false);
+                player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                 playerManager.AddPlayer(player);
             }
 
             player.CharecterState = message.CharacterState;
             player.CharacterController.Body.LinearVelocity = message.Velocity;
-            player.Position = message.Position += message.Velocity;// *timeDelay;
+            player.Position = message.Position += message.Velocity;
             player.Rotation = message.Rotation;
 
         }

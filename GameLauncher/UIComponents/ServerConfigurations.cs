@@ -27,7 +27,7 @@ namespace GameLauncher.UIComponents
 
         private void goButton_Click(object sender, EventArgs e)
         {
-            if (ipTextBox.Text.Length > 0 && portTextBox.Text.Length > 0)
+            if (ipTextBox.Text.Length > 0)
             {
                 gameLauncher.GameConfiguration.NetworkManager = new ClientNetworkManager(this.ipTextBox.Text);
                 gameLauncher.goToView(gameLauncher.MatchConfigurationScreenIndex);

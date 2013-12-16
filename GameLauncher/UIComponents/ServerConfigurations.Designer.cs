@@ -31,9 +31,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.goButton = new MetroFramework.Controls.MetroButton();
-            this.portTextBox = new MetroFramework.Controls.MetroTextBox();
             this.ipTextBox = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             this.metroToolTip2 = new MetroFramework.Components.MetroToolTip();
@@ -52,9 +50,7 @@
             // metroPanel1
             // 
             this.metroPanel1.Controls.Add(this.goButton);
-            this.metroPanel1.Controls.Add(this.portTextBox);
             this.metroPanel1.Controls.Add(this.ipTextBox);
-            this.metroPanel1.Controls.Add(this.metroLabel3);
             this.metroPanel1.Controls.Add(this.metroLabel2);
             this.metroPanel1.Controls.Add(this.metroLabel1);
             this.metroPanel1.HorizontalScrollbarBarColor = true;
@@ -78,21 +74,6 @@
             this.goButton.UseSelectable = true;
             this.goButton.Click += new System.EventHandler(this.goButton_Click);
             // 
-            // portTextBox
-            // 
-            this.portTextBox.Lines = new string[0];
-            this.portTextBox.Location = new System.Drawing.Point(173, 128);
-            this.portTextBox.MaxLength = 32767;
-            this.portTextBox.Name = "portTextBox";
-            this.portTextBox.PasswordChar = '\0';
-            this.portTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.portTextBox.SelectedText = "";
-            this.portTextBox.Size = new System.Drawing.Size(257, 23);
-            this.portTextBox.TabIndex = 6;
-            this.metroToolTip2.SetToolTip(this.portTextBox, "Ask you friend who is hosting the game for info!");
-            this.metroToolTip1.SetToolTip(this.portTextBox, "Ask you friend who is hosting the game for info!");
-            this.portTextBox.UseSelectable = true;
-            // 
             // ipTextBox
             // 
             this.ipTextBox.Lines = new string[0];
@@ -107,15 +88,6 @@
             this.metroToolTip2.SetToolTip(this.ipTextBox, "Ask you friend who is hosting the game for info!");
             this.metroToolTip1.SetToolTip(this.ipTextBox, "Ask you friend who is hosting the game for info!\r\n");
             this.ipTextBox.UseSelectable = true;
-            // 
-            // metroLabel3
-            // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(92, 128);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(79, 19);
-            this.metroLabel3.TabIndex = 4;
-            this.metroLabel3.Text = "Server Port:";
             // 
             // metroLabel2
             // 
@@ -156,9 +128,7 @@
 
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroTextBox portTextBox;
         private MetroFramework.Controls.MetroTextBox ipTextBox;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Components.MetroToolTip metroToolTip1;
         private MetroFramework.Components.MetroToolTip metroToolTip2;
