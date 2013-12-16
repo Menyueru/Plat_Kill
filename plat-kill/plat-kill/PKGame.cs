@@ -65,7 +65,6 @@ namespace plat_kill
             get { return networkManager; }
             set { networkManager = value; }
         }
-        }
 
         private bool IsHost
         {
@@ -102,7 +101,12 @@ namespace plat_kill
             get { return space; }
             set { space = value; }
         }
-        
+
+        public World Place
+        {
+            get { return place; }
+            set { place = value; }
+        }
         #endregion
 
         #region Constructor
@@ -160,7 +164,7 @@ namespace plat_kill
             }
 
             base.Initialize();
-            place=map.CreateWorld();
+            Place=map.CreateWorld();
 
             if (this.IsHost)
             {

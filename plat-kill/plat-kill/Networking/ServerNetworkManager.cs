@@ -29,8 +29,9 @@ namespace plat_kill.Networking
         /// <summary>
         /// The connect.
         /// </summary>
-        public void Connect(SendOrPostCallback method)
+        public void Connect()
         {
+           
             var config = new NetPeerConfiguration("plat-kill")
                 {
                     Port = Convert.ToInt32("14242"), 
@@ -47,7 +48,7 @@ namespace plat_kill.Networking
             this.netServer = new NetServer(config);
             this.netServer.Start();
 
-            netServer.RegisterReceivedCallback(method);
+            //netServer.RegisterReceivedCallback(method);
         }
 
         /// <summary>
