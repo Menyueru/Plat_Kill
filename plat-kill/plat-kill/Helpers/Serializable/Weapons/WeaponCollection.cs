@@ -8,7 +8,7 @@ namespace plat_kill.Helpers.Serializable.Weapons
 {
     [Serializable()]
     [XmlRoot("WeaponCollection")]
-    class WeaponCollection
+    public class WeaponCollection
     {
         [XmlArray("Weapons")]
         [XmlArrayItem("Weapon", typeof(SerializableWeapon))]

@@ -71,7 +71,7 @@ namespace plat_kill.Managers
 
         private void ContactCreated(EntityCollidable sender, Collidable other, CollidablePairHandler pair, ContactData contact)
         {
-            Box weapon = sender.Entity.Tag as Box;
+            Box weapon = sender.Entity as Box;
             if (weapon != null)
             {
                 var otherEntityInformation = other as EntityCollidable;
@@ -80,7 +80,7 @@ namespace plat_kill.Managers
                     Player p = otherEntityInformation.Entity.Tag as Player;
                     if (p != null)
                     {
-                        p.addWeapon(pickupWeapon((long)weapon.Tag));
+                        p.addWeapon(pickupWeapon(Convert.ToInt64(weapon.Tag)));
                     }
                 }
             }
@@ -104,7 +104,7 @@ namespace plat_kill.Managers
 
         private Weapon createWeapon(SerializableWeapon weapon)
         {
-            return new Weapon(game.Content, weapon.modelPath, weapon.weaponType, weapon.projectileType, weapon.weaponDamage, weapon.fireRate, weapon.loadedAmmo, weapon.totalAmmo);
+            return new Weapon(game.Content, weapon.modelPath,"Models\\Objects\\"+weapon.modelPath, weapon.weaponType, weapon.projectileType, weapon.weaponDamage, weapon.fireRate, weapon.loadedAmmo, weapon.totalAmmo);
         }
 
         private WeaponCollection DeserializeCharacterCollection(string xmlPath)

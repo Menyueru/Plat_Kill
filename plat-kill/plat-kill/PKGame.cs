@@ -157,8 +157,8 @@ namespace plat_kill
                                                      gameConfiguration.Defense, gameConfiguration.MeleePower, gameConfiguration.RangePower,
                                                      gameConfiguration.Speed, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
                 player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\rifle", WeaponType.Range, ProjectileType.Bullet, 10f,700f,20,100));
-                player.addWeapon(new Weapon(Content, "Models\\Objects\\gorehowl", WeaponType.Melee, ProjectileType.None, 0f, 0f, 20, 100));
+                player.addWeapon(new Weapon(Content, "rifle","Models\\Objects\\rifle", WeaponType.Range, ProjectileType.Bullet, 10f,700f,20,100));
+                player.addWeapon(new Weapon(Content, "gorehowl", "Models\\Objects\\gorehowl", WeaponType.Melee, ProjectileType.None, 0f, 0f, 20, 100));
                 playerManager.AddPlayer(player);
 
                 Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
@@ -219,12 +219,11 @@ namespace plat_kill
 
             skyBox.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
             map.Draw(graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);          
             playerManager.DrawAllPlayers(gameTime, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-
-            DrawUIComponents();
-
             weaponManager.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+            DrawUIComponents();
+            
 
             base.Draw(gameTime);
 

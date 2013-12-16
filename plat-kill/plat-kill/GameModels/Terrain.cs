@@ -175,7 +175,7 @@ namespace plat_kill.GameModels
                         Vector3 Position = ParseVector3(entityAttributes["Position"].InnerText);
                         SpawnPoints.Add(Position);
                     }
-                    game.PlayerManager.SpawnPoints = SpawnPoints;
+                    game.WeaponManager.SpawnPoints = SpawnPoints;
                 }
                 else if (node.Name == "Terrain")
                 {

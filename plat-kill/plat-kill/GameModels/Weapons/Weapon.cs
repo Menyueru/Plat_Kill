@@ -19,6 +19,7 @@ namespace plat_kill.GameModels.Weapons
         private WeaponType weaponType;
         private ProjectileType projectileType;
 
+        private string name;
         private int loadedAmmo;
         private int totalAmmo;
         private float weaponDamage;
@@ -39,6 +40,12 @@ namespace plat_kill.GameModels.Weapons
         {
             get { return lastReload; }
             set { lastReload = value; }
+        }
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
         }
         public TimeSpan ReloadRate
         {
@@ -77,10 +84,11 @@ namespace plat_kill.GameModels.Weapons
         }
         #endregion
 
-        public Weapon(ContentManager content, string modelPath, WeaponType weaponType,
+        public Weapon(ContentManager content,string name, string modelPath, WeaponType weaponType,
                       ProjectileType projectileType, float weaponDamage, float fireRate,
                       int loadedAmmo, int totalAmmo) 
         {
+            this.name = name;
             this.weaponModel = LoadContent(content, modelPath);
             this.weaponType = weaponType;
             this.projectileType = projectileType;

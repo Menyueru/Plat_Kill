@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace plat_kill.Helpers.Serializable.Weapons
 {
     [Serializable()]
-    class SerializableWeapon
+    public class SerializableWeapon
     {
         [XmlElement("Name")]
         public string modelPath { get; set; }

@@ -397,8 +397,20 @@ namespace plat_kill.GameModels.Players
 
         public void addWeapon(Weapon weapon)
         {
-            this.EquippedWeapons.Add(weapon);
-            this.activeWeaponIndex = equippedWeapons.Count - 1;
+            bool hasWeapon = false;
+            for (int i = 0; i < equippedWeapons.Count; i++)
+            {
+                if (weapon.Name.Equals(equippedWeapons[i].Name))
+                {
+                    equippedWeapons[i].TotalAmmo += weapon.TotalAmmo;
+                    hasWeapon = true;
+                }
+            }
+            if (!hasWeapon)
+            {
+                this.EquippedWeapons.Add(weapon);
+                this.activeWeaponIndex = equippedWeapons.Count - 1;
+            }
         }
 
         public void changeToNextWeapon() 
