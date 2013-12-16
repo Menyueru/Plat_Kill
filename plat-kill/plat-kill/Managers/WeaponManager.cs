@@ -59,7 +59,8 @@ namespace plat_kill.Managers
 
         public void Update()
         {
-            if (game.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)))
+
+            if (game.NetworkManager == null || game.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)))
             {
                 if (LastWeaponReload.Add(ReloadWeapons) < DateTime.Now)
                 {

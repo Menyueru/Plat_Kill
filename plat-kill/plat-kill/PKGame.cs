@@ -164,7 +164,7 @@ namespace plat_kill
             }
 
             base.Initialize();
-            Place=map.CreateWorld();
+            Place = map.CreateWorld();
 
             if (this.IsHost)
             {
