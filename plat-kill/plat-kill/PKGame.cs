@@ -21,6 +21,7 @@ using Lidgren.Network;
 using plat_kill.Networking.Messages;
 using plat_kill.GameModels.Weapons;
 using plat_kill.Components;
+using plat_kill.GameModels.Players.Helpers.AI;
 
 namespace plat_kill
 {
@@ -50,6 +51,8 @@ namespace plat_kill
         private Terrain map;
         private Space space;
 
+        private World place;
+
         private long localPlayerId;
 
         public ScoreBoard ScoreBoard;
@@ -62,6 +65,8 @@ namespace plat_kill
             get { return networkManager; }
             set { networkManager = value; }
         }
+        }
+
         private bool IsHost
         {
             get
@@ -154,7 +159,8 @@ namespace plat_kill
                 //this.weaponManager.WeaponHasBeenLooted += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.));
             }
 
-            base.Initialize(); 
+            base.Initialize();
+            place=map.CreateWorld();
 
             if (this.IsHost)
             {

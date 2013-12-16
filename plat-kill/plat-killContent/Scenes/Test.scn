@@ -1,7 +1,7 @@
 <Scene>
   <SceneObjects>
-    <SceneObject Name="HouseBricksThin" AssetPath="Models\Maps\Objects\HouseBricksThin" GroupPath="Objects" Position="0 0 -100.554" Rotation="0 0 0 1" Scale="0.05 0.05 0.05"  />
-    <SceneObject Name="HouseBricksThin_1" AssetPath="Models\Maps\Objects\HouseBricksThin" GroupPath="Objects" Position="54.325 0 -116.833" Rotation="0 -0.6946585 0 0.7193398" Scale="0.05 0.05 0.05"  />
+    <SceneObject Name="HouseBricksThin" AssetPath="Models\Maps\Objects\HouseBricksThin" GroupPath="Objects" Position="300 0 100.554" Rotation="0 0 0 1" Scale="0.05 0.05 0.05"  />
+    <SceneObject Name="HouseBricksThin_1" AssetPath="Models\Maps\Objects\HouseBricksThin" GroupPath="Objects" Position="154.325 0 216.833" Rotation="0 -0.6946585 0 0.7193398" Scale="0.05 0.05 0.05"  />
   </SceneObjects>
   <Terrain Path="Models\Maps\heightmap"  CellSize="10" MaxHeight="512">
     <Materials>
@@ -24,15 +24,15 @@
     </Materials>
   </Terrain>
   <SpawnPoints>
-    <Point Name="1" Position="55 20 0"/>
-    <Point Name="2" Position="20 20 10"/>
-    <Point Name="3" Position="30 20 51"/>
-    <Point Name="4" Position="50 20 -10"/>
+    <Point Name="1" Position="55 20 55"/>
+    <Point Name="2" Position="120 20 21"/>
+    <Point Name="3" Position="30 20 151"/>
+    <Point Name="4" Position="50 20 349"/>
   </SpawnPoints>
   <WeaponPoints>
-    <Point Name="1" Position="70 12 0"/>
-    <Point Name="2" Position="33 12 40"/>
-    <Point Name="3" Position="35 12 200"/>
-    <Point Name="4" Position="108 12 200"/>
+    <Point Name="1" Position="270 12 400"/>
+    <Point Name="2" Position="33 12 140"/>
+    <Point Name="3" Position="435 12 200"/>
+    <Point Name="4" Position="308 12 200"/>
   </WeaponPoints>
 </Scene>

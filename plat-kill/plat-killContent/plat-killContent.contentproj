@@ -285,7 +285,7 @@
     </Compile>
     <Content Include="Scenes\Test.scn">
       <Name>Test</Name>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <Importer>EngineXmlImporter</Importer>
       <Processor>PassThroughProcessor</Processor>
     </Content>
