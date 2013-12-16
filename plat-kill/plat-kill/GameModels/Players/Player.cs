@@ -436,7 +436,7 @@ namespace plat_kill.GameModels.Players
                         runAnimationController(ModelAnimator, StandardWalk);
                         break;
                     case CharacterState.Running:
-                        runAnimationController(ModelAnimator, RifleWalk);
+                        runAnimationController(ModelAnimator, Running);
                         break;
                     case CharacterState.RifleIdle:
                         runAnimationController(ModelAnimator, RifleIdle);
@@ -537,25 +537,26 @@ namespace plat_kill.GameModels.Players
 
              if (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0 
                  && CharacterController.HorizontalMotionConstraint.Speed <= speed
-                 && (this.EquippedWeapons[this.activeWeaponIndex].TotalAmmo <= 0))
+                 && (this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Melee)))
              {
                  changeCharacterState(CharacterState.StandardWalk);
              }
              else if (CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0
-                  && CharacterController.HorizontalMotionConstraint.Speed > speed 
-                  && (this.EquippedWeapons[this.activeWeaponIndex].TotalAmmo <= 0))
+                  && CharacterController.HorizontalMotionConstraint.Speed > speed
+                  && (this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Melee)))
              {
                  changeCharacterState(CharacterState.Running);
              }
-             else if ((CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0) 
-                    && CharacterController.HorizontalMotionConstraint.Speed <= speed 
-                    && (this.EquippedWeapons[this.activeWeaponIndex].TotalAmmo > 0))
+             
+            else if ((CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0) 
+                    && CharacterController.HorizontalMotionConstraint.Speed <= speed
+                    && (this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Range)))
              {
                  changeCharacterState(CharacterState.RifleWalk);
              }
              else if ((CharacterController.HorizontalMotionConstraint.MovementDirection.LengthSquared() > 0)
                 && CharacterController.HorizontalMotionConstraint.Speed > speed
-                && (this.EquippedWeapons[this.activeWeaponIndex].TotalAmmo > 0))
+                && (this.EquippedWeapons[this.activeWeaponIndex].WeaponType.Equals(WeaponType.Range)))
              {
                  changeCharacterState(CharacterState.RifleRun);
              }

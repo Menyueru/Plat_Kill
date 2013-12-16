@@ -281,7 +281,7 @@ namespace plat_kill.GameModels
             {
                modelRotationModifier.Y = 100;
             }
-            else if((CharecterState == CharacterState.RifleRun) && (MovementCurrentDirection.X > 0))
+            else if((CharecterState == CharacterState.RifleRun || CharecterState == CharacterState.Running) && (MovementCurrentDirection.X > 0))
             {
                 modelRotationModifier.Y = 100;
             }

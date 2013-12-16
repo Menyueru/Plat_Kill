@@ -11,6 +11,7 @@ using plat_kill.Managers;
 using GameLauncher.SerializableObjects;
 using GameLauncher.SerializableObjects.Maps;
 using GameLauncher.SerializableObjects.Characters;
+using GameLauncher.SerializableObjects.Preferences;
 
 
 namespace GameLauncher.UIComponents
@@ -79,9 +80,10 @@ namespace GameLauncher.UIComponents
 
             gameLauncher.GameConfiguration.MeleePower = charCollection.Characters[charCollectionCurrentIndex].MeleePower;
             gameLauncher.GameConfiguration.RangePower = charCollection.Characters[charCollectionCurrentIndex].RangePower;
-            gameLauncher.GameConfiguration.Speed = charCollection.Characters[charCollectionCurrentIndex].Speed;
             gameLauncher.GameConfiguration.Health = charCollection.Characters[charCollectionCurrentIndex].Health;
             gameLauncher.GameConfiguration.Defense = charCollection.Characters[charCollectionCurrentIndex].Defense;
+            gameLauncher.GameConfiguration.Stamina = charCollection.Characters[charCollectionCurrentIndex].Stamina;
+            gameLauncher.GameConfiguration.Speed = charCollection.Characters[charCollectionCurrentIndex].Speed;
         }
 
         private void NextCharacter()
@@ -113,11 +115,6 @@ namespace GameLauncher.UIComponents
         private void goTile_Click(object sender, EventArgs e)
         {
             gameLauncher.GameConfiguration.GameManager = new TimeMatch(new TimeSpan(0, 10, 0));
-            gameLauncher.GameConfiguration.Health = 100;
-            gameLauncher.GameConfiguration.Stamina = 100;
-            gameLauncher.GameConfiguration.MeleePower = 100;
-            gameLauncher.GameConfiguration.RangePower = 100;
-            gameLauncher.GameConfiguration.Speed = 100;
 
             gameLauncher.GameConfiguration.NumberOfCPUPlayers = Convert.ToInt32(numEnemiesLabel.Text);
             

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PreferenceCollection>
+  <Preferences>
+    <Preference>
+      <MasterVolume>0</MasterVolume>
+      <Fullscreen>false</Fullscreen>
+      <ResolutionWidth>1366</ResolutionWidth>
+      <ResolutionHeigth>768</ResolutionHeigth>
+    </Preference>
+  </Preferences>
+</PreferenceCollection>

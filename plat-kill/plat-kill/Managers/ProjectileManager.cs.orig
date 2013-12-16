@@ -81,7 +81,12 @@ namespace plat_kill.Managers
         }
         
         public void FireProjectile(ProjectileType projectileType, Player playerShotted) 
+<<<<<<< HEAD
         {   
+=======
+        {
+            
+>>>>>>> 144a4093bb810ee68ed760a333a293427656280c
             Vector3 unitar = camera.transformedReference;
             unitar.Normalize();
 

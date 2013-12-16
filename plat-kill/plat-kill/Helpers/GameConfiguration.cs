@@ -16,13 +16,14 @@ namespace plat_kill.Helpers
 
         private Maps map;
         private Character character;
-        private double health;
-        private double stamina;
-        private double defense;
-        private double meleePower;
-        private double rangePower;
-        private double speed;
+        private long health;
+        private long stamina;
+        private long defense;
+        private long meleePower;
+        private long rangePower;
+        private long speed;
 
+        private int masterVolume;
         private int resolutionWidth;
         private int resolutionHeigth;
         private bool isFullScreen;
@@ -30,32 +31,37 @@ namespace plat_kill.Helpers
         #endregion
 
         #region Propierties
-        public double Speed
+        public int MasterVolume
+        {
+            get { return masterVolume; }
+            set { masterVolume = value; }
+        }
+        public long Speed
         {
             get { return speed; }
             set { speed = value; }
         }
-        public double Health
+        public long Health
         {
             get { return health; }
             set { health = value; }
         }
-        public double Stamina
+        public long Stamina
         {
             get { return stamina; }
             set { stamina = value; }
         }
-        public double Defense
+        public long Defense
         {
             get { return defense; }
             set { defense = value; }
         }
-        public double MeleePower
+        public long MeleePower
         {
             get { return meleePower; }
             set { meleePower = value; }
         }
-        public double RangePower
+        public long RangePower
         {
             get { return rangePower; }
             set { rangePower = value; }
@@ -109,7 +115,12 @@ namespace plat_kill.Helpers
 
         public GameConfiguration() 
         {
-
+            this.health = 0;
+            this.defense = 0;
+            this.speed = 0;
+            this.stamina = 0;
+            this.meleePower = 0;
+            this.rangePower = 0;
         }
     }
 }
