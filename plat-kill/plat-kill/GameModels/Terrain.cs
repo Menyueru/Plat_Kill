@@ -1,4 +1,6 @@
 ﻿using BEPUphysics.BroadPhaseEntries;
+using BEPUphysics.Entities.Prefabs;
+using BEPUphysics.NarrowPhaseSystems;
 using BEPUutilities;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -116,7 +118,8 @@ namespace plat_kill.GameModels
 
         public World CreateWorld()
         {
-            World place = new World((Width / 20)+1, 1, (Height / 20)+1);
+            int conver = Point3D.vectortrans;
+            World place = new World((Width / conver)+1, 1, (Height / conver)+1);
 
             for (int x = 0; x < place.Right; x++)
             {
@@ -124,7 +127,7 @@ namespace plat_kill.GameModels
                 {
                     for (int z = 0; z < place.Back; z++)
                     {
-                        BoundingBox box = new BoundingBox(new Vector3(x * 20, minheight+5, z * 20), new Vector3(((x+1) * 20)-1, minheight+25, ((z+1) * 20)-1));
+                        BoundingBox box = new BoundingBox(new Vector3(x * conver, minheight+5, z * conver), new Vector3(((x+1) * conver)-1, minheight+25, ((z+1) * conver)-1));
                         List<BroadPhaseEntry> list = new List<BroadPhaseEntry>(); 
                         game.Space.BroadPhase.QueryAccelerator.GetEntries(box, list);
                         Ray ray;
@@ -134,42 +137,21 @@ namespace plat_kill.GameModels
                             for (int k = 0; k<list.Count; k++)
                             {
                                 StaticMesh temp = list[k] as StaticMesh;
-                                bool found = false;
-                                
-                                if (temp != null)
-                                {
-                                    for (int i = 0; i < 20; i++)
-                                    {
-                                        for (int j = 0; j < 20; j++)
-                                        {
-                                            ray.Position = new Vector3((x * 20)+i, minheight + 5, (z * 20)+j);
-                                            RayHit hit = new RayHit();
-                                            ray.Direction = new Vector3(0, -1, 1);
-                                            bool tempo = temp.RayCast(ray, 3, out hit);
-                                            ray.Direction = new Vector3(1, -1, 1);
-                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
-                                            ray.Direction = new Vector3(1, -1, 0);
-                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
-                                            ray.Direction = new Vector3(0, -1, 0);
-                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
-                                            ray.Direction = new Vector3(-1, -1, 0);
-                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
-                                            ray.Direction = new Vector3(-1, -1, -1);
-                                            tempo = temp.RayCast(ray, 3, out hit) || tempo;
-                                            ray.Direction = new Vector3(0, -1, -1);
-                                            if (temp.RayCast(ray, 3, out hit) || tempo)
-                                            {
-                                                place.MarkPosition(new Point3D(x, y, z), true);
-                                                found = true;
-                                                break;
-                                            }
-                                            
-                                        }
-                                        if (found) break;
+                                var pair = new CollidablePair(temp, new Box(new Vector3(x * conver, minheight+5, z * conver),conver, 25, conver).CollisionInformation);
+                                var pairHandler = NarrowPhaseHelper.GetPairHandler(ref pair);
+                                pairHandler.SuppressEvents = true;
+                                pairHandler.UpdateCollision(0);
+                                pairHandler.SuppressEvents = false;
 
-                                    }
-                                    if (found) break;
+                                if (pairHandler.Colliding)
+                                {
+                                    place.MarkPosition(new Point3D(x, y, z), true);
+                                    break;
                                 }
+
+                                pairHandler.CleanUp();
+                                pairHandler.Factory.GiveBack(pairHandler);
+                                
                             }
                         }
                         //prevent the starting square from being blocked
