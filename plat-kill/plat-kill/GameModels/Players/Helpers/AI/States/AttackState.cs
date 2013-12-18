@@ -10,11 +10,23 @@ namespace plat_kill.GameModels.Players.Helpers.AI.States
     {
         public void Start(AIPlayer bot)
         {
-
+            long MAXID= 0;
+            float MAX=0;
+            foreach(var weapon in bot.EquippedWeapons)
+            {
+                if (weapon.LoadedAmmo > 0 && weapon.WeaponType!= Weapons.WeaponType.Melee)
+                {
+                    MAX = Math.Max(MAX, weapon.WeaponDamage);
+                    if (MAX == weapon.WeaponDamage)
+                        MAXID = weapon.WeaponID;
+                }
+            }
+            bot.ActiveWeaponIndex =(int) MAXID;
         }
 
         public void Update(AIPlayer bot)
         {
+            if (bot.EquippedWeapons[bot.ActiveWeaponIndex].LoadedAmmo > 0) this.Start(bot);
             if (!bot.Target.IsDead)
             {
                 Vector3 dir = bot.Target.Position - bot.Position;
