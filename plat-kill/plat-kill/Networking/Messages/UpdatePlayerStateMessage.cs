@@ -51,6 +51,8 @@ namespace plat_kill.Networking.Messages
             {
                this.CurrentWeaponID = player.EquippedWeapons[player.ActiveWeaponIndex].WeaponID;
             }
+
+            this.Health = player.Health;
         }
 
         #endregion
@@ -105,6 +107,11 @@ namespace plat_kill.Networking.Messages
         /// </summary>
         public long CurrentWeaponID { get; set; }
 
+        /// <summary>
+        /// Gets or sets CurrentWeaponID
+        /// </summary>
+        public long Health { get; set; }
+
         #endregion
 
         #region Public Methods and Operators
@@ -124,6 +131,7 @@ namespace plat_kill.Networking.Messages
             this.Rotation = im.ReadVector3(); 
             this.CharState = (CharacterState)Enum.Parse(typeof(CharacterState), im.ReadString());
             this.CurrentWeaponID = im.ReadInt64();
+            this.Health = im.ReadInt64();
         }
 
         /// <summary>
@@ -141,6 +149,7 @@ namespace plat_kill.Networking.Messages
             om.Write(this.Rotation);
             om.Write(this.CharState.ToString());
             om.Write(this.CurrentWeaponID);
+            om.Write(this.Health);
             
         }
 

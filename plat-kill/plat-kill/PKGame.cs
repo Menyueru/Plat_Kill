@@ -22,6 +22,7 @@ using plat_kill.Networking.Messages;
 using plat_kill.GameModels.Weapons;
 using plat_kill.Components;
 using plat_kill.GameModels.Players.Helpers.AI;
+using BEPUphysics.Entities.Prefabs;
 
 namespace plat_kill
 {
@@ -159,7 +160,7 @@ namespace plat_kill
             {
                 this.projectileManager.ShotFired += (sender, e) => this.NetworkManager.SendMessage(new ShotFiredMessage(e.Shot));
                 this.playerManager.PlayerStateChanged += (sender, e) => this.NetworkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
-                this.weaponManager.WeaponHasBeenCreated += (sender, e) => this.NetworkManager.SendMessage(new WeaponCreatedMessage(e.Weapon));
+                //this.weaponManager.WeaponHasBeenCreated += (sender, e) => this.NetworkManager.SendMessage(new WeaponCreatedMessage(e.Weapon));
                 //this.weaponManager.WeaponHasBeenLooted += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.));
             }
 
@@ -337,18 +338,16 @@ namespace plat_kill
             spriteBatch.Draw(backBar, backHealthRec, Color.White);
             spriteBatch.Draw(healthTex, healthRec, Color.White);
             spriteBatch.Draw(staminaTex, staminaRec, Color.White);
-            spriteBatch.DrawString(font, "Local Player ID:" + localPlayerId, new Vector2(0,0), Color.White);
-
-            spriteBatch.DrawString(font, "Local PlayerPosition:" + playerManager.GetPlayer(localPlayerId).Position.X + ":::::::" + playerManager.GetPlayer(localPlayerId).Position.Y + ":::::::" + playerManager.GetPlayer(localPlayerId).Position.Z, new Vector2(0, 10), Color.White);
-            if (localPlayerId == 1 && playerManager.GetPlayer(0) != null)
+            
+            
+            int y = 10;
+            for (int i = 0; i < weaponManager.ActiveWeapons.Count+1; i++ )
             {
-
-                spriteBatch.DrawString(font, "Remote PlayerPosition:" + playerManager.GetPlayer(0).Position.X + ":::::::" + playerManager.GetPlayer(0).Position.Y + ":::::::" + playerManager.GetPlayer(0).Position.Z, new Vector2(0, 20), Color.White);
+                if (weaponManager.ActiveWeapons.ContainsKey(i))
+                    spriteBatch.DrawString(font, "Weapon Key:" + i + "::" + weaponManager.ActiveWeapons[i].Item1.Name + "::Tag-" + weaponManager.ActiveWeapons[i].Item2.Tag, new Vector2(0, y * i), Color.White);
             }
-            else if (localPlayerId == 0 && playerManager.GetPlayer(1) != null)
-                spriteBatch.DrawString(font, "Remote PlayerPosition:" + playerManager.GetPlayer(1).Position.X + ":::::::" + playerManager.GetPlayer(1).Position.Y + ":::::::" + playerManager.GetPlayer(1).Position.Z, new Vector2(0, 30), Color.White);
-
-            spriteBatch.DrawString(font, "Weapons: " + weaponManager.ActiveWeapons.Count, new Vector2(0, 40), Color.White);
+            spriteBatch.DrawString(font, "Weapons: " + weaponManager.ActiveWeapons.Count, new Vector2(0, 100), Color.White);
+            
             
             if (playerManager.GetPlayer(localPlayerId).EquippedWeapons.Count != 0)
             {
@@ -365,42 +364,6 @@ namespace plat_kill
             }
 
             spriteBatch.End();
-        }
-
-        private void ManageServerNetwork(object state) 
-        {
-            NetIncomingMessage incmsg;
-            NetOutgoingMessage outmsg;
-
-            while((incmsg = networkManager.ReadMessage()) != null)
-            {
-                switch(incmsg.MessageType)
-                {
-                    case NetIncomingMessageType.ConnectionApproval:
-                        incmsg.SenderConnection.Approve();
-
-                        Player newRemotePlayer;
-
-                        outmsg = networkManager.CreateMessage();
-                        //new UpdatePlayerStateMessage(newRemotePlayer).Encode(outmsg);
-
-                        break;
-                    case NetIncomingMessageType.Data:
-                        var gameMessageType = (GameMessageTypes)incmsg.ReadByte();
-                        switch(gameMessageType)
-                        {
-                                //Client Requested For X
-                            case GameMessageTypes.UpdatePlayerState:
-                                break;
-                            case GameMessageTypes.ShotFired:
-                                break;
-                            case GameMessageTypes.WeaponStateChange:
-                                break;
-                        }
-                        
-                        break;
-                }
-            }
         }
 
         private void ProcessNetworkMessages()
@@ -456,16 +419,9 @@ namespace plat_kill
                                 new UpdatePlayerStateMessage(player1).Encode(hailMessage);
                                 im.SenderConnection.Approve(hailMessage);
                                 
-
-                                //Sending Weapons To Client
-                                foreach (var temp in weaponManager.ActiveWeapons)
-                                {
-                                    NetOutgoingMessage message = this.networkManager.CreateMessage();
-                                    new WeaponCreatedMessage(temp.Value.Item1).Encode(message);
-                                    im.SenderConnection.SendMessage(message,NetDeliveryMethod.UnreliableSequenced,0);
-                                   
-                                }
-
+                                var mess = new WeaponUpdateMessage(weaponManager.ActiveWeapons);
+                                networkManager.SendMessage(mess);
+                                ((ServerNetworkManager)networkManager).SendMessageToSingleClient(mess, im.SenderConnection);
                                 break;
                         }
 
@@ -487,7 +443,15 @@ namespace plat_kill
 
                         break;
                 }
-
+                if (networkManager.GetType().Equals(typeof(ServerNetworkManager))) 
+                {
+                    if (this.weaponManager.newWeaponsHaveBeenAdded) 
+                    {
+                        this.weaponManager.newWeaponsHaveBeenAdded = false;
+                        var mess = new WeaponUpdateMessage(weaponManager.ActiveWeapons);
+                    }     
+                }
+                    
                 this.NetworkManager.Recycle(im);
             }
         }
@@ -524,21 +488,28 @@ namespace plat_kill
             player.CharacterController.Body.Position = message.Position;
             player.Position = message.Position;
             player.Rotation = message.Rotation;
-            player.addWeapon(weaponManager.GetWeapon((int)message.CurrentWeaponID));
+            player.addWeapon(weaponManager.GetWeapon(message.CurrentWeaponID));
+            player.Health = message.Health;
+
 
         }
 
         private void HandleWeaponStateMessage(NetIncomingMessage im) 
         {
-            var message = new WeaponCreatedMessage(im);
-
-            if(message.WasCreated)
+            var message = new WeaponUpdateMessage(im);
+            
+            if(message.activeWeapons != null && message.activeWeapons.Count > 0)
             {
-                weaponManager.AddWeapon(message.WeaponPosition, message.WeaponID);
-            }
-            else if(!message.WasCreated)
-            {
-                weaponManager.pickupWeapon(message.WeaponID);
+                Dictionary<long, Tuple<Weapon, Box>> tempDic = new Dictionary<long,Tuple<Weapon,Box>>();
+                
+                foreach(var element in message.activeWeapons)
+                {
+                    Console.WriteLine(element.Key);
+                    Box box = new Box(new Vector3(element.Value.Item2.PosX, element.Value.Item2.PosY, element.Value.Item2.PosZ), element.Value.Item2.Width, element.Value.Item2.Heigth, element.Value.Item2.Width);
+                    box.Tag = element.Value.Item2.Tag;
+                    tempDic.Add(element.Key, new Tuple<Weapon, Box>(weaponManager.GetWeapon(element.Value.Item1, box), box));
+                }
+                weaponManager.ActiveWeapons = tempDic;
             }
         }
 

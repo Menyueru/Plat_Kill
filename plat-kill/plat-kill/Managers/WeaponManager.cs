@@ -22,9 +22,6 @@ namespace plat_kill.Managers
 {
     public class WeaponManager
     {
-        public event EventHandler<WeaponHasBeenCreated> WeaponHasBeenCreated;
-//        public event EventHandler<WeaponHasBeenLooted> WeaponHasBeenLooted;
-
         private Dictionary<long, Tuple<Weapon, Box>> activeWeapons;
 
         public Dictionary<long, Tuple<Weapon, Box>> ActiveWeapons
@@ -36,6 +33,10 @@ namespace plat_kill.Managers
         private List<Vector3> spawnPoints;
         private TimeSpan ReloadWeapons;
         private DateTime LastWeaponReload;
+
+        public bool newWeaponsHaveBeenAdded{get; set;}
+        public int MaxWeapons { get; set; }
+
         private PKGame game;
 
         public List<Vector3> SpawnPoints
@@ -47,6 +48,7 @@ namespace plat_kill.Managers
         {
             this.game = game;
             this.differentWeapons = DeserializeCharacterCollection("Content\\Weapons\\Weapons.xml").Weapons;
+            this.MaxWeapons = differentWeapons.Length;
             this.ReloadWeapons = new TimeSpan(0,0,5);
             this.spawnPoints = new List<Vector3>();
             this.activeWeapons = new Dictionary<long, Tuple<Weapon, Box>>();
@@ -81,7 +83,7 @@ namespace plat_kill.Managers
                             game.Space.Add(ActiveWeapons[i].Item2);
                         }
                     }
-
+                    this.newWeaponsHaveBeenAdded = true;
                     ReloadWeapons = new TimeSpan(0, 0, randomizer.Next(20, 61));
                     LastWeaponReload = DateTime.Now;
                 }
@@ -99,7 +101,9 @@ namespace plat_kill.Managers
                     Player p = otherEntityInformation.Entity.Tag as Player;
                     if (p != null)
                     {
-                        p.addWeapon(pickupWeapon(Convert.ToInt64(weapon.Tag)));
+                        Weapon w = pickupWeapon(Convert.ToInt64(weapon.Tag));
+                        if(w != null)
+                            p.addWeapon(w);
                     }
                 }
             }
@@ -115,25 +119,32 @@ namespace plat_kill.Managers
 
         public Weapon pickupWeapon(long weapon)
         {
-            var temp = ActiveWeapons[weapon];
-            ActiveWeapons.Remove(weapon);
-            game.Space.Remove(temp.Item2);
-            return temp.Item1;
+            if (activeWeapons.ContainsKey(weapon))
+            {
+                var temp = ActiveWeapons[weapon];
+                ActiveWeapons.Remove(weapon);
+                game.Space.Remove(temp.Item2);
+                return temp.Item1;
+            }
+            else
+                return null;
         }
 
         public Weapon GetWeapon(long weaponIndex) 
         {
             var temp = createWeapon(differentWeapons[weaponIndex]);
-             return temp;
+            return temp;
         }
-
-        public void AddWeapon(Vector3 weaponPosition, long weaponID)
+        
+        public Weapon GetWeapon(long weaponIndex, Box box)
         {
-            var temp = new Tuple<Weapon, Box>(createWeapon(differentWeapons[weaponID]),  new Box(weaponPosition, 5, 5, 5));
-
-            
-            ActiveWeapons.Add(ActiveWeapons.Count, temp);
+            var temp = createWeapon(differentWeapons[weaponIndex]);
+            box.CollisionInformation.Events.ContactCreated += ContactCreated;
+            box.CollisionInformation.CollisionRules.Personal = BEPUphysics.CollisionRuleManagement.CollisionRule.NoSolver;
+            game.Space.Add(box);
+            return temp;
         }
+        
 
         private Weapon createWeapon(SerializableWeapon weapon)
         {
@@ -151,23 +162,5 @@ namespace plat_kill.Managers
             reader.Close();
             return tempCollection;
         }
-
-        protected void OnWeaponCreated(Weapon weapon)
-        {
-            EventHandler<WeaponHasBeenCreated> weaponHasBeenCreated = this.WeaponHasBeenCreated;
-            if (weaponHasBeenCreated != null)
-            {
-                weaponHasBeenCreated(this, new WeaponHasBeenCreated(weapon));
-            }
-        }
-
-       /* protected void OnWeaponLooted(Weapon weapon)
-        {
-            EventHandler<WeaponHasBeenLooted> weaponHasBeenLooted = this.WeaponHasBeenLooted;
-            if (weaponHasBeenLooted != null)
-            {
-                weaponHasBeenLooted(this, new WeaponHasBeenLooted(weapon));
-            }
-        }*/
     }
 }
