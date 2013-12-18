@@ -26,7 +26,7 @@ namespace plat_kill.GameModels.Players.Helpers.AI.States
 
         public void Update(AIPlayer bot)
         {
-           if (bot.EquippedWeapons[bot.ActiveWeaponIndex].LoadedAmmo > 0)
+           if (bot.EquippedWeapons.Count>0 && bot.ActiveWeaponIndex>=0 && bot.ActiveWeaponIndex<bot.EquippedWeapons.Count &&bot.EquippedWeapons[bot.ActiveWeaponIndex].LoadedAmmo > 0)
                 this.Start(bot);
 
             if (!bot.Target.IsDead)
