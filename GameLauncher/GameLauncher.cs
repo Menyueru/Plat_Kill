@@ -33,8 +33,7 @@ namespace GameLauncher
         private const int matchConfigurationScreenIndex = 1;
         private const int multiplayerScreenIndex = 2;
         private const int serverConfigScreenIndex = 3;
-        private const int scoreBoardScreenIndex = 4;
-        private const int generalConfigurationScreenIndex = 5;
+        private const int generalConfigurationScreenIndex = 4;
         #endregion
 
         #region Propierties
@@ -51,10 +50,6 @@ namespace GameLauncher
         public int ServerConfigScreenIndex
         {
             get { return serverConfigScreenIndex; }
-        }
-        public int ScoreBoardScreenIndex
-        {
-            get { return scoreBoardScreenIndex; }
         }
         public int GeneralConfigurationScreenIndex
         {
@@ -97,8 +92,7 @@ namespace GameLauncher
             userControls.Add(new MatchConfiguration(this)); //1
             userControls.Add(new MultiplayerScreen(this)); //2
             userControls.Add(new ServerConfigurations(this)); //3
-            userControls.Add(new ScoreBoardScreen(this)); //4
-            userControls.Add(new GeneralConfiguration(this)); //5
+            userControls.Add(new GeneralConfiguration(this)); //4
 
             mainPanel.Controls.Add(userControls[currentActiveUserControlIndex]);
         }

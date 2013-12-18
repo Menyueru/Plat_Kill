@@ -211,6 +211,7 @@
     <Compile Include="Networking\Messages\GameMessageTypes.cs" />
     <Compile Include="Networking\Messages\IGameMessage.cs" />
     <Compile Include="Networking\Messages\NewPlayerJoined.cs" />
+    <Compile Include="Networking\Messages\ScoreUpdate.cs" />
     <Compile Include="Networking\Messages\ShotFiredMessage.cs" />
     <Compile Include="Networking\Messages\TimeUpdate.cs" />
     <Compile Include="Networking\Messages\UpdatePlayerStateMessage.cs" />

@@ -45,6 +45,8 @@ namespace plat_kill.Managers
             Random r = new Random();
             this.currentSongIndex = r.Next(Songs.Count);
 
+            SoundEffect.MasterVolume = MasterVolume/100;
+
             //Loading SoundFXs
             this.SoundFXs.Add(SoundEffects.Dodge, content.Load<SoundEffect>("Sounds\\SoundFX\\Dodge").CreateInstance());
             this.SoundFXs.Add(SoundEffects.GunShot, content.Load<SoundEffect>("Sounds\\SoundFX\\gunShot").CreateInstance());

@@ -139,12 +139,6 @@
     <Compile Include="UIComponents\MultiplayerScreen.Designer.cs">
       <DependentUpon>MultiplayerScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="UIComponents\ScoreBoardScreen.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UIComponents\ScoreBoardScreen.Designer.cs">
-      <DependentUpon>ScoreBoardScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="UIComponents\ServerConfigurations.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,9 +168,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\MultiplayerScreen.resx">
       <DependentUpon>MultiplayerScreen.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UIComponents\ScoreBoardScreen.resx">
-      <DependentUpon>ScoreBoardScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UIComponents\ServerConfigurations.resx">
       <DependentUpon>ServerConfigurations.cs</DependentUpon>

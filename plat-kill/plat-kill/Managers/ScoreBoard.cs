@@ -9,7 +9,7 @@ namespace plat_kill.Managers
     {
         private int numPlayers;
 
-        private Dictionary<long, int> Score;
+        public Dictionary<long, int> Score { get; set; }
         private long WinnerID;
 
         public ScoreBoard(int numplayers)

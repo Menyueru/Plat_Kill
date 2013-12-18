@@ -126,8 +126,8 @@ namespace plat_kill
 
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = gameConfiguration.ResolutionWidth;
-            graphics.PreferredBackBufferHeight = gameConfiguration.ResolutionHeigth;
+            graphics.PreferredBackBufferWidth = 800;//gameConfiguration.ResolutionWidth;
+            graphics.PreferredBackBufferHeight = 600;// gameConfiguration.ResolutionHeigth;
             graphics.IsFullScreen = gameConfiguration.IsFullScreen;
             graphics.PreferMultiSampling = false;
 
@@ -435,11 +435,6 @@ namespace plat_kill
                                     Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                                     chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
                                     camManager.ActiveCamera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
-                                    Console.WriteLine("Connected to {0}", im.SenderEndPoint);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("{0} Connected", im.SenderEndPoint);
                                 }
 
                                 break;
@@ -458,7 +453,6 @@ namespace plat_kill
                                 {
                                     tempPlayers.Add(p);
                                 }
-
 
                                 NetOutgoingMessage hailMessage = this.NetworkManager.CreateMessage();
                                 new NewPlayerJoined(tempPlayers).Encode(hailMessage);
@@ -490,6 +484,9 @@ namespace plat_kill
                             case GameMessageTypes.TimeUpdate:
                                 this.HandleTimeUpdate(im);
                                 break;
+                            case GameMessageTypes.ScoreUpdate:
+                                this.HandleScoreUpdate(im);
+                                break;
                         }
 
                         break;
@@ -504,6 +501,7 @@ namespace plat_kill
                     }
 
                     networkManager.SendMessage(new TimeUpdate(((TimeMatch)gameManager).startTime, ((TimeMatch)gameManager).time));
+                    networkManager.SendMessage(new ScoreUpdate(this.ScoreBoard.Score));
                 }
                     
                 this.NetworkManager.Recycle(im);
@@ -595,6 +593,13 @@ namespace plat_kill
                 ((TimeMatch)gameManager).startTime = message.Time.Item1;
                 ((TimeMatch)gameManager).time = message.Time.Item2;
             }
+        }
+
+        private void HandleScoreUpdate(NetIncomingMessage im) 
+        {
+            var message = new ScoreUpdate(im);
+
+            this.ScoreBoard.Score = message.Score;
         }
 
         #endregion
