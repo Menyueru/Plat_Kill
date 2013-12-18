@@ -487,9 +487,12 @@ namespace plat_kill
 
                                     for (int i = 1; i < message.Players.Count; i++)
                                     {
-                                        Player RemotePlayer = new Player(message.Players[i].PlayerID, 100, 100, 100, 100, 100, 30, 100, new Vector3(message.Players[i].PosX, message.Players[i].PosY, message.Players[i].PosZ), 5f / 60f, 50, 1f, 1f, 1f, false);
-                                        RemotePlayer.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);    
-                                        playerManager.AddPlayer(RemotePlayer);
+                                        if (playerManager.GetPlayer(message.Players[i].PlayerID) == null)
+                                        {
+                                            Player RemotePlayer = new Player(message.Players[i].PlayerID, 100, 100, 100, 100, 100, 30, 100, new Vector3(message.Players[i].PosX, message.Players[i].PosY, message.Players[i].PosZ), 5f / 60f, 50, 1f, 1f, 1f, false);
+                                            RemotePlayer.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                                            playerManager.AddPlayer(RemotePlayer);
+                                        }
                                     }
 
                                     Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
