@@ -51,6 +51,8 @@
             this.previousCharButton = new MetroFramework.Controls.MetroButton();
             this.nextCharButton = new MetroFramework.Controls.MetroButton();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
+            this.timeBox = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel11 = new MetroFramework.Controls.MetroLabel();
             this.numEnemiesLabel = new MetroFramework.Controls.MetroLabel();
             this.difficultyLabel = new MetroFramework.Controls.MetroLabel();
             this.enemiesTrackBar = new MetroFramework.Controls.MetroTrackBar();
@@ -317,6 +319,8 @@
             // 
             this.metroPanel2.BackColor = System.Drawing.SystemColors.Control;
             this.metroPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.metroPanel2.Controls.Add(this.timeBox);
+            this.metroPanel2.Controls.Add(this.metroLabel11);
             this.metroPanel2.Controls.Add(this.numEnemiesLabel);
             this.metroPanel2.Controls.Add(this.difficultyLabel);
             this.metroPanel2.Controls.Add(this.enemiesTrackBar);
@@ -334,10 +338,33 @@
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
             // 
+            // timeBox
+            // 
+            this.timeBox.Lines = new string[0];
+            this.timeBox.Location = new System.Drawing.Point(103, 71);
+            this.timeBox.MaxLength = 32767;
+            this.timeBox.Name = "timeBox";
+            this.timeBox.PasswordChar = '\0';
+            this.timeBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.timeBox.SelectedText = "";
+            this.timeBox.Size = new System.Drawing.Size(114, 20);
+            this.timeBox.TabIndex = 9;
+            this.timeBox.UseSelectable = true;
+            this.timeBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.timeBox_KeyPress);
+            // 
+            // metroLabel11
+            // 
+            this.metroLabel11.AutoSize = true;
+            this.metroLabel11.Location = new System.Drawing.Point(4, 71);
+            this.metroLabel11.Name = "metroLabel11";
+            this.metroLabel11.Size = new System.Drawing.Size(93, 19);
+            this.metroLabel11.TabIndex = 8;
+            this.metroLabel11.Text = "Duration (min)";
+            // 
             // numEnemiesLabel
             // 
             this.numEnemiesLabel.AutoSize = true;
-            this.numEnemiesLabel.Location = new System.Drawing.Point(159, 44);
+            this.numEnemiesLabel.Location = new System.Drawing.Point(159, 29);
             this.numEnemiesLabel.Name = "numEnemiesLabel";
             this.numEnemiesLabel.Size = new System.Drawing.Size(15, 19);
             this.numEnemiesLabel.TabIndex = 7;
@@ -346,7 +373,7 @@
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
-            this.difficultyLabel.Location = new System.Drawing.Point(131, -1);
+            this.difficultyLabel.Location = new System.Drawing.Point(131, -4);
             this.difficultyLabel.Name = "difficultyLabel";
             this.difficultyLabel.Size = new System.Drawing.Size(15, 19);
             this.difficultyLabel.TabIndex = 6;
@@ -355,7 +382,7 @@
             // enemiesTrackBar
             // 
             this.enemiesTrackBar.BackColor = System.Drawing.Color.Transparent;
-            this.enemiesTrackBar.Location = new System.Drawing.Point(140, 66);
+            this.enemiesTrackBar.Location = new System.Drawing.Point(140, 43);
             this.enemiesTrackBar.Name = "enemiesTrackBar";
             this.enemiesTrackBar.Size = new System.Drawing.Size(68, 23);
             this.enemiesTrackBar.TabIndex = 5;
@@ -365,7 +392,7 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(3, 70);
+            this.metroLabel3.Location = new System.Drawing.Point(3, 44);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(126, 19);
             this.metroLabel3.TabIndex = 4;
@@ -374,7 +401,7 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(3, 14);
+            this.metroLabel2.Location = new System.Drawing.Point(3, 9);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(58, 19);
             this.metroLabel2.TabIndex = 3;
@@ -383,7 +410,7 @@
             // difficultyTrackBar
             // 
             this.difficultyTrackBar.BackColor = System.Drawing.Color.Transparent;
-            this.difficultyTrackBar.Location = new System.Drawing.Point(86, 14);
+            this.difficultyTrackBar.Location = new System.Drawing.Point(86, 9);
             this.difficultyTrackBar.Name = "difficultyTrackBar";
             this.difficultyTrackBar.Size = new System.Drawing.Size(122, 23);
             this.difficultyTrackBar.TabIndex = 2;
@@ -450,5 +477,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroLabel numEnemiesLabel;
         private MetroFramework.Controls.MetroLabel difficultyLabel;
+        private MetroFramework.Controls.MetroTextBox timeBox;
+        private MetroFramework.Controls.MetroLabel metroLabel11;
     }
 }

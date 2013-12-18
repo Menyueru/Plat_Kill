@@ -26,7 +26,9 @@ namespace plat_kill.GameModels.Players.Helpers.AI.States
 
         public void Update(AIPlayer bot)
         {
-            if (bot.EquippedWeapons[bot.ActiveWeaponIndex].LoadedAmmo > 0) this.Start(bot);
+            if(bot.EquippedWeapons[bot.ActiveWeaponIndex] != null)
+                if (bot.EquippedWeapons[bot.ActiveWeaponIndex].LoadedAmmo > 0) 
+                    this.Start(bot);
             if (!bot.Target.IsDead)
             {
                 Vector3 dir = bot.Target.Position - bot.Position;

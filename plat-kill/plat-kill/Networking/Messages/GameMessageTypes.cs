@@ -20,6 +20,8 @@ namespace plat_kill.Networking.Messages
 
         NewPlayerJoined,
 
-        TimeUpdate
+        TimeUpdate,
+
+        ScoreUpdate
     }
 }

@@ -62,9 +62,10 @@ namespace plat_kill.Managers
         {
             if (startTime.Add(time) < DateTime.Now)
             {
-                finalTime = DateTime.Now;
+
                 return true;
             }
+            finalTime = DateTime.Now;
             return false;
         }
 
