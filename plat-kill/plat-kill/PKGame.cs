@@ -398,7 +398,12 @@ namespace plat_kill
                 spriteBatch.DrawString(font, "Server IP: " + System.Environment.NewLine + Dns.GetHostEntry(Dns.GetHostName()).AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork).ToString(), new Vector2(10, graphics.GraphicsDevice.Viewport.Height - 50), Color.Black);
 
             spriteBatch.DrawString(font, "Time Left" + System.Environment.NewLine +((TimeMatch)gameManager).GetTimeLeft(), new Vector2(10, 50), Color.Red);
-            spriteBatch.DrawString(font, ScoreBoard.GetScoreBoard(), new Vector2(10, 150), Color.Red);
+
+            if (ScoreBoard.GetScoreBoard() != null)
+            {
+                spriteBatch.DrawString(font, ScoreBoard.GetScoreBoard(), new Vector2(10, 150), Color.Red);
+            }
+            
             
             if(gameManager.GameOver())
             {
@@ -628,7 +633,11 @@ namespace plat_kill
         {
             var message = new ScoreUpdate(im);
 
-            this.ScoreBoard.Score = message.Score;
+            if(message.Score != null)
+            {
+                this.ScoreBoard.Score = message.Score;
+            }
+            
         }
 
         #endregion

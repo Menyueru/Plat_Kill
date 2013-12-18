@@ -12,6 +12,7 @@ using plat_kill.GameModels;
 using plat_kill.GameModels.Players;
 using plat_kill.Events;
 using plat_kill.Helpers;
+using plat_kill.Networking;
 
 namespace plat_kill.Managers
 {
@@ -138,7 +139,10 @@ namespace plat_kill.Managers
                     {
                         players[key].die();
                         game.Space.Remove(players[key].CharacterController);
-                        game.ScoreBoard.kill(players[key].LastHit, key);
+                        if(this.game.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)))
+                        {
+                            game.ScoreBoard.kill(players[key].LastHit, key);
+                        }
                     }
                     if(!players[key].IsDead)
                     {

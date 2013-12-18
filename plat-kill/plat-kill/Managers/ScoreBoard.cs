@@ -25,7 +25,7 @@ namespace plat_kill.Managers
             {
                 Score[attackerID] += 1;
             }
-            else 
+            else
             {
                 Score.Add(attackerID, 1);
             }
@@ -34,7 +34,6 @@ namespace plat_kill.Managers
         public String GetScoreBoard() 
         {
             string tempScore = "ScoreBoard";
-
             foreach(var temp in Score)
             {
                 tempScore += System.Environment.NewLine + "Player#" + (temp.Key+1) + " have " + temp.Value + " points.";
