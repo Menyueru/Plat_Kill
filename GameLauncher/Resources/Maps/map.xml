@@ -9,6 +9,10 @@
       <Name>Forest</Name>
       <Model>Map2</Model>
     </Map>
+    <Map>
+      <Name>Lab</Name>
+      <Model>Map3</Model>
+    </Map>
   </Maps>
 </MapCollection>
 

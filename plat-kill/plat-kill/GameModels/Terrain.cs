@@ -196,12 +196,6 @@ namespace plat_kill.GameModels
 
                         //bool visible = bool.Parse(entityAttributes["Visible"].InnerText);
 
-                        bool placeOnTerrain = true;
-
-                        if (entityAttributes["PlaceOnTerrain"] != null)
-                        {
-                            placeOnTerrain = bool.Parse(entityAttributes["PlaceOnTerrain"].InnerText);
-                        }
 
                         SceneObject entity = new SceneObject(position, rotation, scale);
                         entity.Load(content, assetPath);

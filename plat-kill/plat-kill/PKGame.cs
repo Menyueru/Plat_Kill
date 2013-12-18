@@ -384,6 +384,12 @@ namespace plat_kill
                 case Helpers.States.Maps.Map1:
                                 this.map = new Terrain("Content\\Scenes\\Town.scn", this);
                                 break;
+                case Helpers.States.Maps.Map2:
+                                this.map = new Terrain("Content\\Scenes\\Test.scn", this);
+                                break;
+                case Helpers.States.Maps.Map3:
+                                this.map = new Terrain("Content\\Scenes\\Lab.scn", this);
+                                break;
                 default:
                                 this.map = new Terrain("Content\\Scenes\\Test.scn", this);
                                 break;

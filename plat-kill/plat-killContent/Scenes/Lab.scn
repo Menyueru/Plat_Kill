@@ -1,0 +1,74 @@
+<Scene>
+  <SceneObjects>
+    <SceneObject Name="cube" AssetPath="Models\Maps\Objects\cube"  Position="214.202 70 224.077" Rotation="0 0 0 1" Scale="600 1 600"  />
+    <SceneObject Name="CrateSquareB" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="46.302 10 12.553" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_1" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="46.302 15 12.553" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_2" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="46.302 10 20.816" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_3" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="55.048 10 14.533" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_4" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="55.048 10 14.533" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_5" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="55.048 10 22.796" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_6" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="46.302 10 4.608" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_7" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="46.302 10 7.608" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_8" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="46.302 10 248.371" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_9" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="46.302 10 256.634" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_10" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="55.048 10 250.351" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_11" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="56.499 15 240.425" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_12" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="55.048 15 258.614" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_13" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="46.302 15 240.425" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_14" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="249.521 15 12.553" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_15" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="249.521 20 21.45" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_16" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="249.521 15 20.816" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_17" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="258.267 15 14.533" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_18" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="258.267 20 14.533" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_19" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="258.267 15 22.796" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_20" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="249.521 15 4.608" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_21" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="249.521 15 175.786" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_22" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="264.216 20 170.474" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_23" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="249.521 15 184.049" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_24" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="258.267 15 177.767" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_25" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="259.718 15 167.84" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_26" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="258.267 15 186.03" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_27" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="249.521 15 189.963" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_28" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="333.364 10 265.404" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_29" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="333.364 20 274.302" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_30" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="333.364 15 273.667" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_31" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="342.11 15 267.384" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_32" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="342.11 15 251.241" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_33" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="342.11 15 275.648" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="CrateSquareB_34" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="333.364 15 257.459" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+  </SceneObjects>
+  
+  <Terrain Path="Models\Maps\Lab" MaxHeight="512">
+    <Materials>
+      <Material1>
+        <Path>Textures\portal</Path>
+      </Material1>
+      <Material2>
+        <Path>Textures\portal</Path>
+      </Material2>
+      <Material3>
+        <Path>Textures\portal</Path>
+      </Material3>
+      <Material4>
+        <Path>Textures\portal</Path>
+      </Material4>
+    </Materials>
+  </Terrain>
+   <SpawnPoints>
+    <Point Name="1" Position="75 20 88"/>
+    <Point Name="2" Position="326 20 437"/>
+    <Point Name="3" Position="289 20 75"/>
+    <Point Name="4" Position="456 20 470"/>
+	<Point Name="5" Position="467 20 53"/>
+	<Point Name="6" Position="141 20 456"/>
+  </SpawnPoints>
+  <WeaponPoints>
+    <Point Name="1" Position="87 15 282"/>
+    <Point Name="2" Position="190 15 223"/>
+    <Point Name="3" Position="288 15 303"/>
+    <Point Name="4" Position="233 15 218"/>
+	<Point Name="5" Position="376 15 310"/>
+	<Point Name="6" Position="453 15 207"/>
+	<Point Name="7" Position="238 15 109"/>
+  </WeaponPoints> 
+</Scene>

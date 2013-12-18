@@ -151,9 +151,13 @@ namespace GameLauncher.UIComponents
                 {
                     gameLauncher.GameConfiguration.Map = plat_kill.Helpers.States.Maps.Map1;
                 }
-                else 
+                else if (this.mapComboBox.SelectedIndex == 1)
                 {
                     gameLauncher.GameConfiguration.Map = plat_kill.Helpers.States.Maps.Map2;
+                }
+                else
+                {
+                    gameLauncher.GameConfiguration.Map = plat_kill.Helpers.States.Maps.Map3;
                 }
                 
             }
