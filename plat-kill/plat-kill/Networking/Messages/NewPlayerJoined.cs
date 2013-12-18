@@ -1,6 +1,7 @@
 ﻿using Lidgren.Network;
 using plat_kill.GameModels.Players;
 using plat_kill.Helpers.Serializable.Weapons;
+using plat_kill.Helpers.States;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,6 +20,7 @@ namespace plat_kill.Networking.Messages
         }
 
         public List<PlayerContainer> Players { get; set; }
+        public Maps Map { get; set; }
         #endregion
 
 
@@ -29,8 +31,18 @@ namespace plat_kill.Networking.Messages
             this.Decode(im);
         }
 
-        public NewPlayerJoined(List<Player> players) 
+        public NewPlayerJoined(List<Player> players)
         {
+            this.Players = new List<PlayerContainer>();
+            foreach (Player p in players)
+            {
+                Players.Add(new PlayerContainer(p.Id, p.Position));
+            }
+        }
+
+        public NewPlayerJoined(List<Player> players, Maps map) 
+        {
+            this.Map = map;
             this.Players = new List<PlayerContainer>();
             foreach(Player p in players)
             {
@@ -41,10 +53,13 @@ namespace plat_kill.Networking.Messages
         #region Methods
         public void Decode(NetIncomingMessage im)
         {
-            if(this.Players == null)
+            if(this.Players == null || this.Map == null)
             {
                 this.Players = new List<PlayerContainer>();
+                this.Map = new Maps();
             }
+            this.Map = (Maps)Enum.Parse(typeof(Maps), im.ReadString());
+
             int length = im.ReadInt32();
             byte[] dataFromServer = im.ReadBytes(length);
 
@@ -55,6 +70,7 @@ namespace plat_kill.Networking.Messages
         {
             byte[] data = ObjectToByteArray(this.Players);
 
+            om.Write(this.Map.ToString());
             om.Write(data.Length);
             om.Write(data);
         }

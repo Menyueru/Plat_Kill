@@ -57,7 +57,6 @@ namespace plat_kill
     public class PKGame : Game
     {
         #region Field
-
         private GraphicsDeviceManager graphics;
         private SpriteFont font;
         private SpriteBatch spriteBatch;
@@ -77,14 +76,14 @@ namespace plat_kill
         public SoundManager soundManager { get; private set; }
         private GameConfiguration gameConfiguration;
 
-
         private SkyBox skyBox;
         private Terrain map;
         private Space space;
-
+    
         private World place;
 
         private long localPlayerId;
+        public bool AssestsAreReady;
 
         public ScoreBoard ScoreBoard;
 
@@ -151,14 +150,30 @@ namespace plat_kill
 
             Content.RootDirectory = "Content";
 
-            graphics.PreferredBackBufferWidth = 800;//gameConfiguration.ResolutionWidth;
-            graphics.PreferredBackBufferHeight = 600;// gameConfiguration.ResolutionHeigth;
+            graphics.PreferredBackBufferWidth = gameConfiguration.ResolutionWidth;
+            graphics.PreferredBackBufferHeight = gameConfiguration.ResolutionHeigth;
             graphics.IsFullScreen = gameConfiguration.IsFullScreen;
             graphics.PreferMultiSampling = false;
 
             this.gameManager = gameConfiguration.GameManager;
 
             this.networkManager = gameConfiguration.NetworkManager;
+
+            if (this.networkManager != null)
+            {
+                if (networkManager.GetType().Equals(typeof(ServerNetworkManager)))
+                {
+                    AssestsAreReady = true;
+                }
+                else
+                {
+                    AssestsAreReady = false;
+                }
+            }
+            else 
+            {
+                AssestsAreReady = true;
+            }
 
         }
         #endregion
@@ -191,7 +206,6 @@ namespace plat_kill
             }
 
             base.Initialize();
-            Place = map.CreateWorld();
 
             if (this.IsHost)
             {
@@ -236,7 +250,11 @@ namespace plat_kill
             infinity = Content.Load<Texture2D>("Textures\\infinity");
             
             LoadCharacterModels();
-            LoadMap();
+            if (NetworkManager == null || networkManager.GetType().Equals(typeof(ServerNetworkManager)))
+            {
+                LoadMap();
+            }
+
 
             if (NetworkManager != null)
                 this.NetworkManager.Connect();
@@ -250,25 +268,26 @@ namespace plat_kill
         {
             if (!gameManager.GameOver())
             {
-                weaponManager.Update();
-                soundManager.Update();
-
                 if (NetworkManager != null)
                 {
                     ProcessNetworkMessages();
                 }
-
-                space.Update();
-                gameManager.Update();
-
-                playerManager.UpdateAllPlayers(gameTime);
-                projectileManager.UpdateAllBullets();
-
-                if (playerManager.GetPlayer(localPlayerId) != null)
+                if(AssestsAreReady)
                 {
-                    Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
-                    camManager.UpdateAllCameras(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
+                    weaponManager.Update();
+                    soundManager.Update();
+                    space.Update();
+                    gameManager.Update();
+                    playerManager.UpdateAllPlayers(gameTime);
+                    projectileManager.UpdateAllBullets();
+
+                    if (playerManager.GetPlayer(localPlayerId) != null)
+                    {
+                        Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
+                        camManager.UpdateAllCameras(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
+                    }
                 }
+
             }
             else 
             {
@@ -285,13 +304,15 @@ namespace plat_kill
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            skyBox.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            map.Draw(graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);          
-            playerManager.DrawAllPlayers(gameTime, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            weaponManager.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-            DrawUIComponents();
-            
+            if (this.AssestsAreReady)
+            {
+                skyBox.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                map.Draw(graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                projectileManager.DrawAllBullets(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                playerManager.DrawAllPlayers(gameTime, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                weaponManager.Draw(camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                DrawUIComponents();
+            }
 
             base.Draw(gameTime);
 
@@ -369,6 +390,8 @@ namespace plat_kill
             }
             this.map.LoadContent(Content);
             this.map.AddToSpace(space);
+            this.Place = map.CreateWorld();
+            this.AssestsAreReady = true;
         }
 
         private void DrawUIComponents()
@@ -453,7 +476,10 @@ namespace plat_kill
                                     var message = new NewPlayerJoined(im.SenderConnection.RemoteHailMessage);
                                     localPlayerId = message.Players[0].PlayerID;
                                     playerManager.LocalPlayer = localPlayerId;
-                                    
+
+                                    gameConfiguration.Map = message.Map;
+                                    LoadMap();
+
                                     HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 10, 100, 100, 30, 100, new Vector3(message.Players[0].PosX, message.Players[0].PosY, message.Players[0].PosZ), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
                                     player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                                     player.addWeapon(weaponManager.GetWeapon(0));
@@ -487,9 +513,9 @@ namespace plat_kill
                                 {
                                     tempPlayers.Add(p);
                                 }
-
+                                
                                 NetOutgoingMessage hailMessage = this.NetworkManager.CreateMessage();
-                                new NewPlayerJoined(tempPlayers).Encode(hailMessage);
+                                new NewPlayerJoined(tempPlayers, gameConfiguration.Map).Encode(hailMessage);
                                 im.SenderConnection.Approve(hailMessage);
 
                                 networkManager.SendMessage(new NewPlayerJoined(tempPlayers));

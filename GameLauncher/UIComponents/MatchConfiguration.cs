@@ -114,28 +114,46 @@ namespace GameLauncher.UIComponents
 
         private void goTile_Click(object sender, EventArgs e)
         {
-            gameLauncher.GameConfiguration.GameManager = new TimeMatch(new TimeSpan(0, 10, 0));
-
-            gameLauncher.GameConfiguration.NumberOfCPUPlayers = Convert.ToInt32(numEnemiesLabel.Text);
-            
-            switch(difficultyLabel.Text)
+            if (gameLauncher.GameConfiguration.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)) || gameLauncher.GameConfiguration.NetworkManager == null)
             {
-                case "Easy":
-                    gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Easy;
-                    break;
-                case "Medium":
-                    gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Medium;
-                    break;
-                case "Hard":
-                    gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Hard;
-                    break;
-                default:
-                    gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Easy;
-                    break;
+                if (timeBox.Text == "" || timeBox.Text == " ")
+                {
+                    MessageBox.Show("Please specify the duration of the match.", "Missing duration.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+
+                if (Convert.ToInt32(timeBox.Text) > 30 && Convert.ToInt32(timeBox.Text) < 0)
+                {
+                    MessageBox.Show("The duration must be a value between 0 and 30 minutes.", "Bad duration.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                gameLauncher.GameConfiguration.GameManager = new TimeMatch(new TimeSpan(0, Convert.ToInt32(timeBox.Text), 0));
+                gameLauncher.GameConfiguration.NumberOfCPUPlayers = Convert.ToInt32(numEnemiesLabel.Text);
+
+                switch (difficultyLabel.Text)
+                {
+                    case "Easy":
+                        gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Easy;
+                        break;
+                    case "Medium":
+                        gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Medium;
+                        break;
+                    case "Hard":
+                        gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Hard;
+                        break;
+                    default:
+                        gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Easy;
+                        break;
+                }
+
+                gameLauncher.GameConfiguration.Map = plat_kill.Helpers.States.Maps.Map1;
             }
-
-            gameLauncher.GameConfiguration.Map = plat_kill.Helpers.States.Maps.Map1;
-
+            else
+            {
+                gameLauncher.GameConfiguration.GameManager = new TimeMatch(new TimeSpan(0, Convert.ToInt32(20), 0));
+            }
             gameLauncher.StartGame();
         }
 
@@ -217,7 +235,15 @@ namespace GameLauncher.UIComponents
                 this.metroPanel4.Show();
             }
         }
+
+        private void timeBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            const char Delete = (char)8;
+            e.Handled = !Char.IsDigit(e.KeyChar) && e.KeyChar != Delete;
+        }
         #endregion
+
+      
 
 
     }
