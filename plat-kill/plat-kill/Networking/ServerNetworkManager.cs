@@ -44,11 +44,6 @@ namespace plat_kill.Networking
                     //SimulatedMinimumLatency = 0.2f, 
                     // SimulatedLoss = 0.1f 
                 };
-            config.EnableMessageType(NetIncomingMessageType.WarningMessage);
-            config.EnableMessageType(NetIncomingMessageType.VerboseDebugMessage);
-            config.EnableMessageType(NetIncomingMessageType.ErrorMessage);
-            config.EnableMessageType(NetIncomingMessageType.Error);
-            config.EnableMessageType(NetIncomingMessageType.DebugMessage);
             config.EnableMessageType(NetIncomingMessageType.ConnectionApproval);
 
             this.NetServer = new NetServer(config);

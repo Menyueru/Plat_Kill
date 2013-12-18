@@ -374,12 +374,6 @@ namespace plat_kill
             {
                 switch (im.MessageType)
                 {
-                    case NetIncomingMessageType.VerboseDebugMessage:
-                    case NetIncomingMessageType.DebugMessage:
-                    case NetIncomingMessageType.WarningMessage:
-                    case NetIncomingMessageType.ErrorMessage:
-                        Console.WriteLine(im.ReadString());
-                        break;
                     case NetIncomingMessageType.StatusChanged:
                         switch ((NetConnectionStatus)im.ReadByte())
                         {
@@ -420,8 +414,8 @@ namespace plat_kill
                                 im.SenderConnection.Approve(hailMessage);
                                 
                                 var mess = new WeaponUpdateMessage(weaponManager.ActiveWeapons);
-                                networkManager.SendMessage(mess);
                                 ((ServerNetworkManager)networkManager).SendMessageToSingleClient(mess, im.SenderConnection);
+                                this.weaponManager.newWeaponsHaveBeenAdded = true;
                                 break;
                         }
 
@@ -449,6 +443,7 @@ namespace plat_kill
                     {
                         this.weaponManager.newWeaponsHaveBeenAdded = false;
                         var mess = new WeaponUpdateMessage(weaponManager.ActiveWeapons);
+                        networkManager.SendMessage(mess);
                     }     
                 }
                     
@@ -497,14 +492,12 @@ namespace plat_kill
         private void HandleWeaponStateMessage(NetIncomingMessage im) 
         {
             var message = new WeaponUpdateMessage(im);
-            
-            if(message.activeWeapons != null && message.activeWeapons.Count > 0)
+            if(message.activeWeapons != null)
             {
                 Dictionary<long, Tuple<Weapon, Box>> tempDic = new Dictionary<long,Tuple<Weapon,Box>>();
                 
                 foreach(var element in message.activeWeapons)
                 {
-                    Console.WriteLine(element.Key);
                     Box box = new Box(new Vector3(element.Value.Item2.PosX, element.Value.Item2.PosY, element.Value.Item2.PosZ), element.Value.Item2.Width, element.Value.Item2.Heigth, element.Value.Item2.Width);
                     box.Tag = element.Value.Item2.Tag;
                     tempDic.Add(element.Key, new Tuple<Weapon, Box>(weaponManager.GetWeapon(element.Value.Item1, box), box));
