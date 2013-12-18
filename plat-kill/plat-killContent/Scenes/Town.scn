@@ -1,0 +1,68 @@
+<Scene>
+  <SceneObjects>
+    <SceneObject Name="HouseBricksLarge" AssetPath="Models\Maps\Objects\HouseBricksLarge"  Position="84.971 10 291.785" Rotation="0 0.1908089 0 0.9816267" Scale="0.05 0.05 0.05"  />
+    <SceneObject Name="HouseBricksThin" AssetPath="Models\Maps\Objects\HouseBricksThin"  Position="379.775 10 158.925" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="HouseBricksNormal" AssetPath="Models\Maps\Objects\HouseBricksNormal"  Position="450 10 450" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="HouseBricksNormal_1" AssetPath="Models\Maps\Objects\HouseBricksNormal"  Position="450 10 50" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="CrateSquareB" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="12.489 10 149.715" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="CrateSquareB_1" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="65.869 10 212.911" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="CrateSquareB_2" AssetPath="Models\Maps\Objects\CrateSquareB"  Position="373.098 10 448.263" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="DoorWood" AssetPath="Models\Maps\Objects\DoorWood"  Position="255.05 10 195.326" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="HouseBricksNormal_2" AssetPath="Models\Maps\Objects\HouseBricksNormal"  Position="50 10 50" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="Barrel" AssetPath="Models\Maps\Objects\Barrel"  Position="92.32 15 156.384" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="Barrel_1" AssetPath="Models\Maps\Objects\Barrel"  Position="92.32 15 140.242" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="Barrel_2" AssetPath="Models\Maps\Objects\Barrel"  Position="122.902 15 67.612" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="p2_jump_wood" AssetPath="Models\Maps\Objects\p2_jump_wood"  Position="263.738 10 37.56" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="HouseBricksThin_1" AssetPath="Models\Maps\Objects\HouseBricksThin"  Position="50 10 450" Rotation="0 0.4924235 0 0.8703557" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="HouseBricksLarge_1" AssetPath="Models\Maps\Objects\HouseBricksLarge"  Position="266.78 10 244.697" Rotation="0 0.008726554 0 0.9999614" Scale="0.05 0.05 0.05"  />
+    <SceneObject Name="HouseBricksNormal_3" AssetPath="Models\Maps\Objects\HouseBricksNormal"  Position="193.309 10 50" Rotation="0 0.1305262 0 0.9914448" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="WoodBench" AssetPath="Models\Maps\Objects\WoodBench"  Position="359.006 10 224.216" Rotation="0 -0.67559 0 0.737277" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="WoodBench_1" AssetPath="Models\Maps\Objects\WoodBench"  Position="200.25 10 347.97" Rotation="0 -0.67559 0 0.737277" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="WoodBench_2" AssetPath="Models\Maps\Objects\WoodBench"  Position="321.823 10 47.58" Rotation="0 -0.67559 0 0.737277" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="p2_rock_platform" AssetPath="Models\Maps\Objects\p2_rock_platform"  Position="160.601 10 411.457" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="p2_rock_platform_1" AssetPath="Models\Maps\Objects\p2_rock_platform"  Position="371.803 10 86.8" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="p2_small_wheel" AssetPath="Models\Maps\Objects\p2_small_wheel"  Position="320.126 10 407.867" Rotation="0 0 0 1" Scale="0.02 0.02 0.02"  />
+    <SceneObject Name="p2_shack2" AssetPath="Models\Maps\Objects\p2_shack2"  Position="175.627 10 272.815" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="PosterBoard" AssetPath="Models\Maps\Objects\PosterBoard"  Position="301.539 10 268.126" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="p2_platform2_small_step_triple_LOD1" AssetPath="Models\Maps\Objects\p2_platform2_small_step_triple_LOD1"  Position="176.513 10 309.61" Rotation="0 0 0 1" Scale="0.1 0.1 0.1"  />
+    <SceneObject Name="ShopSign" AssetPath="Models\Maps\Objects\ShopSign"  Position="294.731 41.254 255.774" Rotation="0 0.7547097 0 0.6560593" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="ShopSign_1" AssetPath="Models\Maps\Objects\ShopSign"  Position="476.679 65.743 36.62" Rotation="0 0.7547097 0 0.6560593" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="SignPost" AssetPath="Models\Maps\Objects\SignPost"  Position="322.808 10 269.066" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="StoneBench" AssetPath="Models\Maps\Objects\StoneBench"  Position="400 10 331.394" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="TreeLogPile" AssetPath="Models\Maps\Objects\TreeLogPile"  Position="20.386 10 246.161" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="p2_small_wheel_1" AssetPath="Models\Maps\Objects\p2_small_wheel"  Position="285.156 10 110.693" Rotation="0 0 0 1" Scale="0.02 0.02 0.02"  />
+    <SceneObject Name="WoodBench_3" AssetPath="Models\Maps\Objects\WoodBench"  Position="50.635 10 159.28" Rotation="0 -0.1736481 0 0.9848073" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="p2_rock_platform_2" AssetPath="Models\Maps\Objects\p2_rock_platform"  Position="453.427 10 169.3" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="Barrel_3" AssetPath="Models\Maps\Objects\Barrel"  Position="433.291 10 62.447" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="Barrel_4" AssetPath="Models\Maps\Objects\Barrel"  Position="465.124 10 222.581" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+    <SceneObject Name="StaircaseMedium" AssetPath="Models\Maps\Objects\StaircaseMedium"  Position="263.09 10 274.452" Rotation="0 0 0 1" Scale="0.07 0.07 0.07"  />
+  </SceneObjects>
+    <Terrain Path="Models\Maps\heightmap" MaxHeight="512">
+    <Materials>
+      <Material1>
+        <Path>Textures\rock</Path>
+      </Material1>
+      <Material2>
+        <Path>Textures\brick1</Path>
+      </Material2>
+      <Material3>
+        <Path>Textures\brick3</Path>
+      </Material3>
+      <Material4>
+        <Path>Textures\brick2</Path>
+      </Material4>
+    </Materials>
+  </Terrain>
+  <SpawnPoints>
+    <Point Name="1" Position="100 20 100"/>
+    <Point Name="2" Position="100 20 150"/>
+    <Point Name="3" Position="450 20 150"/>
+    <Point Name="4" Position="450 20 250"/>
+  </SpawnPoints>
+  <WeaponPoints>
+    <Point Name="1" Position="150 15 150"/>
+    <Point Name="2" Position="250 15 400"/>
+    <Point Name="3" Position="450 15 400"/>
+    <Point Name="4" Position="100 15 350"/>
+  </WeaponPoints>
+</Scene>

@@ -293,6 +293,21 @@
       <Importer>WavImporter</Importer>
       <Processor>SoundEffectProcessor</Processor>
     </Compile>
+    <Compile Include="Textures\brick1.png">
+      <Name>brick1</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\brick2.png">
+      <Name>brick2</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="Textures\brick3.png">
+      <Name>brick3</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
     <Content Include="Weapons\Weapons.xml">
       <Name>Weapons</Name>
       <Importer>XmlImporter</Importer>
@@ -399,6 +414,394 @@
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Maps\Objects\Barrel.fbx">
+      <Name>Barrel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\CellarEntrance.fbx">
+      <Name>CellarEntrance</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Chimney1.fbx">
+      <Name>Chimney1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Chimney2.fbx">
+      <Name>Chimney2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Chimney3.fbx">
+      <Name>Chimney3</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Chimney4.fbx">
+      <Name>Chimney4</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\ChimneyBase.fbx">
+      <Name>ChimneyBase</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\CrateLong.fbx">
+      <Name>CrateLong</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\CrateLongB.fbx">
+      <Name>CrateLongB</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\CrateSquare.fbx">
+      <Name>CrateSquare</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\CrateSquareB.fbx">
+      <Name>CrateSquareB</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\DoorStone.fbx">
+      <Name>DoorStone</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\DoorStoneLarge.fbx">
+      <Name>DoorStoneLarge</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\DoorWood.fbx">
+      <Name>DoorWood</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\ElevatorBeam.fbx">
+      <Name>ElevatorBeam</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\fence_segment2.fbx">
+      <Name>fence_segment2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\floating_island.fbx">
+      <Name>floating_island</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\floating_island2.fbx">
+      <Name>floating_island2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\HouseAttic.fbx">
+      <Name>HouseAttic</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\HouseAtticSmall.fbx">
+      <Name>HouseAtticSmall</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\HouseBricksLarge.fbx">
+      <Name>HouseBricksLarge</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\HouseBricksNormal.fbx">
+      <Name>HouseBricksNormal</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\HouseTower.fbx">
+      <Name>HouseTower</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Kalanchoe_leaf_lod0.fbx">
+      <Name>Kalanchoe_leaf_lod0</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Note.fbx">
+      <Name>Note</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_box1_C.fbx">
+      <Name>p2_box1_C</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_box1_O.fbx">
+      <Name>p2_box1_O</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_box2_C.fbx">
+      <Name>p2_box2_C</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_box2_O.fbx">
+      <Name>p2_box2_O</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_box3.fbx">
+      <Name>p2_box3</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_box4_C.fbx">
+      <Name>p2_box4_C</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_box4_O.fbx">
+      <Name>p2_box4_O</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_fence1.fbx">
+      <Name>p2_fence1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_fence1_pole.fbx">
+      <Name>p2_fence1_pole</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_jump_wood.fbx">
+      <Name>p2_jump_wood</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_pier.fbx">
+      <Name>p2_pier</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform1_I_LOD0.fbx">
+      <Name>p2_platform1_I_LOD0</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform1_S_LOD0.fbx">
+      <Name>p2_platform1_S_LOD0</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform2_small_step_LOD0.fbx">
+      <Name>p2_platform2_small_step_LOD0</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform2_small_step_triple_LOD1.fbx">
+      <Name>p2_platform2_small_step_triple_LOD1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform2_square_LOD0.fbx">
+      <Name>p2_platform2_square_LOD0</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform_trampoline.fbx">
+      <Name>p2_platform_trampoline</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform_trampoline_angle.fbx">
+      <Name>p2_platform_trampoline_angle</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform_wall.fbx">
+      <Name>p2_platform_wall</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_platform_wall_with_holes.fbx">
+      <Name>p2_platform_wall_with_holes</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_rock_platform.fbx">
+      <Name>p2_rock_platform</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_shack1.fbx">
+      <Name>p2_shack1</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_shack2.fbx">
+      <Name>p2_shack2</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_shack3.fbx">
+      <Name>p2_shack3</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_small_wheel.fbx">
+      <Name>p2_small_wheel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\p2_wall3h.fbx">
+      <Name>p2_wall3h</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\PlantA.fbx">
+      <Name>PlantA</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\PosterBoard.fbx">
+      <Name>PosterBoard</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\SewerDrain.fbx">
+      <Name>SewerDrain</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\ShopSign.fbx">
+      <Name>ShopSign</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\SignPost.fbx">
+      <Name>SignPost</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\StaircaseMedium.fbx">
+      <Name>StaircaseMedium</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\StaircaseSmall.fbx">
+      <Name>StaircaseSmall</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\StoneBench.fbx">
+      <Name>StoneBench</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\StoneFence.fbx">
+      <Name>StoneFence</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\StonePillar.fbx">
+      <Name>StonePillar</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\StonePlatform.fbx">
+      <Name>StonePlatform</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\StoneWall.fbx">
+      <Name>StoneWall</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Tree.fbx">
+      <Name>Tree</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\TreeLog.fbx">
+      <Name>TreeLog</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\TreeLogPile.fbx">
+      <Name>TreeLogPile</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Well.fbx">
+      <Name>Well</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\Wheel.fbx">
+      <Name>Wheel</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\WindowA.fbx">
+      <Name>WindowA</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\WindowB.fbx">
+      <Name>WindowB</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\WindowC.fbx">
+      <Name>WindowC</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\WindowD.fbx">
+      <Name>WindowD</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\WindowE.fbx">
+      <Name>WindowE</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\WindowF.fbx">
+      <Name>WindowF</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\WindowG.fbx">
+      <Name>WindowG</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+    <Compile Include="Models\Maps\Objects\WoodBench.fbx">
+      <Name>WoodBench</Name>
+      <Importer>FbxImporter</Importer>
+      <Processor>EngineModelProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Scenes\Town.scn">
+      <Name>Town</Name>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 

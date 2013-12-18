@@ -361,7 +361,7 @@ namespace plat_kill
             switch(gameConfiguration.Map)
             {
                 case Helpers.States.Maps.Map1:
-                                this.map = new Terrain("Content\\Scenes\\Test.scn", this);
+                                this.map = new Terrain("Content\\Scenes\\Town.scn", this);
                                 break;
                 default:
                                 this.map = new Terrain("Content\\Scenes\\Test.scn", this);

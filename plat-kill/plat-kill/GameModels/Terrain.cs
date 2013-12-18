@@ -238,8 +238,6 @@ namespace plat_kill.GameModels
                     XmlAttributeCollection terrainAttributes = node.Attributes;
                     String heightMapPath = terrainAttributes["Path"].InnerText;
 
-                    float cellSize = float.Parse(terrainAttributes["CellSize"].InnerText,
-                                                 CultureInfo.InvariantCulture);
 
                     if (string.IsNullOrEmpty(heightMapPath))
                     {
