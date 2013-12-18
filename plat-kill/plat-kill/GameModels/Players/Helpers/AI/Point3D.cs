@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Xna.Framework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,17 @@ namespace plat_kill.GameModels.Players.Helpers.AI
     {
         public int X;
         public int Y;
-        public int Z;        
+        public int Z;
+
+        public const int vectortrans = 20;
+
+        public Point3D(Vector3 vec)
+        {
+            this.X = (int)vec.X / vectortrans;
+            this.Y = 0;
+            this.Z = (int)vec.Z / vectortrans;
+
+        }
 
         public Point3D(int X, int Y, int Z)
         {
@@ -29,6 +40,16 @@ namespace plat_kill.GameModels.Players.Helpers.AI
             this.X = p1.X + p2.X;
             this.Y = p1.Y + p2.Y;
             this.Z = p1.Z + p2.Z;
+        }
+
+        public Vector3 toVector3(float y)
+        {
+            return new Vector3(this.X*vectortrans,y,this.Z*vectortrans);
+        }
+
+        public Vector2 toVector2()
+        {
+            return new Vector2((this.X * vectortrans), (this.Z * vectortrans));
         }
 
         public int GetDistanceSquared(Point3D point)

@@ -101,6 +101,11 @@ namespace plat_kill.Managers
                     Player p = otherEntityInformation.Entity.Tag as Player;
                     if (p != null)
                     {
+<<<<<<< HEAD
+                        Weapon w = pickupWeapon(Convert.ToInt64(weapon.Tag));
+                        if(w != null)
+                            p.addWeapon(w);
+=======
                         Weapon tempo = pickupWeapon(Convert.ToInt64(weapon.Tag));
                         if(tempo!=null)
                             p.addWeapon(tempo);
@@ -109,6 +114,7 @@ namespace plat_kill.Managers
                         {
                             p2.gotWeapon = true;
                         }
+>>>>>>> 36927f70014e20806d8d908fcc26123ca7110eba
                     }
                 }
             }
@@ -124,14 +130,23 @@ namespace plat_kill.Managers
 
         public Weapon pickupWeapon(long weapon)
         {
+<<<<<<< HEAD
             if (activeWeapons.ContainsKey(weapon))
+=======
+            if (activeWeapons[weapon] != null)
+>>>>>>> 36927f70014e20806d8d908fcc26123ca7110eba
             {
                 var temp = ActiveWeapons[weapon];
                 ActiveWeapons.Remove(weapon);
                 game.Space.Remove(temp.Item2);
                 return temp.Item1;
             }
+<<<<<<< HEAD
+            else
+                return null;
+=======
             return null;
+>>>>>>> 36927f70014e20806d8d908fcc26123ca7110eba
         }
 
         public Weapon GetWeapon(long weaponIndex) 
