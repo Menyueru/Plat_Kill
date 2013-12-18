@@ -410,7 +410,10 @@ namespace plat_kill.GameModels.Players
             if (!hasWeapon)
             {
                 this.EquippedWeapons.Add(weapon);
-                this.activeWeaponIndex = equippedWeapons.Count - 1;
+                if ((equippedWeapons.Count - 1) >= 0)
+                    this.activeWeaponIndex = equippedWeapons.Count - 1;
+                else
+                    this.activeWeaponIndex = 0;
             }
         }
 
