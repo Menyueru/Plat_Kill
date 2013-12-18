@@ -18,7 +18,7 @@ namespace plat_kill.GameModels.Players.Helpers.AI
         public int Y;
         public int Z;
 
-        public const int vectortrans = 20;
+        public const int vectortrans = 8;
 
         public Point3D(Vector3 vec)
         {

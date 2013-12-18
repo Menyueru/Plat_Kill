@@ -22,6 +22,7 @@ using plat_kill.Networking.Messages;
 using plat_kill.GameModels.Weapons;
 using plat_kill.Components;
 using plat_kill.GameModels.Players.Helpers.AI;
+using plat_kill.Helpers.States;
 
 namespace plat_kill
 {
@@ -182,13 +183,17 @@ namespace plat_kill
                 camera.SetTargetToChase(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
                 if (this.networkManager == null)
                 {
-                    AIPlayer play = new AIPlayer(localPlayerId + 1, gameConfiguration.Health, gameConfiguration.Stamina,
-                                                         gameConfiguration.Defense, gameConfiguration.MeleePower, gameConfiguration.RangePower,
-                                                         gameConfiguration.Speed, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, false, this);
-                    play.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                    play.addWeapon(weaponManager.GetWeapon(0));
+                    for (int i = 0; i < gameConfiguration.NumberOfCPUPlayers; i++)
+                    {
+                        long Id = playerManager.GetCurrentAmountOfPlayers();
+                        AIPlayer play = new AIPlayer(Id, gameConfiguration.Health, gameConfiguration.Stamina,
+                                                             gameConfiguration.Defense, gameConfiguration.MeleePower, gameConfiguration.RangePower,
+                                                             gameConfiguration.Speed, 65, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, false, this, gameConfiguration.AiDifficulty.ToString());
+                        play.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                        play.addWeapon(weaponManager.GetWeapon(0));
 
-                    playerManager.AddPlayer(play);
+                        playerManager.AddPlayer(play);
+                    }
                 }
             }
         }

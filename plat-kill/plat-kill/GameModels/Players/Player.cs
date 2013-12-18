@@ -438,6 +438,7 @@ namespace plat_kill.GameModels.Players
             this.CharacterController.Body.Position = pos;
             this.isDead = false;
             this.health = this.maxHealth;
+            this.lastHit = this.id;
         }
     
 

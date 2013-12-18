@@ -49,11 +49,11 @@ namespace plat_kill.GameModels.Players
         }
 #endregion
 
-        public AIPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length, bool isLocal, PKGame game)
+        public AIPlayer(long id, long health, long stamina, long defense, long meleePower, long rangePower, long speed, long jumpSpeed, Vector3 position, float rotationSpeed, float mass, float width, float height, float length, bool isLocal, PKGame game, String difficulty)
             : base(id, health, stamina, defense, meleePower, rangePower, speed, jumpSpeed, position, rotationSpeed, mass, width, height, length, isLocal)
         {
             this.game = game;
-            this.StateManager = new StateManager(this);
+            this.StateManager = new StateManager(this,difficulty);
             this.movingTowards = new Vector2(this.Position.X,this.Position.Z);
             this.gotWeapon = true;
         }
@@ -79,7 +79,7 @@ namespace plat_kill.GameModels.Players
             base.Update(gametime);
 
             stateManager.Update();
-            FollowGraph(gametime);
+            if (movingTowards != new Vector2(this.Position.X, this.Position.Z) && crumb2!=null) FollowGraph(gametime);
         }
     }
 }
