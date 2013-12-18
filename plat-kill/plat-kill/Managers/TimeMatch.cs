@@ -7,9 +7,27 @@ namespace plat_kill.Managers
 {
     public class TimeMatch : IGameManager
     {
-        private DateTime startTime;
-        private TimeSpan time;
+        public DateTime startTime {get; set;}
+        public TimeSpan time {get; set;}
+
+        private TimeSpan timeLeft 
+        {
+            get 
+            {
+                return startTime.Add(time).Subtract(DateTime.Now); 
+            } 
+
+            set 
+            { 
+                timeLeft = value; 
+            } 
+        }
+
+        private DateTime finalTime { get; set; }
+        private TimeSpan endtime { get; set; }
+
         private PKGame game;
+
 
         public TimeMatch(TimeSpan time)
         {
@@ -20,6 +38,8 @@ namespace plat_kill.Managers
         {
             this.game = game;
             this.startTime = DateTime.Now;
+
+            this.endtime = new TimeSpan(0,0,15);
         }
 
         public void Update()
@@ -32,9 +52,25 @@ namespace plat_kill.Managers
             
         }
 
+        public string GetTimeLeft() 
+        {
+            TimeSpan _timeLeft = this.timeLeft;
+            return _timeLeft.Hours + ":" + _timeLeft.Minutes + ":" + _timeLeft.Seconds;
+        }
+
         public bool GameOver()
         {
             if (startTime.Add(time) < DateTime.Now)
+            {
+                finalTime = DateTime.Now;
+                return true;
+            }
+            return false;
+        }
+
+        public bool ExitGameIn() 
+        {
+            if (finalTime.Add(endtime) < DateTime.Now)
             {
                 return true;
             }

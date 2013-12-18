@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using plat_kill.Networking;
+using System.Net;
 
 namespace GameLauncher.UIComponents
 {
@@ -27,11 +28,18 @@ namespace GameLauncher.UIComponents
 
         private void goButton_Click(object sender, EventArgs e)
         {
-            if (ipTextBox.Text.Length > 0)
+            IPAddress address;
+            if (IPAddress.TryParse(ipTextBox.Text, out address))
             {
-                gameLauncher.GameConfiguration.NetworkManager = new ClientNetworkManager(this.ipTextBox.Text);
+                gameLauncher.GameConfiguration.NetworkManager = new ClientNetworkManager(address.ToString());
+                ((MatchConfiguration)gameLauncher.UserControls[gameLauncher.MatchConfigurationScreenIndex]).CheckGameMode();
                 gameLauncher.goToView(gameLauncher.MatchConfigurationScreenIndex);
             }
+            else 
+            {
+                MessageBox.Show("Invalid string. Try with something that have a similar format to 0.0.0.0 .", "Try Again!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
     }
 }

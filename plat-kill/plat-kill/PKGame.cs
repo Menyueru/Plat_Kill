@@ -23,6 +23,9 @@ using plat_kill.GameModels.Weapons;
 using plat_kill.Components;
 using plat_kill.GameModels.Players.Helpers.AI;
 using BEPUphysics.Entities.Prefabs;
+using plat_kill.Helpers.Serializable.Weapons;
+using System.Net.Sockets;
+using System.Net;
 
 namespace plat_kill
 {
@@ -46,7 +49,9 @@ namespace plat_kill
         private IGameManager gameManager;
         private INetworkManager networkManager;
         private WeaponManager weaponManager;
+        public SoundManager soundManager { get; private set; }
         private GameConfiguration gameConfiguration;
+
 
         private SkyBox skyBox;
         private Terrain map;
@@ -143,9 +148,6 @@ namespace plat_kill
 
             this.skyBox = new SkyBox(graphics.GraphicsDevice);
 
-            if(NetworkManager != null)
-                this.NetworkManager.Connect();
-
             Camera camera = new Camera((float)graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
             this.camManager = new CameraManager(camera);
 
@@ -155,13 +157,12 @@ namespace plat_kill
             this.weaponManager.Init();
             this.projectileManager = new ProjectileManager(this, camera);
             this.playerManager = new PlayerManager(this);
-                
+            this.soundManager = new SoundManager(this, this.gameConfiguration.MasterVolume);
+
             if (NetworkManager != null)
             {
                 this.projectileManager.ShotFired += (sender, e) => this.NetworkManager.SendMessage(new ShotFiredMessage(e.Shot));
                 this.playerManager.PlayerStateChanged += (sender, e) => this.NetworkManager.SendMessage(new UpdatePlayerStateMessage(e.Player));
-                //this.weaponManager.WeaponHasBeenCreated += (sender, e) => this.NetworkManager.SendMessage(new WeaponCreatedMessage(e.Weapon));
-                //this.weaponManager.WeaponHasBeenLooted += (sender, e) => this.networkManager.SendMessage(new ShotFiredMessage(e.));
             }
 
             base.Initialize();
@@ -208,33 +209,45 @@ namespace plat_kill
             LoadCharacterModels();
             LoadMap();
 
+            if (NetworkManager != null)
+                this.NetworkManager.Connect();
+
             gameManager.Init(this);
 
+            soundManager.StartBackgroundMusic();
         }
 
         protected override void Update(GameTime gameTime)
         {
-            weaponManager.Update();
-            
-            if(NetworkManager != null)
+            if (!gameManager.GameOver())
             {
-                ProcessNetworkMessages();
+                weaponManager.Update();
+                soundManager.Update();
+
+                if (NetworkManager != null)
+                {
+                    ProcessNetworkMessages();
+                }
+
+                space.Update();
+                gameManager.Update();
+
+                playerManager.UpdateAllPlayers(gameTime);
+                projectileManager.UpdateAllBullets();
+
+                if (playerManager.GetPlayer(localPlayerId) != null)
+                {
+                    Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
+                    camManager.UpdateAllCameras(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
+                }
             }
-            space.Update();
-            gameManager.Update();
-
-            playerManager.UpdateAllPlayers(gameTime);
-            projectileManager.UpdateAllBullets();
-
-            if (gameManager.GameOver())
+            else 
             {
-                this.Exit();
-            }
+                if(((TimeMatch)gameManager).ExitGameIn())
+                {
+                    this.Exit();
+                }
 
-            if (playerManager.GetPlayer(localPlayerId) != null)
-            {
-                Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
-                camManager.UpdateAllCameras(chase, playerManager.GetPlayer(localPlayerId).PlayerHeadOffset);
             }
 
         }
@@ -253,6 +266,18 @@ namespace plat_kill
 
             base.Draw(gameTime);
 
+        }
+
+        protected override void OnExiting(object sender, EventArgs args)
+        {
+            base.OnExiting(sender, args);
+
+            this.soundManager.StopBackgroundMusic();
+
+            if(networkManager != null)
+            {
+                networkManager.Disconnect();
+            }
         }
 
         private void LoadCharacterModels() 
@@ -338,16 +363,27 @@ namespace plat_kill
             spriteBatch.Draw(backBar, backHealthRec, Color.White);
             spriteBatch.Draw(healthTex, healthRec, Color.White);
             spriteBatch.Draw(staminaTex, staminaRec, Color.White);
+
+
+            if(networkManager != null && networkManager.GetType().Equals(typeof(ServerNetworkManager)))
+                spriteBatch.DrawString(font, "Server IP: " + System.Environment.NewLine + Dns.GetHostEntry(Dns.GetHostName()).AddressList.FirstOrDefault(ip => ip.AddressFamily == AddressFamily.InterNetwork).ToString(), new Vector2(10, graphics.GraphicsDevice.Viewport.Height - 50), Color.Black);
+
+            spriteBatch.DrawString(font, "Time Left" + System.Environment.NewLine +((TimeMatch)gameManager).GetTimeLeft(), new Vector2(10, 50), Color.Red);
+            spriteBatch.DrawString(font, ScoreBoard.GetScoreBoard(), new Vector2(10, 150), Color.Red);
             
-            
-            int y = 10;
-            for (int i = 0; i < weaponManager.ActiveWeapons.Count+1; i++ )
+            if(gameManager.GameOver())
             {
-                if (weaponManager.ActiveWeapons.ContainsKey(i))
-                    spriteBatch.DrawString(font, "Weapon Key:" + i + "::" + weaponManager.ActiveWeapons[i].Item1.Name + "::Tag-" + weaponManager.ActiveWeapons[i].Item2.Tag, new Vector2(0, y * i), Color.White);
+                if (ScoreBoard.GetWinner().Equals(localPlayerId))
+                {
+                    spriteBatch.DrawString(font, "You Win!!!", new Vector2(graphics.GraphicsDevice.Viewport.Width/2, graphics.GraphicsDevice.Viewport.Height/2), Color.Red);
+                    this.soundManager.PlaySoundFX(Helpers.States.SoundEffects.YouWin);
+                }
+                else 
+                {
+                    spriteBatch.DrawString(font, "You Loose!!!", new Vector2(graphics.GraphicsDevice.Viewport.Width / 2, graphics.GraphicsDevice.Viewport.Height / 2), Color.Red);
+                    this.soundManager.PlaySoundFX(Helpers.States.SoundEffects.YouLoose);
+                }
             }
-            spriteBatch.DrawString(font, "Weapons: " + weaponManager.ActiveWeapons.Count, new Vector2(0, 100), Color.White);
-            
             
             if (playerManager.GetPlayer(localPlayerId).EquippedWeapons.Count != 0)
             {
@@ -380,13 +416,21 @@ namespace plat_kill
                             case NetConnectionStatus.Connected:
                                 if (!this.IsHost)
                                 {
-                                    Console.WriteLine("Connected");
-                                    var message = new UpdatePlayerStateMessage(im.SenderConnection.RemoteHailMessage);
-                                    localPlayerId = message.Id;
-                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 10, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
+                                    var message = new NewPlayerJoined(im.SenderConnection.RemoteHailMessage);
+                                    localPlayerId = message.Players[0].PlayerID;
+                                    playerManager.LocalPlayer = localPlayerId;
+                                    
+                                    HumanPlayer player = new HumanPlayer(localPlayerId, 100, 100, 10, 100, 100, 30, 100, new Vector3(message.Players[0].PosX, message.Players[0].PosY, message.Players[0].PosZ), 5f / 60f, 50, 1f, 1f, 1f, true, this, camManager.ActiveCamera);
                                     player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                                     player.addWeapon(weaponManager.GetWeapon(0));
                                     playerManager.AddPlayer(player);
+
+                                    for (int i = 1; i < message.Players.Count; i++)
+                                    {
+                                        Player RemotePlayer = new Player(message.Players[i].PlayerID, 100, 100, 100, 100, 100, 30, 100, new Vector3(message.Players[i].PosX, message.Players[i].PosY, message.Players[i].PosZ), 5f / 60f, 50, 1f, 1f, 1f, false);
+                                        RemotePlayer.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);    
+                                        playerManager.AddPlayer(RemotePlayer);
+                                    }
 
                                     Vector3 chase = playerManager.GetPlayer(localPlayerId).Position;
                                     chase.Y = playerManager.GetPlayer(localPlayerId).CharacterController.Body.Height / 2;
@@ -404,18 +448,25 @@ namespace plat_kill
                                 break;
 
                             case NetConnectionStatus.RespondedAwaitingApproval:
-                                NetOutgoingMessage hailMessage = this.NetworkManager.CreateMessage();
-                                Player player1 = new Player(playerManager.GetCurrentAmountOfPlayers(), 100, 100, 100, 100, 100, 30, 100, new Vector3(0, 50, 0), 5f / 60f, 50, 1f, 1f, 1f, false);
+                                Player player1 = new Player(playerManager.GetCurrentAmountOfPlayers(), 100, 100, 100, 100, 100, 30, 100, playerManager.nextSpawnPoint(), 5f / 60f, 50, 1f, 1f, 1f, false);
                                 player1.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
                                 playerManager.AddPlayer(player1);
-                                
 
-                                new UpdatePlayerStateMessage(player1).Encode(hailMessage);
+                                List<Player> tempPlayers = new List<Player>();
+                                tempPlayers.Add(player1);
+                                foreach(Player p in playerManager.Players)
+                                {
+                                    tempPlayers.Add(p);
+                                }
+
+
+                                NetOutgoingMessage hailMessage = this.NetworkManager.CreateMessage();
+                                new NewPlayerJoined(tempPlayers).Encode(hailMessage);
                                 im.SenderConnection.Approve(hailMessage);
-                                
-                                var mess = new WeaponUpdateMessage(weaponManager.ActiveWeapons);
-                                ((ServerNetworkManager)networkManager).SendMessageToSingleClient(mess, im.SenderConnection);
-                                this.weaponManager.newWeaponsHaveBeenAdded = true;
+
+                                networkManager.SendMessage(new NewPlayerJoined(tempPlayers));
+
+                                ((ServerNetworkManager)networkManager).SendMessageToSingleClient(new WeaponUpdateMessage(weaponManager.ActiveWeapons), im.SenderConnection);
                                 break;
                         }
 
@@ -433,6 +484,12 @@ namespace plat_kill
                             case GameMessageTypes.WeaponStateChange:
                                 this.HandleWeaponStateMessage(im);
                                 break;
+                            case GameMessageTypes.NewPlayerJoined:
+                                this.HandleNewPlayerJoined(im);
+                                break;
+                            case GameMessageTypes.TimeUpdate:
+                                this.HandleTimeUpdate(im);
+                                break;
                         }
 
                         break;
@@ -444,7 +501,9 @@ namespace plat_kill
                         this.weaponManager.newWeaponsHaveBeenAdded = false;
                         var mess = new WeaponUpdateMessage(weaponManager.ActiveWeapons);
                         networkManager.SendMessage(mess);
-                    }     
+                    }
+
+                    networkManager.SendMessage(new TimeUpdate(((TimeMatch)gameManager).startTime, ((TimeMatch)gameManager).time));
                 }
                     
                 this.NetworkManager.Recycle(im);
@@ -465,27 +524,33 @@ namespace plat_kill
         private void HandleUpdatePlayerStateMessage(NetIncomingMessage im)
         {
             var message = new UpdatePlayerStateMessage(im);
-
-            Player player;
-            if (this.playerManager.GetPlayer(message.Id) != null)
+            if(localPlayerId != message.Id)
             {
-                player = this.playerManager.GetPlayer(message.Id);
-            }
-            else
-            {
-                player = new Player(message.Id, 100, 100, 100, 100, 100, 30, 100, message.Position, 5f / 60f, 30, 1f, 1f, 1f, false);
-                player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
-                playerManager.AddPlayer(player);
-            }
+                if (networkManager.GetType().Equals(typeof(ServerNetworkManager)))
+                {
+                    networkManager.SendMessage(message);
+                }
 
-            player.CharecterState = message.CharState;
-            player.CharacterController.Body.LinearVelocity = message.Velocity;
-            player.CharacterController.Body.Position = message.Position;
-            player.Position = message.Position;
-            player.Rotation = message.Rotation;
-            player.addWeapon(weaponManager.GetWeapon(message.CurrentWeaponID));
-            player.Health = message.Health;
+                Player player;
+                if (this.playerManager.GetPlayer(message.Id) != null)
+                {
+                    player = this.playerManager.GetPlayer(message.Id);
+                }
+                else
+                {
+                    player = new Player(message.Id, 100, 100, 100, 100, 100, 30, 100, message.Position, 5f / 60f, 30, 1f, 1f, 1f, false);
+                    player.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                    playerManager.AddPlayer(player);
+                }
 
+                player.CharecterState = message.CharState;
+                player.CharacterController.Body.LinearVelocity = message.Velocity;
+                player.CharacterController.Body.Position = message.Position;
+                player.Position = message.Position;
+                player.Rotation = message.Rotation;
+                player.addWeapon(weaponManager.GetWeapon(message.CurrentWeaponID));
+                player.Health = message.Health;
+            }
 
         }
 
@@ -503,6 +568,32 @@ namespace plat_kill
                     tempDic.Add(element.Key, new Tuple<Weapon, Box>(weaponManager.GetWeapon(element.Value.Item1, box), box));
                 }
                 weaponManager.ActiveWeapons = tempDic;
+            }
+        }
+
+        private void HandleNewPlayerJoined(NetIncomingMessage im) 
+        {
+            var message = new NewPlayerJoined(im);
+
+            foreach(var p in message.Players)
+            {
+                if(playerManager.GetPlayer(p.PlayerID) == null)
+                {
+                    Player temp = new Player(p.PlayerID, 100, 100, 100, 100, 100, 30, 100, new Vector3(p.PosX, p.PosY, p.PosZ), 5f / 60f, 50, 1f, 1f, 1f, false);
+                    temp.Load(this.Content, "Models\\Characters\\vincent", space, graphics.GraphicsDevice, camManager.ActiveCamera.ViewMatrix, camManager.ActiveCamera.ProjectionMatrix);
+                    playerManager.AddPlayer(temp);
+                }
+            }
+        }
+
+        private void HandleTimeUpdate(NetIncomingMessage im)
+        {
+            var message = new TimeUpdate(im);
+
+            if(this.gameManager.GetType().Equals(typeof(TimeMatch)))
+            {
+                ((TimeMatch)gameManager).startTime = message.Time.Item1;
+                ((TimeMatch)gameManager).time = message.Time.Item2;
             }
         }
 

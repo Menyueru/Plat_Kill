@@ -12,6 +12,7 @@ using GameLauncher.SerializableObjects;
 using GameLauncher.SerializableObjects.Maps;
 using GameLauncher.SerializableObjects.Characters;
 using GameLauncher.SerializableObjects.Preferences;
+using plat_kill.Networking;
 
 
 namespace GameLauncher.UIComponents
@@ -34,7 +35,6 @@ namespace GameLauncher.UIComponents
 
             this.difficultyTrackBar.Value = 0;
             this.enemiesTrackBar.Value = 0;
-
 
             this.mapCollection = DeSerializer.DeserializeMapCollection("Resources\\Maps\\map.xml");
             this.charCollection = DeSerializer.DeserializeCharacterCollection("Resources\\Characters\\characters.xml");
@@ -188,6 +188,34 @@ namespace GameLauncher.UIComponents
                 this.numEnemiesLabel.Text = "3";
             }
 
+        }
+
+        public void CheckGameMode() 
+        {
+            if (gameLauncher.GameConfiguration.NetworkManager != null)
+            {
+                if (gameLauncher.GameConfiguration.NetworkManager.GetType().Equals(typeof(ClientNetworkManager)))
+                {
+                    this.goTile.Height = 200;
+                    this.goTile.Location = new Point(7, 29);
+                    this.metroPanel2.Hide();
+                    this.metroPanel4.Hide();
+                }
+                else
+                {
+                    this.goTile.Height = 34;
+                    this.goTile.Location = new Point(7, 197);
+                    this.metroPanel2.Show(); 
+                    this.metroPanel4.Show();
+                }
+            }
+            else
+            {
+                this.goTile.Height = 34;
+                this.goTile.Location = new Point(7, 197);
+                this.metroPanel2.Show();
+                this.metroPanel4.Show();
+            }
         }
         #endregion
 

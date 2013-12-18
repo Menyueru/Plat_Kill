@@ -43,7 +43,6 @@ namespace plat_kill.Networking.Messages
                 this.activeWeapons = new Dictionary<long, Tuple<long, WeaponBox>>();
             }
             int length = im.ReadInt32();
-            Console.WriteLine(length);
             byte[] dataFromServer = im.ReadBytes(length);
 
             this.activeWeapons = (Dictionary<long, Tuple<long, WeaponBox>>)ByteArrayToObject(dataFromServer);

@@ -38,6 +38,11 @@ namespace GameLauncher
         #endregion
 
         #region Propierties
+        public List<UserControl> UserControls
+        {
+            get { return userControls; }
+            set { userControls = value; }
+        }
         public GameConfiguration GameConfiguration
         {
             get { return gameConfiguration; }
@@ -101,17 +106,18 @@ namespace GameLauncher
         #region Methods
         public void goToView(int index) 
         {
-            mainPanel.Controls.Remove(userControls[currentActiveUserControlIndex]);
+            mainPanel.Controls.Remove(UserControls[currentActiveUserControlIndex]);
 
             previousControlsIndexes.Push(currentActiveUserControlIndex);
             currentActiveUserControlIndex = index;
 
-            mainPanel.Controls.Add(userControls[currentActiveUserControlIndex]);
+            mainPanel.Controls.Add(UserControls[currentActiveUserControlIndex]);
 
             if (currentActiveUserControlIndex > 0)
                 backButton.Show();
             else
                 backButton.Hide();
+
         }
 
         public void StartGame() 
@@ -123,14 +129,13 @@ namespace GameLauncher
             gameThread.Join();
 
             MaximizeFromSystemTray();
+
+            this.goToView(this.MainScreenIndex);
         }
 
         private void CallPKGame()
         {
-            using (PKGame game = new PKGame(gameConfiguration))
-            {
-                game.Run();
-            }
+            new PKGame(gameConfiguration).Run();
         }
 
         private void MinimizeToSystemTray() 
@@ -154,9 +159,9 @@ namespace GameLauncher
 
         private void backButton_Click(object sender, EventArgs e)
         {
-           mainPanel.Controls.Remove(userControls[currentActiveUserControlIndex]);
+           mainPanel.Controls.Remove(UserControls[currentActiveUserControlIndex]);
            currentActiveUserControlIndex = previousControlsIndexes.Pop();
-           mainPanel.Controls.Add(userControls[currentActiveUserControlIndex]);
+           mainPanel.Controls.Add(UserControls[currentActiveUserControlIndex]);
 
             if(currentActiveUserControlIndex.Equals(0))
             {

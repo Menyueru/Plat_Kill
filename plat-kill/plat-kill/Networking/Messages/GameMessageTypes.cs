@@ -16,6 +16,10 @@ namespace plat_kill.Networking.Messages
         /// </summary>
         ShotFired,
 
-        WeaponStateChange
+        WeaponStateChange,
+
+        NewPlayerJoined,
+
+        TimeUpdate
     }
 }

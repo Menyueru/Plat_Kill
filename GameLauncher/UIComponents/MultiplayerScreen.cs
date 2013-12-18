@@ -23,8 +23,9 @@ namespace GameLauncher.UIComponents
 
         private void metroTile2_Click(object sender, EventArgs e)
         {
-            gameLauncher.goToView(gameLauncher.MatchConfigurationScreenIndex);
             gameLauncher.GameConfiguration.NetworkManager = new ServerNetworkManager();
+            ((MatchConfiguration)gameLauncher.UserControls[gameLauncher.MatchConfigurationScreenIndex]).CheckGameMode();
+            gameLauncher.goToView(gameLauncher.MatchConfigurationScreenIndex);
         }
 
         private void metroTile1_Click(object sender, EventArgs e)
