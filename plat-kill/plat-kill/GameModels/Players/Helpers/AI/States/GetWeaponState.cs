@@ -9,6 +9,7 @@ namespace plat_kill.GameModels.Players.Helpers.AI.States
     public class GetWeaponState :IState
     {
         private Vector2 target;
+        private long targetID;
         public void Start(AIPlayer bot)
         {
             var wManager = bot.Game.WeaponManager;
@@ -30,16 +31,19 @@ namespace plat_kill.GameModels.Players.Helpers.AI.States
                     bot.gotWeapon = false;
                     bot.MovingTowards = bot.Crumb2.position.toVector2();
                     target = new Vector2(wManager.ActiveWeapons[bestkey].Item2.Position.X, wManager.ActiveWeapons[bestkey].Item2.Position.Z);
+                    targetID = bestkey;
                 }
             }
             else
             {
-                //TODO
+                bot.MovingTowards = new Vector2(bot.Position.X, bot.Position.Z);
             }
         }
 
         public void Update(AIPlayer bot)
         {
+            if (!bot.Game.WeaponManager.ActiveWeapons.ContainsKey(targetID)) 
+                this.Start(bot);
             if (bot.Crumb2 != null && bot.Crumb2.next!= null)
             {
                 bot.Crumb2 = bot.Crumb2.next;
@@ -71,7 +75,8 @@ namespace plat_kill.GameModels.Players.Helpers.AI.States
 
         public void End(AIPlayer bot)
         {
-            throw new NotImplementedException();
+            if (!bot.gotWeapon) bot.gotWeapon = true;
+            bot.Crumb2 = null;
         }
     }
 }

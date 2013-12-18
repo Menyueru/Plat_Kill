@@ -64,7 +64,7 @@ namespace plat_kill.Managers
                 if (obj != null)
                 {
                     float distance =result.HitData.T * ray.Direction.Length();
-                    if (distance <= 7)
+                    if (distance <= 10)
                     {
                         var person = obj.Entity.Tag as Player;
                         if (person != null)

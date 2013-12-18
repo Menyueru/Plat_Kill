@@ -164,6 +164,7 @@
     <Compile Include="GameModels\Players\Helpers\AI\PathFinder.cs" />
     <Compile Include="GameModels\Players\Helpers\AI\Point3D.cs" />
     <Compile Include="GameModels\Players\Helpers\AI\States\AttackState.cs" />
+    <Compile Include="GameModels\Players\Helpers\AI\States\DeadState.cs" />
     <Compile Include="GameModels\Players\Helpers\AI\States\GetWeaponState.cs" />
     <Compile Include="GameModels\Players\Helpers\AI\States\IState.cs" />
     <Compile Include="GameModels\Players\Helpers\AI\States\StateManager.cs" />

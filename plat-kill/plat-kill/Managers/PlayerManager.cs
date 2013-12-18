@@ -59,7 +59,7 @@ namespace plat_kill.Managers
         #region Methods
         public Vector3 nextSpawnPoint()
         {
-            if (nextPoint + 1 >= spawnPoints.Count) nextPoint = 0;
+            if (nextPoint  >= spawnPoints.Count) nextPoint = 0;
             return spawnPoints[nextPoint++];
         }
 
@@ -140,19 +140,18 @@ namespace plat_kill.Managers
                         game.Space.Remove(players[key].CharacterController);
                         game.ScoreBoard.kill(players[key].LastHit, key);
                     }
-                    else
+                    if(!players[key].IsDead)
                     {
                         if (key == LocalPlayer)
                         {
                             ((HumanPlayer)players[key]).Update(gameTime);
                         }
-                        else
+                        else if(!(players[key] is AIPlayer))
                         {
-                            AIPlayer test = players[key] as AIPlayer;
-                            if (test != null) test.Update(gameTime);
-                            else players[key].Update(gameTime);
+                            players[key].Update(gameTime);
                         }
                     }
+                           
                 }
                 else
                 {
@@ -162,6 +161,8 @@ namespace plat_kill.Managers
                         game.Space.Add(players[key].CharacterController);
                     }
                 }
+                AIPlayer test = players[key] as AIPlayer;
+                if (test != null) test.Update(gameTime);
             }
         }
 
