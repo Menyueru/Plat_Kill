@@ -176,7 +176,7 @@ namespace plat_kill
             Camera camera = new Camera((float)graphics.GraphicsDevice.Viewport.Width / (float)graphics.GraphicsDevice.Viewport.Width);
             this.camManager = new CameraManager(camera);
 
-            this.ScoreBoard = new ScoreBoard(4);
+            this.ScoreBoard = new ScoreBoard();
 
             this.weaponManager = new WeaponManager(this);
             this.weaponManager.Init();

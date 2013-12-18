@@ -7,15 +7,11 @@ namespace plat_kill.Managers
 {
     public class ScoreBoard
     {
-        private int numPlayers;
-
         public Dictionary<long, int> Score { get; set; }
         private long WinnerID;
 
-        public ScoreBoard(int numplayers)
+        public ScoreBoard()
         {
-            this.numPlayers = numplayers;
-     
             this.Score = new Dictionary<long, int>();
         }
 
