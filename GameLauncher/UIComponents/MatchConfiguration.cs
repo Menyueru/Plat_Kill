@@ -114,7 +114,7 @@ namespace GameLauncher.UIComponents
 
         private void goTile_Click(object sender, EventArgs e)
         {
-            if (gameLauncher.GameConfiguration.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)) || gameLauncher.GameConfiguration.NetworkManager == null)
+            if (gameLauncher.GameConfiguration.NetworkManager == null || gameLauncher.GameConfiguration.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)))
             {
                 if (timeBox.Text == "" || timeBox.Text == " ")
                 {
@@ -147,8 +147,15 @@ namespace GameLauncher.UIComponents
                         gameLauncher.GameConfiguration.AiDifficulty = plat_kill.Helpers.States.AIDifficulty.Easy;
                         break;
                 }
-
-                gameLauncher.GameConfiguration.Map = plat_kill.Helpers.States.Maps.Map1;
+                if (this.mapComboBox.SelectedIndex == 0)
+                {
+                    gameLauncher.GameConfiguration.Map = plat_kill.Helpers.States.Maps.Map1;
+                }
+                else 
+                {
+                    gameLauncher.GameConfiguration.Map = plat_kill.Helpers.States.Maps.Map2;
+                }
+                
             }
             else
             {

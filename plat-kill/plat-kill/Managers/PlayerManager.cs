@@ -139,7 +139,7 @@ namespace plat_kill.Managers
                     {
                         players[key].die();
                         game.Space.Remove(players[key].CharacterController);
-                        if(this.game.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)))
+                        if(this.game.NetworkManager == null || this.game.NetworkManager.GetType().Equals(typeof(ServerNetworkManager)))
                         {
                             game.ScoreBoard.kill(players[key].LastHit, key);
                         }

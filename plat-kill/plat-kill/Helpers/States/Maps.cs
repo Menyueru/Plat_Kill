@@ -7,6 +7,7 @@ namespace plat_kill.Helpers.States
 {
     public enum Maps
     {
-        Map1
+        Map1,
+        Map2
     }
 }
