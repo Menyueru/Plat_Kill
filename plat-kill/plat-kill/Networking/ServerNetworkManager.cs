@@ -22,6 +22,12 @@ namespace plat_kill.Networking
         /// </summary>
         private NetServer netServer;
 
+        public NetServer NetServer
+        {
+            get { return netServer; }
+            set { netServer = value; }
+        }
+
         #endregion
 
         #region Public Methods and Operators
@@ -38,15 +44,10 @@ namespace plat_kill.Networking
                     //SimulatedMinimumLatency = 0.2f, 
                     // SimulatedLoss = 0.1f 
                 };
-            config.EnableMessageType(NetIncomingMessageType.WarningMessage);
-            config.EnableMessageType(NetIncomingMessageType.VerboseDebugMessage);
-            config.EnableMessageType(NetIncomingMessageType.ErrorMessage);
-            config.EnableMessageType(NetIncomingMessageType.Error);
-            config.EnableMessageType(NetIncomingMessageType.DebugMessage);
             config.EnableMessageType(NetIncomingMessageType.ConnectionApproval);
 
-            this.netServer = new NetServer(config);
-            this.netServer.Start();
+            this.NetServer = new NetServer(config);
+            this.NetServer.Start();
 
             //netServer.RegisterReceivedCallback(method);
         }
@@ -58,7 +59,7 @@ namespace plat_kill.Networking
         /// </returns>
         public NetOutgoingMessage CreateMessage()
         {
-            return this.netServer.CreateMessage();
+            return this.NetServer.CreateMessage();
         }
 
         /// <summary>
@@ -66,7 +67,7 @@ namespace plat_kill.Networking
         /// </summary>
         public void Disconnect()
         {
-            this.netServer.Shutdown("Bye");
+            this.NetServer.Shutdown("Bye");
         }
 
         /// <summary>
@@ -84,7 +85,7 @@ namespace plat_kill.Networking
         /// </returns>
         public NetIncomingMessage ReadMessage()
         {
-            return this.netServer.ReadMessage();
+            return this.NetServer.ReadMessage();
         }
 
         /// <summary>
@@ -95,7 +96,7 @@ namespace plat_kill.Networking
         /// </param>
         public void Recycle(NetIncomingMessage im)
         {
-            this.netServer.Recycle(im);
+            this.NetServer.Recycle(im);
         }
 
         /// <summary>
@@ -106,13 +107,22 @@ namespace plat_kill.Networking
         /// </param>
         public void SendMessage(IGameMessage gameMessage)
         {
-            NetOutgoingMessage om = this.netServer.CreateMessage();
+            NetOutgoingMessage om = this.NetServer.CreateMessage();
             om.Write((byte)gameMessage.MessageType);
             gameMessage.Encode(om);
 
-            this.netServer.SendToAll(om, NetDeliveryMethod.ReliableUnordered);
+            this.NetServer.SendToAll(om, NetDeliveryMethod.ReliableUnordered);
         }
 
+        public void SendMessageToSingleClient(IGameMessage gameMessage, NetConnection recipient)
+        {
+            NetOutgoingMessage om = this.NetServer.CreateMessage();
+            om.Write((byte)gameMessage.MessageType);
+            gameMessage.Encode(om);
+
+            this.NetServer.SendMessage(om, recipient, NetDeliveryMethod.ReliableOrdered);
+            //this.NetServer.SendToAll(om, NetDeliveryMethod.ReliableUnordered);
+        }
         #endregion
 
         #region Methods

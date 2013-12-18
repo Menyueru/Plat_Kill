@@ -78,6 +78,7 @@ namespace plat_kill.Managers
                 }
             }
             this.lastshot = DateTime.Now;
+            game.soundManager.PlaySoundFX(plat_kill.Helpers.States.SoundEffects.MeleeSwing);
         }
         
         public void FireProjectile(Player playerShotted, Vector3 projectileDir) 
@@ -108,6 +109,7 @@ namespace plat_kill.Managers
             projectile.Body.CollisionInformation.Events.InitialCollisionDetected += HandleCollision;
             this.OnShotFired(projectile);
             this.lastshot = DateTime.Now;
+            game.soundManager.PlaySoundFX(plat_kill.Helpers.States.SoundEffects.GunShot);
         }
 
         void HandleCollision(EntityCollidable sender, Collidable other, CollidablePairHandler pair)

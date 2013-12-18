@@ -71,10 +71,6 @@ namespace plat_kill.GameModels.Players
                 {
                     MoveForward(dt, false);
                 }
-                if (inputManager.IsKeyPressed(Keys.Tab) && !weaponchanged)
-                {
-                    changeToNextWeapon();
-                }
 
                 if (inputManager.IsKeyPressed(Keys.D))
                 {
@@ -85,19 +81,41 @@ namespace plat_kill.GameModels.Players
                     MoveRight(dt, speedModify);
                 }
 
+
+                if (inputManager.IsKeyPressed(Keys.D) || inputManager.IsKeyPressed(Keys.A)
+                    || inputManager.IsKeyPressed(Keys.W) || inputManager.IsKeyPressed(Keys.S))
+                {
+                    game.soundManager.PlaySoundFX(plat_kill.Helpers.States.SoundEffects.Step);
+                }
+                else
+                {
+                    game.soundManager.StopSoundFX(plat_kill.Helpers.States.SoundEffects.Step);
+                }
+
                 if (inputManager.IsKeyPressed(Keys.Space))
                 {
                     jump();
                 }
 
+                if (inputManager.IsKeyPressed(Keys.Tab) && !weaponchanged)
+                {
+                    changeToNextWeapon();
+                }
+
                 if(inputManager.IsKeyPressed(Keys.R))
                 {
+                    if(!this.IsReloading && this.EquippedWeapons[ActiveWeaponIndex].WeaponType.Equals(WeaponType.Range))
+                        game.soundManager.PlaySoundFX(plat_kill.Helpers.States.SoundEffects.Reload);
+
                     this.EquippedWeapons[ActiveWeaponIndex].ReloadWeapon(this);
                 }
 
                 if(inputManager.IsKeyPressed(Keys.E))
                 {
+                    if (!this.IsDodging)
+                        game.soundManager.PlaySoundFX(plat_kill.Helpers.States.SoundEffects.Dodge);
                     this.Dodge();
+
                 }
 
                 #endregion

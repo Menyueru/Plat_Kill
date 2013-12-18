@@ -134,8 +134,11 @@ namespace plat_kill.GameModels.Projectiles
 
         public void Shoot()
         {
-            Vector3 impulse = rotation * speed;
-            body.ApplyLinearImpulse(ref impulse);
+            if(body != null)
+            {
+                Vector3 impulse = rotation * speed;
+                body.ApplyLinearImpulse(ref impulse);
+            }
         }
 
         private  Vector3 ToEulerAngles(Quaternion q)

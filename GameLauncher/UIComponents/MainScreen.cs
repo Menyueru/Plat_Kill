@@ -22,6 +22,8 @@ namespace GameLauncher.UIComponents
 
         private void singlePlayerTile_Click(object sender, EventArgs e)
         {
+            gameLauncher.GameConfiguration.NetworkManager = null;
+            ((MatchConfiguration)gameLauncher.UserControls[gameLauncher.MatchConfigurationScreenIndex]).CheckGameMode();
             gameLauncher.goToView(gameLauncher.MatchConfigurationScreenIndex);
             gameLauncher.GameConfiguration.NetworkManager = null;
         }

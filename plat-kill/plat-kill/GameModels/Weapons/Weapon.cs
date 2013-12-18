@@ -13,6 +13,7 @@ using plat_kill.GameModels.Players;
 
 namespace plat_kill.GameModels.Weapons
 {
+    [Serializable()]
     public class Weapon
     {
         #region Fields

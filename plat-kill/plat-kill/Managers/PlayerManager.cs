@@ -27,7 +27,7 @@ namespace plat_kill.Managers
 
         private int nextPoint;
 
-        private long LocalPlayer;
+        public long LocalPlayer{get;set;}
 
         private PKGame game;
 
