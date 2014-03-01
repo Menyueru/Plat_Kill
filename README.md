@@ -16,3 +16,8 @@ XNA 3D Level Editor by FireFly09- Level Design
 
 Mixamo.com - Animated Model
 
+To Compile:
+===========
+
+Visual Studio 2012 and XNA Game Library needed.
+
