@@ -12,14 +12,16 @@ namespace plat_kill.GameModels.Players.Helpers.AI.States
         {
             long MAXID= 0;
             float MAX=0;
+            int t = 0;
             foreach(var weapon in bot.EquippedWeapons)
             {
                 if (weapon.LoadedAmmo > 0 && weapon.WeaponType!= Weapons.WeaponType.Melee)
                 {
                     MAX = Math.Max(MAX, weapon.WeaponDamage);
                     if (MAX == weapon.WeaponDamage)
-                        MAXID = weapon.WeaponID;
+                        MAXID = t;
                 }
+                t++;
             }
             bot.ActiveWeaponIndex =(int) MAXID;
         }
